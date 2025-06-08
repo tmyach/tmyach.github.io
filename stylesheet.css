@@ -218,8 +218,8 @@ h5{
     font-family: "Tomorrow";
     font-style: bold;
     position: fixed;
-    right: 50px;
-    bottom: 50px;
+    left: 50px;
+    bottom: 0;
     background-color: #222;
     color: #fff;
     border-radius: 10px;
