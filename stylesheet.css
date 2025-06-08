@@ -1,0 +1,290 @@
+
+* {
+    box-sizing: border-box;  
+  }
+  ::-webkit-input-placeholder {
+     color: #e4e4e4;
+  }
+  
+ @import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
+
+ .tomorrow-thin {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .tomorrow-extralight {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .tomorrow-light {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .tomorrow-regular {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .tomorrow-medium {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .tomorrow-semibold {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .tomorrow-bold {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .tomorrow-extrabold {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .tomorrow-black {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .tomorrow-thin-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .tomorrow-extralight-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .tomorrow-light-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .tomorrow-regular-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .tomorrow-medium-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .tomorrow-semibold-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .tomorrow-bold-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .tomorrow-extrabold-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .tomorrow-black-italic {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  body {
+    background-image: url('words.gif');
+    background-repeat: no-repeat;
+    border: none;
+    background-size: 1200px;
+    background-color:#000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color:rgb(255, 255, 255);
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  h2 { font: "Tomorrow";
+    font-weight: bold;
+    margin: auto;
+    font-size: 18pt
+  }
+
+li{
+    margin: auto;
+    padding: 1px;
+}
+
+  * {
+    user-select: none;
+    font-family: 'Tomorrow';
+  }
+  
+#caption {
+display: flex;
+font-size: 20px;
+font-color: #99cc99;
+font-family: "Tomorrow";
+font-style: thin;
+position: absolute;
+bottom: 0;
+justify-content: center;
+align-content: center;
+margin: auto;
+width: 100%;
+}
+
+  
+  .tess {
+display: flex;
+justify-content: center;
+float: right;
+position: sticky;
+    width: 100%;
+    margin-right: 300px;
+    max-width: 550px;
+    min-width: 550px;
+    height: auto;
+    z-index: 100;
+  }
+
+  @media (max-width: 978px) {
+    .tess {
+      padding:0;
+      margin:0;
+    }
+}
+
+h3{
+    font-family: "Tomorrow";
+    font-size: 16pt;
+    font-weight: 700;
+    color:rgb(255, 255, 255);
+    margin-top: 5px;
+}
+
+h4{
+    font-family: "Tomorrow";
+    font-size: 12pt;
+    font-weight: 400;
+    color:rgb(255, 255, 255);
+    margin-top: 5px;
+}
+
+h5{
+    font-family: "Tomorrow";
+    font-size: 12pt;
+    font-weight: 300;
+    color:rgb(255, 255, 255);
+    margin: auto;
+}
+
+  p {
+    margin-top: 5px;
+  }
+  
+  #window {
+    font-family: "Tomorrow";
+    font-style: bold;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    resize: both;
+    width: 5in;
+    height: 3in;
+    border: 1px solid #444;
+    box-shadow: 0 0 20px #000;
+    min-width: 2in;
+    min-height: 253px;
+    z-index: 101;
+  }
+  
+  #bar {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    height: 2.5rem;
+    background-color:#303030;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .buttons {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+  
+  .buttons div {
+    padding: 7px 15px;
+    height: 100%;
+    transition: background 200ms;
+  }
+  
+  .buttons #maximize:hover {
+    background-color: #3e3e3e;
+  }
+  
+  .buttons #close:hover {
+    background-color: #c42b1c;
+  }
+  
+  #content {
+    padding: 7px;
+  }
+
+   /* unvisited link */
+a:link {
+    color: #66cc99;
+    text-decoration: underline solid;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #99cc99;
+    text-decoration: underline solid;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:##333399;
+    text-decoration: underline dashed;
+  }
+  
+  /* selected link */
+  a:active {
+    color: #99cc99;
+    text-decoration: underline dashed;
+  } 
