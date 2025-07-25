@@ -150,7 +150,7 @@ li{
 #caption {
 display: flex;
 font-size: 20px;
-font-color: #99cc99;
+font-color: #99cccc;
 font-family: "Tomorrow";
 font-style: thin;
 position: absolute;
@@ -277,18 +277,18 @@ a:link {
   
   /* visited link */
   a:visited {
-    color: #99cc99;
+    color: #99cccc;
     text-decoration: underline solid;
   }
   
   /* mouse over link */
   a:hover {
     color:##333399;
-    text-decoration: underline dashed;
+    text-decoration: underline dotted;
   }
   
   /* selected link */
   a:active {
-    color: #99cc99;
+    color: #99cccc;
     text-decoration: underline dashed;
   } 
