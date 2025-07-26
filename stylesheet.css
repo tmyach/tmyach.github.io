@@ -146,7 +146,35 @@ li{
     user-select: none;
     font-family: 'Tomorrow';
   }
-  
+
+.default-button {
+  box-shadow:inset 0px 0px 15px 3px #112222;
+	background-color:#448888;
+	border-radius:10px;
+	border:1px solid #336666;
+	display:inline-block;
+	cursor:crosshair;
+	font-family:'Tomorrow';
+	font-size:15px;
+	padding:6px 13px;
+  margin: 10px;
+	text-decoration:none;
+}
+
+a.default-button {
+  color:#000;
+}
+
+.default-button:hover {
+	background:linear-gradient(to bottom, #3c7777  10%, #224444 100%);
+	background-color:#448888;
+}
+.default-button:active {
+	position:relative;
+	top:1px;
+}
+
+
 #caption {
 display: flex;
 font-size: 20px;
@@ -271,13 +299,13 @@ h5{
 
    /* unvisited link */
 a:link {
-    color: #66cc99;
+    color: #99cccc;
     text-decoration: underline solid;
   }
   
   /* visited link */
   a:visited {
-    color: #99cccc;
+    color: #F6C;
     text-decoration: underline solid;
   }
   
