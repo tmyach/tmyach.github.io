@@ -35,8 +35,7 @@ const titles = [
   "How could you? / You are the morning bird / who sang me into life / everyday / fly away.",
   "If you set me free, I will not run.",
   "Tall I ride. I have the will to survive.",
-  ""Fourteen years," he said, "I couldn't look into the sun."",
-  ""I still feel the chill as I reveal my shame to you. I wear it like a tattoo."",
+  "'Fourteen years,' he said, 'I couldn't look into the sun.'",
 ];
 
 // pick a random title
