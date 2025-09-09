@@ -1,4 +1,4 @@
-// possible tab titles
+// titles
 const titles = [
   "🕸 webspinner",
   "Of love, I love, you love, I love, you love, I laugh, you laugh, I move, you move, you move, and one more time with feeling",
@@ -38,13 +38,13 @@ const titles = [
   "'Fourteen years,' he said, 'I couldn't look into the sun.'",
 ];
 
-// pick a random title
+// picks random title
 function pickRandomTitle(arr) {
   const idx = Math.floor(Math.random() * arr.length);
   return arr[idx];
 }
 
-// type anim
+// typewriter effect for title
 function typeTitleEffect(str, speed = 100, callback) {
   let index = 0;
   function type() {
@@ -59,19 +59,28 @@ function typeTitleEffect(str, speed = 100, callback) {
   type();
 }
 
-// scroll effect ONCE, then resets to original
-function scrollTitleOnce(str, speed = 250, spacer = '     ', callback) {
+// scroll effect
+function scrolltitle(str, speed = 250, spacer = '     ', cyclesToRun = 1, callback) {
   let position = 0;
   const scrollString = str + spacer;
   const totalScrolls = scrollString.length; // 1 full cycle
+  let cycles = 0;
+
   function scrollStep() {
     let display = scrollString.substring(position) + scrollString.substring(0, position);
     document.title = display;
     position++;
     if (position < totalScrolls) {
       setTimeout(scrollStep, speed);
-    } else if (callback) {
-      setTimeout(callback, 500); // pause then reset
+    } else {
+      cycles++;
+      if (cycles < cyclesToRun) {
+        // reset position for next cycle
+        position = 0;
+        setTimeout(scrollStep, speed);
+      } else if (callback) {
+        setTimeout(callback, 500); // pause then reset after last cycle
+      }
     }
   }
   scrollStep();
@@ -82,8 +91,9 @@ window.addEventListener('DOMContentLoaded', function() {
   typeTitleEffect(pickedTitle, 100, function() {
     // only scroll if title is long
     if (pickedTitle.length > 15) {
-      scrollTitleOnce(pickedTitle, 100, '     |     ', function() {
-        document.title = pickedTitle; // reset to original (end movement)
+      // change "2" to desired number of cycles
+      scrolltitle(pickedTitle, 100, '     |     ', 2, function() {
+        document.title = pickedTitle; // reset after scrolling
       });
     }
   });
