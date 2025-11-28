@@ -9,7 +9,7 @@ html {
 
 body {
   background-color: #f8f8f8;
-  font-family: Arial, sans-serif;
+  font-family: Tomorrow, sans-serif;
   font-size: 100%;
   line-height: 1.5;
   margin: 0;
@@ -100,7 +100,7 @@ p {
 .menu--mobile {
   border: 1px solid #666;
   display: block;
-  font-family: Arial, sans-serif;
+  font-family: Tomorrow, sans-serif;
   font-size: 100%;
   padding: .2em .4em;
   width: 100%;
