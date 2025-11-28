@@ -1,0 +1,151 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  height: 100%;
+}
+
+/* Outer page wrapper with border */
+.page {
+  max-width: 60em;
+  margin: 20px auto;
+  min-height: 100vh;
+  border: 5px solid red;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Header and footer */
+
+.header {
+  background-color: #3B5867;
+  color: #fff;
+  padding: 1.5em;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #3B5867;
+  color: #fff;
+  padding: 1.5em;
+  text-align: right;
+}
+
+.copyright {
+  font-size: .75em;
+  opacity: .75;
+}
+
+/* Columns container: fills space between header and footer */
+
+.container {
+  flex: 1 1 auto;
+  display: block;
+  overflow: hidden; /* hides overflow from scrollable columns */
+}
+
+/* Columns */
+
+.column {
+  padding: 1.5em;
+}
+
+.column--content {
+  background-color: #fff;
+}
+
+/* Lists, text, menus */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: .75em 0;
+}
+
+li {
+  color: #666;
+  cursor: pointer;
+  font-weight: bold;
+  padding: .75em 1.5em;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1.5em 0;
+}
+
+.menu--desktop {
+  display: none;
+}
+
+.menu--mobile {
+  border: 1px solid #666;
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  padding: .2em .4em;
+  width: 100%;
+}
+
+/* Desktop / wide layout */
+
+@media (min-width: 48em) {
+  .container {
+    background-image: linear-gradient(
+      to right,
+      #f8f8f8 0,
+      #e0e0e0 15em,
+      #fff 15em
+    );
+    padding: 0 0 0 15em;
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+  .column {
+    display: table-cell;
+    /* viewport height - approx header (3em) - footer (3em) - border (10px) */
+    height: calc(100vh - 3em - 3em - 10px);
+    overflow-y: auto; /* each column scrolls */
+  }
+
+  .column--menu {
+    float: left;
+    padding: 0;
+    width: 15em;
+    margin-left: -15em;
+  }
+
+  .column--content {
+    float: right;
+    max-width: none;
+  }
+
+  .menu--desktop {
+    display: block;
+  }
+
+  .menu--mobile {
+    display: none;
+  }
+}
