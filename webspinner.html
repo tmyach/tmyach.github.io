@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Webspinner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="web.css" />
+</head>
+
+<body>
+  <div class="web-container">
+    <div class="web">
+      <span style="--idx: 0"></span>
+      <span style="--idx: 1"></span>
+      <span style="--idx: 2"></span>
+      <span style="--idx: 3"></span>
+      <span style="--idx: 4"></span>
+      <span style="--idx: 5"></span>
+      <span style="--idx: 6"></span>
+      <span style="--idx: 7"></span>
+      <span style="--idx: 8"></span>
+      <span style="--idx: 9"></span>
+      <span style="--idx: 10"></span>
+      <span style="--idx: 11"></span>
+
+      <!-- 5 PERFECTLY SPREAD DOTS - ONE PER QUADRANT + CENTER -->
+      <button class="web-dot dot-1" style="--x: 60%; --y: 60%;" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></button>
+      <button class="web-dot dot-2" style="--x: 0%; --y: 70%;" data-tooltip="Sed do eiusmod tempor incididunt ut labore et dolore magna."></button>
+      <button class="web-dot dot-3" style="--x: -50%; --y: 20%;" data-tooltip="Ut enim ad minim veniam, quis nostrud exercitation ullamco."></button>
+      <button class="web-dot dot-4" style="--x: -30%; --y: -20%;" data-tooltip="Laboris nisi ut aliquip ex ea commodo consequat duis aute."></button>
+      <button class="web-dot dot-5" style="--x: 50%; --y: -50%;" data-tooltip="Irure dolor in reprehenderit in voluptate velit esse cillum dolore."></button>
+    </div>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+  <script src="web.js"></script>
+</body>
+
+</html>
