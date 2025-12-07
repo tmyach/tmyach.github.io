@@ -82,11 +82,11 @@ body.dark-mode::before {
 }
 
   
-  /* repeating gif bg */
-  background-image: url('https://i.ibb.co/r2Z287F/ss035.gif');
-  background-repeat: repeat;
-  background-size: auto;
-}
+  /* repeating bg */
+  /*background-image: url('https://i.ibb.co/r2Z287F/ss035.gif');*/
+  /*background-repeat: repeat;*/
+  /*background-size: auto;*/
+
 
 /* general stuff */
 body,
@@ -449,12 +449,22 @@ body {
 }
 
 /* guestbook stuff */
+.guestbook {
+  margin-top: 0.4rem;
+}
+
+.guestbook-header {
+  font-family: "iso8", cursive;
+  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  margin: 0 0 0.4rem;
+}
+
+/*threads? might implement*/
 .threads {
   margin-top: 0.4rem;
 }
 
-/* thread title */
-.threads-title {
+.threads-header {
   font-family: "iso8", cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
