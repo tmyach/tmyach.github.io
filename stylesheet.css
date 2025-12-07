@@ -249,7 +249,7 @@ html, body {
 
 /* base font stuff */
 body {
-  font-family: "regularbit", system-ui, sans-serif;
+  font-family: 'regularbit', 'IBM Plex Sans', system-ui, sans-serif;
   background-image: url("https://i.ibb.co/j3d06Qj/paper019.jpg");
   background-repeat: repeat;
   background-size: auto;
@@ -292,7 +292,7 @@ body {
 }
 
 .logo-main {
-  font-family: "karenfat", cursive;
+  font-family: 'karenfat', 'Sigmar', cursive;
   font-size: clamp(1rem, 4vw, 1.2rem);
   letter-spacing: 0.05em;
 }
@@ -374,7 +374,7 @@ body {
 }
 
 .cursive {
-  font-family: "mademoiselle", cursive;
+  font-family: 'mademoiselle', 'Meddon', cursive;
 }
 
 /* content area */
@@ -390,7 +390,7 @@ body {
 
 /* big title */
 .page-title {
-  font-family: "karenfat", cursive;
+  font-family: 'karenfat', 'Sigmar', cursive;
   font-size: clamp(1.6rem, 6vw, 2.1rem);
   margin: 0 0 0.6rem;
   line-height: 1.1;
@@ -431,7 +431,7 @@ body {
 
 /* italics style */
 .italic {
-  font-family: "kendiyaz", serif;
+  font-family: 'iso8', 'IBM Plex Serif', serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
 }
@@ -458,7 +458,7 @@ body {
 }
 
 .guestbook-header {
-  font-family: "iso8", cursive;
+  font-family: 'iso8', 'Lacquer', cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
 }
@@ -469,7 +469,7 @@ body {
 }
 
 .threads-header {
-  font-family: "iso8", cursive;
+  font-family: 'iso8', 'Lacquer', cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
 }
@@ -514,7 +514,7 @@ body {
 
 /* mini titles */
 .title {
-  font-family: "kendiyaz", cursive;
+  font-family: 'kendiyaz', 'Lacquer', cursive;
   font-size: clamp(1rem, 3vw, 1.1rem);
   margin: 0 0 0.35rem;
 }
@@ -561,7 +561,7 @@ body {
   border-radius: 4px;
   padding: clamp(0.6rem, 3vw, 0.75rem) clamp(0.7rem, 3vw, 0.85rem);
   gap: 0.5rem;
-  font-family: "regularbit", system-ui, sans-serif;
+  font-family: 'regularbit', 'IBM Plex Sans', system-ui, sans-serif;
   margin-bottom: 0.9rem;
   backdrop-filter: blur(8px);
 }
@@ -576,7 +576,7 @@ body {
   border-radius: 4px;
   padding: clamp(0.6rem, 3vw, 0.75rem) clamp(0.7rem, 3vw, 0.85rem);
   gap: 0.5rem;
-  font-family: "regularbit", system-ui, sans-serif;
+  font-family: 'regularbit', 'IBM Plex Sans', system-ui, sans-serif;
   margin-bottom: 0.9rem;
   backdrop-filter: blur(8px);
   position: relative;
@@ -641,7 +641,7 @@ body {
   border: 1px solid rgba(0, 100, 200, 0.4);
   background-color: var(--player-title-bg);
   color: var(--player-text);
-  font-family: "mademoiselle", cursive;
+  font-family: 'mademoiselle', 'Meddon', cursive;
   font-size: clamp(0.85rem, 2.8vw, 0.95rem);
   padding: 0 0.5rem;
   overflow: hidden;
@@ -655,7 +655,7 @@ body {
   border: 1px solid rgba(0, 100, 200, 0.4);
   background-color: var(--player-title-bg);
   color: var(--player-text);
-  font-family: "mademoiselle", cursive;
+  font-family: 'mademoiselle', 'Meddon', cursive;
   font-size: clamp(0.9rem, 3vw, 1rem);
   padding: clamp(0.3rem, 2vw, 0.4rem) clamp(0.5rem, 2vw, 0.6rem);
   margin: 0;
@@ -681,7 +681,7 @@ body {
   background-color: var(--player-title-bg);
   color: var(--player-text);
   text-align: center;
-  font-family: "mademoiselle", cursive;
+  font-family: 'mademoiselle', 'Meddon', cursive;
   font-size: clamp(0.9rem, 3vw, 1rem);
   padding: clamp(0.3rem, 2vw, 0.4rem) clamp(0.5rem, 2vw, 0.6rem);
   white-space: nowrap;
