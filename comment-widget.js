@@ -230,7 +230,13 @@ function getComments() {
             }
         }
 
-       
+        // Check for empty comments before displaying to page
+     if (comments.length == 0) {
+    c_container.innerHTML = s_noCommentsText;
+} else {
+    displayComments(comments);
+}
+        
         c_submitButton.disabled = false // Now that everything is done, re-enable the submit button
     })
 }
