@@ -64,200 +64,216 @@
 
 /* main area */
 #c_widget {
-    box-sizing: border-box;
-    overflow: auto;
-    padding: 1.2rem;
-    border: 1px solid #000;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(8px);
-    font-family: "regularbit", system-ui, sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #111;
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 1.2rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    font-family: "regularbit", system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #111;
 }
 
-/* buttons */
+/* NAVBAR-STYLE BUTTONS - exact match */
 #c_widget button, 
-#c_widget input[type=submit] {
-    font-family: "regularbit", system-ui, sans-serif;
-    text-transform: lowercase;
-    text-decoration: none;
-    color: #fff;
-    background-color: #000;
-    border: 1px solid #000;
-    border-radius: 3px;
-    padding: 0.35rem 0.8rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all 0.2s ease;
+#c_widget input[type=submit],
+.c-replyButton, 
+.c-expandButton,
+.c-paginationButton {
+    text-decoration: none;
+    color: #fff !important;
+    background: #000 !important;
+    border: 1px solid #000 !important;
+    padding: 0.4rem 0.9rem !important;
+    border-radius: 2px !important;
+    font-size: clamp(0.75rem, 2.5vw, 0.82rem) !important;
+    letter-spacing: 0.06em !important;
+    text-transform: lowercase !important;
+    white-space: nowrap !important;
+    font-family: "regularbit", system-ui, sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
 }
+
 #c_widget button:hover, 
-#c_widget input[type=submit]:hover {
-    background-color: #fff;
-    color: #000;
+#c_widget input[type=submit]:hover,
+.c-replyButton:hover, 
+.c-expandButton:hover,
+.c-paginationButton:hover {
+    background: #fff !important;
+    color: #000 !important;
 }
+
 #c_widget button:disabled, 
 #c_widget input[type=submit]:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 /* input box */
 #c_inputDiv {
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    border: 1px solid #000;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.7);
 }
 
-/* title header */
+/* bird's eye title */
 #c_widgetTitle {
-    margin: 0 0 0.8rem;
-    padding: 0.3rem 0.5rem;
-    font-family: "kendiyaz", cursive;
-    font-size: 1.1rem;
-    text-align: left;
-    color: #000;
-    border-bottom: 1px solid #000;
+    margin: 0 0 0.8rem;
+    padding: 0.3rem 0.5rem;
+    font-family: "mademoiselle", cursive;
+    font-size: 1.1rem;
+    text-align: left;
+    color: #000;
+    border-bottom: 1px solid #000;
+    letter-spacing: 0.03em;
 }
 
 /* input layout */
 .c-inputWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
 }
 .c-label {
-    font-family: "regularbit", system-ui, sans-serif;
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
+    font-family: "iso8", "Lacquer", cursive;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 .c-input {
-    font-family: "regularbit", system-ui, sans-serif;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid #000;
-    border-radius: 3px;
-    background: #fff;
-    color: #111;
-    outline: none;
+    font-family: "regularbit", system-ui, sans-serif;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #000;
+    border-radius: 3px;
+    background: #fff;
+    color: #111;
+    outline: none;
 }
 .c-input:focus {
-    border-color: #1e3a8a;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 2px rgba(30,58,138,0.1);
 }
 
 /* text input */
 .c-textInput {
-    width: 100%;
-    min-height: 80px;
-    resize: vertical;
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    font-family: "iso8", serif;
 }
 
 /* reply notice */
 #c_replyingText {
-    font-family: "mademoiselle", cursive;
-    font-size: 0.85rem;
-    opacity: 0.7;
-    text-align: right;
-    display: block;
-    margin-top: 0.3rem;
+    font-family: "mademoiselle", cursive;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-align: right;
+    display: block;
+    margin-top: 0.3rem;
+    letter-spacing: 0.02em;
 }
 
-/* comment card */
+/* comment card - bird paper texture */
 .c-comment {
-    margin-bottom: 1rem;
-    padding: 0.8rem;
-    border: 1px solid #000;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.75);
+    position: relative;
 }
+.c-comment::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
+}
+
+/* replies nest */
 .c-reply {
-    width: 90%;
-    margin-left: auto;
-    margin-bottom: 0.6rem;
-    padding: 0.75rem;
-    border: 1px solid #000;
-    border-radius: 3px;
-    background: rgba(255,255,255,0.55);
+    width: 92%;
+    margin-left: auto;
+    margin-bottom: 0.6rem;
+    padding: 0.7rem;
+    border-left: 3px solid #1e3a8a;
+    border-radius: 0 4px 4px 0;
+    background: rgba(248,248,245,0.9);
+    margin-top: 0.4rem;
 }
 .c-replyContainer {
-    margin-left: 1rem;
-    border-left: 1px dashed #000;
-    padding-left: 0.75rem;
+    margin-left: 1.2rem;
+    border-left: 2px dashed #1e3a8a;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
 }
 
 /* meta rows */
 .c-name {
-    font-family: "mademoiselle", cursive;
-    font-size: 1rem;
-    margin: 0;
-    color: #111;
+    font-family: "mademoiselle", cursive;
+    font-size: 1rem;
+    margin: 0 0 0.2rem;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.c-name::before {
+    content: "🪶";
+    font-size: 0.9em;
 }
 .c-site {
-    font-family: "regularbit", system-ui, sans-serif;
-    font-size: 0.85rem;
-    color: #1e3a8a;
-    text-decoration: none;
+    font-family: "regularbit", system-ui, sans-serif;
+    font-size: 0.82rem;
+    color: #1e3a8a;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
 }
 .c-site:hover {
-    text-decoration: underline;
+    text-decoration: underline;
+    color: #000;
 }
 .c-timestamp {
-    font-family: "regularbit", system-ui, sans-serif;
-    font-size: 0.75rem;
-    opacity: 0.7;
-    float: right;
-    color: #555;
+    font-family: "regularbit", system-ui, sans-serif;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    color: #555;
+    font-style: italic;
 }
 
 /* comment text */
 .c-text {
-    font-family: "ISO8", serif;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #141414;
-    margin-top: 0.4rem;
+    font-family: "iso8", serif;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #141414;
+    margin-top: 0.6rem;
+    position: relative;
 }
-
-/* reply + expand buttons */
-.c-replyButton, 
-.c-expandButton {
-    font-family: "regularbit", system-ui, sans-serif;
-    background: #000;
-    color: #fff;
-    border: 1px solid #000;
-    border-radius: 2px;
-    padding: 0.3rem 0.6rem;
-    margin-top: 0.6rem;
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.c-replyButton:hover, 
-.c-expandButton:hover {
-    background: #fff;
-    color: #000;
+.c-text::first-letter {
+    font-size: 1.4em;
+    font-family: "karenfat", "Sigmar", cursive;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.2rem;
+    color: #1e3a8a;
 }
 
 /* pagination */
 #c_pagination {
-    text-align: center;
-    margin-top: 1rem;
-}
-.c-paginationButton {
-    font-family: "regularbit", system-ui, sans-serif;
-    background: transparent;
-    border: 1px solid #000;
-    border-radius: 3px;
-    padding: 0.3rem 0.6rem;
-    margin: 0 0.2rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-.c-paginationButton:hover {
-    background: #000;
-    color: #fff;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
