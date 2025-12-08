@@ -170,7 +170,7 @@ color:#000;
 
   /* HAMBURGER -> X ANIMATION */
   .nav.open .nav-toggle span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    color:#98cbcb;
   }
 
   .nav.open .nav-toggle span:nth-child(2) {
@@ -178,7 +178,7 @@ color:#000;
   }
 
   .nav.open .nav-toggle span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+      color:#98cbcb;
   }
 }
 
