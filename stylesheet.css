@@ -443,7 +443,7 @@ body {
   align-items: center;
 }
 
-..photo-img {
+.photo-img {
   width: 100%;
   max-width: 400px;
   height: auto;
