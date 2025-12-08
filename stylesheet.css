@@ -919,6 +919,7 @@ body {
 }
 
 /* lil bird */
+
 .bird-img {
   position: absolute;
   top: 60px;
@@ -926,6 +927,31 @@ body {
   width: 110px;
   height: auto;
   z-index: 1000;
+}
+
+@media (max-width: 720px) {
+  .bird-img {
+    top: auto !important;
+    bottom: 0 !important;
+    right: 50% !important;
+    transform: translateX(50%) !important; /* center horizontally */
+    width: 90px !important; /* smaller on mobile */
+    height: auto !important;
+  }
+  
+  .footer {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .bird-img {
+    width: 70px !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+  }
 }
 
 /* frame fix */
