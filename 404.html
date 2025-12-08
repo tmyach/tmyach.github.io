@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <script
+      src="https://code.jquery.com/jquery-1.12.3.min.js"
+      integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link href="fonts.css" rel="stylesheet" type='text/css'>
+    <link href="comment-widget-dark.css" rel="stylesheet">
+  
+    <!--the usual-->
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | t.m.yach</title>
+
+    <!-- font stuff -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&family=Lacquer&family=Sigmar&family=Meddon&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+    <!--favicon-->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+<link rel="shortcut icon" href="favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+<link rel="manifest" href="favicon/site.webmanifest" />
+    
+  </head>
+  <style>
+    :root {
+      --bg: #f4f0eb;
+      --ink: #111111;
+      --accent: #1e3a8a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'regularbit', system-ui, sans-serif;
+      background-image: url("https://i.ibb.co/j3d06Qj/paper019.jpg");
+      background-repeat: repeat;
+      background-size: auto;
+      color: var(--ink);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.4rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid #000;
+      border-radius: 4px;
+      margin: 0.5rem 1.4rem;
+    }
+
+    .logo-main { font-family: 'karenfat', cursive; font-size: clamp(1rem, 4vw, 1.2rem); }
+
+    /* 404 content */
+    .main-frame { flex: 1; padding: clamp(0.8rem, 4vw, 1.3rem); display: flex; align-items: center; justify-content: center; }
+
+    .frame {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid #000;
+      border-radius: 6px;
+      padding: clamp(1rem, 5vw, 1.6rem);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-code {
+      font-family: 'mademoiselle', cursive;
+      font-size: clamp(4rem, 12vw, 6rem);
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+      line-height: 1;
+    }
+
+    .error-msg {
+      font-family: 'kendiyaz', cursive;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin: 0 0 1rem;
+      color: var(--ink);
+    }
+
+    .error-text {
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      margin: 0 0 2rem;
+      opacity: 0.8;
+    }
+
+    .home-link {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid #000;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .home-link:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .footer {
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="/" class="logo">
+        <span class="logo-main">t.m.yach</span>
+      </a>
+    </header>
+
+    <main class="main-frame">
+      <div class="frame">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-msg">page not found</h2>
+        <p class="error-text">looks like you took a wrong turn. this page doesn't exist (yet).</p>
+        <a href="/" class="home-link">back to home</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025. made with care.</p>
+    </footer>
+  </div>
+</body>
+</html>
