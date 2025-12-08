@@ -230,11 +230,7 @@ function getComments() {
             }
         }
 
-        // Check for empty comments before displaying to page
-        if (comments.length == 0 || Object.keys(comments[0]).length < 2) { // Once again, Google Sheets can be weird
-            c_container.innerHTML = s_noCommentsText;
-        } else {displayComments(comments)}
-        
+       
         c_submitButton.disabled = false // Now that everything is done, re-enable the submit button
     })
 }
