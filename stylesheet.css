@@ -180,10 +180,10 @@ body {
 /* dark mode */
 body.dark-mode {
   --bg: transparent;
-  --text: #000000;
+  --text: #f9fafb;
   --accent: #93c5fd;
   --card-bg: transparent;
---player-title-bg: #fff;
+  --player-title-bg: #111827;
   position: relative;
   z-index: 0;
   
