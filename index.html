@@ -215,5 +215,19 @@
     <script src="musicplayer.js"></script>
     <!--guestbook script-->
      <script src="comment-widget.js"></script>
+     <!--menu script-->
+     <script>
+     // toggle menu
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('menu-open');
+  document.querySelector('.nav').classList.toggle('open');
+});
+
+// close
+document.querySelector('.menu-overlay').addEventListener('click', () => {
+  document.body.classList.remove('menu-open');
+  document.querySelector('.nav').classList.remove('open');
+});
+</script>
   </body>
 </html>

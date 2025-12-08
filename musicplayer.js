@@ -306,17 +306,3 @@ document.addEventListener('DOMContentLoaded', function() {
     shuffleSpeed: 25
   });
 });
-
-// stuffing menu stuff in here
-
-// toggle menu
-document.querySelector('.nav-toggle').addEventListener('click', () => {
-  document.body.classList.toggle('menu-open');
-  document.querySelector('.nav').classList.toggle('open');
-});
-
-// close
-document.querySelector('.menu-overlay').addEventListener('click', () => {
-  document.body.classList.remove('menu-open');
-  document.querySelector('.nav').classList.remove('open');
-});
