@@ -533,11 +533,12 @@ body {
 /* guestbook stuff */
 .guestbook {
   margin-top: 0.4rem;
+  padding: 12px;
   border: 1px solid #000;
 }
 
 .guestbook-header {
-  font-family: "iso8", "Lacquer", cursive;
+  font-family: "mademoiselle", "Lacquer", cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
 }
