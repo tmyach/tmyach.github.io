@@ -93,7 +93,7 @@ body {
   display: none;
   flex-direction: column;
   background: var(--card-bg);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 0;
   padding: 0.75rem 1rem;
   cursor: pointer;
@@ -109,7 +109,11 @@ body {
   height: 3px;
   background: var(--text);
   margin: 4px 0;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
+}
+
+.nav.open .nav-toggle span {
+  background-color: var(--accent);
 }
 
 /* mobile */
@@ -119,24 +123,22 @@ body {
   }
 
   .nav-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--card-bg);
-    flex-direction: column;
-    padding: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    gap: 0;
-    display: none;
-    z-index: 99;
-  }
+  position: relative;  /* Change from absolute */
+  top: 0;             /* Align to top */
+  z-index: 105;       /* Above other content */
+  background: var(--card-bg);
+  flex-direction: column;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+  gap: 0;
+  display: none;
+}
 
-  /* Show menu when .open class is added */
-  .nav.open .nav-list {
-    display: flex;
-  }
+/* Show nav-list when open */
+.nav.open .nav-list {
+  display: flex;
+}
 
   /* Mobile menu items - button box style */
   .nav-list li {
