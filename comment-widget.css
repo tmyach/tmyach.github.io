@@ -114,6 +114,39 @@
     background: rgba(255,255,255,0.7);
 }
 
+/* social handles */
+
+.c-site {
+    font-family: "regularbit", system-ui, sans-serif;
+    font-size: 0.82rem;
+    color: #1e3a8a;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    display: inline-block;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.c-site:hover {
+    text-decoration: underline;
+    color: #000;
+    background: rgba(30,58,138,0.1);
+}
+
+/* handle styling */
+.c-site[data-handle]::before {
+    content: "@";
+    font-weight: 600;
+    margin-right: 0.1rem;
+}
+
+.c-site[href^="https://"]::before {
+    content: "";
+}
+
+
 /* bird's eye title */
 #c_widgetTitle {
     margin: 0 0 0.8rem;
