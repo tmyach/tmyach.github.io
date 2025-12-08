@@ -195,7 +195,7 @@ body.dark-mode::before {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background-image: url("https://i.ibb.co/r2Z287F/ss035.gif");
+  background-image: url("darkbg.gif");
   background-repeat: repeat;
   background-size: auto;
   pointer-events: none;
@@ -377,7 +377,7 @@ body {
 /* base font stuff */
 body {
   font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
-  background-image: url("https://i.ibb.co/j3d06Qj/paper019.jpg");
+  background-image: url("lightbg.jpg");
   background-repeat: repeat;
   background-size: auto;
   color: var(--ink);
