@@ -217,16 +217,20 @@
      <script src="comment-widget.js"></script>
      <!--menu script-->
      <script>
-     // toggle menu
-document.querySelector('.nav-toggle').addEventListener('click', () => {
+document.querySelector('.nav-toggle').addEventListener('click', function() {
   document.body.classList.toggle('menu-open');
-  document.querySelector('.nav').classList.toggle('open');
 });
 
-// close
-document.querySelector('.menu-overlay').addEventListener('click', () => {
+// Close on overlay click
+document.querySelector('.menu-overlay').addEventListener('click', function() {
   document.body.classList.remove('menu-open');
-  document.querySelector('.nav').classList.remove('open');
+});
+
+// Close on nav link click (optional)
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    document.body.classList.remove('menu-open');
+  });
 });
 </script>
   </body>
