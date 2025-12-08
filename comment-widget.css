@@ -77,13 +77,11 @@
     color: #111;
 }
 
-/* NAVBAR-STYLE BUTTONS - exact match */
-#c_widget button, 
-#c_widget input[type=submit],
-.c-replyButton, 
-.c-expandButton,
-.c-paginationButton {
-    text-decoration: none;
+#c_widget button:not([disabled]),
+#c_widget input[type=submit]:not([disabled]),
+.c-replyButton:not([disabled]), 
+.c-expandButton:not([disabled]),
+.c-paginationButton:not([disabled]) {
     color: #fff !important;
     background: #000 !important;
     border: 1px solid #000 !important;
@@ -95,29 +93,17 @@
     white-space: nowrap !important;
     font-family: "regularbit", system-ui, sans-serif !important;
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
+    pointer-events: auto !important;
 }
 
-#c_widget button:hover, 
-#c_widget input[type=submit]:hover,
-.c-replyButton:hover, 
-.c-expandButton:hover,
-.c-paginationButton:hover {
-    background: #fff !important;
-    color: #000 !important;
-}
 
-#c_widget input[type=submit]:disabled {
+#c_widget button[disabled],
+#c_widget input[type=submit][disabled] {
     opacity: 0.6 !important;
     cursor: not-allowed !important;
-    pointer-events: none !important; /* prevent click */
+    pointer-events: none !important;
 }
 
-#c_widget input[type=submit]:not(:disabled) {
-    opacity: 1 !important;
-    cursor: pointer !important;
-    pointer-events: auto !important; /* allow click */
-}
 
 /* input box */
 #c_inputDiv {
