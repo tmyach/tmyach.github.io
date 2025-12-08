@@ -2,7 +2,7 @@
     (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
 
     User customizable settings below!
-    Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
+    Please refer to my guide over on https://virtualobserver.moe/ayano/comment-widget if you're confused on how to use this.
     The IDs at the top are a requirement but everything else is optional!
     Do not delete any settings even if you aren't using them! It could break the program.
 
@@ -44,7 +44,7 @@ let s_includeUrlParameters = false; // Makes new comment sections on pages with 
 const s_fixRarebitIndexPage = false; // If using Rarebit, change to true to make the index page and page 1 of your webcomic have the same comment section
 
 // Word filter - Censor profanity, etc
-// profanity list credit: [https://github.com/censor-text/profanity-list](https://github.com/censor-text/profanity-list)
+// profanity list credit: https://github.com/censor-text/profanity-list
 const s_wordFilterOn = false; // True for on, false for off
 const s_filterReplacement = '****'; // Change what filtered words are censored with (**** is the default) 
 // Add words to filter by putting them in quotes and separating with commas (ie. 'heck', 'dang')
@@ -100,7 +100,7 @@ const v_formHtml = `
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="url" pattern="https://.*">
+        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" pattern="@* or https://.*">
     </div>
 
     <div id="c_textWrapper" class="c-inputWrapper">
@@ -138,11 +138,8 @@ else {c_submitButton = document.createElement('button')}
 
 // Add invisible page input to document
 let v_pagePath = window.location.pathname;
-if (v_pagePath === '') v_pagePath = '/';
 if (s_includeUrlParameters) {v_pagePath += window.location.search}
-if (s_fixRarebitIndexPage && (v_pagePath === '/' || v_pagePath === '/index.html')) {
-    v_pagePath = '/?pg=1';
-}
+if (s_fixRarebitIndexPage && v_pagePath == '/') {v_pagePath = '/?pg=1'}
 const c_pageInput = document.createElement('input');
 c_pageInput.value = v_pagePath; c_pageInput.type = 'text'; c_pageInput.style.display = 'none';
 c_pageInput.id = 'entry.' + s_pageId; c_pageInput.name = c_pageInput.id; 
@@ -430,18 +427,18 @@ function isDST(date) {
     if (time >= startDate && time < endDate) {date.setHours(date.getHours() - 1)}
     return date;
 }
-// Thank you to [https://stackoverflow.com/questions/32192982/get-a-given-weekday-in-a-given-month-with-javascript](https://stackoverflow.com/questions/32192982/get-a-given-weekday-in-a-given-month-with-javascript) for the below function
+// Thank you to https://stackoverflow.com/questions/32192982/get-a-given-weekday-in-a-given-month-with-javascript for the below function
 function nthDayOfMonth(day, n, date, hour) {
     var count = 0; 
-    var idate = new Date(date);                                                                                                                                                                       
-    idate.setDate(1);                                                                                                                                                                                
-    while ((count) < n) {                                                                                                                                                                           
+    var idate = new Date(date);                                                                                                       
+    idate.setDate(1);                                                                                                                 
+    while ((count) < n) {                                                                                                             
         idate.setDate(idate.getDate() + 1);
         if (idate.getDay() == day) {
-            count++;                                                                                                                                                                                 
-        }                                                                                                                                                                                            
+            count++;                                                                                                                      
+        }                                                                                                                               
     }
-    idate.setHours(hour);                                                                                                                                                                           
+    idate.setHours(hour);                                                                                                                    
     return idate;       
 }
 // Convert weekday and month names into numbers
