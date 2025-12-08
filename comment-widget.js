@@ -24,7 +24,7 @@ const s_websiteId = '204709470';
 const s_textId = '2075272977';
 const s_pageId = '132386639';
 const s_replyId = '1652598007';
-const s_sheetId = '1uC0MYyZH-IwmAZTO9vK2utmaR317uujhiuP3Yk2-An0';
+const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
 // The values below are necessary for accurate timestamps, I've filled it in with EST as an example
 const s_timezone = -5; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
