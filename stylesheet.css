@@ -443,9 +443,9 @@ body {
   align-items: center;
 }
 
-.photo-img {
+..photo-img {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   height: auto;
   /*! border: 1px solid #000; */
   /*! border-radius: 4px; */
