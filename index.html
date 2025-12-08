@@ -1,20 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-
-    <script
-      src="https://code.jquery.com/jquery-1.12.3.min.js"
-      integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
 
     <!--stylesheets-->
     <link rel="stylesheet" href="stylesheet.css" />
     <link href="fonts.css" rel="stylesheet" type='text/css'>
     <link href="comment-widget-dark.css" rel="stylesheet">
-  
+    
     <!--the usual-->
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | t.m.yach</title>
 
@@ -25,11 +20,10 @@
 
     <!--favicon-->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-<link rel="shortcut icon" href="favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-<link rel="manifest" href="favicon/site.webmanifest" />
-    
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
   </head>
 
   <body>
@@ -45,7 +39,9 @@
 
         <nav class="nav">
           <button class="nav-toggle" aria-label="toggle menu">
-            <span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">home</a></li>
@@ -55,13 +51,10 @@
             <li><a href="contact.html" class="nav-link">contact</a></li>
           </ul>
           <div class="menu-overlay"></div>
-</nav>
+        </nav>
       </header>
 
-      <img
-        src="bird.gif"
-        class="bird-img"
-      />
+      <img src="bird.gif" class="bird-img" />
 
       <main class="main-frame" id="top">
         <div class="frame">
@@ -115,21 +108,15 @@
               <ul class="list">
                 <li>
                   Right now, I feel
-                  <a href="https://www.imood.com/users/tmyach"
-                    ><img
-                      src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif"
-                      alt="The current mood of tmyach at www.imood.com"
-                      border="0" /></a
-                  >.
+                  <a href="https://www.imood.com/users/tmyach">
+                    <img src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif" alt="The current mood of tmyach at www.imood.com" border="0" />
+                  </a>.
                 </li>
                 <li>
                   The internet currently feels
-                  <a href="https://www.imood.com/imood"
-                    ><img
-                      src="https://moods.imood.com/internet/current.gif"
-                      alt="The current mood of the Internet at www.imood.com"
-                      border="0" /></a
-                  >.
+                  <a href="https://www.imood.com/imood">
+                    <img src="https://moods.imood.com/internet/current.gif" alt="The current mood of the Internet at www.imood.com" border="0" />
+                  </a>.
                 </li>
               </ul>
             </div>
@@ -137,19 +124,9 @@
             <div class="block">
               <h2 class="title">Current Thoughts</h2>
               <ul class="list">
-                <li>
-                  Rotting corpses SHOULD run for President - NYT OpEd
-                  <span class="date">(12/2025)</span>
-                </li>
-                <li>
-                  The right to privacy isn't explicitly written in the
-                  Constitution. Maybe we should change that.
-                  <span class="date">(12/2025)</span>
-                </li>
-                <li>
-                  Stephen Miller = Lex Luthor???
-                  <span class="date">(12/2025)</span>
-                </li>
+                <li>Rotting corpses SHOULD run for President - NYT OpEd <span class="date">(12/2025)</span></li>
+                <li>The right to privacy isn't explicitly written in the Constitution. Maybe we should change that. <span class="date">(12/2025)</span></li>
+                <li>Stephen Miller = Lex Luthor??? <span class="date">(12/2025)</span></li>
               </ul>
             </div>
 
@@ -160,28 +137,15 @@
               <div class="player-video-marquee">
                 <div class="tv-container">
                   <div id="video-player" class="tv-screen"></div>
-                  <img
-                    src="https://purepng.com/public/uploads/large/purepng.com-old-televisiontvtelecommunicationmonochromeblack-and-whittelevisionoldblack-and-white-1421526536054rulp1.png"
-                    alt=""
-                    class="tv-frame"
-                  />
+                  <img src="https://purepng.com/public/uploads/large/purepng.com-old-televisiontvtelecommunicationmonochromeblack-and-whittelevisionoldblack-and-white-1421526536054rulp1.png" alt="" class="tv-frame" />
                 </div>
-                <marquee id="info" class="track-title" scrollamount="5">
-                  Artist - Track Name
-                </marquee>
+                <marquee id="info" class="track-title" scrollamount="5">Artist - Track Name</marquee>
               </div>
 
               <div class="time-bar">
                 <div id="current-time" class="time">0:00</div>
                 <div class="bar">
-                  <input
-                    type="range"
-                    id="slider"
-                    min="0"
-                    max="100"
-                    value="0"
-                    step="1"
-                  />
+                  <input type="range" id="slider" min="0" max="100" value="0" step="1" />
                 </div>
                 <div id="duration" class="time">0:00</div>
               </div>
@@ -200,12 +164,7 @@
 
       <footer class="footer">
         <span>© <span id="year"></span> | t.m.yach, the bird's eye view</span>
-        <button
-          id="theme-toggle"
-          class="nav-link theme-toggle"
-          type="button"
-          aria-label="toggle mode"
-        >
+        <button id="theme-toggle" class="nav-link theme-toggle" type="button" aria-label="toggle mode">
           Toggle modes
         </button>
       </footer>
@@ -214,24 +173,8 @@
     <!-- mp script -->
     <script src="musicplayer.js"></script>
     <!--guestbook script-->
-     <script src="comment-widget.js"></script>
-     <!--menu script-->
-     <script>
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-  document.body.classList.toggle('menu-open');
-});
-
-// Close on overlay click
-document.querySelector('.menu-overlay').addEventListener('click', function() {
-  document.body.classList.remove('menu-open');
-});
-
-// Close on nav link click (optional)
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    document.body.classList.remove('menu-open');
-  });
-});
-</script>
+    <script src="comment-widget.js"></script>
+    <!--menu script-->
+    <script src="menu.js"></script>
   </body>
 </html>
