@@ -1,8 +1,8 @@
 
 @font-face {
     font-family: 'regularbit';
-    src: url('regularbit-webfont.woff2') format('woff2'),
-         url('regularbit-webfont.woff') format('woff');
+    src: url('fonts/regularbit-webfont.woff2') format('woff2'),
+         url('fonts/regularbit-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -13,8 +13,8 @@
 
 @font-face {
     font-family: 'kendiyaz';
-    src: url('kendiyaz-webfont.woff2') format('woff2'),
-         url('kendiyaz-webfont.woff') format('woff');
+    src: url('fonts/kendiyaz-webfont.woff2') format('woff2'),
+         url('fonts/kendiyaz-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -25,8 +25,8 @@
 
 @font-face {
     font-family: 'mademoiselle';
-    src: url('mademoiselle-webfont.woff2') format('woff2'),
-         url('mademoiselle-webfont.woff') format('woff');
+    src: url('fonts/mademoiselle-webfont.woff2') format('woff2'),
+         url('fonts/mademoiselle-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -37,8 +37,8 @@
 
 @font-face {
     font-family: 'karenfat';
-    src: url('karenfat-webfont.woff2') format('woff2'),
-         url('karenfat-webfont.woff') format('woff');
+    src: url('fonts/karenfat-webfont.woff2') format('woff2'),
+         url('fonts/karenfat-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -49,8 +49,8 @@
 
 @font-face {
     font-family: 'iso8';
-    src: url('iso8-webfont.woff2') format('woff2'),
-         url('iso8-webfont.woff') format('woff');
+    src: url('fonts/iso8-webfont.woff2') format('woff2'),
+         url('fonts/iso8-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
