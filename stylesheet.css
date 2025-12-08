@@ -930,27 +930,27 @@ body {
 }
 
 @media (max-width: 720px) {
-  .bird-img {
-    top: auto !important;
-    bottom: 0 !important;
-    right: 50% !important;
-    transform: translateX(50%) !important; /* center horizontally */
-    width: 90px !important; /* smaller on mobile */
-    height: auto !important;
+  .footer {
+    position: relative; /* bird anchors to this */
   }
   
-  .footer {
-    position: relative;
-    z-index: 10;
+  .bird-img {
+    top: auto !important;
+    bottom: 100% !important; /* sticks right on footer top edge */
+    right: 2rem !important; /* right side of footer */
+    transform: none !important; /* no centering, stays right */
+    width: 80px !important;
+    height: auto !important;
+    position: absolute !important; /* anchors to footer */
   }
 }
 
-/* extra small screens */
+/* tiny screens */
 @media (max-width: 480px) {
   .bird-img {
-    width: 70px !important;
-    right: 50% !important;
-    transform: translateX(50%) !important;
+    width: 65px !important;
+    right: 1.5rem !important;
+    bottom: 102% !important; /* slight overlap for "standing" effect */
   }
 }
 
