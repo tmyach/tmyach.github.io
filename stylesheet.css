@@ -11,7 +11,9 @@
   --player-icon: rgb(0, 100, 200);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -30,7 +32,9 @@ body {
 
 /*nav*/
 
-/* header */
+/*gongaga*/
+
+/* header stuffz */
 .header {
   display: flex;
   justify-content: space-between;
@@ -51,56 +55,52 @@ body {
   gap: 1.5rem;
 }
 
+/* button styles */
 .nav-list li {
   display: inline-block;
   background: var(--card-bg);
-  border: 1px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
-  border-radius: 0;
+  border-radius: 0; /* Sharp corners */
 }
 
 .nav-link {
+  color: var(--text);
+  text-decoration: none;
+  display: block;
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 400;
-  text-decoration: none;
-  color: inherit;
-  padding: 0.4rem 0.6rem;
-  transition: color 0.2s ease;
+  padding: 0.2rem 0.4rem;
 }
 
-.nav-list li a.nav-link {
-  color: var(--text);
-  text-decoration: none;
-  display: block; /* fill the li area */
-  font-weight: 400;
-}
-
-nav-list li:hover a,
-.nav-list li:focus-within a,
-.nav-list li.active a {
-  color: var(--card-bg);
-}
-
+/* menu color invert */
 .nav-list li:hover,
-.nav-list li:focus-within,
-.nav-list li.active {   /* If you add 'active' class in JS on click */
+.nav-list li:focus-within {
   background-color: var(--text);
-  color: var(--card-bg);
   border-color: var(--text);
 }
 
-/* menu toggle */
+.nav-list li:hover .nav-link,
+.nav-list li:focus-within .nav-link {
+  color: var(--card-bg);
+}
+
+/* menu button */
 .nav-toggle {
   display: none;
   flex-direction: column;
-  background: none;
-  border: none;
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  padding: 0.75rem 1rem;
   cursor: pointer;
-  padding: 0.5rem;
+  min-height: 48px;
+  min-width: 48px;
+  position: relative;
+  z-index: 100;
 }
 
 .nav-toggle span {
@@ -108,60 +108,67 @@ nav-list li:hover a,
   width: 25px;
   height: 3px;
   background: var(--text);
-  margin: 3px 0;
+  margin: 4px 0;
   transition: 0.3s;
 }
 
 /* mobile */
 @media (max-width: 768px) {
   .nav-toggle {
-    display: flex;
+    display: flex; /* Show menu button */
   }
 
-  .nav-list li {
-    padding: 0.75rem 1rem;
-  }
-}
-  
   .nav-list {
     position: absolute;
-    top: 100%;   
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--card-bg);
     flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     gap: 0;
-    display: none; 
+    display: none;
+    z-index: 99;
   }
-  
+
+  /* Show menu when .open class is added */
   .nav.open .nav-list {
     display: flex;
   }
-  
-  /* dm */
-  body.dark-mode .nav-list {
-    background: var(--card-bg);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    border-color: rgba(255,255,255,0.15);
-  }
-  
-  /* space */
+
+  /* Mobile menu items - button box style */
   .nav-list li {
-    margin: 0.25rem 0;
+    width: 100%;
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
   }
-  
-  /*anim*/
+
+  /* DARK MODE */
+  body.dark-mode .nav-list li,
+  body.dark-mode .nav-toggle {
+    background: var(--card-bg);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  body.dark-mode .nav-list li:hover,
+  body.dark-mode .nav-list li:focus-within {
+    background-color: var(--text);
+    border-color: var(--text);
+  }
+
+  /* HAMBURGER -> X ANIMATION */
   .nav.open .nav-toggle span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
-  
+
   .nav.open .nav-toggle span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .nav.open .nav-toggle span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
   }
@@ -181,11 +188,12 @@ body.dark-mode {
 body.dark-mode::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background-image: url('https://i.ibb.co/r2Z287F/ss035.gif');
+  background-image: url("https://i.ibb.co/r2Z287F/ss035.gif");
   background-repeat: repeat;
   background-size: auto;
   pointer-events: none;
@@ -205,7 +213,7 @@ body.dark-mode .footer {
 
 /* text +ui */
 body.dark-mode * {
-  border-color: rgba(255,255,255,0.15);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* prevent image inversion */
@@ -231,17 +239,18 @@ body.dark-mode .tv-frame {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.85rem;
 }
 
 body.dark-mode .footer {
-  border-top-color: rgba(255,255,255,0.15) !important;
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* invert borders */
-body.dark-mode *:not(.tv-screen):not(.tv-screen *):not(#video-player):not(#video-player *) {
-  border-color: rgba(255,255,255,0.15) !important;
+body.dark-mode
+  *:not(.tv-screen):not(.tv-screen *):not(#video-player):not(#video-player *) {
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* small ui tweaks */
@@ -259,7 +268,7 @@ body.dark-mode .nav-list {
 /* song title box */
 body.dark-mode .track-title {
   background-color: var(--player-title-bg) !important;
-  border-color: rgba(255,255,255,0.3) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
   color: var(--text) !important;
 }
 
@@ -277,7 +286,7 @@ body.dark-mode .photo-img {
 
 /* slider colors */
 body.dark-mode input[type="range"] {
-  background: rgba(255,255,255,0.2) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
 body.dark-mode input[type="range"]::-webkit-slider-thumb {
@@ -339,7 +348,7 @@ body.dark-mode #video-player * {
 }
 
 body.dark-mode .theme-toggle {
-  border-color: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* tiny spin btn */
@@ -348,11 +357,16 @@ body.dark-mode .theme-toggle {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(180deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -360,7 +374,7 @@ html, body {
 
 /* base font stuff */
 body {
-  font-family: 'regularbit', 'IBM Plex Sans', system-ui, sans-serif;
+  font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
   background-image: url("https://i.ibb.co/j3d06Qj/paper019.jpg");
   background-repeat: repeat;
   background-size: auto;
@@ -403,7 +417,7 @@ body {
 }
 
 .logo-main {
-  font-family: 'karenfat', 'Sigmar', cursive;
+  font-family: "karenfat", "Sigmar", cursive;
   font-size: clamp(1rem, 4vw, 1.2rem);
   letter-spacing: 0.05em;
 }
@@ -436,7 +450,7 @@ body {
 }
 
 .cursive {
-  font-family: 'mademoiselle', 'Meddon', cursive;
+  font-family: "mademoiselle", "Meddon", cursive;
 }
 
 /* content area */
@@ -452,7 +466,7 @@ body {
 
 /* big title */
 .page-title {
-  font-family: 'karenfat', 'Sigmar', cursive;
+  font-family: "karenfat", "Sigmar", cursive;
   font-size: clamp(1.6rem, 6vw, 2.1rem);
   margin: 0 0 0.6rem;
   line-height: 1.1;
@@ -492,7 +506,7 @@ body {
 
 /* italics style */
 .italic {
-  font-family: 'iso8', 'IBM Plex Serif', serif;
+  font-family: "iso8", "IBM Plex Serif", serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
 }
@@ -519,7 +533,7 @@ body {
 }
 
 .guestbook-header {
-  font-family: 'iso8', 'Lacquer', cursive;
+  font-family: "iso8", "Lacquer", cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
 }
@@ -530,7 +544,7 @@ body {
 }
 
 .threads-header {
-  font-family: 'iso8', 'Lacquer', cursive;
+  font-family: "iso8", "Lacquer", cursive;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   margin: 0 0 0.4rem;
 }
@@ -575,7 +589,7 @@ body {
 
 /* mini titles */
 .title {
-  font-family: 'kendiyaz', 'Lacquer', cursive;
+  font-family: "kendiyaz", "Lacquer", cursive;
   font-size: clamp(1rem, 3vw, 1.1rem);
   margin: 0 0 0.35rem;
 }
@@ -622,7 +636,7 @@ body {
   border-radius: 4px;
   padding: clamp(0.6rem, 3vw, 0.75rem) clamp(0.7rem, 3vw, 0.85rem);
   gap: 0.5rem;
-  font-family: 'regularbit', 'IBM Plex Sans', system-ui, sans-serif;
+  font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
   margin-bottom: 0.9rem;
   backdrop-filter: blur(8px);
   position: relative;
@@ -685,7 +699,7 @@ body {
   border: 1px solid rgba(0, 100, 200, 0.4);
   background-color: var(--player-title-bg);
   color: var(--player-text);
-  font-family: 'mademoiselle', 'Meddon', cursive;
+  font-family: "mademoiselle", "Meddon", cursive;
   font-size: clamp(0.85rem, 2.8vw, 0.95rem);
   padding: 0 0.5rem;
   overflow: hidden;
@@ -700,7 +714,7 @@ body {
   border: 1px solid rgba(0, 100, 200, 0.4);
   background-color: var(--player-title-bg);
   color: var(--player-text);
-  font-family: 'mademoiselle', 'Meddon', cursive;
+  font-family: "mademoiselle", "Meddon", cursive;
   font-size: clamp(0.9rem, 3vw, 1rem);
   padding: clamp(0.3rem, 2vw, 0.4rem) clamp(0.5rem, 2vw, 0.6rem);
   margin: 0;
@@ -726,7 +740,7 @@ body {
   background-color: var(--player-title-bg);
   color: var(--player-text);
   text-align: center;
-  font-family: 'mademoiselle', 'Meddon', cursive;
+  font-family: "mademoiselle", "Meddon", cursive;
   font-size: clamp(0.9rem, 3vw, 1rem);
   padding: clamp(0.3rem, 2vw, 0.4rem) clamp(0.5rem, 2vw, 0.6rem);
   white-space: nowrap;
@@ -768,13 +782,21 @@ body {
 }
 
 .time-bar input[type="range"]::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, rgba(0, 100, 200, 0.9), rgba(0, 100, 200, 0.5));
+  background: linear-gradient(
+    to right,
+    rgba(0, 100, 200, 0.9),
+    rgba(0, 100, 200, 0.5)
+  );
   height: 3px;
   border-radius: 999px;
 }
 
 .time-bar input[type="range"]::-moz-range-track {
-  background: linear-gradient(to right, rgba(0, 100, 200, 0.9), rgba(0, 100, 200, 0.5));
+  background: linear-gradient(
+    to right,
+    rgba(0, 100, 200, 0.9),
+    rgba(0, 100, 200, 0.5)
+  );
   height: 3px;
   border-radius: 999px;
 }
@@ -903,4 +925,3 @@ body {
   flex: 1;
   padding: clamp(0.8rem, 4vw, 1.3rem);
 }
-

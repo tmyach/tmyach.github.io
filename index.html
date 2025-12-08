@@ -2,23 +2,20 @@
 <html lang="en">
   <head>
     <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
-
-    <!--stylesheets-->
     <link rel="stylesheet" href="stylesheet.css" />
     <link href="fonts.css" rel="stylesheet" type='text/css'>
     <link href="comment-widget-dark.css" rel="stylesheet">
     
-    <!--the usual-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | t.m.yach</title>
 
-    <!-- font stuff -->
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&family=Lacquer&family=Sigmar&family=Meddon&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 
-    <!--favicon-->
+    <!-- favicons -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -29,6 +26,7 @@
   <body>
     <div class="page">
       <header class="header">
+        <!-- logo -->
         <a class="logo" href="index.html">
           <img src="logo.png" alt="t.m.yach bird logo" class="logo-img" />
           <div class="logo-text">
@@ -37,11 +35,10 @@
           </div>
         </a>
 
+        <!-- mobile menu fixed -->
         <nav class="nav">
-          <button class="nav-toggle" aria-label="toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
+          <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
           </button>
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">home</a></li>
@@ -50,14 +47,15 @@
             <li><a href="gallery.html" class="nav-link">gallery</a></li>
             <li><a href="contact.html" class="nav-link">contact</a></li>
           </ul>
-          <div class="menu-overlay"></div>
         </nav>
       </header>
 
+      <!-- bird gif -->
       <img src="bird.gif" class="bird-img" />
 
       <main class="main-frame" id="top">
         <div class="frame">
+          <!-- main content -->
           <section class="content">
             <header class="content-header">
               <h1 class="page-title" id="shuffle-title">The Bird's Eye View</h1>
@@ -77,6 +75,7 @@
               </p>
             </header>
 
+            <!-- photo section -->
             <div class="text-photo">
               <div class="text">
                 <p>
@@ -87,21 +86,21 @@
                   design help me process what I am learning, so you will see
                   some of my notebook doodles in my blog posts.
                 </p>
-                <p class="italic">🙶Final Fantasy VII is just an end-to-end transformation journey where a cross-functional squad of non-traditional hires leverages lived experience to sunset legacy infrastructure and replatform the planet’s core value delivery ecosystem🙷</p>
+                <p class="italic">🙶Final Fantasy VII is just an end-to-end transformation journey where a cross-functional squad of non-traditional hires leverages lived experience to sunset legacy infrastructure and replatform the planet's core value delivery ecosystem🙷</p>
               </div>
-
               <div class="photo">
                 <img src="me.png" alt="A picture of me." class="photo-img" style="margin-right: 20px;">
               </div>
             </div>
 
-            <!-- guestbook embed -->
+            <!-- guestbook -->
             <section class="guestbook">
               <h2 class="threads-header">Guestbook</h2>
               <div id="c_widget"></div>
             </section>
           </section>
 
+          <!-- sidebar -->
           <aside class="side">
             <div class="block">
               <h2 class="title">Field Notes</h2>
@@ -133,7 +132,6 @@
             <!-- music player -->
             <div class="player">
               <div id="nowplaying" class="now">now playing 1 of 4</div>
-
               <div class="player-video-marquee">
                 <div class="tv-container">
                   <div id="video-player" class="tv-screen"></div>
@@ -141,7 +139,6 @@
                 </div>
                 <marquee id="info" class="track-title" scrollamount="5">Artist - Track Name</marquee>
               </div>
-
               <div class="time-bar">
                 <div id="current-time" class="time">0:00</div>
                 <div class="bar">
@@ -149,32 +146,30 @@
                 </div>
                 <div id="duration" class="time">0:00</div>
               </div>
-
               <div class="controls">
                 <button id="prev-btn" type="button">⏮</button>
                 <button id="playpause-btn" type="button">▶</button>
                 <button id="next-btn" type="button">⏭</button>
               </div>
-              <!-- music player inspired by: ibroughtyoumybullets.neocities.org -->
             </div>
-            <!-- player end -->
           </aside>
         </div>
       </main>
 
+      <!-- footer -->
       <footer class="footer">
         <span><span id="year"></span> | t.m.yach, the bird's eye view</span>
-        <button id="theme-toggle" class="nav-link theme-toggle" type="button" aria-label="toggle mode">
+        <button id="theme-toggle" class="nav-link theme-toggle" type="button" aria-label="Toggle mode">
           Toggle modes
         </button>
       </footer>
     </div>
 
-    <!-- mp script -->
+    <!-- scripts -->
     <script src="musicplayer.js"></script>
-    <!--guestbook script-->
     <script src="comment-widget.js"></script>
-    <!--menu script-->
     <script src="menu.js"></script>
+   
+    </script>
   </body>
 </html>
