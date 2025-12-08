@@ -532,6 +532,7 @@ body {
 /* guestbook stuff */
 .guestbook {
   margin-top: 0.4rem;
+  border: 1px solid #000;
 }
 
 .guestbook-header {
