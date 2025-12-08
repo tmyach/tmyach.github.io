@@ -52,10 +52,10 @@ const s_filterReplacement = '****'; // Change what filtered words are censored w
 const s_filteredWords = ['bitch']
 
 // Text - Change what messages/text appear on the form and in the comments section (Mostly self explanatory)
-const s_widgetTitle = 'Leave a comment!';
-const s_nameFieldLabel = 'Name';
-const s_websiteFieldLabel = 'Website (Optional)';
-const s_textFieldLabel = '';
+const s_widgetTitle = 'Leave a Comment in my Guestbook!';
+const s_nameFieldLabel = 'Name:';
+const s_websiteFieldLabel = 'Website/email/handle (Optional):';
+const s_textFieldLabel = 'Comment:';
 const s_submitButtonLabel = 'Submit';
 const s_loadingText = 'Loading comments...';
 const s_noCommentsText = 'No comments yet!';
