@@ -107,10 +107,14 @@
     color: #000 !important;
 }
 
-#c_widget button:disabled, 
+#c_widget input[type=submit]:not(:disabled) {
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
 #c_widget input[type=submit]:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
 }
 
 /* input box */
