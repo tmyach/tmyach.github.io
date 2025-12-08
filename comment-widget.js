@@ -99,9 +99,10 @@ const v_formHtml = `
     </div>
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
-        <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" pattern="@* or https://.*">
-    </div>
+    <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
+    <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or https://url" maxlength="100">
+</div>
+
 
     <div id="c_textWrapper" class="c-inputWrapper">
         <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
@@ -174,53 +175,51 @@ function fixFrame() {
 
 // Processes comment data with the Google Sheet ID
 function getComments() {
-    // Disable the submit button while comments are reloaded
     c_submitButton.disabled;
 
-    // Reset reply stuff to default
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
 
-    // Clear input fields too
     if (s_commentsOpen) {
         document.getElementById(`entry.${s_nameId}`).value = '';
         document.getElementById(`entry.${s_websiteId}`).value = '';
         document.getElementById(`entry.${s_textId}`).value = '';
     }
 
-    // Get the data
     const url = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?`;
     const retrievedSheet = getSheet(url);
 
-    // Do stuff with the data here
     retrievedSheet.then(result => {
-        // The data comes with extra stuff at the beginning, get rid of it
         const json = JSON.parse(result.split('\n')[1].replace(/google.visualization.Query.setResponse\(|\);/g, ''));
-
-        // Need index of page column for checking if comments are for the right page
+        
         const isPage = (col) => col.label == 'Page';
         let pageIdx = json.table.cols.findIndex(isPage);
         
-        // Turn that data into usable comment data
-        // All of the messy val checks are because Google Sheets can be weird sometimes with comment deletion
+        // *** DEBUG: Log what's happening ***
+        console.log('🔍 DEBUG INFO:');
+        console.log('Your page path:', v_pagePath);
+        console.log('Sheet has rows:', json.table.rows.length);
+        if (json.table.rows.length > 0) {
+            console.log('Page column index:', pageIdx);
+            console.log('All Page values in sheet:');
+            json.table.rows.forEach((row, i) => {
+                let pageVal = row.c[pageIdx] ? row.c[pageIdx].v : 'EMPTY';
+                console.log(`Row ${i}: "${pageVal}"`);
+            });
+        }
+        
         let comments = [];
-        if (json.table.parsedNumHeaders > 0) { // Check if any comments exist in the sheet at all before continuing
+        if (json.table.parsedNumHeaders > 0) {
             for (r = 0; r < json.table.rows.length; r++) {
-                // Check for null rows
-                let val1;
-                if (!json.table.rows[r].c[pageIdx]) {val1 = ''}
-                else {val1 = json.table.rows[r].c[pageIdx].v}
-
-                // Check if the page name matches before adding to comment array
+                let val1 = json.table.rows[r].c[pageIdx] ? json.table.rows[r].c[pageIdx].v : '';
+                
+                // *** DEBUG MATCH ***
+                console.log(`Checking row ${r}: "${val1}" == "${v_pagePath}" ?`, val1 == v_pagePath);
+                
                 if (val1 == v_pagePath) { 
                     let comment = {}
                     for (c = 0; c < json.table.cols.length; c++) {
-                        // Check for null values
-                        let val2;
-                        if (!json.table.rows[r].c[c]) {val2 = ''}
-                        else {val2 = json.table.rows[r].c[c].v}
-
-                        // Finally set the value properly
+                        let val2 = json.table.rows[r].c[c] ? json.table.rows[r].c[c].v : '';
                         comment[json.table.cols[c].label] = val2;
                     }
                     comment.Timestamp2 = json.table.rows[r].c[0].f;
@@ -229,14 +228,21 @@ function getComments() {
             }
         }
 
-        // Check for empty comments before displaying to page
-        if (comments.length == 0 || Object.keys(comments[0]).length < 2) { // Once again, Google Sheets can be weird
-            c_container.innerHTML = s_noCommentsText;
-        } else {displayComments(comments)}
+        console.log('Found matching comments:', comments.length);
         
-        c_submitButton.disabled = false // Now that everything is done, re-enable the submit button
+        if (comments.length == 0 || Object.keys(comments[0]).length < 2) {
+            c_container.innerHTML = s_noCommentsText;
+        } else {
+            displayComments(comments)
+        }
+        
+        c_submitButton.disabled = false;
+    }).catch(error => {
+        console.error('Sheet fetch error:', error);
+        c_container.innerHTML = 'Error loading comments';
     })
 }
+
 
 // Fetches the Google Sheet resource from the provided URL
 function getSheet(url) {
