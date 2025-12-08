@@ -35,6 +35,11 @@ body {
 
 /*gongaga*/
 
+a.imood {
+background-color: #fff;
+color:#000;
+}
+
 /* header stuffz */
 .header {
   display: flex;
