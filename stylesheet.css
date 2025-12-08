@@ -309,6 +309,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   position: relative;
+  z-index: 1000;
 }
 
 .nav-toggle {
@@ -371,6 +372,8 @@ body {
   grid-template-columns: 1fr;
   gap: 1.6rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .cursive {
@@ -843,6 +846,16 @@ body {
     transform: scaleY(1);
     opacity: 1;
     pointer-events: auto;
+     position: absolute;
+  top: 100%;           /* Drops down from nav bar */
+  right: 0;
+  width: 200px;        /* Adjust width as needed */
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+  z-index: 1001;       /* Even higher than parent */
+  list-style: none;
+  padding: 0.5rem 0;
   }
 
   .nav-link {
@@ -878,6 +891,8 @@ body {
 @media (max-width: 480px) {
   .main-frame {
     padding: 0.8rem;
+    position: relative;
+  z-index: 1;
   }
 
   .frame {
