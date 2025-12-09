@@ -245,6 +245,15 @@ body.dark-mode .tv-frame {
   filter: brightness(1.1) !important;
 }
 
+body.dark-mode #c_widget,
+body.dark-mode #c_inputDiv,
+body.dark-mode .c-comment,
+body.dark-mode .c-reply {
+    background: #0a0a0a;
+    border-color: #fff;
+    color: #fafafa;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
