@@ -26,26 +26,16 @@ const s_pageId = '132386639';
 const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
-// --- ADMIN SYSTEM ADDITIONS (NEW) ---
-let ADMIN_NAME = "Tesia"; // ← CHANGE THIS TO YOUR DISPLAY NAME
+// --- ADMIN SYSTEM (DISCREET BUTTON VERSION) ---
+let ADMIN_NAME = "Tesia (Admin)"; // ← CHANGE TO YOUR DISPLAY NAME
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
 
-// Fetch admin password from your sheet A1
+// Fetch admin password from sheet A1 (silent background fetch)
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
   .then(r => r.text())
-  .then(p => {
-    ADMIN_PASSWORD = p.trim().replace(/"/g, '');
-    let userInput = prompt("Enter admin password (leave blank if visitor):", "");
-    if (userInput && userInput === ADMIN_PASSWORD) {
-      ADMIN_STATUS = true;
-      alert("✅ Admin login successful!");
-      let nameInput = document.querySelector(`#entry.${s_nameId}`);
-      nameInput.value = ADMIN_NAME;
-      nameInput.readOnly = true;
-    }
-  })
+  .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
   .catch(err => console.error("Admin password fetch failed:", err));
 
 // The values below are necessary for accurate timestamps
@@ -106,6 +96,12 @@ const v_mainHtml = `
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
+    <!-- ADMIN LOGIN BUTTON (NEW) -->
+    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #007bff;">
+        <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: #007bff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">🔐 Admin Login</button>
+        <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
+    </div>
+
     <div id="c_nameWrapper" class="c-inputWrapper">
         <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
         <input class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required>
@@ -145,6 +141,41 @@ if (s_wordFilterOn) {
 let c_submitButton;
 if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton') }
 else { c_submitButton = document.createElement('button') }
+
+// --- ADMIN LOGIN FUNCTION (NEW) ---
+function tryAdminLogin() {
+    if (ADMIN_STATUS) {
+        // Already logged in - logout
+        ADMIN_STATUS = false;
+        let nameInput = document.getElementById(`entry.${s_nameId}`);
+        nameInput.value = '';
+        nameInput.readOnly = false;
+        document.getElementById('c_adminStatus').innerHTML = '';
+        document.getElementById('c_adminButton').innerHTML = '🔐 Login as Admin';
+        alert('Logged out successfully.');
+        return;
+    }
+    
+    if (!ADMIN_PASSWORD) {
+        alert('Please wait...');
+        return;
+    }
+    
+    let password = prompt('Enter admin password:');
+    if (password === ADMIN_PASSWORD) {
+        ADMIN_STATUS = true;
+        let nameInput = document.getElementById(`entry.${s_nameId}`);
+        nameInput.value = ADMIN_NAME;
+        nameInput.readOnly = true;
+        document.getElementById('c_adminStatus').innerHTML = `Logged in as ${ADMIN_NAME}`;
+        document.getElementById('c_adminButton').innerHTML = 'Logout';
+        alert('✅ Admin login successful!');
+    } else if (password !== null) {
+        alert('❌ Wrong password');
+        document.getElementById('c_adminStatus').innerHTML = '❌ Wrong password';
+        setTimeout(() => document.getElementById('c_adminStatus').innerHTML = '', 3000);
+    }
+}
 
 // Add page input
 let v_pagePath = window.location.pathname;
@@ -188,9 +219,15 @@ function getComments() {
     c_replyInput.value = '';
 
     if (s_commentsOpen) {
-        document.getElementById(`entry.${s_nameId}`).value = '';
-        document.getElementById(`entry.${s_websiteId}`).value = '';
-        document.getElementById(`entry.${s_textId}`).value = '';
+        // Don't clear name if admin is logged in
+        if (!ADMIN_STATUS) {
+            document.getElementById(`entry.${s_nameId}`).value = '';
+            document.getElementById(`entry.${s_websiteId}`).value = '';
+            document.getElementById(`entry.${s_textId}`).value = '';
+        } else {
+            document.getElementById(`entry.${s_websiteId}`).value = '';
+            document.getElementById(`entry.${s_textId}`).value = '';
+        }
     }
 
     const url = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?`;
@@ -358,7 +395,7 @@ function createComment(data) {
     name.innerText = filteredName;
     name.className = 'c-name';
     
-    // --- ADMIN HIGHLIGHT (NEW) ---
+    // Admin highlight
     if (filteredName === ADMIN_NAME) {
       name.classList.add(ADMIN_CSS_CLASS);
     }
@@ -388,7 +425,7 @@ function createComment(data) {
     return comment;
 }
 
-// Time conversion
+// Time conversion functions (unchanged)
 function convertTimestamp(timestamp) {
     const vals = timestamp.split('(')[1].split(')')[0].split(',');
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
@@ -443,7 +480,7 @@ function getMonthNum(month) {
     return ['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(m);
 }
 
-// Reply + pagination
+// Reply + pagination (unchanged)
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
 
