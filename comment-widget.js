@@ -49,7 +49,7 @@ const s_wordFilterOn = false; // True for on, false for off
 const s_filterReplacement = '****'; // Change what filtered words are censored with (**** is the default) 
 // Add words to filter by putting them in quotes and separating with commas (ie. 'heck', 'dang')
 
-const s_filteredWords = ['bitch'];
+const s_filteredWords = ['bitch']
 
 // Text - Change what messages/text appear on the form and in the comments section (Mostly self explanatory)
 const s_widgetTitle = 'Leave a Comment in my Guestbook!';
@@ -74,7 +74,7 @@ const s_rightButtonText = '>>';
 */
 
 // Fix the URL parameters setting for Rarebit just in case
-if (s_fixRarebitIndexPage) { s_includeUrlParameters = true; }
+if (s_fixRarebitIndexPage) {s_includeUrlParameters = true}
 
 // Apply CSS
 const c_cssLink = document.createElement('link');
@@ -99,13 +99,14 @@ const v_formHtml = `
     </div>
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
-        <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or https://url" maxlength="100">
-    </div>
+    <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
+    <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or https://url" maxlength="100">
+</div>
+
 
     <div id="c_textWrapper" class="c-inputWrapper">
         <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
-        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50" maxlength="${s_maxLength}" required></textarea>
+        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50"  maxlength="${s_maxLength}" required></textarea>
     </div>
 
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
@@ -114,8 +115,8 @@ const v_formHtml = `
 // Insert main HTML to page
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 const c_form = document.getElementById('c_form');
-if (s_commentsOpen) { c_form.innerHTML = v_formHtml; } 
-else { c_form.innerHTML = s_closedCommentsText; }
+if (s_commentsOpen) {c_form.innerHTML = v_formHtml} 
+else {c_form.innerHTML = s_closedCommentsText}
 
 // Initialize misc things
 const c_container = document.getElementById('c_container');
@@ -128,21 +129,18 @@ let v_commentMin = 1;
 let v_filteredWords;
 if (s_wordFilterOn) {
     v_filteredWords = s_filteredWords.join('|');
-    v_filteredWords = new RegExp(String.raw`\b(${v_filteredWords})\b`, 'ig');
+    v_filteredWords = new RegExp(String.raw `\b(${v_filteredWords})\b`, 'ig');
 }
 
 // The fake button is just a dummy placeholder for when comments are closed
 let c_submitButton;
-if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton'); }
-else { c_submitButton = document.createElement('button'); }
+if (s_commentsOpen) {c_submitButton = document.getElementById('c_submitButton')}
+else {c_submitButton = document.createElement('button')}
 
-// page path - fix empty + rarebit
-let v_pagePath = window.location.pathname;
-if (v_pagePath === '') v_pagePath = '/';
-if (s_includeUrlParameters) { v_pagePath += window.location.search; }
-if (s_fixRarebitIndexPage && (v_pagePath === '/' || v_pagePath === '/index.html')) {
-    v_pagePath = '/?pg=1';
-}
+// Add invisible page input to document
+let v_pagePath = window.location.pathname === '/' ? '/index.html' : window.location.pathname;
+if (s_includeUrlParameters) {v_pagePath += window.location.search}
+if (s_fixRarebitIndexPage && v_pagePath == '/') {v_pagePath = '/?pg=1'}
 const c_pageInput = document.createElement('input');
 c_pageInput.value = v_pagePath; c_pageInput.type = 'text'; c_pageInput.style.display = 'none';
 c_pageInput.id = 'entry.' + s_pageId; c_pageInput.name = c_pageInput.id; 
@@ -175,86 +173,85 @@ function fixFrame() {
     getComments(); // Reload comments after submission
 }
 
-// load comments - FIXED VERSION
+// Processes comment data with the Google Sheet ID
 function getComments() {
-    // disable while loading
-    c_submitButton.disabled = true;
+    // Disable the submit button while comments are reloaded
+    c_submitButton.disabled;
 
-    // reset reply stuff
+    // Reset reply stuff to default
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
 
-    // clear fields
+    // Clear input fields too
     if (s_commentsOpen) {
         document.getElementById(`entry.${s_nameId}`).value = '';
         document.getElementById(`entry.${s_websiteId}`).value = '';
         document.getElementById(`entry.${s_textId}`).value = '';
     }
 
-    // get data
+    // Get the data
     const url = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?`;
     const retrievedSheet = getSheet(url);
 
+    // Do stuff with the data here
     retrievedSheet.then(result => {
-        // parse json
+        // The data comes with extra stuff at the beginning, get rid of it
         const json = JSON.parse(result.split('\n')[1].replace(/google.visualization.Query.setResponse\(|\);/g, ''));
 
-        // find Page col
+        // Need index of page column for checking if comments are for the right page
         const isPage = (col) => col.label == 'Page';
         let pageIdx = json.table.cols.findIndex(isPage);
         
+        // Turn that data into usable comment data
+        // All of the messy val checks are because Google Sheets can be weird sometimes with comment deletion
         let comments = [];
-        if (json.table.parsedNumHeaders > 0) {
-            for (let r = 0; r < json.table.rows.length; r++) {
-                let val1 = json.table.rows[r].c[pageIdx] ? json.table.rows[r].c[pageIdx].v : '';
+        if (json.table.parsedNumHeaders > 0) { // Check if any comments exist in the sheet at all before continuing
+            for (r = 0; r < json.table.rows.length; r++) {
+                // Check for null rows
+                let val1;
+                if (!json.table.rows[r].c[pageIdx]) {val1 = ''}
+                else {val1 = json.table.rows[r].c[pageIdx].v}
 
-                // loose match for homepage - WORKS NOW
-                const cleanedPage = (val1 || '').trim();
-                const cleanedCurrent = v_pagePath.trim();
+                // Check if the page name matches before adding to comment array
+                if (val1 == v_pagePath) { 
+                    let comment = {}
+                    for (c = 0; c < json.table.cols.length; c++) {
+                        // Check for null values
+                        let val2;
+                        if (!json.table.rows[r].c[c]) {val2 = ''}
+                        else {val2 = json.table.rows[r].c[c].v}
 
-                if (
-                    cleanedPage === cleanedCurrent ||
-                    (cleanedPage === '/' && (cleanedCurrent === '/' || cleanedCurrent === '/index.html'))
-                ) {
-                    let comment = {};
-                    for (let c = 0; c < json.table.cols.length; c++) {
-                        let val2 = json.table.rows[r].c[c] ? json.table.rows[r].c[c].v : '';
+                        // Finally set the value properly
                         comment[json.table.cols[c].label] = val2;
                     }
-                    comment.Timestamp2 = json.table.rows[r].c[0] ? json.table.rows[r].c[0].f : '';
+                    comment.Timestamp2 = json.table.rows[r].c[0].f;
                     comments.push(comment);
                 }
             }
         }
 
-        // just check if empty - FIXED
-        if (comments.length == 0) {
+        // Check for empty comments before displaying to page
+        if (comments.length == 0 || Object.keys(comments[0]).length < 2) { // Once again, Google Sheets can be weird
             c_container.innerHTML = s_noCommentsText;
-        } else {
-            displayComments(comments);
-        }
+        } else {displayComments(comments)}
         
-        c_submitButton.disabled = false;
-    }).catch(err => {
-        console.error('load fail:', err);
-        c_container.innerHTML = 'Error loading comments';
-        c_submitButton.disabled = false;
-    });
+        c_submitButton.disabled = false // Now that everything is done, re-enable the submit button
+    })
 }
 
 // Fetches the Google Sheet resource from the provided URL
 function getSheet(url) {
     return new Promise(function (resolve, reject) {
         fetch(url).then(response => {
-            if (!response.ok) { reject('Could not find Google Sheet with that URL'); }
+            if (!response.ok) {reject('Could not find Google Sheet with that URL')} // Checking for a 404
             else {
                 response.text().then(data => {
-                    if (!data) { reject('Invalid data pulled from sheet'); }
+                    if (!data) {reject('Invalid data pulled from sheet')}
                     resolve(data);
-                });
+                })
             }
-        }).catch(reject);
-    });
+        })
+    })
 }
 
 // Displays comments on page
@@ -266,7 +263,7 @@ function displayComments(comments) {
 
     // Get all reply comments by taking them out of the comment array
     let replies = [];
-    for (let i = 0; i < comments.length; i++) {
+    for (i = 0; i < comments.length; i++) {
         if (comments[i].Reply) {
             replies.push(comments[i]);
             comments.splice(i, 1);
@@ -281,7 +278,7 @@ function displayComments(comments) {
 
     // Main comments (not replies)
     comments.reverse(); // Newest comments go to top
-    for (let i = 0; i < comments.length; i++) {
+    for (i = 0; i < comments.length; i++) {
         let comment = createComment(comments[i]);
         
         // Reply button
@@ -294,7 +291,7 @@ function displayComments(comments) {
 
         // Choose whether to display or not based on page number
         comment.style.display = 'none';
-        if (i >= v_commentMin && i < v_commentMax) { comment.style.display = 'block'; }
+        if (i >= v_commentMin && i < v_commentMax) {comment.style.display = 'block'}
 
         comment.className = 'c-comment';
         c_container.appendChild(comment);
@@ -302,7 +299,7 @@ function displayComments(comments) {
     }
 
     // Replies
-    for (let i = 0; i < replies.length; i++) {
+    for (i = 0; i < replies.length; i++) {
         let reply = createComment(replies[i]);
         const parentId = replies[i].Reply;
         const parentDiv = document.getElementById(parentId);
@@ -312,10 +309,10 @@ function displayComments(comments) {
         if (!document.getElementById(parentId + '-replies')) { 
             container = document.createElement('div');
             container.id = parentId + '-replies';
-            if (s_collapsedReplies) { container.style.display = 'none'; } // Default to hidden if collapsed
+            if (s_collapsedReplies) {container.style.display = 'none'} // Default to hidden if collapsed
             container.className = 'c-replyContainer';
             parentDiv.appendChild(container);
-        } else { container = document.getElementById(parentId + '-replies'); }
+        } else {container = document.getElementById(parentId + '-replies')}
         reply.className = 'c-reply';
         container.appendChild(reply);
     }
@@ -323,7 +320,7 @@ function displayComments(comments) {
     // Handle adding the buttons to show or hide replies if collapsed replies are enabled
     if (s_collapsedReplies) {
         const containers = document.getElementsByClassName('c-replyContainer');
-        for (let i = 0; i < containers.length; i++) {
+        for (i = 0; i < containers.length; i++) {
             const num = containers[i].childNodes.length;
             const parentDiv = containers[i].parentElement;
 
@@ -340,17 +337,17 @@ function displayComments(comments) {
     if (v_amountOfPages > 1) {
         let pagination = document.createElement('div');
 
-        let leftButton = document.createElement('button');
+        leftButton = document.createElement('button');
         leftButton.innerHTML = s_leftButtonText; leftButton.id = 'c_leftButton'; leftButton.name = 'left';
         leftButton.setAttribute('onclick', `changePage(this.name)`);
-        if (v_pageNum == 1) { leftButton.disabled = true; } // Can't go before page 1
+        if (v_pageNum == 1) {leftButton.disabled = true} // Can't go before page 1
         leftButton.className = 'c-paginationButton';
         pagination.appendChild(leftButton);
 
-        let rightButton = document.createElement('button');
+        rightButton = document.createElement('button');
         rightButton.innerHTML = s_rightButtonText; rightButton.id = 'c_rightButton'; rightButton.name = 'right';
         rightButton.setAttribute('onclick', `changePage(this.name)`);
-        if (v_pageNum == v_amountOfPages) { rightButton.disabled = true; } // Can't go after the last page
+        if (v_pageNum == v_amountOfPages) {rightButton.disabled = true} // Can't go after the last page
         rightButton.className = 'c-paginationButton';
         pagination.appendChild(rightButton);
 
@@ -366,8 +363,8 @@ function createComment(data) {
     // Get the right timestamps
     let timestamps = convertTimestamp(data.Timestamp);
     let timestamp;
-    if (s_longTimestamp) { timestamp = timestamps[0]; }
-    else { timestamp = timestamps[1]; }
+    if (s_longTimestamp) {timestamp = timestamps[0]}
+    else {timestamp = timestamps[1]}
 
     // Set the ID (uses Name + Full Timestamp format)
     const id = data.Name + '|--|' + data.Timestamp2;
@@ -376,7 +373,7 @@ function createComment(data) {
     // Name of user
     let name = document.createElement('h3');
     let filteredName = data.Name;
-    if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement); }
+    if (s_wordFilterOn) {filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)}
     name.innerText = filteredName;
     name.className = 'c-name';
     comment.appendChild(name);
@@ -399,7 +396,7 @@ function createComment(data) {
     // Text content
     let text = document.createElement('p');
     let filteredText = data.Text;
-    if (s_wordFilterOn) { filteredText = filteredText.replace(v_filteredWords, s_filterReplacement); }
+    if (s_wordFilterOn) {filteredText = filteredText.replace(v_filteredWords, s_filterReplacement)}
     text.innerText = filteredText;
     text.className = 'c-text';
     comment.appendChild(text);
@@ -413,7 +410,7 @@ function convertTimestamp(timestamp) {
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
     const timezoneDiff = (s_timezone * 60 + date.getTimezoneOffset()) * -1;
     let offsetDate = new Date(date.getTime() + timezoneDiff * 60 * 1000);
-    if (s_daylightSavings) { offsetDate = isDST(offsetDate); }
+    if (s_daylightSavings) {offsetDate = isDST(offsetDate)}
     return [offsetDate.toLocaleString(), offsetDate.toLocaleDateString()];
 }
 // DST checker
@@ -426,23 +423,23 @@ function isDST(date) {
     startDate = nthDayOfMonth(dstStart[1], dstStart[2], startDate, dstStart[3]).getTime();
     let endDate = new Date(year, dstEnd[0], 1);
     endDate = nthDayOfMonth(dstEnd[1], dstEnd[2], endDate, dstEnd[3]).getTime();
-    const time = date.getTime();
+    time = date.getTime();
 
-    if (time >= startDate && time < endDate) { date.setHours(date.getHours() - 1); }
+    if (time >= startDate && time < endDate) {date.setHours(date.getHours() - 1)}
     return date;
 }
 // Thank you to https://stackoverflow.com/questions/32192982/get-a-given-weekday-in-a-given-month-with-javascript for the below function
 function nthDayOfMonth(day, n, date, hour) {
-    let count = 0; 
-    let idate = new Date(date);                                                                                                                                                                       
-    idate.setDate(1);                                                                                                                                                                                
-    while (count < n) {                                                                                                                                                                           
+    var count = 0; 
+    var idate = new Date(date);                                                                                                       
+    idate.setDate(1);                                                                                                                 
+    while ((count) < n) {                                                                                                             
         idate.setDate(idate.getDate() + 1);
         if (idate.getDay() == day) {
-            count++;                                                                                                                                                                                 
-        }                                                                                                                                                                                            
+            count++;                                                                                                                      
+        }                                                                                                                               
     }
-    idate.setHours(hour);                                                                                                                                                                           
+    idate.setHours(hour);                                                                                                                    
     return idate;       
 }
 // Convert weekday and month names into numbers
@@ -498,8 +495,8 @@ function openReply(id) {
 // Handle expanding replies (should only be accessible with collapsed replies enabled)
 function expandReplies(id) {
     const targetDiv = document.getElementById(`${id}-replies`);
-    if (targetDiv.style.display == 'none') { targetDiv.style.display = 'block'; }
-    else { targetDiv.style.display = 'none'; }
+    if (targetDiv.style.display == 'none') {targetDiv.style.display = 'block'}
+    else {targetDiv.style.display = 'none'}
 }
 
 function changePage(dir) {
@@ -516,20 +513,20 @@ function changePage(dir) {
     let targetPage = v_pageNum + num;
 
     // Cancel if impossible direction for safety, should never happen though
-    if (targetPage > v_amountOfPages || targetPage < 1) { return; }
+    if (targetPage > v_amountOfPages || targetPage < 1) {return}
 
     // Enable/disable buttons if needed
     leftButton.disabled = false; rightButton.disabled = false;
-    if (targetPage == 1) { leftButton.disabled = true; } // Can't go before page 1
-    if (targetPage == v_amountOfPages) { rightButton.disabled = true; } // Can't go past the last page
+    if (targetPage == 1) {leftButton.disabled = true} // Can't go before page 1
+    if (targetPage == v_amountOfPages) {rightButton.disabled = true} // Can't go past the last page
 
     // Hide all comments and then display the correct ones
     v_pageNum = targetPage;
     v_commentMax = s_commentsPerPage * v_pageNum;
     v_commentMin = v_commentMax - s_commentsPerPage;
-    for (let i = 0; i < a_commentDivs.length; i++) {
+    for (i = 0; i < a_commentDivs.length; i++) {
         a_commentDivs[i].style.display = 'none';
-        if (i >= v_commentMin && i < v_commentMax) { a_commentDivs[i].style.display = 'block'; }
+        if (i >= v_commentMin && i < v_commentMax) {a_commentDivs[i].style.display = 'block'}
     }
 }
 
