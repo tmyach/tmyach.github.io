@@ -71,7 +71,7 @@
     border-radius: 6px;
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(8px);
-    font-family: "regularbit", system-ui, sans-serif;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
     color: #111;
@@ -117,7 +117,7 @@
 /* social handles */
 
 .c-site {
-    font-family: "regularbit", system-ui, sans-serif;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.82rem;
     color: #1e3a8a;
     text-decoration: none;
@@ -166,14 +166,14 @@
     margin-bottom: 0.5rem;
 }
 .c-label {
-    font-family: "iso8", "Lacquer", cursive;
+    font-family: "kendiyaz", "Lacquer", cursive;
     font-size: 0.85rem;
     margin-bottom: 0.3rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 .c-input {
-    font-family: "regularbit", system-ui, sans-serif;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.9rem;
     padding: 0.4rem 0.5rem;
     border: 1px solid #000;
@@ -197,7 +197,7 @@
 
 /* reply notice */
 #c_replyingText {
-    font-family: "mademoiselle", cursive;
+    font-family: "mademoiselle", "Lacquer", cursive;
     font-size: 0.85rem;
     opacity: 0.7;
     text-align: right;
@@ -245,7 +245,7 @@
 
 /* meta rows */
 .c-name {
-    font-family: "mademoiselle", cursive;
+    font-family: "mademoiselle", "Lacquer", cursive;
     font-size: 1rem;
     margin: 0 0 0.2rem;
     color: #111;
@@ -258,7 +258,7 @@
     font-size: 0.9em;
 }
 .c-site {
-    font-family: "regularbit", system-ui, sans-serif;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.82rem;
     color: #1e3a8a;
     text-decoration: none;
@@ -270,7 +270,7 @@
     color: #000;
 }
 .c-timestamp {
-    font-family: "regularbit", system-ui, sans-serif;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.75rem;
     opacity: 0.6;
     color: #555;
@@ -279,7 +279,7 @@
 
 /* comment text */
 .c-text {
-    font-family: "iso8", serif;
+    font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
     font-size: 0.92rem;
     line-height: 1.65;
     color: #141414;
@@ -288,7 +288,7 @@
 }
 .c-text::first-letter {
     font-size: 1.4em;
-    font-family: "karenfat", "Sigmar", cursive;
+    font-family: "mademoiselle", "Lacquer", cursive;
     float: left;
     line-height: 0.8;
     margin-right: 0.2rem;
