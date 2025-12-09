@@ -69,7 +69,7 @@ color:#000;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 0; /* Sharp corners */
+  border-radius: 0;
 }
 
 .nav-link {
@@ -125,13 +125,13 @@ color:#000;
 /* mobile */
 @media (max-width: 768px) {
   .nav-toggle {
-    display: flex; /* Show menu button */
+    display: flex;
   }
 
   .nav-list {
-  position: relative;  /* Change from absolute */
-  top: 0;             /* Align to top */
-  z-index: 105;       /* Above other content */
+  position: relative;
+  top: 0;             
+  z-index: 105;      
   background: var(--card-bg);
   flex-direction: column;
   padding: 1rem 0;
@@ -146,7 +146,7 @@ color:#000;
   display: flex;
 }
 
-  /* Mobile menu items - button box style */
+  /* mobile */
   .nav-list li {
     width: 100%;
     margin: 0;
@@ -155,7 +155,7 @@ color:#000;
     border-top: none;
   }
 
-  /* DARK MODE */
+  /* dark mode */
   body.dark-mode .nav-list li,
   body.dark-mode .nav-toggle {
     background: var(--card-bg);
@@ -168,13 +168,12 @@ color:#000;
     border-color: var(--text);
   }
 
-  /* HAMBURGER -> X ANIMATION */
   .nav.open .nav-toggle span:nth-child(1) {
     color:#98cbcb;
   }
 
   .nav.open .nav-toggle span:nth-child(2) {
-    opacity: 0;
+    color:#98cbcb;
   }
 
   .nav.open .nav-toggle span:nth-child(3) {
@@ -230,7 +229,6 @@ body.dark-mode * {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* prevent image inversion */
 body.dark-mode img,
 body.dark-mode .logo-img,
 body.dark-mode .bird-img,
@@ -247,7 +245,6 @@ body.dark-mode .tv-frame {
   filter: brightness(1.1) !important;
 }
 
-/* footer style */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -267,7 +264,6 @@ body.dark-mode
   border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* small ui tweaks */
 body.dark-mode .content-header,
 body.dark-mode .threads,
 body.dark-mode .player,
@@ -308,7 +304,7 @@ body.dark-mode input[type="range"]::-webkit-slider-thumb {
   border-color: var(--accent) !important;
 }
 
-/* links and buttons */
+/* links...buttons */
 body.dark-mode .nav-link,
 body.dark-mode .theme-toggle {
   color: var(--text) !important;
@@ -323,7 +319,7 @@ body.dark-mode .nav-toggle span {
   background-color: var(--text) !important;
 }
 
-/* youtube box fix */
+/* youtube box */
 body.dark-mode .tv-container {
   filter: none !important;
 }
@@ -341,7 +337,7 @@ body.dark-mode #video-player * {
   color: inherit !important;
 }
 
-/* theme button */
+/* toggle button */
 .theme-toggle {
   margin-left: 0;
   padding: 0.4rem 0.6rem;
@@ -415,7 +411,7 @@ body {
   margin: 0.5rem 1.4rem;
 }
 
-/* logo bits */
+/* logo */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -518,14 +514,13 @@ body {
   line-height: 1.7;
 }
 
-/* italics style */
+/* italics */
 .italic {
   font-family: "iso8", "IBM Plex Serif", serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
 }
 
-/* image holder */
 .photo {
   display: flex;
   justify-content: center;
