@@ -304,3 +304,14 @@
     padding-top: 1rem;
     border-top: 1px solid rgba(0,0,0,0.1);
 }
+
+.c-name.owner {
+    color: #1e3a8a !important;
+    font-weight: 600 !important;
+    position: relative;
+}
+.c-name.owner::after {
+    content: " ✨ admin" !important;
+    font-size: 0.8em !important;
+    opacity: 0.7 !important;
+}
