@@ -166,7 +166,7 @@
     margin-bottom: 0.1rem; /* reduced vertical space */
 }
 .c-label {
-    font-family: "iso8", "Lacquer", cursive;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.85rem;
     margin-bottom: 0.1rem; /* minimal gap between label and input */
     text-transform: uppercase;
