@@ -314,7 +314,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(90deg, #ffe66d 0%, #fff7b0 100%);
+    background: linear-gradient(90deg, #93c5fd 0%, #dafcff 100%);
     padding: 4px 8px;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(255, 200, 0, 0.3);
