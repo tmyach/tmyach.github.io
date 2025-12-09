@@ -27,7 +27,7 @@ const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
 // admin
-let ADMIN_NAME = "Tesia"; // =
+let ADMIN_NAME = "🐦 Tesia (Admin)"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
