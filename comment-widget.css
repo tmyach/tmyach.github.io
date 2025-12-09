@@ -182,6 +182,7 @@
     background: #fff;
     color: #111;
     outline: none;
+    resize: vertical; 
 }
 .c-input:focus {
     border-color: #1e3a8a;
