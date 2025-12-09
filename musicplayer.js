@@ -6,8 +6,8 @@ let playerReady = false;
 // video list
 const videoIds = [
   "xFf809oDLdE",
-  "YeasVBuBCtU",
   "LGrca9EK_qQ", 
+  "fXmEJLMgY8M",
   "cCgxqqxE9Y0",
   "0clbtaXhtEw",
   "XfIVH3Q803c",
@@ -25,8 +25,8 @@ const videoIds = [
 // track titles
 const titles = [
   "Björk - It's Oh So Quiet",
-  "Saint Entienne - Only Love Can Break Your Heart",
   "Strange Boutique - Drown", 
+  "Björk - Play Dead",
   "Thievery Corporation - 33 Degree",
   "Eyedea & Abilities - Red Wiped in Blue",
   "Doctor Becket, El Da Sensei, P Original - Funky",
