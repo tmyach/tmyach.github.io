@@ -17,7 +17,7 @@
 */
 
 // REQUIRED - Your Google Form/Sheet IDs (these look correct)
-const s_stylePath = 'comment-widget-dark.css';
+const s_stylePath = 'comment-widget.css';
 const s_formId = '1FAIpQLSdK-CI3gjpds1gX3T95ICc9O72AUV-adu49dK0urB0jm8lgXw';
 const s_nameId = '598454482';
 const s_websiteId = '204709470';
