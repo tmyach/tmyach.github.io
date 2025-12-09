@@ -166,14 +166,14 @@
     margin-bottom: 0.5rem;
 }
 .c-label {
-    font-family: "kendiyaz", "Lacquer", cursive;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
     font-size: 0.85rem;
     margin-bottom: 0.3rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 .c-input {
-    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
+    font-family: "kendiyaz", "lacquer", cursive;
     font-size: 0.9rem;
     padding: 0.4rem 0.5rem;
     border: 1px solid #000;
