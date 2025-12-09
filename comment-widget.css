@@ -287,12 +287,12 @@
     position: relative;
 }
 .c-text::first-letter {
-    font-size: 1.4em;
     font-family: "mademoiselle", "Lacquer", cursive;
-    float: left;
-    line-height: 0.8;
-    margin-right: 0.2rem;
-    color: #1e3a8a;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #93c5fd;
+    margin-top: 0.6rem;
+    position: relative;
 }
 
 /* pagination */
