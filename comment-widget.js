@@ -51,7 +51,7 @@ const s_filteredWords = ['bitch'];
 // Text
 const s_widgetTitle = 'Leave a Comment in my Guestbook!';
 const s_nameFieldLabel = 'Name:';
-const s_websiteFieldLabel = 'Website/email/handle (Optional):';
+const s_websiteFieldLabel = 'Website/email/handle:';
 const s_textFieldLabel = 'Comment:';
 const s_submitButtonLabel = 'Submit';
 const s_loadingText = 'Loading comments...';
