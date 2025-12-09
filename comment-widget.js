@@ -271,7 +271,7 @@ async function getComments() {
     }
 
     try {
-        const adminUrl = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?tq=SELECT%20A%20LIMIT%201`;
+        const adminUrl = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?tq=SELECT%20A%20LIMIT%201%20OFFSET%201`;
         const adminData = await getSheet(adminUrl);
         const adminJson = JSON.parse(adminData.split('\n')[1].replace(/google.visualization.Query.setResponse\(|\);/g, ''));
         if (adminJson.table.rows?.[0]?.c?.[0]?.v) {
