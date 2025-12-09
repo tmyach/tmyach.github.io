@@ -26,11 +26,12 @@ const s_pageId = '132386639';
 const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
-// --- ADMIN SYSTEM (DISCREET BUTTON VERSION) ---
-let ADMIN_NAME = "Tesia (Admin)"; // ← CHANGE TO YOUR DISPLAY NAME
+// --- SECURE ADMIN SYSTEM (ANTI-IMPERSINATION) ---
+let ADMIN_NAME = "Tesia"; // ← CHANGE TO YOUR DISPLAY NAME
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
+let ADMIN_CODE = ""; // Hidden verification code
 
 // Fetch admin password from sheet A1 (silent background fetch)
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
@@ -96,7 +97,7 @@ const v_mainHtml = `
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
-    <!-- ADMIN LOGIN BUTTON (NEW) -->
+    <!-- ADMIN LOGIN BUTTON (SECURE) -->
     <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #007bff;">
         <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: #007bff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">🔐 Admin Login</button>
         <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
@@ -110,6 +111,12 @@ const v_formHtml = `
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
         <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
+    </div>
+
+    <!-- HIDDEN ADMIN CODE INPUT (ONLY VISIBLE WHEN LOGGED IN) -->
+    <div id="c_adminCodeWrapper" class="c-inputWrapper" style="display: none;">
+        <label class="c-label" for="c_adminCode">Admin Code:</label>
+        <input class="c-input" name="entry.123456789" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
     </div>
 
     <div id="c_textWrapper" class="c-inputWrapper">
@@ -142,36 +149,46 @@ let c_submitButton;
 if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton') }
 else { c_submitButton = document.createElement('button') }
 
-// --- ADMIN LOGIN FUNCTION (NEW) ---
+// --- SECURE ADMIN LOGIN (ANTI-IMPERSINATION) ---
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
-        // Already logged in - logout
+        // Logout
         ADMIN_STATUS = false;
         let nameInput = document.getElementById(`entry.${s_nameId}`);
+        let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
         nameInput.value = '';
         nameInput.readOnly = false;
+        adminCodeWrapper.style.display = 'none';
         document.getElementById('c_adminStatus').innerHTML = '';
-        document.getElementById('c_adminButton').innerHTML = '🔐 Login as Admin';
+        document.getElementById('c_adminButton').innerHTML = '🔐 Admin Login';
         alert('Logged out successfully.');
         return;
     }
     
     if (!ADMIN_PASSWORD) {
-        alert('Please wait...');
+        alert('Admin system not ready. Please wait...');
         return;
     }
     
     let password = prompt('Enter admin password:');
     if (password === ADMIN_PASSWORD) {
         ADMIN_STATUS = true;
+        ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9); // Unique code
+        
         let nameInput = document.getElementById(`entry.${s_nameId}`);
+        let adminCodeInput = document.getElementById('c_adminCode');
+        let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
+        
         nameInput.value = ADMIN_NAME;
         nameInput.readOnly = true;
-        document.getElementById('c_adminStatus').innerHTML = `Logged in as ${ADMIN_NAME}`;
-        document.getElementById('c_adminButton').innerHTML = 'Logout';
-        alert('✅ Admin login successful!');
+        adminCodeInput.value = ADMIN_CODE;
+        adminCodeWrapper.style.display = 'block';
+        
+        document.getElementById('c_adminStatus').innerHTML = `✅ Logged in as ${ADMIN_NAME}`;
+        document.getElementById('c_adminButton').innerHTML = '🚪 Logout';
+        alert('✅ Admin login successful! Hidden admin code activated.');
     } else if (password !== null) {
-        alert('❌ Wrong password');
+        alert('❌ Wrong password!');
         document.getElementById('c_adminStatus').innerHTML = '❌ Wrong password';
         setTimeout(() => document.getElementById('c_adminStatus').innerHTML = '', 3000);
     }
@@ -219,7 +236,7 @@ function getComments() {
     c_replyInput.value = '';
 
     if (s_commentsOpen) {
-        // Don't clear name if admin is logged in
+        // Don't clear name or admin code if admin is logged in
         if (!ADMIN_STATUS) {
             document.getElementById(`entry.${s_nameId}`).value = '';
             document.getElementById(`entry.${s_websiteId}`).value = '';
@@ -395,8 +412,9 @@ function createComment(data) {
     name.innerText = filteredName;
     name.className = 'c-name';
     
-    // Admin highlight
-    if (filteredName === ADMIN_NAME) {
+    // SECURE HIGHLIGHT - ONLY if name matches AND admin code exists in sheet
+    const adminCodeCol = data['Admin Code']; // ← This column must exist in your Google Form responses
+    if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
       name.classList.add(ADMIN_CSS_CLASS);
     }
     
