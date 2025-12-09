@@ -161,17 +161,18 @@
 
 /* input layout */
 .c-inputWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.1rem; /* reduced vertical space */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
 }
 .c-label {
-    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
-    font-size: 0.85rem;
-    margin-bottom: 0.1rem; /* minimal gap between label and input */
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-family: "regularbit", "ibm plex sans", system-ui, sans-serif;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
+
 .c-input {
     font-family: "kendiyaz", "lacquer", cursive;
     font-size: 0.9rem;
