@@ -26,14 +26,14 @@ const s_pageId = '132386639';
 const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
-// --- SECURE ADMIN SYSTEM (ANTI-IMPERSINATION) ---
-let ADMIN_NAME = "Tesia"; // ← CHANGE TO YOUR DISPLAY NAME
+// admin
+let ADMIN_NAME = "Tesia"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
 let ADMIN_CODE = ""; // Hidden verification code
 
-// Fetch admin password from sheet A1 (silent background fetch)
+// 
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
   .then(r => r.text())
   .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
@@ -97,7 +97,7 @@ const v_mainHtml = `
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
-    <!-- ADMIN LOGIN BUTTON (SECURE) -->
+    <!-- admin login button -->
     <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #007bff;">
         <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: #007bff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">🔐 Admin Login</button>
         <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
@@ -113,10 +113,10 @@ const v_formHtml = `
         <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or jeandoe@email.com or https://url.com ... p.s. This information will not be displayed publicly!" maxlength="100">
     </div>
 
-    <!-- HIDDEN ADMIN CODE INPUT (ONLY VISIBLE WHEN LOGGED IN) -->
+    <!-- admin input -->
     <div id="c_adminCodeWrapper" class="c-inputWrapper" style="display: none;">
         <label class="c-label" for="c_adminCode">Admin Code:</label>
-        <input class="c-input" name="entry.123456789" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
+        <input class="c-input" name="entry.ecLc9^%*L%FKdE" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
     </div>
 
     <div id="c_textWrapper" class="c-inputWrapper">
@@ -149,7 +149,7 @@ let c_submitButton;
 if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton') }
 else { c_submitButton = document.createElement('button') }
 
-// --- SECURE ADMIN LOGIN (ANTI-IMPERSINATION) ---
+// --- login ---
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
         // Logout
@@ -406,16 +406,21 @@ function createComment(data) {
     const id = data.Name + '|--|' + data.Timestamp2;
     comment.id = id;
 
-    let name = document.createElement('h3');
+    let name;
     let filteredName = data.Name;
     if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement) }
-    name.innerText = filteredName;
-    name.className = 'c-name';
     
-    // SECURE HIGHLIGHT - ONLY if name matches AND admin code exists in sheet
-    const adminCodeCol = data['Admin Code']; // ← This column must exist in your Google Form responses
+    // separate div
+    const adminCodeCol = data['Admin Code']; 
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
-      name.classList.add(ADMIN_CSS_CLASS);
+        name = document.createElement('h3');
+        name.innerText = filteredName;
+        name.className = 'c-adminName';
+        name.title = 'Tesia (Admin)';
+    } else {
+        name = document.createElement('h3');
+        name.innerText = filteredName;
+        name.className = 'c-name';
     }
     
     comment.appendChild(name);
@@ -443,7 +448,7 @@ function createComment(data) {
     return comment;
 }
 
-// Time conversion functions (unchanged)
+// Timestamp conversion
 function convertTimestamp(timestamp) {
     const vals = timestamp.split('(')[1].split(')')[0].split(',');
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
@@ -498,7 +503,7 @@ function getMonthNum(month) {
     return ['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(m);
 }
 
-// Reply + pagination (unchanged)
+// Reply + pagination
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
 
