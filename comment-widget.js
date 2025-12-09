@@ -110,7 +110,7 @@ const v_formHtml = `
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
+        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or jeandoe@email.com or https://url.com ... p.s. This information will not be displayed publicly!" maxlength="100">
     </div>
 
     <!-- HIDDEN ADMIN CODE INPUT (ONLY VISIBLE WHEN LOGGED IN) -->
