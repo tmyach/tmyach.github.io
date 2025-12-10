@@ -384,6 +384,67 @@ body.dark-mode .theme-toggle {
   }
 }
 
+/* dark mode comments widget */
+body.dark-mode #c_widget * {
+    color: #fafafa !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .c-text {
+    color: #fafafa !important;
+    background: transparent !important;
+}
+
+body.dark-mode .c-name, 
+body.dark-mode .c-adminName {
+    color: #fafafa !important;
+}
+
+body.dark-mode #c_widgetTitle {
+    color: #fafafa !important;
+}
+
+body.dark-mode .c-timestamp {
+    color: #b2b2b9 !important;
+}
+
+body.dark-mode .c-input, 
+body.dark-mode textarea.c-input {
+    background: #1a1a1a !important;
+    color: #fafafa !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .c-label {
+    color: #e5e5e7 !important;
+}
+
+body.dark-mode .c-replyButton, 
+body.dark-mode .c-expandButton, 
+body.dark-mode .c-paginationButton,
+body.dark-mode #c_submitButton, 
+body.dark-mode #c_adminButton {
+    background: #2a2a2a !important;
+    color: #fafafa !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode #c_adminLogin {
+    background: #1a1a1a !important;
+    border-left-color: #93c5fd !important; /* matches your --accent */
+}
+
+body.dark-mode #c_adminCode {
+    background: #2a2a2a !important;
+    color: #93c5fd !important;
+}
+
+/* Admin highlight stays visible in dark mode */
+body.dark-mode .c-adminName {
+    background: linear-gradient(90deg, #ff9f0a, #ffbd33) !important;
+    color: #1d1d1f !important;
+}
+
 html,
 body {
   margin: 0;
