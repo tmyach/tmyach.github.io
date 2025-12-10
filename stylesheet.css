@@ -584,11 +584,14 @@ body {
   line-height: 1.7;
 }
 
-/* italics */
-.italic {
+/* quote with border */
+.quote {
   font-family: "iso8", "IBM Plex Serif", serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: clamp(1rem, 5vw, 1.6rem);
 }
 
 .photo {
