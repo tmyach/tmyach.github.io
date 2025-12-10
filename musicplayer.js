@@ -123,7 +123,7 @@ function onPlayerStateChange(event) {
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    playpauseBtn.textContent = "⏸";
+    playpauseBtn.textContent = "❚❚";
     if (!timer) timer = setInterval(updateTime, 1000);
   } else {
     playpauseBtn.textContent = "▶";
