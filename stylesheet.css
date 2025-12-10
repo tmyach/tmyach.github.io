@@ -586,6 +586,7 @@ body {
 
 /* quote with border */
 .quote {
+  transform: rotate(15deg);
   font-family: "iso8", "IBM Plex Serif", serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
