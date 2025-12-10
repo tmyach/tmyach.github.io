@@ -184,12 +184,12 @@ function tryAdminLogin() {
         adminCodeInput.value = ADMIN_CODE;
         adminCodeWrapper.style.display = 'block';
         
-        document.getElementById('c_adminStatus').innerHTML = `✅ Logged in as ${ADMIN_NAME}`;
-        document.getElementById('c_adminButton').innerHTML = '🚪 Logout';
-        alert('✅ Admin login successful! Hidden admin code activated.');
+        document.getElementById('c_adminStatus').innerHTML = `Logged in as ${ADMIN_NAME}`;
+        document.getElementById('c_adminButton').innerHTML = 'Logout';
+        alert('✅ Admin login successful!');
     } else if (password !== null) {
         alert('❌ Wrong password!');
-        document.getElementById('c_adminStatus').innerHTML = '❌ Wrong password';
+        document.getElementById('c_adminStatus').innerHTML = '❌ Wrong password!';
         setTimeout(() => document.getElementById('c_adminStatus').innerHTML = '', 3000);
     }
 }
