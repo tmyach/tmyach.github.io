@@ -589,9 +589,9 @@ body {
   font-family: "iso8", "IBM Plex Serif", serif;
   font-style: italic;
   font-size: clamp(0.9rem, 3vw, 0.96rem);
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: clamp(1rem, 5vw, 1.6rem);
+  border: 1px dotted #000;
+  padding: clamp(.5rem, 3vw, 1rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .photo {
