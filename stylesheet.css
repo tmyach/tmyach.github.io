@@ -592,7 +592,7 @@ body {
   font-size: clamp(0.9rem, 3vw, 0.96rem);
   border: 1px dotted #000;
   padding: clamp(.5rem, 3vw, 1rem);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3)
 }
 
 .photo {
