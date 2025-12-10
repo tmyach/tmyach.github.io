@@ -441,7 +441,7 @@ body.dark-mode #c_adminCode {
 
 /* Admin highlight stays visible in dark mode */
 body.dark-mode .c-adminName {
-    background: linear-gradient(90deg, #ff9f0a, #ffbd33) !important;
+    background: linear-gradient(90deg, #93c5fd 0%, #ffdae581 100%) !important;
     color: #1d1d1f !important;
 }
 
