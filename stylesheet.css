@@ -544,6 +544,13 @@ body {
   margin-bottom: 1.4rem;
 }
 
+h1 {
+  font-family: "karenfat", "Sigmar", cursive;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  margin: 0 0 0.6rem;
+  line-height: 1.1;
+}
+
 /* big title */
 .page-title {
   font-family: "karenfat", "Sigmar", cursive;
