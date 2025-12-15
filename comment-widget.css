@@ -92,15 +92,16 @@
     text-transform: lowercase !important;
     white-space: nowrap !important;
     font-family: "regularbit", system-ui, sans-serif !important;
-    cursor: pointer !important;
     pointer-events: auto !important;
+    cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), default;
+}
 }
 
 
 #c_widget button[disabled],
 #c_widget input[type=submit][disabled] {
     opacity: 0.6 !important;
-    cursor: not-allowed !important;
+    cursor: url('GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), default;
     pointer-events: none !important;
 }
 
