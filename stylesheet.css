@@ -12,76 +12,92 @@
 }
 
 
+/* global cursors */
+
 /* default */
-* {
-  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), auto;
+*, html, body {
+  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), default !important;
 }
 
-/* input */
-button, input[type="button"], input[type="submit"] {
-  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), default;
+/* links */
+a, a *, [role="link"] {
+  cursor: url('cursor/GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
+}
+a:hover, a *:hover {
+  cursor: url('cursor/GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 
-/* hover select */
-*:hover {
+/* buttons (poll music guestbook etc) */
+button, input[type="button"], input[type="submit"], input[type="reset"],
+label[for], .btn, .poll-button, .music-player button, .guestbook button,
+[role="button"] {
   cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
-a:hover {
-  cursor: url('cursor/GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer; 
+button:hover, input[type="button"]:hover, [role="button"]:hover {
+  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 
 /* text select */
-*::selection, ::selection {
+p, div, span, article, section, h1, h2, h3, h4, h5, h6 {
   cursor: url('cursor/GoofyWhiteTextSelect-ezgif.com-ani-to-gif-converter.gif'), text;
 }
-
-/* active */
-*:active {
-  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
+p:active, div:active, span:active {
+  cursor: url('cursor/GoofyWhiteTextSelect-ezgif.com-ani-to-gif-converter.gif'), text !important;
 }
-
-/* unavailable */
-[disabled], [aria-disabled="true"] {
-  cursor: url('cursor/GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), not-allowed;
-}
-
-/* resize vertical/horizontal */
-*:vertical, [style*="resize: vertical"] {
-  cursor: url('cursor/GoofyWhiteResizeVertical-ezgif.com-ani-to-gif-converter.gif'), ns-resize;
-}
-*:horizontal, [style*="resize: horizontal"] {
-  cursor: url('cursor/GoofyWhiteResizeHorizontal-ezgif.com-ani-to-gif-converter.gif'), ew-resize;
-}
-
-/* diagonals */
-[nwse-resize], [style*="nwse-resize"] {
-  cursor: url('cursor/GoofyWhiteResizeNWSE-ezgif.com-ani-to-gif-converter.gif'), nwse-resize;
-}
-[nesw-resize], [style*="nesw-resize"] {
-  cursor: url('cursor/GoofyWhiteResizeNESW-ezgif.com-ani-to-gif-converter.gif'), nesw-resize;
-}
-
-/* move/drag */
-*:grabbing, .draggable:active {
-  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grabbing;
-}
-.draggable {
-  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grab;
-}
-
-/* help */
-[title], .help {
-  cursor: url('cursor/GoofyWhiteHelpSelect-ezgif.com-ani-to-gif-converter.gif'), help;
-}
-
-/* pointer equiv for inputs */
 input, textarea {
   cursor: url('cursor/GoofyWhiteHandwriting-ezgif.com-ani-to-gif-converter.gif'), text;
 }
 
-/* busy/loading */
-body.loading * {
-  cursor: url('cursor/GoofyWhiteWorking-ezgif.com-ani-to-gif-converter.gif'), wait;
+/* disabled */
+[disabled], [aria-disabled="true"], .disabled {
+  cursor: url('cursor/GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), not-allowed !important;
+}
+
+/* help */
+[title]:hover::after, .help, [aria-describedby]:hover {
+  cursor: url('cursor/GoofyWhiteHelpSelect-ezgif.com-ani-to-gif-converter.gif'), help;
+}
+
+/* resize */
+[style*="resize: vertical"], .resize-vertical {
+  cursor: url('cursor/GoofyWhiteResizeVertical-ezgif.com-ani-to-gif-converter.gif'), ns-resize !important;
+}
+[style*="resize: horizontal"], .resize-horizontal {
+  cursor: url('cursor/GoofyWhiteResizeHorizontal-ezgif.com-ani-to-gif-converter.gif'), ew-resize !important;
+}
+[nwse-resize="true"], .resize-nwse {
+  cursor: url('cursor/GoofyWhiteResizeNWSE-ezgif.com-ani-to-gif-converter.gif'), nwse-resize !important;
+}
+[nesw-resize="true"], .resize-nesw {
+  cursor: url('cursor/GoofyWhiteResizeNESW-ezgif.com-ani-to-gif-converter.gif'), nesw-resize !important;
+}
+
+/* drag move */
+.draggable, [draggable="true"] {
+  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grab;
+}
+.draggable:active, [draggable="true"]:active, *:grabbing {
+  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grabbing !important;
+}
+
+/* precision */
+.precision-mode *, .precision-select {
+  cursor: url('cursor/GoofyWhitePrecisionSelect-ezgif.com-ani-to-gif-converter.gif'), crosshair;
+}
+
+/* loading */
+body.loading *, body.wait * {
+  cursor: url('cursor/GoofyWhiteWorking-ezgif.com-ani-to-gif-converter.gif'), wait !important;
+}
+
+/* highlight */
+*::selection {
+  background: #1e90ff !important;
+  color: #ffffff !important;
+}
+*::-moz-selection {
+  background: #1e90ff !important;
+  color: #ffffff !important;
 }
 
 *,
