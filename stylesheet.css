@@ -352,7 +352,6 @@ input {
   color: var(--text);
   text-decoration: none;
   display: block;
-  padding: 0.2rem 0.4rem;
 }
 
 /* toggle button */
