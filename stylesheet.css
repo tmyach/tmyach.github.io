@@ -18,64 +18,64 @@
 
 /* hover select */
 *:hover {
-  cursor: url('GoofyWhitePrecisionSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
+  cursor: url('cursor/GoofyWhitePrecisionSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 a:hover {
-  cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer; 
+  cursor: url('cursor/GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer; 
 }
 
 /* text select */
 *::selection, ::selection {
-  cursor: url('GoofyWhiteTextSelect-ezgif.com-ani-to-gif-converter.gif'), text;
+  cursor: url('cursor/GoofyWhiteTextSelect-ezgif.com-ani-to-gif-converter.gif'), text;
 }
 
 /* active */
 *:active {
-  cursor: url('GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
+  cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 
 /* unavailable */
 [disabled], [aria-disabled="true"] {
-  cursor: url('GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), not-allowed;
+  cursor: url('cursor/GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), not-allowed;
 }
 
 /* resize vertical/horizontal */
 *:vertical, [style*="resize: vertical"] {
-  cursor: url('GoofyWhiteResizeVertical-ezgif.com-ani-to-gif-converter.gif'), ns-resize;
+  cursor: url('cursor/GoofyWhiteResizeVertical-ezgif.com-ani-to-gif-converter.gif'), ns-resize;
 }
 *:horizontal, [style*="resize: horizontal"] {
-  cursor: url('GoofyWhiteResizeHorizontal-ezgif.com-ani-to-gif-converter.gif'), ew-resize;
+  cursor: url('cursor/GoofyWhiteResizeHorizontal-ezgif.com-ani-to-gif-converter.gif'), ew-resize;
 }
 
 /* diagonals */
 [nwse-resize], [style*="nwse-resize"] {
-  cursor: url('GoofyWhiteResizeNWSE-ezgif.com-ani-to-gif-converter.gif'), nwse-resize;
+  cursor: url('cursor/GoofyWhiteResizeNWSE-ezgif.com-ani-to-gif-converter.gif'), nwse-resize;
 }
 [nesw-resize], [style*="nesw-resize"] {
-  cursor: url('GoofyWhiteResizeNESW-ezgif.com-ani-to-gif-converter.gif'), nesw-resize;
+  cursor: url('cursor/GoofyWhiteResizeNESW-ezgif.com-ani-to-gif-converter.gif'), nesw-resize;
 }
 
 /* move/drag */
 *:grabbing, .draggable:active {
-  cursor: url('GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grabbing;
+  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grabbing;
 }
 .draggable {
-  cursor: url('GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grab;
+  cursor: url('cursor/GoofyWhiteMove-ezgif.com-ani-to-gif-converter.gif'), grab;
 }
 
 /* help */
 [title], .help {
-  cursor: url('GoofyWhiteHelpSelect-ezgif.com-ani-to-gif-converter.gif'), help;
+  cursor: url('cursor/GoofyWhiteHelpSelect-ezgif.com-ani-to-gif-converter.gif'), help;
 }
 
 /* pointer equiv for inputs */
 input, textarea {
-  cursor: url('GoofyWhiteHandwriting-ezgif.com-ani-to-gif-converter.gif'), text;
+  cursor: url('cursor/GoofyWhiteHandwriting-ezgif.com-ani-to-gif-converter.gif'), text;
 }
 
 /* busy/loading */
 body.loading * {
-  cursor: url('GoofyWhiteWorking-ezgif.com-ani-to-gif-converter.gif'), wait;
+  cursor: url('cursor/GoofyWhiteWorking-ezgif.com-ani-to-gif-converter.gif'), wait;
 }
 
 *,
