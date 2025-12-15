@@ -346,6 +346,7 @@ body.dark-mode #video-player * {
   color: inherit !important;
 }
 
+/* poll stuff */
 input {
   font-family: regularbit, IBM Plex Sans, system-ui, sans-serif;
   background: var(--card-bg);
@@ -353,6 +354,102 @@ input {
   text-decoration: none;
   display: block;
 }
+
+.poll-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  width: 175px;
+  font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
+  font-size: small;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+}
+
+.poll-header {
+  padding: 2px 0 8px 2px;
+  font-weight: bold;
+}
+
+.poll-option {
+  display: block;
+  padding: 4px 2px;
+  cursor: pointer;
+  clear: both;
+}
+
+.poll-option input[type="radio"] {
+  float: left;
+  margin-right: 8px;
+}
+
+.poll-buttons {
+  text-align: center;
+  padding: 8px 3px;
+}
+
+.poll-buttons input[type="submit"] {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 4px 8px;
+  margin: 0 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: inherit;
+}
+
+.poll-footer {
+  text-align: right;
+  font-size: 10px;
+  padding: 4px 2px 2px;
+}
+
+/* dark mode */
+body.dark-mode .poll-container {
+  background: rgba(20, 20, 20, 0.95) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .poll-header {
+  color: #fff !important;
+}
+
+body.dark-mode .poll-option {
+  color: #fff !important;
+}
+
+body.dark-mode .poll-buttons input[type="submit"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .poll-footer {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* hover */
+.poll-option:hover,
+body.dark-mode .poll-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .poll-option:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.poll-buttons input[type="submit"]:hover {
+  background: #000;
+  color: #fff;
+}
+
+body.dark-mode .poll-buttons input[type="submit"]:hover {
+  background: #fff !important;
+  color: #000 !important;
+}
+
 
 /* toggle button */
 .theme-toggle {
