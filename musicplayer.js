@@ -1,5 +1,3 @@
-/* full javascript - replace your musicplayer.js + menu.js + shuffle */
-
 var player, miniPlayer;
 let currentTrack = 0;
 let playerReady = false;
@@ -43,53 +41,15 @@ const titles = [
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
-  // theme toggle
-  const toggleBtn = document.getElementById('theme-toggle');
-  const storedTheme = localStorage.getItem('theme');
-
-  if (storedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleBtn.textContent = 'light mode';
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark-mode');
-      toggleBtn.textContent = isDark ? 'light mode' : 'dark mode';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-  }
-
-  // nav menu - fixed hamburger
-  const nav = document.querySelector(".nav");
-  const navToggle = document.querySelector(".nav-toggle");
-
-  if (nav && navToggle) {
-    navToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      nav.classList.toggle("open");
-    });
-  }
-
-  document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      nav?.classList.remove("open");
-    });
-  });
-
-  // year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
   // mini player collapse
   const miniPlayerContainer = document.getElementById('mini-player');
-  const collapseBtn = document.getElementById('collapse-btn');
+  const miniCollapseBtn = document.getElementById('mini-collapse');
   
-  if (collapseBtn && miniPlayerContainer) {
-    collapseBtn.addEventListener('click', (e) => {
+  if (miniCollapseBtn && miniPlayerContainer) {
+    miniCollapseBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      miniPlayerContainer.classList.toggle('collapsed');
-      collapseBtn.textContent = miniPlayerContainer.classList.contains('collapsed') ? '+' : '−';
+      miniPlayerContainer.classList.toggle('minimized');
+      miniCollapseBtn.textContent = miniPlayerContainer.classList.contains('minimized') ? '+' : '−';
     });
   }
 
@@ -149,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   // shuffle title
-  if ($ && $('#shuffle-title').length) {
+  if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
     $('#shuffle-title').ShuffleText([
       "Hello!",
       "sudo apt-get install sl && sl 🚂💨",
@@ -326,7 +286,7 @@ function prevTrack() {
   updateTrackInfo();
 }
 
-// shuffle text plugin (unchanged)
+// shuffle text plugin
 (function($) {
   $.fn.ShuffleText = function(strings, options) {
     function striphtml(html) {
