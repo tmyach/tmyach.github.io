@@ -1069,13 +1069,13 @@ h1 {
 }
 
 .mini-track-title {
-  font-size: 0.55rem;
+  font-size: 1rem;
   text-align: center;
   color: var(--player-text);
   line-height: 1.1;
   max-height: 28px;
   overflow: hidden;
-  font-family: "mademoiselle", "Meddon", cursive;
+  font-family: "iso8", "IBM Plex Serif", serif;
 }
 
 .mini-controls {
