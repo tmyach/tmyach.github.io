@@ -75,7 +75,7 @@ input, textarea {
 
 /* busy/loading */
 body.loading * {
-  cursor: url('GoofyWhiteWorking-ezgif.com-ani-to-gif-converter'), wait;
+  cursor: url('GoofyWhiteWorking-ezgif.com-ani-to-gif-converter.gif'), wait;
 }
 
 *,
