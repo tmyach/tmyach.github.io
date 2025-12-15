@@ -514,7 +514,42 @@ body {
   padding: clamp(0.8rem, 4vw, 1.3rem);
 }
 
-/* big frame */
+/* full-width text container */
+.full-frame {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid #000;
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.full-frame-content {
+  width: 100%;
+  max-width: none; 
+  padding: 0;
+  margin: 0;
+  line-height: 1.7;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+/* dark mode */
+body.dark-mode .full-frame {
+  background-color: var(--card-bg) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* mobile */
+@media (max-width: 720px) {
+  .full-frame {
+    margin: 0 0 1.6rem;
+    padding: 1rem;
+  }
+}
+
 .frame {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
