@@ -1024,7 +1024,7 @@ h1 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 80px;
+  width: 200px;
   height: 120px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
@@ -1036,7 +1036,7 @@ h1 {
   flex-direction: column;
   gap: 4px;
   z-index: 9999;
-  font-family: "mademoiselle", "Meddon", cursive;
+  font-family: "iso8", "IBM Plex Serif", serif;
 }
 
 .mini-tv {
