@@ -21,7 +21,7 @@
   cursor: url('GoofyWhitePrecisionSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 a:hover {
-  cursor: url('GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer; 
+  cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer; 
 }
 
 /* text select */
@@ -29,9 +29,9 @@ a:hover {
   cursor: url('GoofyWhiteTextSelect-ezgif.com-ani-to-gif-converter.gif'), text;
 }
 
-/* active/click */
+/* active */
 *:active {
-  cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
+  cursor: url('GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), pointer;
 }
 
 /* unavailable */
