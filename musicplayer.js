@@ -1,9 +1,10 @@
-/* full javascript - replace your musicplayer.js + menu.js combined */
+/* full javascript - replace your musicplayer.js + menu.js + shuffle */
 
 var player, miniPlayer;
 let currentTrack = 0;
 let playerReady = false;
 let miniPlayerReady = false;
+let timer;
 
 const videoIds = [
   "xFf809oDLdE",
@@ -51,18 +52,20 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleBtn.textContent = 'light mode';
   }
 
-  toggleBtn.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    toggleBtn.textContent = isDark ? 'light mode' : 'dark mode';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = isDark ? 'light mode' : 'dark mode';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
 
-  // nav menu
+  // nav menu - fixed hamburger
   const nav = document.querySelector(".nav");
-  const toggle = document.querySelector(".nav-toggle");
+  const navToggle = document.querySelector(".nav-toggle");
 
-  if (nav && toggle) {
-    toggle.addEventListener("click", (e) => {
+  if (nav && navToggle) {
+    navToggle.addEventListener("click", (e) => {
       e.preventDefault();
       nav.classList.toggle("open");
     });
@@ -74,19 +77,112 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // year
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // mini player collapse
+  const miniPlayerContainer = document.getElementById('mini-player');
+  const collapseBtn = document.getElementById('collapse-btn');
+  
+  if (collapseBtn && miniPlayerContainer) {
+    collapseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      miniPlayerContainer.classList.toggle('collapsed');
+      collapseBtn.textContent = miniPlayerContainer.classList.contains('collapsed') ? '+' : '−';
+    });
+  }
+
+  // main player controls
+  const playpauseBtn = document.getElementById("playpause-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const prevBtn = document.getElementById("prev-btn");
+  const slider = document.getElementById("slider");
+
+  if (playpauseBtn) {
+    playpauseBtn.addEventListener("click", function() {
+      if (player && playerReady) {
+        if (player.getPlayerState() === 1) {
+          player.pauseVideo();
+        } else {
+          player.playVideo();
+        }
+      }
+    });
+  }
+
+  if (nextBtn) nextBtn.addEventListener("click", nextTrack);
+  if (prevBtn) prevBtn.addEventListener("click", prevTrack);
+  
+  if (slider) {
+    slider.addEventListener("input", function() {
+      if (player && playerReady) {
+        player.seekTo(parseFloat(this.value), true);
+      }
+    });
+  }
+
+  // mini player controls
+  const miniPlaypauseBtn = document.getElementById("mini-playpause-btn");
+  const miniNextBtn = document.getElementById("mini-next-btn");
+  const miniPrevBtn = document.getElementById("mini-prev-btn");
+
+  if (miniPlaypauseBtn) {
+    miniPlaypauseBtn.addEventListener("click", function() {
+      if (miniPlayer && miniPlayerReady) {
+        if (miniPlayer.getPlayerState() === 1) {
+          miniPlayer.pauseVideo();
+        } else {
+          miniPlayer.playVideo();
+        }
+      }
+    });
+  }
+
+  if (miniNextBtn) miniNextBtn.addEventListener("click", nextTrack);
+  if (miniPrevBtn) miniPrevBtn.addEventListener("click", prevTrack);
 
   // load yt api
   const tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   const firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // shuffle title
+  if ($ && $('#shuffle-title').length) {
+    $('#shuffle-title').ShuffleText([
+      "Hello!",
+      "sudo apt-get install sl && sl 🚂💨",
+      "That's not even funny, man!",
+      "Transmitting live with the hardcore style!",
+      "Pueblo unido, jamás será vencido.",
+      "Born to CSS, forced to VANILLA JAVASCRIPT!!!",
+      "T.M. Yachimovicz",
+      "It's a Casio on a plastic beach!",
+      "Nonagon infinity opens the door!",
+      "Has it trickled down yet?",
+      "Well I can comprehend these manmade horrors perfectly fine so idk maybe you have a skill issue or smth",
+      "Forty six and two are just ahead of me!",
+      "Makin' snacks on wax plates for DJs to scratch!",
+      "Don't these talking monkeys know that Eden has enough to go around?",
+      "You know the business!",
+      "Keep it live!",
+      "Let's mosey!",
+      "I'm the thirty three degree!",
+    ], {
+      loop: true,
+      delay: 10000,
+      iterations: 60,
+      shuffleSpeed: 25
+    });
+  }
 });
 
 // youtube players
 function onYouTubeIframeAPIReady() {
-  // main player
-  if (document.getElementById('video-player')) {
+  // main player (if exists)
+  const mainPlayerEl = document.getElementById('video-player');
+  if (mainPlayerEl) {
     player = new YT.Player('video-player', {
       height: '42',
       width: '68',
@@ -110,8 +206,9 @@ function onYouTubeIframeAPIReady() {
     });
   }
   
-  // mini player
-  if (document.getElementById('mini-video-player')) {
+  // mini player (if exists)
+  const miniPlayerEl = document.getElementById('mini-video-player');
+  if (miniPlayerEl) {
     miniPlayer = new YT.Player('mini-video-player', {
       height: '34',
       width: '54',
@@ -152,11 +249,11 @@ function onPlayerStateChange(event) {
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    playpauseBtn.textContent = "❚❚";
+    if (playpauseBtn) playpauseBtn.textContent = "❚❚";
     if (timer) clearInterval(timer);
     timer = setInterval(updateTime, 1000);
   } else {
-    playpauseBtn.textContent = "▶";
+    if (playpauseBtn) playpauseBtn.textContent = "▶";
     if (timer) {
       clearInterval(timer);
       timer = null;
@@ -170,23 +267,28 @@ function onMiniPlayerStateChange(event) {
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    miniPlaypauseBtn.textContent = "❚❚";
+    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "❚❚";
   } else {
-    miniPlaypauseBtn.textContent = "▶";
+    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "▶";
   }
 }
 
-let timer;
 function updateTime() {
   if (player && playerReady) {
     const current = player.getCurrentTime();
     const duration = player.getDuration();
     
     if (!isNaN(current) && !isNaN(duration)) {
-      document.getElementById("slider").value = current;
-      document.getElementById("slider").max = duration;
-      document.getElementById("current-time").textContent = formatTime(current);
-      document.getElementById("duration").textContent = formatTime(duration);
+      const slider = document.getElementById("slider");
+      const currentTimeEl = document.getElementById("current-time");
+      const durationEl = document.getElementById("duration");
+      
+      if (slider) {
+        slider.value = current;
+        slider.max = duration;
+      }
+      if (currentTimeEl) currentTimeEl.textContent = formatTime(current);
+      if (durationEl) durationEl.textContent = formatTime(duration);
     }
   }
 }
@@ -202,6 +304,7 @@ function updateTrackInfo() {
   const info = document.getElementById("info");
   if (nowplaying) nowplaying.textContent = `playing ${currentTrack + 1} of ${videoIds.length}`;
   if (info) info.textContent = titles[currentTrack];
+  updateMiniTrackInfo();
 }
 
 function updateMiniTrackInfo() {
@@ -214,7 +317,6 @@ function nextTrack() {
   if (player && playerReady) player.loadVideoById(videoIds[currentTrack]);
   if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
   updateTrackInfo();
-  updateMiniTrackInfo();
 }
 
 function prevTrack() {
@@ -222,47 +324,9 @@ function prevTrack() {
   if (player && playerReady) player.loadVideoById(videoIds[currentTrack]);
   if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
   updateTrackInfo();
-  updateMiniTrackInfo();
 }
 
-// controls
-document.addEventListener('DOMContentLoaded', function() {
-  // main controls
-  document.getElementById("playpause-btn")?.addEventListener("click", function() {
-    if (player && playerReady) {
-      if (player.getPlayerState() === 1) {
-        player.pauseVideo();
-      } else {
-        player.playVideo();
-      }
-    }
-  });
-
-  document.getElementById("next-btn")?.addEventListener("click", nextTrack);
-  document.getElementById("prev-btn")?.addEventListener("click", prevTrack);
-  
-  document.getElementById("slider")?.addEventListener("input", function() {
-    if (player && playerReady) {
-      player.seekTo(parseFloat(this.value), true);
-    }
-  });
-
-  // mini controls
-  document.getElementById("mini-playpause-btn")?.addEventListener("click", function() {
-    if (miniPlayer && miniPlayerReady) {
-      if (miniPlayer.getPlayerState() === 1) {
-        miniPlayer.pauseVideo();
-      } else {
-        miniPlayer.playVideo();
-      }
-    }
-  });
-
-  document.getElementById("mini-next-btn")?.addEventListener("click", nextTrack);
-  document.getElementById("mini-prev-btn")?.addEventListener("click", prevTrack);
-});
-
-// shuffle title (unchanged)
+// shuffle text plugin (unchanged)
 (function($) {
   $.fn.ShuffleText = function(strings, options) {
     function striphtml(html) {
@@ -336,31 +400,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }, delay);
   }
 })(jQuery);
-
-document.addEventListener('DOMContentLoaded', function() {
-  $('#shuffle-title').ShuffleText([
-    "Hello!",
-    "sudo apt-get install sl && sl 🚂💨",
-    "That's not even funny, man!",
-    "Transmitting live with the hardcore style!",
-    "Pueblo unido, jamás será vencido.",
-    "Born to CSS, forced to VANILLA JAVASCRIPT!!!",
-    "T.M. Yachimovicz",
-    "It's a Casio on a plastic beach!",
-    "Nonagon infinity opens the door!",
-    "Has it trickled down yet?",
-    "Well I can comprehend these manmade horrors perfectly fine so idk maybe you have a skill issue or smth",
-    "Forty six and two are just ahead of me!",
-    "Makin' snacks on wax plates for DJs to scratch!",
-    "Don't these talking monkeys know that Eden has enough to go around?",
-    "You know the business!",
-    "Keep it live!",
-    "Let's mosey!",
-    "I'm the thirty three degree!",
-  ], {
-    loop: true,
-    delay: 10000,
-    iterations: 60,
-    shuffleSpeed: 25
-  });
-});
