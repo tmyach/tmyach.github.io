@@ -59,7 +59,7 @@
     height: 100%;
     overflow: auto;
     padding: 20px;
-    background-image: url('sparkle-bg.gif'); /* F2U background provided by https://sadgrl.online/webmastery/downloads/tiledbgs */
+    background-image: url('sparkle-bg.gif');
     background-attachment: fixed;
     font-family: 'Courier New';
     font-size: 16px;
@@ -79,11 +79,13 @@
 #c_widget button:hover, #c_widget input[type=submit]:hover {
     color: white;
     border: 1px solid #B766FF;
+    cursor: url('GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), default;
 }
 #c_widget button:disabled, #c_widget input[type=submit]:disabled {opacity: 60%;}
 #c_widget button:disabled:hover, #c_widget input[type=submit]:disabled:hover {
     color: #B766FF;
     border: 1px solid white;
+    
 }
 
 /* Input section */
@@ -126,6 +128,7 @@
     display: block; 
     margin-left: auto; 
     margin-right: 0;
+    cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), default;
 }
 #c_replyingText {
     color: white;
@@ -192,12 +195,15 @@
 .c-replyButton {
     margin-top: 10px;
     margin-right: 4px;
+    cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), default;
 }
 .c-expandButton {
     margin-top: 10px;
     margin-left: 4px;
+    cursor: url('GoofyWhitePrecisionSelect-ezgif.com-ani-to-gif-converter.gif'), default;
 }
 .c-paginationButton {
     margin-right: 4px;
     margin-left: 4px;
+    cursor: url('GoofyWhiteLinkSelect-ezgif.com-ani-to-gif-converter.gif'), default;
 }
