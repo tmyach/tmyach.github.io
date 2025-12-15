@@ -347,22 +347,15 @@ body.dark-mode #video-player * {
 }
 
 /* poll stuff */
-input {
-  font-family: regularbit, IBM Plex Sans, system-ui, sans-serif;
-  background: var(--card-bg);
-  color: var(--text);
-  text-decoration: none;
-  display: block;
-}
-
+/* poll styles - wider + no border (uses block border) */
 .poll-container {
   background: rgba(255, 255, 255, 0.95);
   padding: 12px;
-  width: 175px;
+  width: 100%; /* full block width */
   font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
   font-size: small;
   color: #000;
-  border: 1px solid #000;
+  /* no border - uses block border */
   border-radius: 4px;
   backdrop-filter: blur(8px);
 }
@@ -405,11 +398,11 @@ input {
   padding: 4px 2px 2px;
 }
 
-/* dark mode */
+/* dark mode - full invert */
 body.dark-mode .poll-container {
   background: rgba(20, 20, 20, 0.95) !important;
   color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  /* no border */
 }
 
 body.dark-mode .poll-header {
@@ -430,7 +423,7 @@ body.dark-mode .poll-footer {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* hover */
+/* hover states */
 .poll-option:hover,
 body.dark-mode .poll-option:hover {
   background: rgba(0, 0, 0, 0.05);
@@ -449,7 +442,6 @@ body.dark-mode .poll-buttons input[type="submit"]:hover {
   background: #fff !important;
   color: #000 !important;
 }
-
 
 /* toggle button */
 .theme-toggle {
