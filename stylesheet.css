@@ -1069,7 +1069,7 @@ h1 {
 }
 
 .mini-track-title {
-  font-size: 1rem;
+  font-size: 0.7rem;
   text-align: center;
   color: var(--player-text);
   line-height: 1.1;
