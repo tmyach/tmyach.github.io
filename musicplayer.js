@@ -285,16 +285,17 @@ document.addEventListener('DOMContentLoaded', function() {
     "Hello!",
     "sudo apt-get install sl && sl 🚂💨",
     "That's not even funny, man!",
-    "Transmitting live with the hardcore style!", 
+    "Transmitting live with the hardcore style!",
+    "Pueblo unido, jamás será vencido." 
     "Born to CSS, forced to VANILLA JAVASCRIPT!!!",
     "T.M. Yachimovicz",
     "It's a Casio on a plastic beach!",
     "Nonagon infinity opens the door!",
     "Has it trickled down yet?",
     "Well I can comprehend these manmade horrors perfectly fine so idk maybe you have a skill issue or smth",
-    "¡Ay <s>cabron!</s> Lebron!",
     "Forty six and two are just ahead of me!",
     "Makin' snacks on wax plates for DJs to scratch!",
+    "Don't these talking monkeys know that Eden has enough to go around?",
     "You know the business!",
     "Keep it live!",
     "Let's mosey!",
@@ -305,4 +306,99 @@ document.addEventListener('DOMContentLoaded', function() {
     iterations: 60,
     shuffleSpeed: 25
   });
+});
+
+// mini player vars
+let miniPlayer;
+let miniPlayerReady = false;
+
+// build mini player
+function onYouTubeIframeAPIReady() {
+  // original player if exists
+  if (document.getElementById('video-player')) {
+    player = new YT.Player('video-player', {
+      // ... your existing player config
+    });
+  }
+  
+  // always build mini player
+  miniPlayer = new YT.Player('mini-video-player', {
+    height: '34',
+    width: '54',
+    videoId: videoIds[0],
+    playerVars: {
+      'controls': 0,
+      'disablekb': 1,
+      'enablejsapi': 1,
+      'rel': 0,
+      'modestbranding': 2,
+      'showinfo': 0,
+      'playsinline': 1,
+      'fs': 0,
+      'iv_load_policy': 3,
+      'autohide': 0
+    },
+    events: {
+      'onReady': onMiniPlayerReady,
+      'onStateChange': onMiniPlayerStateChange
+    }
+  });
+}
+
+function onMiniPlayerReady(event) {
+  miniPlayerReady = true;
+  updateMiniTrackInfo();
+}
+
+function onMiniPlayerStateChange(event) {
+  const miniPlaypauseBtn = document.getElementById("mini-playpause-btn");
+  
+  if(event.data == YT.PlayerState.ENDED) {
+    nextTrack();
+  } else if(event.data == YT.PlayerState.PLAYING) {
+    miniPlaypauseBtn.textContent = "❚❚";
+  } else {
+    miniPlaypauseBtn.textContent = "▶";
+  }
+}
+
+function updateMiniTrackInfo() {
+  const miniTitle = document.getElementById("mini-track-title");
+  if (miniTitle) {
+    miniTitle.textContent = titles[currentTrack];
+  }
+}
+
+// sync both players
+function nextTrack() {
+  currentTrack = (currentTrack + 1) % videoIds.length;
+  if (player && playerReady) player.loadVideoById(videoIds[currentTrack]);
+  if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
+  updateTrackInfo();
+  updateMiniTrackInfo();
+}
+
+function prevTrack() {
+  currentTrack = (currentTrack - 1 + videoIds.length) % videoIds.length;
+  if (player && playerReady) player.loadVideoById(videoIds[currentTrack]);
+  if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
+  updateTrackInfo();
+  updateMiniTrackInfo();
+}
+
+// mini controls
+document.addEventListener('DOMContentLoaded', function() {
+  // mini controls
+  document.getElementById("mini-playpause-btn")?.addEventListener("click", function() {
+    if (miniPlayer && miniPlayerReady) {
+      if (miniPlayer.getPlayerState() === 1) {
+        miniPlayer.pauseVideo();
+      } else {
+        miniPlayer.playVideo();
+      }
+    }
+  });
+
+  document.getElementById("mini-next-btn")?.addEventListener("click", nextTrack);
+  document.getElementById("mini-prev-btn")?.addEventListener("click", prevTrack);
 });
