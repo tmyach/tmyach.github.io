@@ -375,6 +375,7 @@ body.dark-mode #video-player * {
 .poll-option input[type="radio"] {
   float: left;
   margin-right: 8px;
+  accent-color: coral;
 }
 
 .poll-buttons {
