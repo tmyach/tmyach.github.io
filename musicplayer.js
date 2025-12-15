@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "T.M. Yachimovicz",
     "It's a Casio on a plastic beach!",
     "Nonagon infinity opens the door!",
-    "Have the benefits of tax cuts trickled down yet??",
+    "Has it trickled down yet?",
     "Well I can comprehend these manmade horrors perfectly fine so idk maybe you have a skill issue or smth",
     "¡Ay <s>cabron!</s> Lebron!",
     "Forty six and two are just ahead of me!",
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "You know the business!",
     "Keep it live!",
     "Let's mosey!",
-    "Hungry for life.",
+    "I'm the thirty three degree!",
   ], {
     loop: true,
     delay: 10000,
