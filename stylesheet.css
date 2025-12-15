@@ -346,6 +346,15 @@ body.dark-mode #video-player * {
   color: inherit !important;
 }
 
+input {
+  font-family: regularbit, IBM Plex Sans, system-ui, sans-serif;
+  background: var(--card-bg);
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  padding: 0.2rem 0.4rem;
+}
+
 /* toggle button */
 .theme-toggle {
   margin-left: 0;
