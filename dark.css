@@ -297,16 +297,44 @@ html, body {
   padding-left: 32px;
   line-height: 24px;
 }
+.poll-option label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--accent-alt); /* red accent */
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M3 3h18v18H3zm16 16V5H5v14z"/></svg>') center / contain no-repeat;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M3 3h18v18H3zm16 16V5H5v14z"/></svg>') center / contain no-repeat;
+}
+.poll-buttons input[type="submit"] {
+  background: var(--accent-main);
+  color: #111;
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  margin: 0 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: inherit;
+}
+.poll-buttons input[type="submit"]:hover {
+  background: var(--accent-alt);
+  color: #111;
+}
+
+/* hover state */
 .poll-option input[type="radio"]:hover + label::before {
   background: var(--accent-main) !important; /* blue on hover */
 }
 
+/* checked state */
 .poll-option input[type="radio"]:checked + label::before {
-  background: #fff !important; /* white when selected */
+  background: #fff !important;
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') center / contain no-repeat;
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') center / contain no-repeat;
 }
 
+/* hover background */
 .poll-option:hover {
   background: rgba(255, 255, 255, 0.1);
 }
