@@ -33,7 +33,6 @@
   object-fit: cover;
   z-index: 0;
   transition: opacity 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-  loading: lazy;
 }
 
 .tile .text {
@@ -96,35 +95,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-.dots {
-  position: absolute;
-  bottom: 1rem;
-  right: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.dots span {
-  width: 6px;
-  height: 6px;
-  background: var(--accent-main);
-  border-radius: 50%;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-}
-
-.tile:hover .dots span,
-.tile:focus-within .dots span {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dots span:nth-child(1) { transition-delay: 0.1s; }
-.dots span:nth-child(2) { transition-delay: 0.15s; }
-.dots span:nth-child(3) { transition-delay: 0.2s; }
 
 /* Mobile */
 @media (max-width: 768px) {
