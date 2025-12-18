@@ -476,7 +476,6 @@ body.dark-mode #video-player * {
   content: '';
   position: absolute;
   left: 0;
-  top: 2px;
   width: 24px;
   height: 24px;
   background: coral;
