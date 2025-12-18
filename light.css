@@ -435,7 +435,8 @@ html, body {
 .time-bar input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background: transparent;
+  background: #bf9397;
+  border-radius: 2px;
   width: 100%;
   height: 3px;
   cursor: pointer;
