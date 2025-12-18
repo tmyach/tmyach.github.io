@@ -1,11 +1,11 @@
 .wrap {
-  margin: 2rem auto;
+  margin: 2rem 0;
   max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
-  padding: 1rem;
+  padding: 0 1rem;
+  justify-items: center;
 }
 
 .tile {
@@ -14,8 +14,8 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
-  width: 360px;
-  height: 360px;
+  width: 350px;
+  height: 280px; 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -37,11 +37,10 @@
   transition: opacity 0.4s ease;
 }
 
-/* overlay text box */
 .tile .text {
   position: relative;
   z-index: 1;
-  background: linear-gradient(to top, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0));
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 0.1));
   color: #fff;
   padding: 1.2rem;
   height: 100%;
@@ -52,40 +51,41 @@
 
 .tile h1 {
   font-family: "karenfat", "Sigmar", cursive;
-  font-size: 1.4rem;
-  margin: 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-size: 1.3rem;
+  margin: 0 0 0.3rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
 }
 
 .tile h2 {
   font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem 0;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
   transition: all 0.4s ease;
   color: var(--accent-main);
 }
 
 .tile p {
   font-family: "IBM Plex Serif", serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.4;
+  margin: 0;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
+  transform: translateY(15px);
+  transition: all 0.5s ease 0.1s;
 }
 
-/* Hover animation */
 .tile:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
 }
 
 .tile:hover img {
-  opacity: 0.25;
+  opacity: 0.3;
 }
 
 .tile:hover h2,
@@ -94,14 +94,13 @@
   transform: translateY(0);
 }
 
-/* three-dot accent motif */
 .dots {
   position: absolute;
-  bottom: 15px;
-  right: 20px;
+  bottom: 1rem;
+  right: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .dots span {
@@ -110,8 +109,8 @@
   background-color: var(--accent-main);
   border-radius: 50%;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
 }
 
 .tile:hover .dots span {
@@ -119,18 +118,35 @@
   transform: translateY(0);
 }
 
-.dots span:nth-child(1) { transition-delay: 0.05s; }
-.dots span:nth-child(2) { transition-delay: 0.1s; }
-.dots span:nth-child(3) { transition-delay: 0.15s; }
+.dots span:nth-child(1) { transition-delay: 0.1s; }
+.dots span:nth-child(2) { transition-delay: 0.15s; }
+.dots span:nth-child(3) { transition-delay: 0.2s; }
 
-/* Responsive stacking */
-@media (max-width: 1000px) {
+
+@media (max-width: 768px) {
   .wrap {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
   }
+  
   .tile {
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+  }
+  
+  .tile h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tile {
+    height: 220px;
+  }
+  
+  .tile .text {
+    padding: 1rem;
   }
 }
