@@ -280,6 +280,7 @@ html, body {
   padding: 4px 2px;
   cursor: pointer;
   clear: both;
+  position: relative;
 }
 .poll-option input[type="radio"] {
   display: none;
