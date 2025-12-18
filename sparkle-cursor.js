@@ -1,5 +1,5 @@
 // <![CDATA[
-var colour="#93bfba, #bf9397"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var colour = "two"; // options: "random", "two", or any CSS color like "#f0f" or "red"
 var sparkles=50;
 
 /****************************
@@ -58,7 +58,19 @@ function sparkle() {
       star[c].style.left=(starx[c]=x)+"px";
       star[c].style.top=(stary[c]=y+1)+"px";
       star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-      star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+      var colors = ["#bf9397", "#93bfba"];
+var currentColor;
+
+if (colour == "random") {
+  currentColor = newColour();
+} else if (colour == "two") {
+  currentColor = colors[Math.floor(Math.random() * colors.length)];
+} else {
+  currentColor = colour;
+}
+
+star[c].childNodes[0].style.backgroundColor = star[c].childNodes[1].style.backgroundColor = currentColor;
+
       star[c].style.visibility="visible";
       starv[c]=50;
       break;
