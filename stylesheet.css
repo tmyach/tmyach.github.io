@@ -436,15 +436,13 @@ body.dark-mode #video-player * {
 }
 
 /* poll stuff */
-/* poll styles - wider + no border (uses block border) */
 .poll-container {
   background: rgba(255, 255, 255, 0.95);
   padding: 12px;
-  width: 100%; /* full block width */
+  width: 100%;
   font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
   font-size: small;
   color: #000;
-  /* no border - uses block border */
   border-radius: 4px;
   backdrop-filter: blur(8px);
 }
@@ -463,17 +461,17 @@ body.dark-mode #video-player * {
 
 .poll-option input[type="radio"] {
   position: absolute;
-  opacity: 0; /* Hide native radio */
+  opacity: 0;
   width: 0;
   height: 0;
 }
 
 .poll-option label {
   position: relative;
-  padding-left: 32px; /* Space for 24px icon + margin */
+  padding-left: 32px; 
   display: block;
   cursor: pointer;
-  color: coral; /* Sets currentColor for SVGs */
+  color: coral; 
   line-height: 24px;
 }
 
@@ -504,11 +502,10 @@ body.dark-mode #video-player * {
   padding: 4px 2px 2px;
 }
 
-/* dark mode - full invert */
+/* dark mode */
 body.dark-mode .poll-container {
   background: rgba(20, 20, 20, 0.95) !important;
   color: #fff !important;
-  /* no border */
 }
 
 body.dark-mode .poll-header {
@@ -529,7 +526,7 @@ body.dark-mode .poll-footer {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* hover states */
+/* hover */
 .poll-option:hover,
 body.dark-mode .poll-option:hover {
   background: rgba(0, 0, 0, 0.05);
