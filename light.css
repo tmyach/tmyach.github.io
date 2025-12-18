@@ -244,7 +244,7 @@ html, body {
 .title {
   font-family: "kendiyaz", "Lacquer", cursive;
   font-size: 1.1rem;
-  color: var(--accent-main);
+  color: var(--ink);
   margin: 0 0 0.35rem;
 }
 .block p, .block li {

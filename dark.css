@@ -247,7 +247,7 @@ html, body {
 .title {
   font-family: "kendiyaz", "Lacquer", cursive;
   font-size: 1.1rem;
-  color: var(--accent-main);
+  color: var(--ink);
   margin: 0 0 0.35rem;
 }
 .block p, .block li {
@@ -522,4 +522,76 @@ a:hover {
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
   }
+}
+
+/* dark mode comments widget */
+#c_widget,
+#c_inputDiv,
+.c-comment,
+.c-reply {
+  background: #0a0a0a !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: var(--ink) !important;
+}
+
+#c_widget * {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.c-text {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
+
+.c-name, 
+.c-adminName {
+  color: var(--ink) !important;
+}
+
+#c_widgetTitle {
+  color: var(--ink) !important;
+}
+
+.c-timestamp {
+  color: var(--ink-soft) !important;
+}
+
+.c-input, 
+textarea.c-input {
+  background: #1a1a1a !important;
+  color: var(--ink) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.c-label {
+  color: var(--ink-soft) !important;
+}
+
+.c-replyButton, 
+.c-expandButton, 
+.c-paginationButton,
+#c_submitButton, 
+#c_adminButton {
+  background: #2a2a2a !important;
+  color: var(--ink) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#c_adminLogin {
+  background: #1a1a1a !important;
+  border-left-color: var(--accent-main) !important;
+}
+
+#c_adminCode {
+  background: #2a2a2a !important;
+  color: var(--accent-main) !important;
+}
+
+/* admin */
+.c-adminName {
+  background: linear-gradient(90deg, var(--accent-main) 0%, #93bfba 0%, #bf9397 100%) !important;
+  color: #111 !important;
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
 }
