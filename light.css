@@ -278,6 +278,7 @@ html, body {
 
 .poll-option {
   display: block;
+  top:0px;
   padding: 4px 2px;
   cursor: pointer;
   clear: both;
