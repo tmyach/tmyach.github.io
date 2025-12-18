@@ -529,22 +529,21 @@ html, body {
 
 a {
   position: relative;
-    color: var(--accent-main);
+  color: var(--accent-main);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
+  /* ... other properties same ... */
   background: currentColor;
-  border-bottom: 2px wavy currentColor;
-  transition: width 0.3s ease;
+  mask: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 5Q25 0 50 5T100 5V10H0Z' fill='white'/%3E%3C/svg%3E") 
+    repeat-x bottom;
+  -webkit-mask: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 5Q25 0 50 5T100 5V10H0Z' fill='white'/%3E%3C/svg%3E") 
+    repeat-x bottom;
 }
 
 a:hover::after,
@@ -554,7 +553,7 @@ a:focus::after {
 }
 
 a {
-  text-decoration: underline wavy rgba(191, 147, 151, 0.5);
+  text-decoration: underline wavy transparent;
 }
 
 
