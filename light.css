@@ -256,7 +256,7 @@ html, body {
 /* poll */
 
 .poll-container {
-  background: rgba(20, 20, 20, 0.95);
+  background: #eee;
   padding: 12px;
   font-family: "regularbit", "IBM Plex Sans", system-ui, sans-serif;
   font-size: small;
