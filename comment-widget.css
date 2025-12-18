@@ -315,7 +315,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(90deg, #93c5fd 0%, #ffdae581 100%);
+    background: linear-gradient(90deg, #93bfba 0%, #bf9397 100%);
     padding: 4px 8px;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(25, 0, 255, 0.3);
