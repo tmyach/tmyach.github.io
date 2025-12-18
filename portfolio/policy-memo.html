@@ -40,15 +40,31 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 20px);  /* Leaves room for scrollbar */
+  width: 100%;
   height: 100%;
   z-index: 1;
   background: transparent;
-  pointer-events: auto;  /* Blocks selection/context menu */
+  pointer-events: none;  /* Allows scroll/mousewheel through */
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: auto;  /* Pseudo-element blocks selection only */
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
 }
+
 
 iframe {
   position: absolute;
