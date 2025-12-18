@@ -526,12 +526,37 @@ html, body {
 }
 
 /* links */
+
 a {
-  color: var(--accent-main);
+  position: relative;
+    color: var(--accent-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
-a:hover {
-  color: var(--accent-alt);
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  border-bottom: 2px wavy currentColor;
+  transition: width 0.3s ease;
 }
+
+a:hover::after,
+a:focus::after {
+  width: 100%;
+    color: var(--accent-alt);
+}
+
+a {
+  text-decoration: underline wavy rgba(191, 147, 151, 0.5);
+}
+
 
 @media (min-width: 721px) {
   .frame {
