@@ -28,10 +28,43 @@
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
+    
+    <style>
+        .iframe-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.anti-copy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 20px);  /* Leaves room for scrollbar */
+  height: 100%;
+  z-index: 1;
+  background: transparent;
+  pointer-events: auto;  /* Blocks selection/context menu */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+    </style>
+
   </head>
   </head>
   <body>
-   <iframe src="https://drive.google.com/file/d/1_mkg1kR6Qz-95QdJt32vvD4mc94qB3bb/preview" width="100%" height="600px"></iframe>
+   <div class="iframe-container">
+  <div class="anti-copy-overlay"></div>
+  <iframe src="https://drive.google.com/file/d/1_mkg1kR6Qz-95QdJt32vvD4mc94qB3bb/preview" width="100%" height="600px" frameborder="0"></iframe>
+</div>
   </body>
 </html>
 
