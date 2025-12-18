@@ -24,6 +24,7 @@
   transform-origin: center center;
   pointer-events: auto; 
   transition: transform 0.15s ease-in-out;
+  width:19rem;
 }
 
 .photo .hand:hover {
