@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="stylesheet.css" />
-    <link href="fonts.css" rel="stylesheet" type='text/css'>
-    <link href="comment-widget.css" rel="stylesheet">
-    
+    <!-- head setup stuff -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | t.m.yach</title>
 
+    <!-- external -->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+
+    <!-- stylesheets -->
+    <link id="theme-style" rel="stylesheet" href="light.css">
+    <link href="fonts.css" rel="stylesheet" type="text/css">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="comment-widget.css" rel="stylesheet">
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&family=Lacquer&family=Sigmar&family=Meddon&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&family=Lacquer&family=Sigmar&family=Meddon&family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
 
     <!-- favicons -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
@@ -22,11 +27,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
   </head>
-
   <body>
+    <!-- page layout -->
     <div class="page">
       <header class="header">
-        <!-- logo -->
         <a class="logo" href="index.html">
           <img src="logo.png" alt="t.m.yach bird logo" class="logo-img" />
           <div class="logo-text">
@@ -35,7 +39,6 @@
           </div>
         </a>
 
-        <!-- mobile menu fixed -->
         <nav class="nav">
           <button class="nav-toggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -51,176 +54,175 @@
         </nav>
       </header>
 
-      <!-- bird gif -->
-      <img src="bird.gif" class="bird-img" />
+      <img src="bird.gif" class="bird-img" alt="bird flying across the page" />
 
       <main class="main-frame" id="top">
         <div class="frame">
-          <!-- main content -->
           <section class="content">
             <header class="content-header">
-              <h1 class="page-title" id="shuffle-title">The Bird's Eye View</h1>
+              <h1 class="page-title">The Bird's Eye View</h1>
               <p class="lead">
-                My name is <span class="cursive">Tesia</span> (she/her), and I'm
+                my name is <span class="cursive">tesia</span> (she/her), and i'm
                 an undergraduate college student who, quite frankly, needs to
-                <b>let it all out.</b> I study public policy and spend an
+                <b>let it all out.</b> i study public policy and spend an
                 unreasonable amount of time thinking about how laws and
                 institutions quietly shape who gets heard and who gets left out
                 while the media strategically sways what you hear.
               </p>
               <p>
-                In my blog, I collect a large variety of moments, connect them
+                in my blog, i collect a large variety of moments, connect them
                 to larger structures of power, and practice the kind of clear,
-                grounded storytelling I hope to carry into the work of fighting
+                grounded storytelling i hope to carry into the work of fighting
                 for better policy from the inside.
               </p>
             </header>
 
-            <!-- photo section -->
             <div class="text-photo">
               <div class="text">
                 <p>
-                  Besides policy and politics, I love visual art. In my free
-                  time, I like to paint and get charcoal all over my hands while
-                  making portraits (that's a lie). Additionally, I studied
-                  graphic design for half a decade. Visual art and graphic
-                  design help me process what I am learning, so you will see
-                  some of my notebook doodles in my blog posts.
+                  besides policy and politics, i love visual art. in my free
+                  time, i like to paint and get charcoal all over my hands while
+                  making portraits. additionally, i studied graphic design for
+                  half a decade. visual art and graphic design help me process
+                  what i am learning, so you will see some of my notebook
+                  doodles in my blog posts.
                 </p>
-                <br>
-                <p class="quote">"Final Fantasy VII is just an E2E transformation journey where a cross-functional squad of non-traditional hires leverage lived experience (#inspirational) to sunset legacy infrastructure and replatform the planet's core value delivery ecosystem" <span style="font-family: kendiyaz">- Stratessa "Big Data" Linkerdino</span></p>
+                <p class="quote">
+                  "final fantasy vii is just an e2e transformation journey where
+                  a cross-functional squad of non-traditional hires leverage
+                  lived experience (#inspirational) to sunset legacy
+                  infrastructure and replatform the planet’s core value delivery
+                  ecosystem"
+                  <span style="font-family: kendiyaz">– stratessa "big data" linkerdino</span>
+                </p>
               </div>
+
               <div class="photo">
-                <img src="welcome.gif" alt="Stratessa 'Big Data' Linkerdino (it's a picture of me wearing a beanie with the words 'Live, Laugh, Leverage' on it. On the beanie is an image of stocks going up.)" class="photo-img" style="margin-right: 20px;">
+                <img src="welcome.gif" alt="photo of me wearing a beanie" class="photo-img" />
               </div>
             </div>
 
-            <!-- guestbook -->
-                         <section class="guestbook">
+            <section class="guestbook">
               <div id="c_widget"></div>
-        </section>
+            </section>
           </section>
 
-          <!-- sidebar -->
           <aside class="side">
             <div class="block">
-              <h2 class="title">Field Notes</h2>
+              <h2 class="title">field notes</h2>
               <ul class="list">
                 <li>
-                  Right now, I feel
+                  right now, i feel
                   <a href="https://www.imood.com/users/tmyach" class="imood">
-                    <img src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif" alt="The current mood of tmyach at www.imood.com" border="0" />
+                    <img src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif" alt="current mood" />
                   </a>.
                 </li>
                 <li>
-                  The internet currently feels
+                  the internet currently feels
                   <a href="https://www.imood.com/imood" class="imood">
-                    <img src="https://moods.imood.com/internet/current.gif" alt="The current mood of the Internet at www.imood.com" border="0" />
+                    <img src="https://moods.imood.com/internet/current.gif" alt="internet mood" />
                   </a>.
                 </li>
               </ul>
             </div>
 
             <div class="block">
-              <!-- poll -->
-<form method="post" action="https://poll.pollcode.com/29742232">
-  <div class="poll-container">
-    <div class="poll-header">
-      <strong>What makes you most doubtful about politics?</strong>
-    </div>
+              <form method="post" action="https://poll.pollcode.com/29742232">
+                <div class="poll-container">
+                  <div class="poll-header">
+                    <strong>what makes you most doubtful about politics?</strong>
+                  </div>
 
-    <div class="poll-option">
-      <input type="radio" name="answer" value="1" id="answer297422321">
-      <label for="answer297422321">Corruption / special interests and big donors buying influence</label>
-    </div>
+                  <div class="poll-option">
+                    <input type="radio" name="answer" value="1" id="answer1">
+                    <label for="answer1">corruption and special interests</label>
+                  </div>
 
-    <div class="poll-option">
-      <input type="radio" name="answer" value="2" id="answer297422322">
-      <label for="answer297422322">Low voter turnout</label>
-    </div>
+                  <div class="poll-option">
+                    <input type="radio" name="answer" value="2" id="answer2">
+                    <label for="answer2">low voter turnout</label>
+                  </div>
 
-    <div class="poll-option">
-      <input type="radio" name="answer" value="3" id="answer297422323">
-      <label for="answer297422323" style="float:left;width:315px;> AI / misinformation (unintentional deception) / disinformation (intentional deception)</label>
-    </div>
+                  <div class="poll-option">
+                    <input type="radio" name="answer" value="3" id="answer3">
+                    <label for="answer3">misinformation and disinformation</label>
+                  </div>
 
-    <div class="poll-option">
-      <input type="radio" name="answer" value="4" id="answer297422324">
-      <label for="answer297422324">Polarization and violence</label>
-    </div>
+                    <div class="poll-option">
+                      <input type="radio" name="answer" value="4" id="answer4">
+                      <label for="answer4">polarization and violence</label>
+                    </div>
 
-    <div class="poll-option">
-      <input type="radio" name="answer" value="5" id="answer297422325">
-      <label for="answer297422325">None of these worry me!</label>
-    </div>
+                    <div class="poll-option">
+                      <input type="radio" name="answer" value="5" id="answer5">
+                      <label for="answer5">none of these worry me!</label>
+                    </div>
 
-    <div class="poll-buttons">
-      <input type="submit" value=" Vote ">
-      <input type="submit" name="view" value=" View ">
-    </div>
+                    <div class="poll-buttons">
+                      <input type="submit" value="vote">
+                      <input type="submit" name="view" value="view">
+                    </div>
 
-    <div class="poll-footer">
-      powered by <a href="https://pollcode.com">pollcode.com</a>!
-    </div>
-  </div>
-</form>
+                    <div class="poll-footer">
+                      powered by <a href="https://pollcode.com">pollcode.com</a>!
+                    </div>
+                  </div>
+                </form>
+              </div>
 
-            </div>
-
-            <!-- music player -->
-            <div class="player">
-              <div id="nowplaying" class="now">now playing 1 of 4</div>
-              <div class="player-video-marquee">
-                <div class="tv-container">
-                  <div id="video-player" class="tv-screen"></div>
-                  <img src="blue-tv-shadow.png" alt="tv" class="tv-frame" />
+              <div class="player">
+                <div id="nowplaying" class="now">now playing 1 of 4</div>
+                <div class="player-video-marquee">
+                  <div class="tv-container">
+                    <div id="video-player" class="tv-screen"></div>
+                    <img src="blue-tv-shadow.png" alt="tv" class="tv-frame" />
+                  </div>
+                  <marquee id="info" class="track-title" scrollamount="5">artist – track name</marquee>
                 </div>
-                <marquee id="info" class="track-title" scrollamount="5">Artist - Track Name</marquee>
-              </div>
-              <div class="time-bar">
-                <div id="current-time" class="time">0:00</div>
-                <div class="bar">
-                  <input type="range" id="slider" min="0" max="100" value="0" step="1" />
+                <div class="time-bar">
+                  <div id="current-time" class="time">0:00</div>
+                  <div class="bar">
+                    <input type="range" id="slider" min="0" max="100" value="0" step="1" />
+                  </div>
+                  <div id="duration" class="time">0:00</div>
                 </div>
-                <div id="duration" class="time">0:00</div>
+                <div class="controls">
+                  <button id="prev-btn" type="button">⏮</button>
+                  <button id="playpause-btn" type="button">▶</button>
+                  <button id="next-btn" type="button">⏭</button>
+                </div>
               </div>
-              <div class="controls">
-                <button id="prev-btn" type="button">⏮</button>
-                <button id="playpause-btn" type="button">▶</button>
-                <button id="next-btn" type="button">⏭</button>
-              </div>
-            </div>
           </aside>
         </div>
       </main>
 
-      <!-- footer -->
       <footer class="footer">
         <span><span id="year"></span> | t.m.yach, the bird's eye view</span>
-        <button id="theme-toggle" class="nav-link theme-toggle" type="button" aria-label="Toggle mode">
-          Toggle modes
+        <button id="theme-toggle" class="nav-link theme-toggle" type="button">
+          dark mode
         </button>
       </footer>
     </div>
 
     <!-- scripts -->
-     <script src="comment-widget.js"></script>
+    <script src="comment-widget.js"></script>
     <script src="musicplayer.js"></script>
     <script src="menu.js"></script>
-   <script src="year.js"></script>
+    <script src="year.js"></script>
 
     <!-- stats -->
-<script type="text/javascript">
-var sc_project=13189663; 
-var sc_invisible=1; 
-var sc_security="3b67388d"; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13189663/0/3b67388d/1/" alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+    <script type="text/javascript">
+      var sc_project = 13189663;
+      var sc_invisible = 1;
+      var sc_security = "3b67388d";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+      <div class="statcounter">
+        <a href="https://statcounter.com/" target="_blank" title="web analytics">
+          <img class="statcounter" src="https://c.statcounter.com/13189663/0/3b67388d/1/" alt="web analytics" />
+        </a>
+      </div>
+    </noscript>
   </body>
 </html>
