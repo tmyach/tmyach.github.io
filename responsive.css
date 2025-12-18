@@ -1,0 +1,92 @@
+/* responsive.css */
+
+/* mobile menu */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.7rem;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--ink);
+    margin: 4px 0;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: var(--card-bg);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    z-index: 999;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* show nav on toggle */
+  .nav.open .nav-list {
+    display: flex;
+  }
+
+  .nav-list li {
+    width: 100%;
+    border: none;
+    text-align: center;
+    margin: 0;
+  }
+  .nav-link {
+    display: block;
+    padding: 1rem;
+  }
+}
+
+/* shrink layout frames */
+@media (max-width: 720px) {
+  .frame {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .content {
+    border-right: none;
+    padding-right: 0;
+  }
+  .side {
+    padding-left: 0;
+  }
+}
+
+/* tiniest screens */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 0.6rem;
+  }
+  .main-frame {
+    padding: 0.8rem;
+  }
+  .player {
+    padding: 0.7rem;
+  }
+  /* lil note: makes everything stack clean on phones */
+  .title {
+    text-align: center;
+  }
+  .photo-img {
+    max-width: 100%;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

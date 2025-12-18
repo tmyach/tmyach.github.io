@@ -1,50 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav-toggle');
 
-document.addEventListener('DOMContentLoaded', function() {
-  const nav = document.querySelector(".nav");
-  const toggle = document.querySelector(".nav-toggle");
-
-  // nav menu
+  // nav menu toggle
   if (nav && toggle) {
-    toggle.addEventListener("click", (e) => {
+    toggle.addEventListener('click', e => {
       e.stopPropagation();
-      nav.classList.toggle("open");
+      nav.classList.toggle('open');
     });
 
-    document.addEventListener("click", (e) => {
+    document.addEventListener('click', e => {
       if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-        nav.classList.remove("open");
+        nav.classList.remove('open');
       }
     });
 
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.addEventListener("click", () => nav.classList.remove("open"));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('open'));
     });
-  }
-
-  // FIXED: year - check element exists first
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
   }
 
   // theme toggle
   const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    const storedTheme = localStorage.getItem('theme');
-    
-    function updateToggleIcon() {
-      themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'light mode' : 'dark mode';
+  const themeLink = document.getElementById('theme-style');
+
+  if (themeToggle && themeLink) {
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      themeLink.href = savedTheme;
+      updateButtonText(savedTheme);
     }
 
-    if (storedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
+    // toggle text change based on theme active
+    function updateButtonText(href) {
+      themeToggle.textContent = href.includes('dark') ? 'Light mode' : 'Dark mode';
     }
-    updateToggleIcon();
 
+    // Toggle stylesheet on click
     themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-      updateToggleIcon();
+      const current = themeLink.getAttribute('href');
+      const isLight = current.includes('light.css');
+      const newTheme = isLight ? 'dark.css' : 'light.css';
+
+      themeLink.setAttribute('href', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateButtonText(newTheme);
     });
   }
 });
