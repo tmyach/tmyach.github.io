@@ -240,6 +240,19 @@ html, body {
   object-fit: cover;
 }
 
+.block img[alt*="sudoroth"] {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 3em;
+  z-index: 2;
+}
+
+.block:has(img[alt*="sudoroth"]) {
+  position: relative;
+  padding-left: 4.5rem; /* space for image + padding */
+}
 
 /* sidebar */
 .side {
