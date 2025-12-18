@@ -28,59 +28,49 @@
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
-    
-    <style>
-        .iframe-container {
-  position: relative;
-  width: 100%;
-  height: 600px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: transparent;
-  pointer-events: none;  /* Allows scroll/mousewheel through */
-  user-select: none !important;
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-}
-
-.overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  pointer-events: auto;  /* Pseudo-element blocks selection only */
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-}
-
-
-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-    </style>
 
   </head>
   </head>
   <body>
-   <div class="iframe-container">
-  <div class="overlay"></div>
-  <iframe src="https://drive.google.com/file/d/1_mkg1kR6Qz-95QdJt32vvD4mc94qB3bb/preview" width="100%" height="600px" frameborder="0"></iframe>
-</div>
+   <iframe src="https://drive.google.com/file/d/1_mkg1kR6Qz-95QdJt32vvD4mc94qB3bb/preview" width="100%" height="600px"></iframe>
+   
+   <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const iframe = document.querySelector('iframe');
+  const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+  
+  // Listen for iframe load
+  iframe.onload = function() {
+    try {
+      // Block text selection across the iframe
+      iframe.contentWindow.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+      });
+      
+      // Block copy/paste/keyboard shortcuts
+      iframe.contentWindow.addEventListener('copy', function(e) {
+        e.preventDefault();
+      });
+      iframe.contentWindow.addEventListener('cut', function(e) {
+        e.preventDefault();
+      });
+      iframe.contentWindow.addEventListener('paste', function(e) {
+        e.preventDefault();
+      });
+      
+      // Block context menu
+      iframe.contentWindow.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      
+    } catch(e) {
+      // Cross-origin restriction - fallback to CSS overlay with scroll fix
+      iframe.style.pointerEvents = 'auto';
+    }
+  };
+});
+</script>
+
   </body>
 </html>
 
