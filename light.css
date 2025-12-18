@@ -257,6 +257,12 @@ html, body {
   padding-left: 4.5rem; /* space for image + padding */
 }
 
+.block:has(img[alt*="sudoroth"]) {
+  position: relative;
+  padding-left: 5rem;
+  padding-top: 3.5rem;
+}
+
 /* sidebar */
 .side {
   padding-left: 1rem;
