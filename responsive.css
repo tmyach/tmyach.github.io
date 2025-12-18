@@ -1,6 +1,24 @@
-/* responsive.css */
+/* responsive.css - mobile only */
 
-/* mobile menu */
+/* mobile frame - single column */
+@media (max-width: 720px) {
+  .frame {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .content {
+    border-right: none;
+    padding-right: 0;
+  }
+  .side {
+    padding-left: 0;
+  }
+  .text-photo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* mobile nav menu */
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
@@ -48,26 +66,12 @@
   }
 }
 
-/* shrink layout frames */
-@media (max-width: 720px) {
-  .frame {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .content {
-    border-right: none;
-    padding-right: 0;
-  }
-  .side {
-    padding-left: 0;
-  }
-}
-
 /* tiniest screens */
 @media (max-width: 480px) {
   .header {
     flex-direction: column;
     text-align: center;
+    padding: 0.6rem 1rem;
   }
   .logo {
     margin-bottom: 0.6rem;
@@ -75,10 +79,14 @@
   .main-frame {
     padding: 0.8rem;
   }
+  .frame {
+    padding: 1rem;
+    gap: 1.2rem;
+  }
+  .block,
   .player {
     padding: 0.7rem;
   }
-  /* lil note: makes everything stack clean on phones */
   .title {
     text-align: center;
   }
@@ -88,5 +96,21 @@
   .footer {
     flex-direction: column;
     gap: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+  .bird-img {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+  }
+}
+
+/* bird on tiny screens */
+@media (max-width: 480px) {
+  .bird-img {
+    width: 65px !important;
+    right: 1.5rem !important;
+    bottom: 102% !important;
   }
 }
