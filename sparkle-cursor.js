@@ -1,5 +1,5 @@
 // <![CDATA[
-var colour="#93bfba"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var colour="#93bfba, #bf9397"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
 var sparkles=50;
 
 /****************************
