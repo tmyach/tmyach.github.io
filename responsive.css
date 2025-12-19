@@ -1,39 +1,65 @@
-/* responsive.css - mobile only */
-
-/* mobile frame - single column */
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .frame {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1rem;
   }
+
   .content {
-    border-right: none;
+    border: none;
     padding-right: 0;
   }
+
   .side {
     padding-left: 0;
   }
+
   .text-photo {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .photo-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .main-frame {
+    padding: 0.8rem;
+  }
+
+  .bird-img {
+    width: 80px;
+    top: 1rem;
+    right: 1rem;
   }
 }
 
-/* mobile nav menu */
 @media (max-width: 768px) {
+  .nav {
+    position: relative;
+  }
+
   .nav-toggle {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background: var(--card-bg);
-    border: 1px solid rgba(0,0,0,0.1);
-    padding: 0.7rem;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 0;
+    padding: 0.6rem 0.8rem;
     cursor: pointer;
+    z-index: 1000;
   }
+
   .nav-toggle span {
     display: block;
-    width: 24px;
+    width: 26px;
     height: 3px;
     background: var(--ink);
     margin: 4px 0;
+    transition: all 0.3s ease;
   }
 
   .nav-list {
@@ -43,74 +69,109 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 60px;
-    z-index: 999;
-    padding: 1rem 0;
+    top: 100%;
+    padding: 0.5rem 0;
     border-top: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
   }
 
-  /* show nav on toggle */
   .nav.open .nav-list {
     display: flex;
   }
 
   .nav-list li {
-    width: 100%;
     border: none;
-    text-align: center;
     margin: 0;
+    padding: 0;
   }
+
   .nav-link {
     display: block;
+    width: 100%;
     padding: 1rem;
+    color: var(--ink);
+  }
+
+  .nav-list li:hover {
+    background: var(--ink);
+  }
+
+  .nav-list li:hover .nav-link {
+    color: var(--card-bg);
+  }
+
+  .header {
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 0.5rem;
+    justify-content: center;
   }
 }
 
-/* tiniest screens */
 @media (max-width: 480px) {
   .header {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     padding: 0.6rem 1rem;
+    text-align: center;
   }
-  .logo {
-    margin-bottom: 0.6rem;
-  }
+
   .main-frame {
-    padding: 0.8rem;
+    padding: 0.6rem;
   }
+
   .frame {
-    padding: 1rem;
-    gap: 1.2rem;
+    padding: 0.8rem;
+    gap: 1rem;
   }
+
   .block,
   .player {
-    padding: 0.7rem;
+    padding: 0.6rem;
   }
-  .title {
-    text-align: center;
-  }
-  .photo-img {
-    max-width: 100%;
-  }
+
   .footer {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
     padding: 0.8rem 1rem;
+    text-align: center;
   }
+
   .bird-img {
-    top: auto;
-    bottom: 20px;
-    right: 20px;
-    width: 70px;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 65px;
+    height: auto;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .logo-main {
+    font-size: 1.1rem;
+  }
+
+  .logo-tag {
+    font-size: 0.75rem;
   }
 }
 
-/* bird on tiny screens */
-@media (max-width: 480px) {
+@media (min-width: 481px) and (max-width: 960px) {
   .bird-img {
-    width: 65px !important;
-    right: 1.5rem !important;
-    bottom: 102% !important;
+    width: 90px;
+  }
+
+  .page-title {
+    font-size: 1.9rem;
+  }
+
+  .side, .content {
+    padding: 0;
   }
 }
