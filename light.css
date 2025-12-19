@@ -1,22 +1,19 @@
-/* light.css - full layout + your colors */
 :root {
   --bg: #f8f8f5;
   --ink: #111111;
   --ink-soft: #555555;
-  --accent-main: #93bfba; /* your blue-green */
-  --accent-alt: #bf9397;  /* your red */
+  --accent-main: #93bfba;
+  --accent-alt: #bf9397;  
   --card-bg: rgba(255, 255, 255, 0.92);
   --border: #000;
-  /* player stuff */
   --player-bg: #f2f2f2;
   --player-border: #000;
   --player-text: #111;
-  --player-title-bg: rgba(147, 191, 186, 0.1); /* matches your blue */
+  --player-title-bg: rgba(147, 191, 186, 0.1); 
   --player-bar: var(--accent-main);
   --player-icon: var(--accent-main);
 }
 
-/* global cursors */
 *, html, body {
   cursor: url('cursor/GoofyWhiteSelect-ezgif.com-ani-to-gif-converter.gif'), default !important;
 }
@@ -36,7 +33,10 @@ input, textarea {
   cursor: url('cursor/GoofyWhiteUnavailable-ezgif.com-ani-to-gif-converter.gif'), not-allowed !important;
 }
 
-/* box-sizing + highlight */
+.inline-block {
+   display: inline-block;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -235,7 +235,7 @@ html, body {
 
 .block:has(img[alt*="sudoroth"]) {
   position: relative;
-  padding-left: 4.5rem; /* space for image + padding */
+  padding-left: 4.5rem;
 }
 
 .block:has(img[alt*="sudoroth"]) {
@@ -255,6 +255,14 @@ html, body {
   margin-bottom: 0.9rem;
   background: rgba(255, 255, 255, 0.7);
 }
+
+.underimg {
+  display: block;
+  margin-top: 0.5rem;
+  height: 3em;
+  padding: 2px;
+}
+
 .title {
   font-family: "kendiyaz", "Lacquer", cursive;
   font-size: 1.1rem;
