@@ -543,7 +543,7 @@ a::after {
   width: 0%;
   height: 2px;
   background: currentColor;
-  border-bottom: 2px dotted currentColor;
+  border-bottom: 2px dashed currentColor;
   transition: width 0.3s ease;
 }
 
@@ -554,7 +554,7 @@ a:focus::after {
 }
 
 a {
-  text-decoration: underline dotted transparent;
+  text-decoration: underline dashed transparent;
 }
 
 
