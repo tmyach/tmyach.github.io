@@ -55,7 +55,7 @@
   }
 
   .nav-toggle {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     background: var(--card-bg);
@@ -63,7 +63,9 @@
     border-radius: 0;
     padding: 0.6rem 0.8rem;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
+    min-height: 48px;
+    min-width: 48px;
   }
 
   .nav-toggle span {
@@ -77,35 +79,44 @@
 
   .nav-list {
     display: none;
-    flex-direction: column;
+    flex-direction: column !important;
     background: var(--card-bg);
-    position: absolute;
+    position: fixed !important;
     left: 0;
     right: 0;
-    top: 100%;
-    padding: 0.5rem 0;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    padding: 6rem 0 2rem;
+    border-top: none;
+    margin: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
     text-align: center;
-    overflow-x: hidden;
   }
 
   .nav.open .nav-list {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-list li {
-    border: none;
+    border: none !important;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
 
   .nav-link {
     display: block;
     width: 100%;
-    padding: 1rem;
+    padding: 1.2rem;
     color: var(--ink);
+    font-size: 1.1rem;
     word-wrap: break-word;
+    text-align: center;
   }
 
   .nav-list li:hover {
@@ -121,6 +132,8 @@
     flex-direction: column;
     text-align: center;
     overflow-x: hidden;
+    position: relative;
+    z-index: 1002;
   }
 
   .logo {

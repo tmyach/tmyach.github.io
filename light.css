@@ -137,7 +137,7 @@ html, body {
   color: var(--card-bg);
 }
 
-/* nav toggle (hidden on desktop) */
+/* nav toggle */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -201,7 +201,6 @@ html, body {
   line-height: 1.7;
 }
 
-/* text + photo */
 .text-photo {
   display: grid;
   grid-template-columns: 1fr;
@@ -280,7 +279,6 @@ html, body {
   height: 3em;
 }
 
-
 /* sidebar */
 .side {
   padding-left: 1rem;
@@ -299,7 +297,6 @@ html, body {
 }
 
 /* poll */
-
 .poll-container {
   background: #eee;
   padding: 12px;
@@ -557,7 +554,6 @@ html, body {
 }
 
 /* links */
-
 a {
   position: relative;
     color: var(--accent-main);
@@ -588,18 +584,21 @@ a {
   text-decoration: underline dashed transparent;
 }
 
-
 @media (min-width: 721px) {
   .frame {
-    grid-template-columns: 3fr 1.5fr; 
+    grid-template-columns: 3fr 1.5fr;
+    gap: 2rem;
   }
+  
   .content {
     border-right: 1px solid var(--border);
     padding-right: 1.4rem;
   }
+  
   .side {
-    padding-left: 1rem;
+    padding-left: 1.6rem;
   }
+  
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
   }
