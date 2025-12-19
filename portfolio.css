@@ -10,7 +10,7 @@
 
 .tile {
   position: relative;
-  background: var(--card-bg);
+  background: rgba(3, 64, 149, 0.375)
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
