@@ -10,7 +10,7 @@
 
 .tile {
   position: relative;
-  background: rgba(3, 64, 149, 0.375)
+  background: rgba(23, 116, 246, 0.575)
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
@@ -40,7 +40,6 @@
   z-index: 1;
   background: linear-gradient(to top, rgba(17,17,17,0.75), rgba(17,17,17,0.1));
   color: #ffffff;
-  text-shadow: -1px -1px 0 #000, 0 -1px 0 #000000, 1px -1px 0 #000000, 1px 0 0 #000000, 1px 1px 0 #000000, 0 1px 0 #000000, -1px 1px 0 #000000, -1px 0 0 #000000;
   padding: 1.2rem;
   height: 100%;
   display: flex;
@@ -52,7 +51,7 @@
   font-family: "karenfat", "Sigmar", cursive;
   font-size: clamp(1.1rem, 4vw, 1.3rem); 
   margin: 0 0 0.3rem 0;
-  text-shadow: -1px -1px 0 #000, 0 -1px 0 #000000, 1px -1px 0 #000000, 1px 0 0 #000000, 1px 1px 0 #000000, 0 1px 0 #000000, -1px 1px 0 #000000, -1px 0 0 #000000;
+  text-shadow: 0 1px 0 hsl(174,5%,80%), 0 2px 0 hsl(174,5%,75%), 0 3px 0 hsl(174,5%,70%), 0 4px 0 hsl(174,5%,66%), 0 5px 0 hsl(174,5%,64%), 0 6px 0 hsl(0, 0%, 2.4%), 0 7px 0 hsl(0, 0%, 36.1%), 0 8px 0 hsl(174,5%,60%), 0 0 5px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.2), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.2), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.3);
   line-height: 1.2;
   flex-shrink: 0;
   overflow: hidden;
@@ -73,14 +72,7 @@
   transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   color: #000000;
   text-shadow:   
-    -1px -1px 0 #ffffff,
-     0   -1px 0 #000000,
-     1px -1px 0 #000000,
-     1px  0   0 #000000,
-     1px  1px 0 #000000,
-     0    1px 0 #000000,
-    -1px  1px 0 #000000,
-    -1px  0   0 #000000;
+0 1px 0 hsl(174,5%,80%), 0 2px 0 hsl(174,5%,75%), 0 3px 0 hsl(174,5%,70%), 0 4px 0 hsl(174,5%,66%), 0 5px 0 hsl(174,5%,64%), 0 6px 0 hsl(0, 0%, 2.4%), 0 7px 0 hsl(0, 0%, 36.1%), 0 8px 0 hsl(174,5%,60%), 0 0 5px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.2), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.2), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.3);
   flex-shrink: 0;
   white-space: nowrap; 
 }
