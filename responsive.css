@@ -1,6 +1,3 @@
-/* responsive.css - ONLY mobile fixes, desktop untouched */
-
-/* mobile layout stack ONLY */
 @media (max-width: 960px) {
   .frame {
     grid-template-columns: 1fr !important;
