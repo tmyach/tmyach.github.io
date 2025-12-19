@@ -256,12 +256,17 @@ html, body {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.list-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
 .underimg {
-  display: block;
   margin-top: 0.5rem;
   height: 3em;
-  padding: 2px;
 }
+
 
 .title {
   font-family: "kendiyaz", "Lacquer", cursive;
