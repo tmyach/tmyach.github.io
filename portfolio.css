@@ -44,14 +44,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
-}
-
-.tile .top-block {
-  margin-bottom: 0.5rem;
-}
-
-.tile .bottom-block {
+  justify-content: space-between;
+  overflow: hidden; 
 }
 
 .tile h1 {
@@ -60,6 +54,10 @@
   margin: 0 0 0.3rem 0;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   line-height: 1.2;
+  flex-shrink: 0; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
 }
 
 .tile h2 {
@@ -71,7 +69,7 @@
   transform: translateY(15px);
   transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   color: var(--accent-main);
-    text-shadow:
+  text-shadow:
     -1px -1px 0 #000,
      0   -1px 0 #663333,
      1px -1px 0 #a2a2a2,
@@ -80,6 +78,10 @@
      0    1px 0 #993333,
     -1px  1px 0 #000,
     -1px  0   0 #000;
+  flex-shrink: 0; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tile p {
@@ -91,6 +93,12 @@
   opacity: 0;
   transform: translateY(15px);
   transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s;
+  flex: 1; 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  hyphens: auto; 
 }
 
 .tile ul {
