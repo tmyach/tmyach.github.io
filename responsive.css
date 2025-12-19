@@ -4,15 +4,21 @@
     flex-direction: column;
     gap: 1.2rem;
     padding: 1rem;
+    overflow-x: hidden;
   }
 
   .content {
     border: none;
     padding-right: 0;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .side {
     padding-left: 0;
+    overflow-x: hidden;
   }
 
   .text-photo {
@@ -27,12 +33,19 @@
 
   .main-frame {
     padding: 0.8rem;
+    overflow-x: hidden;
   }
 
   .bird-img {
     width: 80px;
     top: 1rem;
     right: 1rem;
+  }
+
+  .page,
+  html,
+  body {
+    overflow-x: hidden;
   }
 }
 
@@ -73,6 +86,7 @@
     padding: 0.5rem 0;
     border-top: 1px solid rgba(0,0,0,0.1);
     text-align: center;
+    overflow-x: hidden;
   }
 
   .nav.open .nav-list {
@@ -83,6 +97,7 @@
     border: none;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
   .nav-link {
@@ -90,6 +105,7 @@
     width: 100%;
     padding: 1rem;
     color: var(--ink);
+    word-wrap: break-word;
   }
 
   .nav-list li:hover {
@@ -104,6 +120,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     text-align: center;
+    overflow-x: hidden;
   }
 
   .logo {
@@ -132,6 +149,7 @@
   .block,
   .player {
     padding: 0.6rem;
+    overflow-x: hidden;
   }
 
   .footer {
@@ -151,6 +169,7 @@
 
   .page-title {
     font-size: 1.6rem;
+    word-wrap: break-word;
   }
 
   .logo-main {
@@ -159,6 +178,12 @@
 
   .logo-tag {
     font-size: 0.75rem;
+  }
+
+  p, .lead, .quote {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
