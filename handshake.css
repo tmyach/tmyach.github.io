@@ -9,8 +9,8 @@
 
 .photo .hand {
   position: absolute;
-  top: 60px;
-  left: -50px;
+  top: 50px;
+  left: -80px;
   z-index: 10;
   width: auto !important;
   height: auto !important;
