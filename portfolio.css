@@ -39,7 +39,8 @@
   position: relative;
   z-index: 1;
   background: linear-gradient(to top, rgba(17,17,17,0.75), rgba(17,17,17,0.1));
-  color: #fff;
+  color: #bf9397;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   padding: 1.2rem;
   height: 100%;
   display: flex;
@@ -71,7 +72,8 @@
   transform: translateY(15px);
   transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   color: var(--accent-main);
-  text-shadow:   -1px -1px 0 #000,
+  text-shadow:   
+    -1px -1px 0 #000,
      0   -1px 0 #663333,
      1px -1px 0 #a2a2a2,
      1px  0   0 #fbfbfb,
