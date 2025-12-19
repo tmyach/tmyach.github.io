@@ -1,252 +1,69 @@
-/* responsive.css - MOBILE/STACKED LAYOUT ONLY */
-/* All responsive overrides for screens under 961px */
+/* responsive.css - ONLY mobile fixes, desktop untouched */
 
+/* mobile layout stack ONLY */
 @media (max-width: 960px) {
   .frame {
-    display: flex !important;
-    flex-direction: column;
+    grid-template-columns: 1fr !important;
     gap: 1.5rem;
-    padding: 1rem;
-    overflow-x: hidden;
   }
-
+  
   .content {
-    border: none !important;
+    border-right: none !important;
     padding-right: 0 !important;
     padding-bottom: 1rem;
-    overflow-x: hidden;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
   }
-
+  
   .side {
     padding-left: 0 !important;
     padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    overflow-x: hidden;
+    border-top: 1px solid var(--border) !important;
   }
-
+  
+  /* NO photo overrides - let original stylesheet handle hand/hat */
   .text-photo {
     grid-template-columns: 1fr !important;
-    gap: 1rem;
-    position: relative !important;
   }
-
-  /* CRITICAL: Fix hand/hat layering on mobile */
-  .photo {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  .photo-img.hat {
-    position: absolute !important;
-    left: 30px !important;
-    top: -50px !important;
-    z-index: 4 !important;
-  }
-
-  .photo-img.hand {
-    position: absolute !important;
-    top: 70px !important;
-    left: -30px !important;
-    z-index: 5 !important;
-    animation: wave 3s infinite ease-in-out !important;
-  }
-
-  /* CRITICAL: Fix comments/guestbook alignment */
-  .guestbook,
-  .comments,
-  .disqus,
-  [class*="comment"],
-  iframe[src*="disqus"] {
-    align-self: flex-start !important;
+  
+  /* guestbook stays in content flow, NO centering */
+  .guestbook {
+    margin: 2rem 0 0 0 !important;
     width: 100% !important;
+    display: block !important;
     text-align: left !important;
+  }
+  
+  #c_widget {
+    max-width: 100% !important;
     margin: 0 !important;
-    transform: none !important;
   }
-
-  .main-frame {
-    padding: 0.8rem;
-    overflow-x: hidden;
-  }
-
-  .bird-img {
-    width: 80px !important;
-    top: 1rem !important;
-    right: 1rem !important;
-  }
-
-  .page,
-  html,
-  body {
+  
+  html, body, .page, .main-frame {
     overflow-x: hidden !important;
   }
 }
 
+/* hamburger ONLY */
 @media (max-width: 768px) {
-  .nav {
-    position: relative !important;
-  }
-
-  .nav-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--card-bg);
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 0;
-    padding: 0.6rem 0.8rem;
-    cursor: pointer;
-    z-index: 1001;
-    min-height: 48px;
-    min-width: 48px;
-  }
-
-  .nav-toggle span {
-    display: block;
-    width: 26px;
-    height: 3px;
-    background: var(--ink);
-    margin: 4px 0;
-    transition: all 0.3s ease;
-  }
-
+  .nav-toggle { display: flex !important; }
   .nav-list {
     display: none;
-    flex-direction: column !important;
-    background: var(--card-bg);
     position: fixed !important;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 100vh;
-    padding: 6rem 0 2rem;
-    border-top: none;
-    margin: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    flex-direction: column !important;
     z-index: 1000;
-    overflow-y: auto;
-    backdrop-filter: blur(10px);
-    text-align: center;
+    background: var(--card-bg);
   }
-
-  .nav.open .nav-list {
-    display: flex !important;
-  }
-
-  .nav-list li {
-    border: none !important;
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-link {
-    display: block;
-    width: 100%;
-    padding: 1.2rem;
-    color: var(--ink);
-    font-size: 1.1rem;
-    word-wrap: break-word;
-    text-align: center;
-  }
-
-  .nav-list li:hover {
-    background: var(--ink);
-  }
-
-  .nav-list li:hover .nav-link {
-    color: var(--card-bg);
-  }
-
-  .header {
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
-    overflow-x: hidden;
-    position: relative;
-    z-index: 1002;
-  }
-
-  .logo {
-    margin-bottom: 0.5rem;
-    justify-content: center;
-  }
+  .nav.open .nav-list { display: flex !important; }
+  .header { flex-direction: column; text-align: center; }
 }
 
+/* tiny screens ONLY */
 @media (max-width: 480px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.6rem 1rem;
-    text-align: center;
-  }
-
-  .main-frame {
-    padding: 0.6rem;
-  }
-
-  .frame {
-    padding: 0.8rem;
-    gap: 1rem;
-  }
-
-  .block,
-  .player {
-    padding: 0.6rem;
-    overflow-x: hidden;
-  }
-
-  .footer {
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 0.8rem 1rem;
-    text-align: center;
-  }
-
+  .frame { padding: 0.8rem; gap: 1rem; }
   .bird-img {
     position: fixed !important;
     bottom: 1rem !important;
     right: 1rem !important;
     width: 65px !important;
-    height: auto;
-  }
-
-  .page-title {
-    font-size: 1.6rem;
-    word-wrap: break-word;
-  }
-
-  .logo-main {
-    font-size: 1.1rem;
-  }
-
-  .logo-tag {
-    font-size: 0.75rem;
-  }
-
-  p, .lead, .quote {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 960px) {
-  .bird-img {
-    width: 90px !important;
-  }
-
-  .page-title {
-    font-size: 1.9rem;
-  }
-
-  .side {
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
   }
 }
