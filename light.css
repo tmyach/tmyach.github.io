@@ -224,30 +224,43 @@ html, body {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.block ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0.25rem 0;
+}
+
 .block img[alt*="sudoroth"] {
-  position: absolute;
-  left: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  display: block !important;
+  position: static !important; 
   height: 3em;
-  z-index: 2;
+  margin-top: 0.5rem;
+  margin-left: 0;
+  padding: 2px;
+  transform: none !important;  
+  z-index: auto !important;
+  align-self: flex-start;
 }
 
 .block:has(img[alt*="sudoroth"]) {
   position: relative;
-  padding-left: 4.5rem;
+  padding-left: 20px;  
+  padding-top: 0;
+  overflow: hidden;    
 }
 
-.block:has(img[alt*="sudoroth"]) {
-  position: relative;
-  padding-left: 5rem;
-  padding-top: 3.5rem;
+.block ul {
+  padding-left: 0 !important;
+  margin: 0 !important;
+  list-style: none;
 }
 
-/* sidebar */
-.side {
-  padding-left: 1rem;
+.block ul li::marker {
+  display: none;
 }
+
 .block {
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -267,6 +280,11 @@ html, body {
   height: 3em;
 }
 
+
+/* sidebar */
+.side {
+  padding-left: 1rem;
+}
 
 .title {
   font-family: "kendiyaz", "Lacquer", cursive;
