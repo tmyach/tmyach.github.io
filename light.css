@@ -695,18 +695,26 @@ a {
 @media (min-width: 721px) {
   .frame {
     grid-template-columns: 3fr 1.5fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
-  
+
   .content {
-    border-right: 1px solid var(--border);
-    padding-right: 1.4rem;
+    border-right: none;
+    margin-right: 1rem; 
   }
-  
+
   .side {
-    padding-left: 1.6rem;
+    padding-left: 0;
   }
-  
+
+  .content, .side {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
   }
