@@ -694,15 +694,17 @@ a {
 
 @media (min-width: 721px) {
   .frame {
-    grid-template-columns: 3fr 1.5fr;
-    gap: 2rem;
+    grid-template-columns: 3fr 1fr 1.5fr; /* adds empty middle column */
+    gap: 0;
   }
   
   .content {
-    border-right: none !important; 
+    border-right: none !important;
+    grid-column: 1; /* main content in first column */
   }
   
   .side {
+    grid-column: 3; /* sidebar in third column */
     padding-left: 1.6rem;
   }
 }
