@@ -711,7 +711,6 @@ a {
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
   }
-}
 
 @media (max-width: 768px) {
   .nav {
