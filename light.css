@@ -164,13 +164,13 @@ html, body {
   padding: 1.3rem;
 }
 .frame {
-  background: transparent;
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.6rem;
   display: grid;
-  gap: 2rem;
+  gap: 1.6rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
@@ -311,7 +311,7 @@ html, body {
   border-radius: 4px;
   padding: 0.75rem 0.85rem;
   margin-bottom: 0.9rem;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .list-item-container {
@@ -693,19 +693,26 @@ a {
 
 @media (min-width: 721px) {
   .frame {
-    grid-template-columns: 3fr 0.3fr 1.5fr;
+    grid-template-columns: 3fr 0.5fr 1.5fr; 
+    gap: 0;
   }
   
   .content {
-    border-right: none !important;
     grid-column: 1;
+    border-right: none !important;
+    background: var(--card-bg);
+    padding: 1.6rem;
+    border-radius: 6px 0 0 6px; 
   }
   
   .side {
     grid-column: 3;
-    padding-left: 1.6rem;
+    background: var(--card-bg);
+    padding: 1.6rem;
+    border-radius: 0 6px 6px 0;
   }
 }
+
 
 
   .text-photo {
