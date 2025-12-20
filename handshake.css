@@ -1,3 +1,5 @@
+/* handshake.css */
+
 .photo {
   position: relative;
   perspective: 600px;
@@ -17,7 +19,7 @@
   max-width: 100%;
   max-height: 100%;
   
-  
+  /* 3D distorted resting state */
   transform: rotateY(40deg);
   transform-origin: left center;
   transform-style: preserve-3d;
@@ -25,12 +27,14 @@
 }
 
 .photo .hand:hover {
+  /* normal/forward on hover + shake */
   animation: shakeForward 0.7s ease-in-out;
+  transform: rotateY(0deg); /* overrides resting state during hover */
 }
 
 @keyframes shakeForward {
   0% { 
-    transform: rotateY(20deg) translateX(0px); 
+    transform: rotateY(0deg) translateX(0px); 
   }
   10% { 
     transform: rotateY(0deg) translateX(2px) scale(1.02); 
