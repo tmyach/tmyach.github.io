@@ -695,17 +695,18 @@ a {
 @media (min-width: 721px) {
   .frame {
     grid-template-columns: 3fr 1.5fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
-
+  
   .content {
     border-right: none;
-    margin-right: 1rem; 
+    padding-right: 1.4rem;
   }
-
+  
   .side {
-    padding-left: 0;
+    padding-left: 1.6rem;
   }
+}
 
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
