@@ -695,12 +695,11 @@ a {
 @media (min-width: 721px) {
   .frame {
     grid-template-columns: 3fr 1.5fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .content {
-    border-right: none;
-    padding-right: 1.4rem;
+    border-right: none !important; 
   }
   
   .side {
