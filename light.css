@@ -228,11 +228,6 @@ html, body {
   top: 70px;
   left: -30px;
   z-index: 5;
-  animation: wave 3s infinite ease-in-out;
-}
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
 }
 .photo-img {
   max-width: 100%;
