@@ -19,7 +19,7 @@
   max-width: 100%;
   max-height: 100%;
   
-  /* 3D distorted resting state */
+
   transform: rotateY(40deg);
   transform-origin: left center;
   transform-style: preserve-3d;
@@ -27,9 +27,8 @@
 }
 
 .photo .hand:hover {
-  /* normal/forward on hover + shake */
   animation: shakeForward 0.7s ease-in-out;
-  transform: rotateY(0deg); /* overrides resting state during hover */
+  transform: rotateY(0deg); 
 }
 
 @keyframes shakeForward {
