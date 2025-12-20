@@ -170,7 +170,7 @@ html, body {
   border-radius: 6px;
   padding: 1.6rem;
   display: grid;
-  gap: 2rem; 
+  gap: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
@@ -311,7 +311,7 @@ html, body {
   border-radius: 4px;
   padding: 0.75rem 0.85rem;
   margin-bottom: 0.9rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: #fff;
 }
 
 .list-item-container {
@@ -693,18 +693,20 @@ a {
 
 @media (min-width: 721px) {
   .frame {
-    grid-template-columns: 3fr 1.5fr;
-    gap: 2rem;
+    grid-template-columns: 3fr 0.3fr 1.5fr;
   }
   
   .content {
-    border-right: none !important; 
+    border-right: none !important;
+    grid-column: 1;
   }
   
   .side {
+    grid-column: 3;
     padding-left: 1.6rem;
   }
 }
+
 
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
