@@ -200,12 +200,11 @@ html, body {
   line-height: 1.7;
 }
 
-/* text + photo - FIXED POSITIONING */
 .text-photo {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.4rem;
-  align-items: start;
+  align-items: stretch;
   margin-bottom: 1.5rem;
   position: relative;
 }
@@ -246,6 +245,8 @@ html, body {
   border: 1px solid var(--border);
   padding: 1rem;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .guestbook {
@@ -717,6 +718,7 @@ a {
 
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
+    
   }
 
 @media (max-width: 768px) {
