@@ -101,9 +101,9 @@ html, body {
 }
 
 /* nav desktop */
-.nav {
+/* .nav {
   position: static;
-}
+} */
 .nav-list {
   display: flex;
   list-style: none;
@@ -138,7 +138,7 @@ html, body {
 }
 
 /* nav toggle (hidden on desktop) */
-.nav-toggle {
+/*.nav-toggle {
   display: none;
   flex-direction: column;
   background: var(--card-bg);
@@ -148,7 +148,7 @@ html, body {
   cursor: pointer;
   min-height: 48px;
   min-width: 48px;
-}
+}*/
 .nav-toggle span {
   display: block;
   width: 25px;
