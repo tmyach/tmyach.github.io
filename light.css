@@ -164,7 +164,7 @@ html, body {
   padding: 1.3rem;
 }
 .frame {
-  background: transparent;
+  background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(2px);
   border: 0;
   border-radius: 6px;
@@ -702,18 +702,14 @@ a {
     border-right: none !important;
     background: var(--card-bg);
     padding: 1.6rem;
-    border-radius: 6px 0 0 6px; 
   }
   
   .side {
     grid-column: 3;
     background: var(--card-bg);
     padding: 1.6rem;
-    border-radius: 0 6px 6px 0;
   }
 }
-
-
 
   .text-photo {
     grid-template-columns: 1.1fr 1fr;
