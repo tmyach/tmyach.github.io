@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "Well I can comprehend these manmade horrors perfectly fine so idk maybe you have a skill issue or smth",
       "Forty six and two are just ahead of me!",
       "Makin' snacks on wax plates for DJs to scratch!",
-      "Don't these talking monkeys know that Eden has enough to go around?",
       "You know the business!",
       "Keep it live!",
       "Let's mosey!",
