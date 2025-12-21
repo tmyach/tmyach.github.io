@@ -1,92 +1,72 @@
-@media (max-width: 960px) {
-  .frame {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    padding: 1rem !important;
-    overflow-x: hidden !important;
-  }
-
-  .content {
-    border: none !important;
-    padding-right: 0 !important;
-    padding-bottom: 1rem !important;
-    overflow-x: hidden !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
-  }
-
-  .side {
-    padding-left: 0 !important;
-    padding-top: 1rem !important;
-    border-top: 1px solid var(--border) !important;
-    overflow-x: hidden !important;
-  }
-
-  .text-photo {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-    position: relative !important;
-  }
-
-  .main-frame {
-    padding: 0.8rem !important;
-    overflow-x: hidden !important;
-  }
-
-  .bird-img {
-    width: 80px !important;
-    top: 1rem !important;
-    right: 1rem !important;
-  }
-
-  .page, html, body {
-    overflow-x: hidden !important;
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none !important;
   }
 }
 
 @media (max-width: 768px) {
 
   .nav-toggle {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+    position: relative !important;
+    display: inline-block !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 0 !important;
+    padding: 0.6rem 0.8rem !important;
     background: var(--card-bg) !important;
     border: 1px solid rgba(0,0,0,0.15) !important;
-    border-radius: 0 !important;
-    padding: 0.6rem 0.8rem !important;
     cursor: pointer !important;
     z-index: 1001 !important;
-    min-height: 48px !important;
-    min-width: 48px !important;
-    position: relative !important;
   }
 
   .nav-toggle span {
+    margin: 0 auto !important;
+    position: relative !important;
+    top: 12px !important;
+    width: 30px !important;
+    height: 6px !important;
+    background-color: var(--ink) !important;
     display: block !important;
-    width: 26px !important;
-    height: 3px !important;
-    background: var(--ink) !important;
-    margin: 4px 0 !important;
-    transition: all 0.3s ease !important;
   }
 
-  body.nav-open .nav-toggle span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg) !important;
+  .nav-toggle span:before,
+  .nav-toggle span:after {
+    position: absolute !important;
+    content: '' !important;
+    width: 30px !important;
+    height: 6px !important;
+    background-color: var(--ink) !important;
+    display: block !important;
   }
 
-  body.nav-open .nav-toggle span:nth-child(2) {
-    opacity: 0 !important;
+  .nav-toggle span:before {
+    margin-top: -12px !important;
   }
 
-  body.nav-open .nav-toggle span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg) !important;
+  .nav-toggle span:after {
+    margin-top: 12px !important;
   }
 
-  .nav-list {
-    display: none !important;
+  body.nav-open .nav-toggle span {
+    background-color: rgba(0,0,0,0.0) !important;
+    transition-duration: 0s !important;
+    transition-delay: 0.2s !important;
+  }
+
+  body.nav-open .nav-toggle span:before {
+    margin-top: 0 !important;
+    transform: rotate(45deg) !important;
+    transition-property: margin, transform !important;
+    transition-duration: 0.2s !important;
+    transition-delay: 0s, 0.2s !important;
+  }
+
+  body.nav-open .nav-toggle span:after {
+    margin-top: 0 !important;
+    transform: rotate(-45deg) !important;
+    transition-property: margin, transform !important;
+    transition-duration: 0.2s !important;
+    transition-delay: 0s, 0.2s !important;
   }
 
   body.nav-open .nav-list {
@@ -99,7 +79,7 @@
     height: 100vh !important;
     background: var(--card-bg) !important;
     margin: 0 !important;
-    padding: 7rem 0 2rem !important;
+    padding: 6rem 0 2rem !important;
     z-index: 1000 !important;
     text-align: center !important;
     backdrop-filter: blur(10px) !important;
@@ -121,7 +101,6 @@
     color: var(--ink) !important;
   }
 
-  /* Header layout */
   .header {
     flex-direction: column !important;
     align-items: center !important;
@@ -132,6 +111,88 @@
 
   .logo {
     margin-bottom: 0.5rem !important;
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  body.nav-open {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .frame {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+    overflow-x: hidden !important;
+    background: var(--card-bg) !important;
+  }
+
+  .content {
+    border: none !important;
+    padding-right: 0 !important;
+    padding-bottom: 1rem !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    background: var(--card-bg) !important;
+  }
+
+  .side {
+    padding-left: 0 !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid var(--border) !important;
+    overflow-x: hidden !important;
+    background: var(--card-bg) !important;
+  }
+
+  .text-photo {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    position: relative !important;
+  }
+
+  .photo {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 2rem !important;
+  }
+
+  .photo-img.hat {
+    position: absolute !important;
+    left: 30px !important;
+    top: -50px !important;
+    z-index: 3 !important;
+    max-width: 200px !important;
+  }
+
+  .photo-img.hand {
+    position: absolute !important;
+    top: 70px !important;
+    left: -30px !important;
+    z-index: 4 !important;
+    max-width: 150px !important;
+  }
+
+  .quote {
+    position: relative !important;
+    margin-top: 4rem !important;
+    z-index: 1 !important;
+    width: 100% !important;
+  }
+
+  .main-frame {
+    padding: 0.8rem !important;
+    overflow-x: hidden !important;
+  }
+
+  .bird-img {
+    width: 80px !important;
+    top: 1rem !important;
+    right: 1rem !important;
   }
 }
 
@@ -151,6 +212,7 @@
 
   .block, .player {
     padding: 0.6rem !important;
+    overflow-x: hidden !important;
   }
 
   .footer {
@@ -169,6 +231,7 @@
 
   .page-title {
     font-size: 1.6rem !important;
+    word-wrap: break-word !important;
   }
 
   .logo-main {
@@ -177,6 +240,20 @@
 
   .logo-tag {
     font-size: 0.75rem !important;
+  }
+
+  p, .lead, .quote {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .photo-img.hat {
+    max-width: 150px !important;
+  }
+
+  .photo-img.hand {
+    max-width: 120px !important;
   }
 }
 
