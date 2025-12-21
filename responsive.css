@@ -2,27 +2,37 @@
   .nav-toggle {
     display: none !important;
   }
+  
+  .nav-list {
+    display: flex !important;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Hide nav list by DEFAULT */
+  .nav-list {
+    display: none !important;
+  }
 
   .nav-toggle {
     position: relative !important;
     display: inline-block !important;
-    width: 30px !important;
-    height: 30px !important;
-    margin: 0 !important;
-    padding: 0.6rem 0.8rem !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 9px !important;
     background: var(--card-bg) !important;
     border: 1px solid rgba(0,0,0,0.15) !important;
     cursor: pointer !important;
     z-index: 1001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .nav-toggle span {
-    margin: 0 auto !important;
+    margin: 0 !important;
     position: relative !important;
-    top: 12px !important;
+    top: 0 !important;
     width: 30px !important;
     height: 6px !important;
     background-color: var(--ink) !important;
@@ -37,14 +47,17 @@
     height: 6px !important;
     background-color: var(--ink) !important;
     display: block !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
   }
 
   .nav-toggle span:before {
-    margin-top: -12px !important;
+    top: -12px !important;
   }
 
   .nav-toggle span:after {
-    margin-top: 12px !important;
+    top: 12px !important;
   }
 
   body.nav-open .nav-toggle span {
@@ -54,17 +67,17 @@
   }
 
   body.nav-open .nav-toggle span:before {
-    margin-top: 0 !important;
+    top: 0 !important;
     transform: rotate(45deg) !important;
-    transition-property: margin, transform !important;
+    transition-property: top, transform !important;
     transition-duration: 0.2s !important;
     transition-delay: 0s, 0.2s !important;
   }
 
   body.nav-open .nav-toggle span:after {
-    margin-top: 0 !important;
+    top: 0 !important;
     transform: rotate(-45deg) !important;
-    transition-property: margin, transform !important;
+    transition-property: top, transform !important;
     transition-duration: 0.2s !important;
     transition-delay: 0s, 0.2s !important;
   }
@@ -113,15 +126,12 @@
     margin-bottom: 0.5rem !important;
   }
 
-  html, body {
-    overflow-x: hidden !important;
-  }
-
   body.nav-open {
     overflow: hidden !important;
   }
 }
 
+/* tablet- */
 @media (max-width: 960px) {
   .frame {
     display: flex !important;
@@ -159,6 +169,7 @@
     position: relative !important;
     z-index: 2 !important;
     margin-top: 2rem !important;
+    height: 300px !important;
   }
 
   .photo-img.hat {
@@ -167,6 +178,7 @@
     top: -50px !important;
     z-index: 3 !important;
     max-width: 200px !important;
+    width: 200px !important;
   }
 
   .photo-img.hand {
@@ -175,13 +187,15 @@
     left: -30px !important;
     z-index: 4 !important;
     max-width: 150px !important;
+    width: 150px !important;
   }
 
   .quote {
     position: relative !important;
-    margin-top: 4rem !important;
+    margin-top: 6rem !important;
     z-index: 1 !important;
     width: 100% !important;
+    max-width: 400px !important;
   }
 
   .main-frame {
@@ -196,6 +210,7 @@
   }
 }
 
+/* smaller phones */
 @media (max-width: 480px) {
   .header {
     padding: 0.6rem 1rem !important;
@@ -242,21 +257,20 @@
     font-size: 0.75rem !important;
   }
 
-  p, .lead, .quote {
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
-  }
-
   .photo-img.hat {
-    max-width: 150px !important;
+    width: 150px !important;
   }
 
   .photo-img.hand {
-    max-width: 120px !important;
+    width: 120px !important;
+  }
+
+  .quote {
+    margin-top: 5rem !important;
   }
 }
 
+/* tablet */
 @media (min-width: 481px) and (max-width: 960px) {
   .bird-img {
     width: 90px !important;
@@ -267,6 +281,7 @@
   }
 }
 
+/* desktop */
 @media (min-width: 721px) {
   .frame {
     grid-template-columns: 5fr 0.2fr 2fr !important;
