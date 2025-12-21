@@ -218,8 +218,9 @@ html, body {
 .quote {
   position: absolute;
   left: 0;
-  top: 200px; 
-  width: 280px; 
+  top: 160px;
+width: 400px;
+background:(var(--bg))
   margin: 0;
   transform: rotate(2deg);
   z-index: 3;
