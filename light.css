@@ -262,7 +262,9 @@ html, body {
   font-size: 1.1rem;
   color: var(--ink);
   margin: 0 0 0.35rem;
+  padding-top: 10px;
 }
+
 .block p, .block li {
   font-size: 0.9rem;
   line-height: 1.6;
