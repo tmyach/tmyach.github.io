@@ -207,45 +207,43 @@ html, body {
   align-items: start;
   margin-bottom: 1.5rem;
   position: relative;
+  overflow: visible; 
 }
 
 .text {
   position: relative;
   z-index: 2;
-  display: grid; 
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;       
-  align-items: start;
-}
-
-.text > p:not(.quote) {
-  grid-column: 1;  
-  margin-bottom: 0; 
 }
 
 .quote {
-  grid-column: 2; 
-  grid-row: 1;
+  position: absolute;
+  left: 0;
+  top: 200px; 
+  width: 280px; 
   margin: 0;
   transform: rotate(2deg);
+  z-index: 3;
 
 }
+
 .photo {
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
+
 .photo-img.hat {
   position: absolute;
   left: 30px;
   top: -50px;
-  z-index: 4;
+  z-index: 5;
 }
+
 .photo-img.hand {
   position: absolute;
   top: 70px;
-  left: -30px;
-  z-index: 5;
+  left: -30px; 
 }
+
 .photo-img {
   max-width: 100%;
   height: auto;
