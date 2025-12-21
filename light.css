@@ -202,15 +202,33 @@ html, body {
 
 .text-photo {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 1.4rem;
-  align-items: stretch;
+  align-items: start;
   margin-bottom: 1.5rem;
   position: relative;
 }
+
 .text {
   position: relative;
   z-index: 2;
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;       
+  align-items: start;
+}
+
+.text > p:not(.quote) {
+  grid-column: 1;  
+  margin-bottom: 0; 
+}
+
+.quote {
+  grid-column: 2; 
+  grid-row: 1;
+  margin: 0;
+  transform: rotate(2deg);
+
 }
 .photo {
   position: relative;
