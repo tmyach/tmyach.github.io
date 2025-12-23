@@ -2,16 +2,101 @@
   .nav-toggle {
     display: none !important;
   }
-  
+
   .nav-list {
     display: flex !important;
+  }
+
+  .frame {
+    grid-template-columns: 5fr 0.2fr 2fr !important;
+    gap: 0 !important;
+  }
+
+  .content {
+    grid-column: 1 !important;
+    background: var(--card-bg) !important;
+    padding: 1.6rem !important;
+  }
+
+  .side {
+    grid-column: 3 !important;
+    background: var(--card-bg) !important;
+    padding: 1.6rem !important;
+  }
+
+  .text-photo {
+    grid-template-columns: 1.1fr 1fr !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .frame {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+    overflow-x: hidden !important;
+    background: var(--card-bg) !important;
+  }
+
+  .content {
+    border: none !important;
+    padding-right: 0 !important;
+    padding-bottom: 1rem !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    background: var(--card-bg) !important;
+  }
+
+  .side {
+    padding-left: 0 !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid var(--border) !important;
+    overflow-x: hidden !important;
+    background: var(--card-bg) !important;
+  }
+
+  .main-frame {
+    padding: 0.8rem !important;
+    overflow-x: hidden !important;
+  }
+
+  .text-photo {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    position: relative !important;
+  }
+
+  .bird-img {
+    width: 80px !important;
+    top: 1rem !important;
+    right: 1rem !important;
+  }
+
+  html,
+  body {
+    overflow-x: hidden !important;
   }
 }
 
 @media (max-width: 768px) {
-  /* Hide nav list by DEFAULT */
+
   .nav-list {
     display: none !important;
+  }
+
+  .header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 1002 !important;
+  }
+
+  .logo {
+    margin-bottom: 0.5rem !important;
   }
 
   .nav-toggle {
@@ -20,6 +105,7 @@
     width: 48px !important;
     height: 48px !important;
     padding: 9px !important;
+    margin: 0 !important;
     background: var(--card-bg) !important;
     border: 1px solid rgba(0,0,0,0.15) !important;
     cursor: pointer !important;
@@ -35,50 +121,57 @@
     top: 0 !important;
     width: 30px !important;
     height: 6px !important;
-    background-color: var(--ink) !important;
+    background-color: #000 !important;
     display: block !important;
   }
 
-  .nav-toggle span:before,
-  .nav-toggle span:after {
+  .nav-toggle span::before,
+  .nav-toggle span::after {
     position: absolute !important;
     content: '' !important;
     width: 30px !important;
     height: 6px !important;
-    background-color: var(--ink) !important;
+    background-color: #000 !important;
     display: block !important;
     left: 0 !important;
     right: 0 !important;
     margin: 0 auto !important;
   }
 
-  .nav-toggle span:before {
+  .nav-toggle span::before {
     top: -12px !important;
   }
 
-  .nav-toggle span:after {
+  .nav-toggle span::after {
     top: 12px !important;
   }
 
-  body.nav-open .nav-toggle span {
-    background-color: rgba(0,0,0,0.0) !important;
+  .nav-toggle span {
     transition-duration: 0s !important;
     transition-delay: 0.2s !important;
   }
 
-  body.nav-open .nav-toggle span:before {
-    top: 0 !important;
-    transform: rotate(45deg) !important;
+  body.nav-open .nav-toggle span {
+    background-color: rgba(0,0,0,0.0) !important;
+    transition-delay: 0.2s !important;
+  }
+
+  .nav-toggle span::before,
+  .nav-toggle span::after {
     transition-property: top, transform !important;
     transition-duration: 0.2s !important;
+    transition-delay: 0.2s, 0s !important;
+  }
+
+  body.nav-open .nav-toggle span::before {
+    top: 0 !important;
+    transform: rotate(45deg) !important;
     transition-delay: 0s, 0.2s !important;
   }
 
-  body.nav-open .nav-toggle span:after {
+  body.nav-open .nav-toggle span::after {
     top: 0 !important;
     transform: rotate(-45deg) !important;
-    transition-property: top, transform !important;
-    transition-duration: 0.2s !important;
     transition-delay: 0s, 0.2s !important;
   }
 
@@ -90,11 +183,11 @@
     left: 0 !important;
     right: 0 !important;
     height: 100vh !important;
-    background: var(--card-bg) !important;
     margin: 0 !important;
     padding: 6rem 0 2rem !important;
-    z-index: 1000 !important;
+    background: var(--card-bg) !important;
     text-align: center !important;
+    z-index: 1000 !important;
     backdrop-filter: blur(10px) !important;
     overflow-y: auto !important;
   }
@@ -114,80 +207,44 @@
     color: var(--ink) !important;
   }
 
-  .header {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    position: relative !important;
-    z-index: 1002 !important;
-  }
-
-  .logo {
-    margin-bottom: 0.5rem !important;
-  }
-
   body.nav-open {
     overflow: hidden !important;
   }
 }
 
-/* tablet- */
+
 @media (max-width: 960px) {
-  .frame {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    padding: 1rem !important;
-    overflow-x: hidden !important;
-    background: var(--card-bg) !important;
-  }
-
-  .content {
-    border: none !important;
-    padding-right: 0 !important;
-    padding-bottom: 1rem !important;
-    overflow-x: hidden !important;
-    word-wrap: break-word !important;
-    background: var(--card-bg) !important;
-  }
-
-  .side {
-    padding-left: 0 !important;
-    padding-top: 1rem !important;
-    border-top: 1px solid var(--border) !important;
-    overflow-x: hidden !important;
-    background: var(--card-bg) !important;
-  }
-
   .text-photo {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
-    position: relative !important;
   }
 
   .photo {
     position: relative !important;
     z-index: 2 !important;
-    margin-top: 2rem !important;
-    height: 300px !important;
+    width: 14rem !important;
+    height: 13rem !important;
+    margin: 2rem auto 0 !important;
+  }
+
+  .photo-img {
+    position: absolute !important;
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   .photo-img.hat {
-    position: absolute !important;
-    left: 30px !important;
-    top: -50px !important;
+    left: 1.9rem !important; 
+    top: -3.1rem !important;  
     z-index: 3 !important;
-    max-width: 200px !important;
-    width: 200px !important;
+    width: 9rem !important;
   }
 
   .photo-img.hand {
-    position: absolute !important;
-    top: 70px !important;
-    left: -30px !important;
+    top: 4.4rem !important; 
+    left: -1.9rem !important; 
     z-index: 4 !important;
-    max-width: 150px !important;
-    width: 150px !important;
+    width: 7.5rem !important;
   }
 
   .quote {
@@ -195,22 +252,10 @@
     margin-top: 6rem !important;
     z-index: 1 !important;
     width: 100% !important;
-    max-width: 400px !important;
-  }
-
-  .main-frame {
-    padding: 0.8rem !important;
-    overflow-x: hidden !important;
-  }
-
-  .bird-img {
-    width: 80px !important;
-    top: 1rem !important;
-    right: 1rem !important;
+    max-width: 25rem !important;
   }
 }
 
-/* smaller phones */
 @media (max-width: 480px) {
   .header {
     padding: 0.6rem 1rem !important;
@@ -225,7 +270,8 @@
     gap: 1rem !important;
   }
 
-  .block, .player {
+  .block,
+  .player {
     padding: 0.6rem !important;
     overflow-x: hidden !important;
   }
@@ -257,12 +303,29 @@
     font-size: 0.75rem !important;
   }
 
+  p,
+  .lead,
+  .quote {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .photo {
+    width: 11.5rem !important;
+    height: 11rem !important;
+  }
+
   .photo-img.hat {
-    width: 150px !important;
+    width: 7.5rem !important;
+    left: 1.5rem !important;
+    top: -2.7rem !important;
   }
 
   .photo-img.hand {
-    width: 120px !important;
+    width: 6.3rem !important;
+    top: 3.7rem !important;
+    left: -1.5rem !important;
   }
 
   .quote {
@@ -270,7 +333,6 @@
   }
 }
 
-/* tablet */
 @media (min-width: 481px) and (max-width: 960px) {
   .bird-img {
     width: 90px !important;
@@ -278,29 +340,5 @@
 
   .page-title {
     font-size: 1.9rem !important;
-  }
-}
-
-/* desktop */
-@media (min-width: 721px) {
-  .frame {
-    grid-template-columns: 5fr 0.2fr 2fr !important;
-    gap: 0 !important;
-  }
-
-  .content {
-    grid-column: 1 !important;
-    background: var(--card-bg) !important;
-    padding: 1.6rem !important;
-  }
-
-  .side {
-    grid-column: 3 !important;
-    background: var(--card-bg) !important;
-    padding: 1.6rem !important;
-  }
-
-  .text-photo {
-    grid-template-columns: 1.1fr 1fr !important;
   }
 }
