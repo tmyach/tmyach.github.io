@@ -46,7 +46,7 @@ const s_dstStart = ['March', 'Sunday', 2, 2];
 const s_dstEnd = ['November', 'Sunday', 1, 2];
 
 // Misc
-const s_commentsPerPage = 5;
+const s_commentsPerPage = 2;
 const s_maxLength = 500;
 const s_maxLengthName = 16;
 const s_commentsOpen = true;
@@ -98,8 +98,8 @@ const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
     <!-- admin login button -->
-    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #007bff;">
-        <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: #007bff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">🔐 Admin Login</button>
+    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px; border-left: 2px dotted var(--primary);">
+        <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: transparent; color: white; border: none; padding: 6px 12px; cursor: pointer;">🔐 Admin Login</button>
         <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
     </div>
 
