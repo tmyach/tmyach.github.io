@@ -524,7 +524,6 @@ p.code::before {
   height: 1.5rem;
   display: block;
   margin-top: 0.6rem;
-  border: var(--border-thin);
   transition: box-shadow 0.3s ease;
 }
 
