@@ -1,11 +1,11 @@
 :root {
   --font-body: 'karen2', sans-serif;
-  --font-sub: 'KarenBold', sans-serif;
+  --font-sub: 'karenbold', sans-serif;
   --font-hwr: 'kendiyaz', cursive;
   --font-script: 'mademoiselle', cursive;
-  --font-serif: 'KarenBook', serif;
+  --font-serif: 'karenbook', serif;
   --font-mono: 'karen2mono', serif;
-  --font-title: 'KarenFat', cursive;
+  --font-title: 'karenfat', cursive;
   --bg: #0f0d0b;
   --bg-card-dark: #1e1b17;
   --bg-card-light: #242119;
@@ -18,7 +18,7 @@
 }
 
 html[data-theme="dark"] {
-  --bg-image: url("https://tmyach.com/darkbg.gif");
+  --bg-image: url("bg/darkbg.gif");
 }
 
 html[data-theme="dark"] body {
@@ -51,7 +51,7 @@ html[data-theme="dark"] body::before {
 }
 
 html[data-theme="light"] {
-  --bg-image: url("https://tmyach.com/lightbg.jpg");
+  --bg-image: url("bg/lightbg.jpg");
 }
 
 html[data-theme="light"] body {
@@ -84,7 +84,7 @@ html[data-theme="light"] body::before {
 }
 
 html[data-theme="darkred"] {
-  --bg-image: url("https://tmyach.com/lightbg.jpg");
+  --bg-image: url("bg/redbg.jpg");
 }
 
 html[data-theme="darkred"] body {
@@ -118,7 +118,7 @@ html[data-theme="darkred"] body::before {
 }
 
 html[data-theme="pink"] {
-  --bg-image: url("https://tmyach.com/lightbg.jpg");
+  --bg-image: url("bg/pinkbg.jpg");
 }
 
 html[data-theme="pink"] body {
