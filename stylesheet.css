@@ -336,8 +336,8 @@ body {
 
 .banner-img {
   width: 100%;
-  border: 20px solid transparent;
-  border-image: url('laceblue.png') 17 round;
+  border: 7px solid transparent;
+  border-image: url('laceblue.png') 8 fill round;
   display: block;
   margin-bottom: 1.6rem;
   box-shadow: var(--shadow-vintage);
