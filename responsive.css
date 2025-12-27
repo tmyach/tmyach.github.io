@@ -1,4 +1,5 @@
 @media (min-width: 769px) {
+
   .nav-toggle {
     display: none !important;
   }
@@ -28,6 +29,8 @@
     grid-template-columns: 1.1fr 1fr !important;
   }
 }
+
+
 
 @media (max-width: 960px) {
   .frame {
@@ -81,12 +84,15 @@
   }
 }
 
+
+
 @media (max-width: 768px) {
 
   .nav-list {
     display: none !important;
   }
 
+  /* Header stack */
   .header {
     flex-direction: column !important;
     align-items: center !important;
@@ -98,6 +104,7 @@
   .logo {
     margin-bottom: 0.5rem !important;
   }
+
 
   .nav-toggle {
     position: relative !important;
@@ -213,49 +220,6 @@
 }
 
 
-@media (max-width: 960px) {
-  .text-photo {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-
-  .photo {
-    position: relative !important;
-    z-index: 2 !important;
-    width: 14rem !important;
-    height: 13rem !important;
-    margin: 2rem auto 0 !important;
-  }
-
-  .photo-img {
-    position: absolute !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .photo-img.hat {
-    left: 1.9rem !important; 
-    top: -3.1rem !important;  
-    z-index: 3 !important;
-    width: 9rem !important;
-  }
-
-  .photo-img.hand {
-    top: 4.4rem !important; 
-    left: -1.9rem !important; 
-    z-index: 4 !important;
-    width: 7.5rem !important;
-  }
-
-  .quote {
-    position: relative !important;
-    margin-top: 6rem !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    max-width: 25rem !important;
-  }
-}
-
 @media (max-width: 480px) {
   .header {
     padding: 0.6rem 1rem !important;
@@ -310,28 +274,8 @@
     overflow-wrap: break-word !important;
     hyphens: auto !important;
   }
-
-  .photo {
-    width: 11.5rem !important;
-    height: 11rem !important;
-  }
-
-  .photo-img.hat {
-    width: 7.5rem !important;
-    left: 1.5rem !important;
-    top: -2.7rem !important;
-  }
-
-  .photo-img.hand {
-    width: 6.3rem !important;
-    top: 3.7rem !important;
-    left: -1.5rem !important;
-  }
-
-  .quote {
-    margin-top: 5rem !important;
-  }
 }
+
 
 @media (min-width: 481px) and (max-width: 960px) {
   .bird-img {

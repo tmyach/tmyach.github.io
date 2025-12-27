@@ -202,46 +202,6 @@ html, body {
   z-index: 3;
 }
 
-.photo {
-  position: relative;
-  z-index: 4;
-}
-
-.photo-img.hat {
-  position: absolute;
-  left: 30px;
-  top: -50px;
-  z-index: 5;
-}
-
-.photo-img.hand {
-  position: absolute;
-  top: 70px;
-  left: -30px; 
-}
-
-.photo-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.text p {
-  margin: 0 0 0.7rem;
-  font-size: 0.98rem;
-  line-height: 1.7;
-}
-.quote {
-  transform: rotate(2deg);
-  font-family: "iso8", "IBM Plex Serif", serif;
-  font-style: italic;
-  font-size: 0.96rem;
-  border: 1px solid var(--border);
-  padding: 1rem;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
 .guestbook {
   margin-top: 2rem;
 }
@@ -378,7 +338,7 @@ html, body {
 .poll-option input[type="radio"]:hover + label::before {
   background: var(--accent-main);
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M18 2h-2v2h2zM4 4h6v2H4v14h14v-6h2v8H2V4zm4 8H6v6h6v-2h2v-2h-2v2H8zm4-2h-2v2H8v-2h2V8h2V6h2v2h-2zm2-6h2v2h-2zm4 0h2v2h2v2h-2v2h-2v2h-2v-2h2V8h2V6h-2zm-4 8h2v2h-2z"/></svg>') center / contain no-repeat;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M18 2h-2v2h2zM4 4h6v2H4v14h14v-6h2v8H2V4zm4 8H6v6h6v-2h2v-2h-2v2H8zm4-2h-2v2H8v2h2V8h2V6h2v2h-2zm2-6h2v2h-2zm4 0h2v2h2v2h-2v2h-2v2h-2v-2h2V8h2V6h-2zm-4 8h2v2h-2z"/></svg>') center / contain no-repeat;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M18 2h-2v2h2zM4 4h6v2H4v14h14v-6h2v8H2V4zm4 8H6v6h6v-2h2v-2h-2v2H8zm4-2h-2v2H8v-2h2V8h2V6h2v2h-2zm2-6h2v2h-2zm4 0h2v2h2v2h-2v2h-2v2h-2v-2h2V8h2V6h-2zm-4 8h2v2h-2z"/></svg>') center / contain no-repeat;
 }
 
 /* click */
@@ -568,7 +528,6 @@ html, body {
   color: var(--player-bar);
 }
 
-/* bird */
 .bird-img {
   position: absolute;
   top: 60px;
@@ -578,7 +537,6 @@ html, body {
   z-index: 1000;
 }
 
-/* links */
 a {
   position: relative;
   color: var(--accent-main);

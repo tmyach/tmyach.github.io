@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'KarenFat';
+    src: url('KarenFat.woff2') format('woff2'),
+        url('KarenFat.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KarenBook';
+    src: url('KarenBook.woff2') format('woff2'),
+        url('KarenBook.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'karen2';
+    src: url('karen2.woff2') format('woff2'),
+        url('karen2.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KarenBold';
+    src: url('KarenBold.woff2') format('woff2'),
+        url('KarenBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'karen2mono';
+    src: url('karen2mono.woff2') format('woff2'),
+        url('karen2mono.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
