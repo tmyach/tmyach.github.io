@@ -98,41 +98,42 @@
   }
 
   .player-container {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0.8rem 0;
-  }
-
-  .tv-frame {
     position: relative;
-    width: 100px;
-    height: 70px;
-    z-index: 10;
-    pointer-events: none;
-    margin-bottom: 0.4rem;
+    margin: 0.8rem auto;
   }
 
   #video-player {
+    position: relative !important;
+    width: 100px !important;
+    height: 70px !important;
+    margin: 0 auto 0.4rem auto;
+    background: #111;
+    border: 2px inset var(--primary);
+    display: block;
+  }
+
+  .tv-frame {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 85px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  #video-player iframe {
     position: absolute !important;
     top: 20% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 40% !important;
     height: 60px !important;
-    background: #111;
-    border: 2px inset var(--primary);
-    z-index: 5;
-  }
-
-  #video-player iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    border: none;
+    border: none !important;
   }
 }
 
@@ -168,35 +169,23 @@
     margin-bottom: 0.8rem;
   }
 
-  .tv-frame {
-    width: 90px;
-    height: 65px;
+  #video-player {
+    width: 90px !important;
+    height: 65px !important;
   }
 
-  #video-player {
+  .tv-frame {
+    width: 110px;
+    height: 78px;
+  }
+
+  #video-player iframe {
     height: 55px !important;
   }
 
   .controls button {
     padding: 0.4rem 0.6rem;
     font-size: 0.9rem;
-  }
-
-  p.fancy-quote, p.unfancy-quote, p.code {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .poll-option label {
-    font-size: 0.82rem;
-  }
-
-  .player-container, .guestbook {
-    width: 100%;
-  }
-
-  .footer p {
-    font-size: 0.8rem;
   }
 }
 
@@ -248,12 +237,17 @@
     text-align: center;
   }
 
-  .tv-frame {
-    width: 80px;
-    height: 60px;
+  #video-player {
+    width: 80px !important;
+    height: 60px !important;
   }
 
-  #video-player {
+  .tv-frame {
+    width: 100px;
+    height: 72px;
+  }
+
+  #video-player iframe {
     height: 50px !important;
   }
 
