@@ -21,7 +21,7 @@
     order: 4;
   }
 
-  .sidebar-left #collection {
+  .sidebar-left .block:has(#collection) {
     order: 5;
   }
 
