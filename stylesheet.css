@@ -144,6 +144,14 @@ html[data-theme="pink"] body::before {
   padding: 0;
 }
 
+::-moz-selection { /* Code for Firefox */
+  background: rgba(191, 147, 151, .3);
+}
+
+::selection {
+  background: rgba(191, 147, 151, .3);
+}
+
 body {
   background-color: var(--bg);
   color: var(--ink);
