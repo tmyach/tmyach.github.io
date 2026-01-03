@@ -58,6 +58,12 @@
     gap: 0.6rem;
   }
 
+  .nav-divider,
+  .nav-divider-large {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
   .nav-list {
     flex-wrap: wrap;
     justify-content: flex-start;
