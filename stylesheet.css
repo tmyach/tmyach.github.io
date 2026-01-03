@@ -636,31 +636,50 @@ p.code::before {
 }
 
 .player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: relative;
-  margin: 0.8rem 0;
+  margin: 0.8rem auto;
+}
+
+.tv-wrapper {
+  position: relative;
+  width: 120px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tv-frame {
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 85px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   z-index: 10;
   pointer-events: none;
 }
 
 .tv-screen {
-  position: absolute;
-  top: 20%;
-  left: 45%;
-  width: 40%;
-  height: 60px;
+  position: relative;
+  width: 80%;
+  height: 60%;
   background: #111;
   border: 2px inset var(--primary);
-  transform: translate(-50%, -50%);
+  z-index: 5;
+  overflow: hidden;
 }
+
+.tv-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 
 .track-title {
   border: var(--border-thin);
