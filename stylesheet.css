@@ -84,7 +84,7 @@ html[data-theme="light"] body::before {
 }
 
 html[data-theme="darkred"] {
-  --bg-image: url("bg/redbg.jpg");
+  --bg-image: url("bg/redbg.gif");
 }
 
 html[data-theme="darkred"] body {
