@@ -74,7 +74,11 @@
   line-height: 1.5;
   color: var(--ink);
   max-width: 100%;
+  width: 100%;
+  margin: 0;
+  border: var(--border-thin);
 }
+
 
 #c_widget button:not([disabled]),
 #c_widget input[type=submit]:not([disabled]),
