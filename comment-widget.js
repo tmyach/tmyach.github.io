@@ -431,7 +431,7 @@ function createComment(data) {
         filteredName = filteredName.replace(v_filteredWords, s_filterReplacement);
     }
     
-    // Admin detection: Only highlight if properly signed in with valid Admin Code
+    // admin check
     const adminCodeCol = data['Admin Code'];
     const isAdmin = (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-'));
     
