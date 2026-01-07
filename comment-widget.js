@@ -30,7 +30,7 @@ const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 let ADMIN_NAME = "🐦 Tesia (Admin)"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
-let ADMIN_CSS_CLASS = "c-adminHighlight";
+let ADMIN_CSS_CLASS = "c-adminName";
 let ADMIN_CODE = ""; // Hidden verification code
 
 // 
