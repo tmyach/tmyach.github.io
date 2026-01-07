@@ -186,7 +186,7 @@ html[data-theme="darkred"] {
 
 html[data-theme="darkred"] body {
   position: relative;
-  background: var(--bg-color, #330909);
+  background: var(--bg-color, #1a0606);
 }
 
 html[data-theme="darkred"] body::before {
