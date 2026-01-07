@@ -13,7 +13,7 @@
   --ink-soft: #b5b0a5;
   --primary: #93bfba;
   --secondary: #bf9397;
-  --border-thin: 1px dotted var(--primary);
+  --border-thin: 1px dashed var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
 }
 
@@ -137,7 +137,7 @@ html[data-theme="dark"] body::before {
   --ink-soft: #5c5347;
   --primary: #93bfba;
   --secondary: #bf9397;
-  --border-thin: 1px dotted #8c8073;
+  --border-thin: 1px dashed #8c8073;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -170,7 +170,7 @@ html[data-theme="light"] body::before {
   --ink-soft: #c7a5a5;
   --primary: #e68a80;
   --secondary: #d66a60;
-  --border-thin: 1px dotted var(--primary);
+  --border-thin: 1px dashed var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
 }
 
@@ -204,7 +204,7 @@ html[data-theme="darkred"] body::before {
   --ink-soft: #c47a9a;
   --primary: #d63384;
   --secondary: #f472b6;
-  --border-thin: 1px dotted #e9b6c7;
+  --border-thin: 1px dashed #e9b6c7;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
 }
 
@@ -765,9 +765,9 @@ p.code::before {
   width: 80%;
   height: 60%;
   background: #111;
-  border: 2px inset var(--primary);
   z-index: 5;
   overflow: hidden;
+  bottom: .4rem;
 }
 
 .tv-screen iframe {
@@ -785,6 +785,7 @@ p.code::before {
   font-size: 0.95rem;
   margin: 0.6rem 0;
   background-color: var(--bg-card-dark);
+  font-family: var(--font-script);
 }
 
 .controls {
