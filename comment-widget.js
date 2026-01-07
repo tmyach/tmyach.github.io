@@ -1,20 +1,25 @@
 /*
     (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
 
+
     User customizable settings below!
     Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
     The IDs at the top are a requirement but everything else is optional!
     Do not delete any settings even if you aren't using them! It could break the program.
 
+
     After filling out your options, just paste this anywhere you want a comment section
     (But change the script src URL to wherever you have this widget stored on your site!)
+
 
         <div id="c_widget"></div>
         <script src="comment-widget.js"></script>
 
+
     Have fun! Bug reports are encouraged if you happen to run into any issues.
     - Ayano (https://virtualobserver.moe/)
 */
+
 
 // The values in this section are REQUIRED for the widget to work! Keep them in quotes!
 const s_stylePath = 'comment-widget.css';
@@ -27,11 +32,12 @@ const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
 // admin
-let ADMIN_NAME = "🐦 Tesia (Admin)"; // =
+let ADMIN_NAME = "🐦 Tesia"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
 let ADMIN_CODE = ""; // Hidden verification code
+
 
 // 
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
@@ -79,14 +85,14 @@ const s_rightButtonText = '>>';
 // Fix the URL parameters setting for Rarebit just in case
 if (s_fixRarebitIndexPage) { s_includeUrlParameters = true }
 
-// Apply CSS
+// CSS
 const c_cssLink = document.createElement('link');
 c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
-// HTML form setup
+// html form
 const v_mainHtml = `
     <div id="c_inputDiv">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
@@ -110,7 +116,7 @@ const v_formHtml = `
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or jeandoe@email.com or https://url.com ... p.s. This information will not be displayed publicly!" maxlength="100">
+        <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
     </div>
 
     <!-- admin input -->
@@ -127,7 +133,7 @@ const v_formHtml = `
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
 `;
 
-// Insert main HTML to page
+// main html insert
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 const c_form = document.getElementById('c_form');
 if (s_commentsOpen) { c_form.innerHTML = v_formHtml }
@@ -149,10 +155,10 @@ let c_submitButton;
 if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton') }
 else { c_submitButton = document.createElement('button') }
 
-// --- login ---
+// login
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
-        // Logout
+        // logout
         ADMIN_STATUS = false;
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
@@ -173,7 +179,7 @@ function tryAdminLogin() {
     let password = prompt('Enter admin password:');
     if (password === ADMIN_PASSWORD) {
         ADMIN_STATUS = true;
-        ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9); // Unique code
+        ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
         
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeInput = document.getElementById('c_adminCode');
@@ -194,7 +200,7 @@ function tryAdminLogin() {
     }
 }
 
-// Add page input
+// page input
 let v_pagePath = window.location.pathname;
 if (s_includeUrlParameters) { v_pagePath += window.location.search }
 if (s_fixRarebitIndexPage && v_pagePath == '/') { v_pagePath = '/?pg=1' }
@@ -204,7 +210,7 @@ c_pageInput.value = v_pagePath; c_pageInput.type = 'text'; c_pageInput.style.dis
 c_pageInput.id = 'entry.' + s_pageId; c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
-// Reply handling
+// reply
 let c_replyingText = document.createElement('span');
 c_replyingText.style.display = 'none'; c_replyingText.id = 'c_replyingText';
 c_form.appendChild(c_replyingText);
@@ -228,7 +234,7 @@ function fixFrame() {
     getComments();
 }
 
-// Fetch and display sheet data
+// fetch sheet data
 function getComments() {
     c_submitButton.disabled;
 
@@ -236,7 +242,7 @@ function getComments() {
     c_replyInput.value = '';
 
     if (s_commentsOpen) {
-        // Don't clear name or admin code if admin is logged in
+        // don't clear name or admin code if admin is logged in
         if (!ADMIN_STATUS) {
             document.getElementById(`entry.${s_nameId}`).value = '';
             document.getElementById(`entry.${s_websiteId}`).value = '';
@@ -304,7 +310,7 @@ function getSheet(url) {
     });
 }
 
-// Display comments + replies
+// display comments
 let a_commentDivs = [];
 function displayComments(comments) {
     a_commentDivs = [];
@@ -410,13 +416,19 @@ function createComment(data) {
     let filteredName = data.Name;
     if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement) }
     
-    // separate div
+    // admin check
     const adminCodeCol = data['Admin Code']; 
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.title = 'Tesia (Admin)';
+        name.dataset.tooltip = 'Tesia (Admin)'; 
+        
+        // tooltip
+        const tooltipSpan = document.createElement('span');
+        tooltipSpan.className = 'testip';
+        tooltipSpan.textContent = 'Tesia (Admin)';
+        name.appendChild(tooltipSpan);
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
@@ -448,7 +460,7 @@ function createComment(data) {
     return comment;
 }
 
-// Timestamp conversion
+// timestamp
 function convertTimestamp(timestamp) {
     const vals = timestamp.split('(')[1].split(')')[0].split(',');
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
@@ -503,7 +515,7 @@ function getMonthNum(month) {
     return ['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(m);
 }
 
-// Reply + pagination
+// reply
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
 
@@ -547,4 +559,36 @@ function changePage(dir) {
     }
 }
 
+// tooltip
+function initAdminTooltips() {
+    document.querySelectorAll('.c-adminName').forEach(el => {
+        const tooltip = el.querySelector('.testip');
+        if (!tooltip) return;
+        
+        let mouseX = 0;
+        let mouseY = 0;
+
+        el.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.visibility = 'visible';
+            tooltip.textContent = el.dataset.tooltip;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.visibility = 'hidden';
+        });
+
+        el.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX + 15;
+            mouseY = e.clientY + 15;
+            tooltip.style.left = mouseX + 'px';
+            tooltip.style.top = mouseY + 'px';
+        });
+    });
+}
+
 getComments(); // Run on load
+
+// re-init tooltips after load
+setTimeout(initAdminTooltips, 500);
