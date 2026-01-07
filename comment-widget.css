@@ -236,6 +236,7 @@
   font-size: 0.7rem;
   color: var(--ink-soft);
   font-style: italic;
+  padding: 2px;
 }
 
 .c-site {
