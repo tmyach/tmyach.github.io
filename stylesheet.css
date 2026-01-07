@@ -1,6 +1,6 @@
 :root {
   --font-body: 'Lato', 'regularbit', system-ui, sans-serif;
-  --font-sub: 'Lato-bold', 'karenbold', system-ui, sans-serif;
+  --font-sub: 'Lato', 'karenbold', system-ui, sans-serif;
   --font-hwr: 'Mynerve', 'kendiyaz', system-ui, cursive;
   --font-script: 'Beth Ellen', 'mademoiselle', system-ui, cursive;
   --font-serif: 'Lora', 'karenbook', system-ui, serif;
@@ -99,6 +99,14 @@
   font-weight: 400;
   font-style: normal;
 }
+
+/*bold any font*/
+
+.bold {
+  font-weight: 700;
+}
+
+/*theme stuff */
 
 html[data-theme="dark"] {
   --bg-image: url("bg/darkbg.gif");
