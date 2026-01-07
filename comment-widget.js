@@ -79,7 +79,7 @@ const s_rightButtonText = '>>';
 // Fix the URL parameters setting for Rarebit just in case
 if (s_fixRarebitIndexPage) { s_includeUrlParameters = true }
 
-// tooltip css override + element
+// tooltip css
 const adminCSS = document.createElement('style');
 adminCSS.textContent = `
     .c-adminName {
@@ -285,21 +285,22 @@ function fixFrame() {
     getComments();
 }
 
-// attach tooltip events to admin names
+// attach tooltip to admin name
 function attachAdminTooltips() {
     const adminNames = document.querySelectorAll('.c-comment .c-adminName, .c-reply .c-adminName');
     adminNames.forEach(name => {
-        const hasEvents = name.dataset.tooltipAttached;
-        if (hasEvents) return;
+        if (name.dataset.tooltipAttached) return;
         
         name.dataset.tooltipAttached = 'true';
-        name.addEventListener('mouseenter', () => {
+        name.addEventListener('mouseenter', (e) => {
             tooltip.style.opacity = '1';
             tooltip.style.visibility = 'visible';
         });
-        name.addEventListener('mousemove', e => {
-            tooltip.style.left = (e.pageX + 12) + 'px';
-            tooltip.style.top = (e.pageY + 12) + 'px';
+        name.addEventListener('mousemove', (e) => {
+            const x = e.pageX + 12;
+            const y = e.pageY + 12;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
         });
         name.addEventListener('mouseleave', () => {
             tooltip.style.opacity = '0';
@@ -307,6 +308,7 @@ function attachAdminTooltips() {
         });
     });
 }
+
 
 // fetch sheet data
 function getComments() {
