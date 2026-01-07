@@ -317,14 +317,10 @@ function fixFrame() {
 
 // fetch sheet data
 function getComments() {
-    c_submitButton.disabled;
-
-
+    c_submitButton.disabled = true;
 
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
-
-
 
     if (s_commentsOpen) {
         // Don't clear name or admin code if admin is logged in
@@ -338,19 +334,13 @@ function getComments() {
         }
     }
 
-
-
     const url = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?`;
     const retrievedSheet = getSheet(url);
-
-
 
     retrievedSheet.then(result => {
         const json = JSON.parse(result.split('\n')[1].replace(/google.visualization.Query.setResponse\(|\);/g, ''));
         const isPage = (col) => col.label == 'Page';
         let pageIdx = json.table.cols.findIndex(isPage);
-
-
 
         let comments = [];
         if (json.table.parsedNumHeaders > 0) {
@@ -358,13 +348,9 @@ function getComments() {
                 let val1 = json.table.rows[r].c[pageIdx]?.v || '';
                 const normalizePath = (p) => p.replace(/\/+$/, '').trim().toLowerCase();
 
-
-
                 if (normalizePath(val1) === normalizePath(v_pagePath) ||
                     normalizePath(val1).includes(normalizePath(v_pagePath)) ||
                     normalizePath(v_pagePath).includes(normalizePath(val1))) {
-
-
 
                     let comment = {};
                     for (c = 0; c < json.table.cols.length; c++) {
@@ -377,15 +363,11 @@ function getComments() {
             }
         }
 
-
-
         if (!comments.length) {
             c_container.innerHTML = s_noCommentsText;
         } else {
             displayComments(comments);
         }
-
-
 
         c_submitButton.disabled = false;
     }).catch(err => {
@@ -394,6 +376,7 @@ function getComments() {
         c_submitButton.disabled = false;
     });
 }
+
 
 
 
