@@ -532,6 +532,7 @@ body {
   min-width: 100%;
   line-height: 1.05;
   font-family: var(--font-title);
+  padding:5px;
 }
 
 ul.unstyled {
