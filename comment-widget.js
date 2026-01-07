@@ -36,8 +36,8 @@ const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 let ADMIN_NAME = "🐦 Tesia"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
-let ADMIN_CSS_CLASS = "c-adminHighlight";
-let ADMIN_CODE = ""; // Hidden verification code
+let ADMIN_CSS_CLASS = "c-adminName";
+let ADMIN_CODE = "";
 
 
 // 
@@ -94,7 +94,7 @@ if (s_fixRarebitIndexPage) {
 }
 
 
-// Apply CSS
+// CSS
 const c_cssLink = document.createElement('link');
 c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
@@ -102,7 +102,7 @@ c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
 
-// HTML form setup
+// HTML form 
 const v_mainHtml = `
     <div id="c_inputDiv">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
@@ -151,7 +151,7 @@ const v_formHtml = `
 `;
 
 
-// Insert main HTML to page
+// add html
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 const c_form = document.getElementById('c_form');
 if (s_commentsOpen) {
@@ -183,7 +183,7 @@ if (s_commentsOpen) {
 }
 
 
-// --- login ---
+// login
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
         // Logout
@@ -229,7 +229,7 @@ function tryAdminLogin() {
 }
 
 
-// Add page input
+// page input
 let v_pagePath = window.location.pathname;
 if (s_includeUrlParameters) {
     v_pagePath += window.location.search
@@ -248,7 +248,7 @@ c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
 
-// Reply handling
+// reply
 let c_replyingText = document.createElement('span');
 c_replyingText.style.display = 'none';
 c_replyingText.id = 'c_replyingText';
@@ -282,7 +282,7 @@ function fixFrame() {
 }
 
 
-// Fetch and display sheet data
+// fetch sheet data
 function getComments() {
     c_submitButton.disabled;
 
@@ -372,7 +372,7 @@ function getSheet(url) {
 }
 
 
-// Display comments + replies
+// comments display
 let a_commentDivs = [];
 
 function displayComments(comments) {
