@@ -31,7 +31,7 @@ let ADMIN_NAME = "🐦 Tesia";
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
-let ADMIN_CODE = ""; // Hidden verification code
+let ADMIN_CODE = ""; // verify
 
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
   .then(r => r.text())
@@ -78,12 +78,44 @@ const s_rightButtonText = '>>';
 // Fix the URL parameters setting for Rarebit just in case
 if (s_fixRarebitIndexPage) { s_includeUrlParameters = true }
 
-// CSS
+// tooltip
 const c_cssLink = document.createElement('link');
 c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
+
+// tooltip css
+const adminTooltipCSS = document.createElement('style');
+adminTooltipCSS.textContent = `
+    .c-adminName {
+        position: relative;
+    }
+    .c-adminName::after {
+        content: 'admin!';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+        z-index: 1000;
+        margin-bottom: 5px;
+        pointer-events: none;
+    }
+    .c-adminName:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+`;
+document.getElementsByTagName('head')[0].appendChild(adminTooltipCSS);
 
 // html form
 const v_mainHtml = `
@@ -151,7 +183,6 @@ else { c_submitButton = document.createElement('button') }
 // login
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
-        // logout
         ADMIN_STATUS = false;
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
@@ -244,7 +275,6 @@ function getComments() {
     c_replyInput.value = '';
 
     if (s_commentsOpen) {
-        // don't clear name or admin code if admin is logged in
         if (!ADMIN_STATUS) {
             document.getElementById(`entry.${s_nameId}`).value = '';
             document.getElementById(`entry.${s_websiteId}`).value = '';
@@ -420,13 +450,12 @@ function createComment(data) {
     let filteredName = data.Name;
     if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement) }
     
-   //tooltip
+    // check admin
     const adminCodeCol = data['Admin Code']; 
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.title = 'admin';
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
