@@ -108,7 +108,7 @@
   padding: 0.6rem;
   background-color: var(--bg-card-dark);
   max-width: 100%;
-  overflow: auto;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -148,7 +148,14 @@
   background-color: var(--bg-card-light);
   color: var(--ink);
   outline: none;
- 
+ width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto; 
+  overflow-y: visible;
+  resize: vertical;
+  min-height: 3rem;
+  white-space: pre-wrap;
 }
 
 .c-input:focus {
@@ -160,6 +167,22 @@
   width: 100%;
   min-height: 100px;
   max-height: 140px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.c-nameInput {
+  width: 100%;
+  min-height: 100px;
+  max-height: 120px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.c-websiteInput {
+  width: 100%;
+  min-height: 100px;
+  max-height: 120px;
   resize: vertical;
   box-sizing: border-box;
 }
