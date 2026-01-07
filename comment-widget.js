@@ -426,23 +426,22 @@ function createComment(data) {
     const id = data.Name + '|--|' + data.Timestamp2;
     comment.id = id;
     
-    let name;
     let filteredName = data.Name;
     if (s_wordFilterOn) {
         filteredName = filteredName.replace(v_filteredWords, s_filterReplacement);
     }
     
-    // separate div
+    // Admin detection: Only highlight if properly signed in with valid Admin Code
     const adminCodeCol = data['Admin Code'];
-    if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
-        name = document.createElement('h3');
-        name.innerText = filteredName;
+    const isAdmin = (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-'));
+    
+    let name = document.createElement('h3');
+    name.innerText = filteredName;
+    
+    if (isAdmin) {
         name.className = 'c-adminName';
-        
     } else {
-        name = document.createElement('h3');
-        name.innerText = filteredName;
-        name.className = 'c-name';
+        name.className = 'c-name';  
     }
     
     comment.appendChild(name);
