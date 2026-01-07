@@ -218,7 +218,7 @@
 
 .c-name {
   font-family: var(--font-script);
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   margin: 0 0 0.1rem 0;
   color: var(--ink);
   display: flex;
