@@ -272,7 +272,7 @@
     background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
     color: var(--bg-card-light) !important;
     font-family: var(--font-script) !important;
-    font-size: 0.9rem !important;
+    font-size: 0.6rem !important;
     padding: 0.2rem 0.5rem !important;
     border-radius: 3px !important;
     box-shadow: var(--shadow-vintage) !important;
