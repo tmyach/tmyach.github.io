@@ -482,6 +482,8 @@ body {
 
 .block.guestbook {
   border: none;
+  padding: .2rem;
+}
 }
 
 .main-content {
@@ -496,7 +498,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-bottom: var(--border-thin);
-  padding-bottom: 0.4rem;
+  padding: 0.4rem;
   margin-bottom: 0.9rem;
 }
 
