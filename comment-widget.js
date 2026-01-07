@@ -438,7 +438,7 @@ function createComment(data) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.title = 'Tesia';
+        
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
