@@ -32,12 +32,14 @@ const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
 
+
 // admin
 let ADMIN_NAME = "🐦 Tesia"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminName";
 let ADMIN_CODE = "";
+
 
 
 // 
@@ -47,11 +49,13 @@ fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGa
     .catch(err => console.error("Admin password fetch failed:", err));
 
 
+
 // The values below are necessary for accurate timestamps
 const s_timezone = -5;
 const s_daylightSavings = true;
 const s_dstStart = ['March', 'Sunday', 2, 2];
 const s_dstEnd = ['November', 'Sunday', 1, 2];
+
 
 
 // Misc
@@ -65,10 +69,12 @@ let s_includeUrlParameters = false;
 const s_fixRarebitIndexPage = false;
 
 
+
 // Word filter
 const s_wordFilterOn = false;
 const s_filterReplacement = '****';
 const s_filteredWords = ['bitch'];
+
 
 
 // Text
@@ -88,10 +94,12 @@ const s_leftButtonText = '<<';
 const s_rightButtonText = '>>';
 
 
+
 // Fix the URL parameters setting for Rarebit just in case
 if (s_fixRarebitIndexPage) {
     s_includeUrlParameters = true
 }
+
 
 
 // CSS
@@ -100,6 +108,7 @@ c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
+
 
 
 // HTML form 
@@ -111,8 +120,10 @@ const v_mainHtml = `
 `;
 
 
+
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
+
 
 
     <!-- admin login button -->
@@ -122,16 +133,19 @@ const v_formHtml = `
     </div>
 
 
+
     <div id="c_nameWrapper" class="c-inputWrapper">
         <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
         <textarea class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required>
     </div>
 
 
+
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
         <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
     </div>
+
 
 
     <!-- admin input -->
@@ -141,14 +155,17 @@ const v_formHtml = `
     </div>
 
 
+
     <div id="c_textWrapper" class="c-inputWrapper">
         <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
         <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50" maxlength="${s_maxLength}" placeholder="Write your comment here..." required></textarea>
     </div>
 
 
+
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
 `;
+
 
 
 // add html
@@ -161,11 +178,13 @@ if (s_commentsOpen) {
 }
 
 
+
 const c_container = document.getElementById('c_container');
 let v_pageNum = 1;
 let v_amountOfPages = 1;
 let v_commentMax = 1;
 let v_commentMin = 1;
+
 
 
 let v_filteredWords;
@@ -175,12 +194,14 @@ if (s_wordFilterOn) {
 }
 
 
+
 let c_submitButton;
 if (s_commentsOpen) {
     c_submitButton = document.getElementById('c_submitButton')
 } else {
     c_submitButton = document.createElement('button')
 }
+
 
 
 // login
@@ -199,24 +220,29 @@ function tryAdminLogin() {
         return;
     }
 
+
     if (!ADMIN_PASSWORD) {
         alert('Admin system not ready. Please wait...');
         return;
     }
+
 
     let password = prompt('Enter admin password:');
     if (password === ADMIN_PASSWORD) {
         ADMIN_STATUS = true;
         ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9); // Unique code
 
+
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeInput = document.getElementById('c_adminCode');
         let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
+
 
         nameInput.value = ADMIN_NAME;
         nameInput.readOnly = true;
         adminCodeInput.value = ADMIN_CODE;
         adminCodeWrapper.style.display = 'block';
+
 
         document.getElementById('c_adminStatus').innerHTML = `Logged in as ${ADMIN_NAME}`;
         document.getElementById('c_adminButton').innerHTML = 'Logout';
@@ -229,6 +255,7 @@ function tryAdminLogin() {
 }
 
 
+
 // page input
 let v_pagePath = window.location.pathname;
 if (s_includeUrlParameters) {
@@ -237,6 +264,7 @@ if (s_includeUrlParameters) {
 if (s_fixRarebitIndexPage && v_pagePath == '/') {
     v_pagePath = '/?pg=1'
 }
+
 
 
 const c_pageInput = document.createElement('input');
@@ -248,12 +276,14 @@ c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
 
+
 // reply
 let c_replyingText = document.createElement('span');
 c_replyingText.style.display = 'none';
 c_replyingText.id = 'c_replyingText';
 c_form.appendChild(c_replyingText);
 c_replyingText = document.getElementById('c_replyingText');
+
 
 
 let c_replyInput = document.createElement('input');
@@ -263,6 +293,7 @@ c_replyInput.id = 'entry.' + s_replyId;
 c_replyInput.name = c_replyInput.id;
 c_form.appendChild(c_replyInput);
 c_replyInput = document.getElementById('entry.' + s_replyId);
+
 
 
 let v_submitted = false;
@@ -275,6 +306,7 @@ c_form.appendChild(c_hiddenIframe);
 c_hiddenIframe = document.getElementById('c_hiddenIframe');
 
 
+
 function fixFrame() {
     v_submitted = false;
     c_hiddenIframe.srcdoc = '';
@@ -282,13 +314,16 @@ function fixFrame() {
 }
 
 
+
 // fetch sheet data
 function getComments() {
     c_submitButton.disabled;
 
 
+
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
+
 
 
     if (s_commentsOpen) {
@@ -304,14 +339,17 @@ function getComments() {
     }
 
 
+
     const url = `https://docs.google.com/spreadsheets/d/${s_sheetId}/gviz/tq?`;
     const retrievedSheet = getSheet(url);
+
 
 
     retrievedSheet.then(result => {
         const json = JSON.parse(result.split('\n')[1].replace(/google.visualization.Query.setResponse\(|\);/g, ''));
         const isPage = (col) => col.label == 'Page';
         let pageIdx = json.table.cols.findIndex(isPage);
+
 
 
         let comments = [];
@@ -321,9 +359,11 @@ function getComments() {
                 const normalizePath = (p) => p.replace(/\/+$/, '').trim().toLowerCase();
 
 
+
                 if (normalizePath(val1) === normalizePath(v_pagePath) ||
                     normalizePath(val1).includes(normalizePath(v_pagePath)) ||
                     normalizePath(v_pagePath).includes(normalizePath(val1))) {
+
 
 
                     let comment = {};
@@ -338,11 +378,13 @@ function getComments() {
         }
 
 
+
         if (!comments.length) {
             c_container.innerHTML = s_noCommentsText;
         } else {
             displayComments(comments);
         }
+
 
 
         c_submitButton.disabled = false;
@@ -352,6 +394,7 @@ function getComments() {
         c_submitButton.disabled = false;
     });
 }
+
 
 
 function getSheet(url) {
@@ -372,12 +415,15 @@ function getSheet(url) {
 }
 
 
+
 // comments display
 let a_commentDivs = [];
+
 
 function displayComments(comments) {
     a_commentDivs = [];
     c_container.innerHTML = '';
+
 
 
     let replies = [];
@@ -390,14 +436,17 @@ function displayComments(comments) {
     }
 
 
+
     v_amountOfPages = Math.ceil(comments.length / s_commentsPerPage);
     v_commentMax = s_commentsPerPage * v_pageNum;
     v_commentMin = v_commentMax - s_commentsPerPage;
 
 
+
     comments.reverse();
     for (i = 0; i < comments.length; i++) {
         let comment = createComment(comments[i]);
+
 
 
         let button = document.createElement('button');
@@ -408,10 +457,12 @@ function displayComments(comments) {
         comment.appendChild(button);
 
 
+
         comment.style.display = 'none';
         if (i >= v_commentMin && i < v_commentMax) {
             comment.style.display = 'block'
         }
+
 
 
         comment.className = 'c-comment';
@@ -420,13 +471,16 @@ function displayComments(comments) {
     }
 
 
+
     for (i = 0; i < replies.length; i++) {
         let reply = createComment(replies[i]);
         const parentId = replies[i].Reply;
         const parentDiv = document.getElementById(parentId);
 
 
+
         if (!parentDiv) continue;
+
 
 
         let container;
@@ -443,9 +497,11 @@ function displayComments(comments) {
         }
 
 
+
         reply.className = 'c-reply';
         container.appendChild(reply);
     }
+
 
 
     if (s_collapsedReplies) {
@@ -455,6 +511,7 @@ function displayComments(comments) {
             const parentDiv = containers[i].parentElement;
 
 
+
             const button = document.createElement('button');
             button.innerHTML = s_expandRepliesText + ` (${num})`;
             button.setAttribute('onclick', `expandReplies(this.parentElement.id)`);
@@ -462,6 +519,7 @@ function displayComments(comments) {
             parentDiv.insertBefore(button, parentDiv.lastChild);
         }
     }
+
 
 
     if (v_amountOfPages > 1) {
@@ -478,6 +536,7 @@ function displayComments(comments) {
         pagination.appendChild(leftButton);
 
 
+
         let rightButton = document.createElement('button');
         rightButton.innerHTML = s_rightButtonText;
         rightButton.id = 'c_rightButton';
@@ -490,10 +549,12 @@ function displayComments(comments) {
         pagination.appendChild(rightButton);
 
 
+
         pagination.id = 'c_pagination';
         c_container.appendChild(pagination);
     }
 }
+
 
 
 function createComment(data) {
@@ -504,11 +565,13 @@ function createComment(data) {
     comment.id = id;
 
 
+
     let name;
     let filteredName = data.Name;
     if (s_wordFilterOn) {
         filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)
     }
+
 
     // separate div
     const adminCodeCol = data['Admin Code'];
@@ -516,20 +579,22 @@ function createComment(data) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.title = 'Tesia';
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-name';
     }
 
+
     comment.appendChild(name);
+
 
 
     let time = document.createElement('span');
     time.innerText = timestamp;
     time.className = 'c-timestamp';
     comment.appendChild(time);
+
 
 
     if (data.Website) {
@@ -539,6 +604,7 @@ function createComment(data) {
         site.className = 'c-site';
         comment.appendChild(site);
     }
+
 
 
     let text = document.createElement('p');
@@ -551,8 +617,10 @@ function createComment(data) {
     comment.appendChild(text);
 
 
+
     return comment;
 }
+
 
 
 // Timestamp conversion
@@ -566,6 +634,7 @@ function convertTimestamp(timestamp) {
     }
     return [offsetDate.toLocaleString(), offsetDate.toLocaleDateString()];
 }
+
 
 
 function isDST(date) {
@@ -584,6 +653,7 @@ function isDST(date) {
 }
 
 
+
 function nthDayOfMonth(day, n, date, hour) {
     var count = 0;
     var idate = new Date(date);
@@ -597,6 +667,7 @@ function nthDayOfMonth(day, n, date, hour) {
     idate.setHours(hour);
     return idate;
 }
+
 
 
 function getDayNum(day) {
@@ -621,15 +692,18 @@ function getDayNum(day) {
 }
 
 
+
 function getMonthNum(month) {
     const m = month.toLowerCase();
     return ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].indexOf(m);
 }
 
 
+
 // Reply + pagination
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
+
 
 
 function openReply(id) {
@@ -646,6 +720,7 @@ function openReply(id) {
 }
 
 
+
 function expandReplies(id) {
     const targetDiv = document.getElementById(`${id}-replies`);
     if (!targetDiv) return;
@@ -653,9 +728,11 @@ function expandReplies(id) {
 }
 
 
+
 function changePage(dir) {
     const leftButton = document.getElementById('c_leftButton');
     const rightButton = document.getElementById('c_rightButton');
+
 
 
     let num = dir === 'left' ? -1 : 1;
@@ -663,10 +740,12 @@ function changePage(dir) {
     if (targetPage > v_amountOfPages || targetPage < 1) return;
 
 
+
     leftButton.disabled = false;
     rightButton.disabled = false;
     if (targetPage == 1) leftButton.disabled = true;
     if (targetPage == v_amountOfPages) rightButton.disabled = true;
+
 
 
     v_pageNum = targetPage;
@@ -679,6 +758,7 @@ function changePage(dir) {
         }
     }
 }
+
 
 
 getComments(); // Run on load
