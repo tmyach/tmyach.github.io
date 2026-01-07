@@ -173,7 +173,7 @@
 
 .c-nameInput {
   width: 100%;
-  min-height: 100px;
+  min-height: 30px;
   max-height: 120px;
   resize: vertical;
   box-sizing: border-box;
@@ -181,7 +181,7 @@
 
 .c-websiteInput {
   width: 100%;
-  min-height: 100px;
+  min-height: 30px;
   max-height: 120px;
   resize: vertical;
   box-sizing: border-box;
