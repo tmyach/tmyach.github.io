@@ -116,7 +116,7 @@ html[data-theme="dark"] {
 
 html[data-theme="dark"] body {
   position: relative;
-  background: var(--bg-color, #040304);
+  background: var(--bg-color, #151515);
 }
 
 html[data-theme="dark"] body::before {
@@ -132,9 +132,9 @@ html[data-theme="dark"] body::before {
 }
 
 [data-theme='light'] {
-  --bg: #f9f6ef;
-  --bg-card-dark: #f0ece2;
-  --bg-card-light: #f8f5ed;
+  --bg: #efeff9;
+  --bg-card-dark: #e2e3f0;
+  --bg-card-light: #eeedf8;
   --ink: #140f0c;
   --ink-soft: #5c5347;
   --primary: #93bfba;
