@@ -1,17 +1,17 @@
 /*
     (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
-
+    
     User customizable settings below!
-    Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
+    Please refer to my guide over on https://virtualobserver.moe/ayano/comment-widget if you're confused on how to use this.
     The IDs at the top are a requirement but everything else is optional!
     Do not delete any settings even if you aren't using them! It could break the program.
-
+    
     After filling out your options, just paste this anywhere you want a comment section
     (But change the script src URL to wherever you have this widget stored on your site!)
-
+        
         <div id="c_widget"></div>
         <script src="comment-widget.js"></script>
-
+        
     Have fun! Bug reports are encouraged if you happen to run into any issues.
     - Ayano (https://virtualobserver.moe/)
 */
@@ -27,7 +27,7 @@ const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
 // admin
-let ADMIN_NAME = "🐦 Tesia"; // =
+let ADMIN_NAME = "🐦 Tesia";
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
@@ -95,7 +95,7 @@ const v_mainHtml = `
 
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
-
+    
     <!-- admin login button -->
     <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px; border-left: 2px dotted var(--primary);">
         <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: transparent; color: white; border: none; padding: 6px 12px; cursor: pointer;">🔐 Admin Login</button>
@@ -104,12 +104,12 @@ const v_formHtml = `
 
     <div id="c_nameWrapper" class="c-inputWrapper">
         <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
-        <textarea class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required>
+        <textarea class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required></textarea>
     </div>
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
         <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
+        <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100"></textarea>
     </div>
 
     <!-- admin input -->
@@ -199,25 +199,34 @@ if (s_includeUrlParameters) { v_pagePath += window.location.search }
 if (s_fixRarebitIndexPage && v_pagePath == '/') { v_pagePath = '/?pg=1' }
 
 const c_pageInput = document.createElement('input');
-c_pageInput.value = v_pagePath; c_pageInput.type = 'text'; c_pageInput.style.display = 'none';
-c_pageInput.id = 'entry.' + s_pageId; c_pageInput.name = c_pageInput.id;
+c_pageInput.value = v_pagePath; 
+c_pageInput.type = 'text'; 
+c_pageInput.style.display = 'none';
+c_pageInput.id = 'entry.' + s_pageId; 
+c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
 // reply
 let c_replyingText = document.createElement('span');
-c_replyingText.style.display = 'none'; c_replyingText.id = 'c_replyingText';
+c_replyingText.style.display = 'none'; 
+c_replyingText.id = 'c_replyingText';
 c_form.appendChild(c_replyingText);
 c_replyingText = document.getElementById('c_replyingText');
 
 let c_replyInput = document.createElement('input');
-c_replyInput.type = 'text'; c_replyInput.style.display = 'none';
-c_replyInput.id = 'entry.' + s_replyId; c_replyInput.name = c_replyInput.id;
+c_replyInput.type = 'text'; 
+c_replyInput.style.display = 'none';
+c_replyInput.id = 'entry.' + s_replyId; 
+c_replyInput.name = c_replyInput.id;
 c_form.appendChild(c_replyInput);
 c_replyInput = document.getElementById('entry.' + s_replyId);
 
 let v_submitted = false;
 let c_hiddenIframe = document.createElement('iframe');
-c_hiddenIframe.id = 'c_hiddenIframe'; c_hiddenIframe.name = 'c_hiddenIframe'; c_hiddenIframe.style.display = 'none'; c_hiddenIframe.setAttribute('onload', 'if(v_submitted){fixFrame()}');
+c_hiddenIframe.id = 'c_hiddenIframe'; 
+c_hiddenIframe.name = 'c_hiddenIframe'; 
+c_hiddenIframe.style.display = 'none'; 
+c_hiddenIframe.setAttribute('onload', 'if(v_submitted){fixFrame()}');
 c_form.appendChild(c_hiddenIframe);
 c_hiddenIframe = document.getElementById('c_hiddenIframe');
 
@@ -379,7 +388,8 @@ function displayComments(comments) {
         let pagination = document.createElement('div');
         let leftButton = document.createElement('button');
         leftButton.innerHTML = s_leftButtonText;
-        leftButton.id = 'c_leftButton'; leftButton.name = 'left';
+        leftButton.id = 'c_leftButton'; 
+        leftButton.name = 'left';
         leftButton.setAttribute('onclick', `changePage(this.name)`);
         if (v_pageNum == 1) { leftButton.disabled = true }
         leftButton.className = 'c-paginationButton';
@@ -387,7 +397,8 @@ function displayComments(comments) {
 
         let rightButton = document.createElement('button');
         rightButton.innerHTML = s_rightButtonText;
-        rightButton.id = 'c_rightButton'; rightButton.name = 'right';
+        rightButton.id = 'c_rightButton'; 
+        rightButton.name = 'right';
         rightButton.setAttribute('onclick', `changePage(this.name)`);
         if (v_pageNum == v_amountOfPages) { rightButton.disabled = true }
         rightButton.className = 'c-paginationButton';
@@ -409,19 +420,13 @@ function createComment(data) {
     let filteredName = data.Name;
     if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement) }
     
-    // admin check
+   //tooltip
     const adminCodeCol = data['Admin Code']; 
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.dataset.tooltip = 'admin'; 
-        
-        // tooltip
-        const tooltipSpan = document.createElement('span');
-        tooltipSpan.className = 'testip';
-        tooltipSpan.textContent = 'admin';
-        name.appendChild(tooltipSpan);
+        name.title = 'admin';
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
@@ -552,36 +557,4 @@ function changePage(dir) {
     }
 }
 
-// tooltip
-function initAdminTooltips() {
-    document.querySelectorAll('.c-adminName').forEach(el => {
-        const tooltip = el.querySelector('.testip');
-        if (!tooltip) return;
-        
-        let mouseX = 0;
-        let mouseY = 0;
-
-        el.addEventListener('mouseenter', () => {
-            tooltip.style.opacity = '1';
-            tooltip.style.visibility = 'visible';
-            tooltip.textContent = el.dataset.tooltip;
-        });
-
-        el.addEventListener('mouseleave', () => {
-            tooltip.style.opacity = '0';
-            tooltip.style.visibility = 'hidden';
-        });
-
-        el.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX + 15;
-            mouseY = e.clientY + 15;
-            tooltip.style.left = mouseX + 'px';
-            tooltip.style.top = mouseY + 'px';
-        });
-    });
-}
-
 getComments(); // Run on load
-
-// re-init
-setTimeout(initAdminTooltips, 500);
