@@ -422,12 +422,12 @@ function createComment(data) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
-        name.dataset.tooltip = 'Tesia (Admin)'; 
+        name.dataset.tooltip = 'admin'; 
         
         // tooltip
         const tooltipSpan = document.createElement('span');
         tooltipSpan.className = 'testip';
-        tooltipSpan.textContent = 'Tesia (Admin)';
+        tooltipSpan.textContent = 'admin';
         name.appendChild(tooltipSpan);
     } else {
         name = document.createElement('h3');
