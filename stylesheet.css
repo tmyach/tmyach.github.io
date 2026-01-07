@@ -108,9 +108,11 @@
 
 /*theme stuff */
 
+/*
 html[data-theme="dark"] {
   --bg-image: url("bg/darkbg.gif");
 }
+  */
 
 html[data-theme="dark"] body {
   position: relative;
@@ -141,9 +143,11 @@ html[data-theme="dark"] body::before {
   --shadow-vintage: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+/* 
 html[data-theme="light"] {
   --bg-image: url("bg/lightbg.jpg");
 }
+  */
 
 html[data-theme="light"] body {
   position: relative;
@@ -174,9 +178,11 @@ html[data-theme="light"] body::before {
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
 }
 
+/* 
 html[data-theme="darkred"] {
   --bg-image: url("bg/redbg.gif");
 }
+  */
 
 html[data-theme="darkred"] body {
   position: relative;
