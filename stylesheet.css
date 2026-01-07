@@ -241,12 +241,12 @@ html[data-theme="pink"] body::before {
   padding: 0;
 }
 
-::-moz-selection { /* Code for Firefox */
-  background: indigo;
+::-moz-selection { /* Firefox */
+  background: var(--bg-card-dark);
 }
 
 ::selection {
-  background: indigo;
+  background: var(--bg-card-dark);
 }
 
 body {
