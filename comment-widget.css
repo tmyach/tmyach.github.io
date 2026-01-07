@@ -101,7 +101,7 @@
 #c_widget input[type=submit][disabled] {
   opacity: 0.5 !important;
   cursor: not-allowed;
-  color: var(--bg-card-light) !important;
+  color: var(--bg-card-dark) !important;
   background: var(--bg-card-light) !important;
   border: 2px solid var(--bg) !important;
   padding: 0.3rem 0.7rem !important;
