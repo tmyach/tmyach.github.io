@@ -1,25 +1,20 @@
 /*
-    (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
+    (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
 
+    User customizable settings below!
+    Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
+    The IDs at the top are a requirement but everything else is optional!
+    Do not delete any settings even if you aren't using them! It could break the program.
 
-    User customizable settings below!
-    Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
-    The IDs at the top are a requirement but everything else is optional!
-    Do not delete any settings even if you aren't using them! It could break the program.
+    After filling out your options, just paste this anywhere you want a comment section
+    (But change the script src URL to wherever you have this widget stored on your site!)
 
+        <div id="c_widget"></div>
+        <script src="comment-widget.js"></script>
 
-    After filling out your options, just paste this anywhere you want a comment section
-    (But change the script src URL to wherever you have this widget stored on your site!)
-
-
-        <div id="c_widget"></div>
-        <script src="comment-widget.js"></script>
-
-
-    Have fun! Bug reports are encouraged if you happen to run into any issues.
-    - Ayano (https://virtualobserver.moe/)
+    Have fun! Bug reports are encouraged if you happen to run into any issues.
+    - Ayano (https://virtualobserver.moe/)
 */
-
 
 // The values in this section are REQUIRED for the widget to work! Keep them in quotes!
 const s_stylePath = 'comment-widget.css';
@@ -31,32 +26,24 @@ const s_pageId = '132386639';
 const s_replyId = '1652598007';
 const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 
-
-
 // admin
-let ADMIN_NAME = "🐦 Tesia"; // =
+let ADMIN_NAME = "🐦 Tesia (Admin)"; // =
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
-let ADMIN_CSS_CLASS = "c-adminName";
-let ADMIN_CODE = "";
-
-
+let ADMIN_CSS_CLASS = "c-adminHighlight";
+let ADMIN_CODE = ""; // Hidden verification code
 
 // 
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
-    .then(r => r.text())
-    .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
-    .catch(err => console.error("Admin password fetch failed:", err));
-
-
+  .then(r => r.text())
+  .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
+  .catch(err => console.error("Admin password fetch failed:", err));
 
 // The values below are necessary for accurate timestamps
 const s_timezone = -5;
 const s_daylightSavings = true;
 const s_dstStart = ['March', 'Sunday', 2, 2];
 const s_dstEnd = ['November', 'Sunday', 1, 2];
-
-
 
 // Misc
 const s_commentsPerPage = 2;
@@ -68,14 +55,10 @@ const s_longTimestamp = false;
 let s_includeUrlParameters = false;
 const s_fixRarebitIndexPage = false;
 
-
-
 // Word filter
 const s_wordFilterOn = false;
 const s_filterReplacement = '****';
 const s_filteredWords = ['bitch'];
-
-
 
 // Text
 const s_widgetTitle = 'Leave a Comment in my Guestbook!';
@@ -93,91 +76,62 @@ const s_expandRepliesText = 'Show Replies';
 const s_leftButtonText = '<<';
 const s_rightButtonText = '>>';
 
-
-
 // Fix the URL parameters setting for Rarebit just in case
-if (s_fixRarebitIndexPage) {
-    s_includeUrlParameters = true
-}
+if (s_fixRarebitIndexPage) { s_includeUrlParameters = true }
 
-
-
-// CSS
+// Apply CSS
 const c_cssLink = document.createElement('link');
 c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
-
-
-// HTML form 
+// HTML form setup
 const v_mainHtml = `
-    <div id="c_inputDiv">
-        <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
-    </div>
-    <div id="c_container">${s_loadingText}</div>
+    <div id="c_inputDiv">
+        <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
+    </div>
+    <div id="c_container">${s_loadingText}</div>
 `;
-
-
 
 const v_formHtml = `
-    <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
+    <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
+    <!-- admin login button -->
+    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px; border-left: 2px dotted var(--primary);">
+        <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: transparent; color: white; border: none; padding: 6px 12px; cursor: pointer;">🔐 Admin Login</button>
+        <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
+    </div>
 
+    <div id="c_nameWrapper" class="c-inputWrapper">
+        <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
+        <input class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required>
+    </div>
 
-    <!-- admin login button -->
-    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px; border-left: 2px dotted var(--primary);">
-        <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: transparent; color: white; border: none; padding: 6px 12px; cursor: pointer;">🔐 Admin Login</button>
-        <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
-    </div>
+    <div id="c_websiteWrapper" class="c-inputWrapper">
+        <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
+        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or jeandoe@email.com or https://url.com ... p.s. This information will not be displayed publicly!" maxlength="100">
+    </div>
 
+    <!-- admin input -->
+    <div id="c_adminCodeWrapper" class="c-inputWrapper" style="display: none;">
+        <label class="c-label" for="c_adminCode">Admin Code:</label>
+        <input class="c-input" name="entry.1666564503" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
+    </div>
 
+    <div id="c_textWrapper" class="c-inputWrapper">
+        <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
+        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50" maxlength="${s_maxLength}" placeholder="Write your comment here..." required></textarea>
+    </div>
 
-    <div id="c_nameWrapper" class="c-inputWrapper">
-        <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
-        <textarea class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="Jean Doe" required>
-    </div>
-
-
-
-    <div id="c_websiteWrapper" class="c-inputWrapper">
-        <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <textarea class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="text" placeholder="@handle or [jeandoe@email.com](mailto:jeandoe@email.com) or [https://url.com](https://url.com) ... p.s. This information will not be displayed publicly!" maxlength="100">
-    </div>
-
-
-
-    <!-- admin input -->
-    <div id="c_adminCodeWrapper" class="c-inputWrapper" style="display: none;">
-        <label class="c-label" for="c_adminCode">Admin Code:</label>
-        <input class="c-input" name="entry.1666564503" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
-    </div>
-
-
-
-    <div id="c_textWrapper" class="c-inputWrapper">
-        <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
-        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50" maxlength="${s_maxLength}" placeholder="Write your comment here..." required></textarea>
-    </div>
-
-
-
-    <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
+    <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
 `;
 
-
-
-// add html
+// Insert main HTML to page
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 const c_form = document.getElementById('c_form');
-if (s_commentsOpen) {
-    c_form.innerHTML = v_formHtml
-} else {
-    c_form.innerHTML = s_closedCommentsText
-}
-
-
+if (s_commentsOpen) { c_form.innerHTML = v_formHtml }
+else { c_form.innerHTML = s_closedCommentsText }
 
 const c_container = document.getElementById('c_container');
 let v_pageNum = 1;
@@ -185,26 +139,17 @@ let v_amountOfPages = 1;
 let v_commentMax = 1;
 let v_commentMin = 1;
 
-
-
 let v_filteredWords;
 if (s_wordFilterOn) {
     v_filteredWords = s_filteredWords.join('|');
     v_filteredWords = new RegExp(String.raw`\b(${v_filteredWords})\b`, 'ig');
 }
 
-
-
 let c_submitButton;
-if (s_commentsOpen) {
-    c_submitButton = document.getElementById('c_submitButton')
-} else {
-    c_submitButton = document.createElement('button')
-}
+if (s_commentsOpen) { c_submitButton = document.getElementById('c_submitButton') }
+else { c_submitButton = document.createElement('button') }
 
-
-
-// login
+// --- login ---
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
         // Logout
@@ -219,31 +164,26 @@ function tryAdminLogin() {
         alert('Logged out successfully.');
         return;
     }
-
-
+    
     if (!ADMIN_PASSWORD) {
         alert('Admin system not ready. Please wait...');
         return;
     }
-
-
+    
     let password = prompt('Enter admin password:');
     if (password === ADMIN_PASSWORD) {
         ADMIN_STATUS = true;
         ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9); // Unique code
-
-
+        
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeInput = document.getElementById('c_adminCode');
         let adminCodeWrapper = document.getElementById('c_adminCodeWrapper');
-
-
+        
         nameInput.value = ADMIN_NAME;
         nameInput.readOnly = true;
         adminCodeInput.value = ADMIN_CODE;
         adminCodeWrapper.style.display = 'block';
-
-
+        
         document.getElementById('c_adminStatus').innerHTML = `Logged in as ${ADMIN_NAME}`;
         document.getElementById('c_adminButton').innerHTML = 'Logout';
         alert('✅ Admin login successful!');
@@ -254,58 +194,33 @@ function tryAdminLogin() {
     }
 }
 
-
-
-// page input
+// Add page input
 let v_pagePath = window.location.pathname;
-if (s_includeUrlParameters) {
-    v_pagePath += window.location.search
-}
-if (s_fixRarebitIndexPage && v_pagePath == '/') {
-    v_pagePath = '/?pg=1'
-}
-
-
+if (s_includeUrlParameters) { v_pagePath += window.location.search }
+if (s_fixRarebitIndexPage && v_pagePath == '/') { v_pagePath = '/?pg=1' }
 
 const c_pageInput = document.createElement('input');
-c_pageInput.value = v_pagePath;
-c_pageInput.type = 'text';
-c_pageInput.style.display = 'none';
-c_pageInput.id = 'entry.' + s_pageId;
-c_pageInput.name = c_pageInput.id;
+c_pageInput.value = v_pagePath; c_pageInput.type = 'text'; c_pageInput.style.display = 'none';
+c_pageInput.id = 'entry.' + s_pageId; c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
-
-
-// reply
+// Reply handling
 let c_replyingText = document.createElement('span');
-c_replyingText.style.display = 'none';
-c_replyingText.id = 'c_replyingText';
+c_replyingText.style.display = 'none'; c_replyingText.id = 'c_replyingText';
 c_form.appendChild(c_replyingText);
 c_replyingText = document.getElementById('c_replyingText');
 
-
-
 let c_replyInput = document.createElement('input');
-c_replyInput.type = 'text';
-c_replyInput.style.display = 'none';
-c_replyInput.id = 'entry.' + s_replyId;
-c_replyInput.name = c_replyInput.id;
+c_replyInput.type = 'text'; c_replyInput.style.display = 'none';
+c_replyInput.id = 'entry.' + s_replyId; c_replyInput.name = c_replyInput.id;
 c_form.appendChild(c_replyInput);
 c_replyInput = document.getElementById('entry.' + s_replyId);
 
-
-
 let v_submitted = false;
 let c_hiddenIframe = document.createElement('iframe');
-c_hiddenIframe.id = 'c_hiddenIframe';
-c_hiddenIframe.name = 'c_hiddenIframe';
-c_hiddenIframe.style.display = 'none';
-c_hiddenIframe.setAttribute('onload', 'if(v_submitted){fixFrame()}');
+c_hiddenIframe.id = 'c_hiddenIframe'; c_hiddenIframe.name = 'c_hiddenIframe'; c_hiddenIframe.style.display = 'none'; c_hiddenIframe.setAttribute('onload', 'if(v_submitted){fixFrame()}');
 c_form.appendChild(c_hiddenIframe);
 c_hiddenIframe = document.getElementById('c_hiddenIframe');
-
-
 
 function fixFrame() {
     v_submitted = false;
@@ -313,11 +228,9 @@ function fixFrame() {
     getComments();
 }
 
-
-
-// fetch sheet data
+// Fetch and display sheet data
 function getComments() {
-    c_submitButton.disabled = true;
+    c_submitButton.disabled;
 
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
@@ -377,19 +290,13 @@ function getComments() {
     });
 }
 
-
-
-
 function getSheet(url) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         fetch(url).then(response => {
-            if (!response.ok) {
-                reject('Could not find Google Sheet with that URL')
-            } else {
+            if (!response.ok) { reject('Could not find Google Sheet with that URL') }
+            else {
                 response.text().then(data => {
-                    if (!data) {
-                        reject('Invalid data pulled from sheet')
-                    }
+                    if (!data) { reject('Invalid data pulled from sheet') }
                     resolve(data);
                 });
             }
@@ -397,17 +304,11 @@ function getSheet(url) {
     });
 }
 
-
-
-// comments display
+// Display comments + replies
 let a_commentDivs = [];
-
-
 function displayComments(comments) {
     a_commentDivs = [];
     c_container.innerHTML = '';
-
-
 
     let replies = [];
     for (i = 0; i < comments.length; i++) {
@@ -418,19 +319,13 @@ function displayComments(comments) {
         }
     }
 
-
-
     v_amountOfPages = Math.ceil(comments.length / s_commentsPerPage);
     v_commentMax = s_commentsPerPage * v_pageNum;
     v_commentMin = v_commentMax - s_commentsPerPage;
 
-
-
     comments.reverse();
     for (i = 0; i < comments.length; i++) {
         let comment = createComment(comments[i]);
-
-
 
         let button = document.createElement('button');
         button.innerHTML = s_replyButtonText;
@@ -439,61 +334,39 @@ function displayComments(comments) {
         button.className = 'c-replyButton';
         comment.appendChild(button);
 
-
-
         comment.style.display = 'none';
-        if (i >= v_commentMin && i < v_commentMax) {
-            comment.style.display = 'block'
-        }
-
-
+        if (i >= v_commentMin && i < v_commentMax) { comment.style.display = 'block' }
 
         comment.className = 'c-comment';
         c_container.appendChild(comment);
         a_commentDivs.push(document.getElementById(comment.id));
     }
 
-
-
     for (i = 0; i < replies.length; i++) {
         let reply = createComment(replies[i]);
         const parentId = replies[i].Reply;
         const parentDiv = document.getElementById(parentId);
 
-
-
         if (!parentDiv) continue;
-
-
 
         let container;
         if (!document.getElementById(parentId + '-replies')) {
             container = document.createElement('div');
             container.id = parentId + '-replies';
-            if (s_collapsedReplies) {
-                container.style.display = 'none'
-            }
+            if (s_collapsedReplies) { container.style.display = 'none' }
             container.className = 'c-replyContainer';
             parentDiv.appendChild(container);
-        } else {
-            container = document.getElementById(parentId + '-replies')
-        }
-
-
+        } else { container = document.getElementById(parentId + '-replies') }
 
         reply.className = 'c-reply';
         container.appendChild(reply);
     }
-
-
 
     if (s_collapsedReplies) {
         const containers = document.getElementsByClassName('c-replyContainer');
         for (i = 0; i < containers.length; i++) {
             const num = containers[i].childNodes.length;
             const parentDiv = containers[i].parentElement;
-
-
 
             const button = document.createElement('button');
             button.innerHTML = s_expandRepliesText + ` (${num})`;
@@ -503,42 +376,28 @@ function displayComments(comments) {
         }
     }
 
-
-
     if (v_amountOfPages > 1) {
         let pagination = document.createElement('div');
         let leftButton = document.createElement('button');
         leftButton.innerHTML = s_leftButtonText;
-        leftButton.id = 'c_leftButton';
-        leftButton.name = 'left';
+        leftButton.id = 'c_leftButton'; leftButton.name = 'left';
         leftButton.setAttribute('onclick', `changePage(this.name)`);
-        if (v_pageNum == 1) {
-            leftButton.disabled = true
-        }
+        if (v_pageNum == 1) { leftButton.disabled = true }
         leftButton.className = 'c-paginationButton';
         pagination.appendChild(leftButton);
 
-
-
         let rightButton = document.createElement('button');
         rightButton.innerHTML = s_rightButtonText;
-        rightButton.id = 'c_rightButton';
-        rightButton.name = 'right';
+        rightButton.id = 'c_rightButton'; rightButton.name = 'right';
         rightButton.setAttribute('onclick', `changePage(this.name)`);
-        if (v_pageNum == v_amountOfPages) {
-            rightButton.disabled = true
-        }
+        if (v_pageNum == v_amountOfPages) { rightButton.disabled = true }
         rightButton.className = 'c-paginationButton';
         pagination.appendChild(rightButton);
-
-
 
         pagination.id = 'c_pagination';
         c_container.appendChild(pagination);
     }
 }
-
-
 
 function createComment(data) {
     let comment = document.createElement('div');
@@ -547,38 +406,29 @@ function createComment(data) {
     const id = data.Name + '|--|' + data.Timestamp2;
     comment.id = id;
 
-
-
     let name;
     let filteredName = data.Name;
-    if (s_wordFilterOn) {
-        filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)
-    }
-
-
+    if (s_wordFilterOn) { filteredName = filteredName.replace(v_filteredWords, s_filterReplacement) }
+    
     // separate div
-    const adminCodeCol = data['Admin Code'];
+    const adminCodeCol = data['Admin Code']; 
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-adminName';
+        name.title = 'Tesia (Admin)';
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
         name.className = 'c-name';
     }
-
-
+    
     comment.appendChild(name);
-
-
 
     let time = document.createElement('span');
     time.innerText = timestamp;
     time.className = 'c-timestamp';
     comment.appendChild(time);
-
-
 
     if (data.Website) {
         let site = document.createElement('a');
@@ -588,23 +438,15 @@ function createComment(data) {
         comment.appendChild(site);
     }
 
-
-
     let text = document.createElement('p');
     let filteredText = data.Text;
-    if (s_wordFilterOn) {
-        filteredText = filteredText.replace(v_filteredWords, s_filterReplacement)
-    }
+    if (s_wordFilterOn) { filteredText = filteredText.replace(v_filteredWords, s_filterReplacement) }
     text.innerText = filteredText;
     text.className = 'c-text';
     comment.appendChild(text);
 
-
-
     return comment;
 }
-
-
 
 // Timestamp conversion
 function convertTimestamp(timestamp) {
@@ -612,13 +454,9 @@ function convertTimestamp(timestamp) {
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
     const timezoneDiff = (s_timezone * 60 + date.getTimezoneOffset()) * -1;
     let offsetDate = new Date(date.getTime() + timezoneDiff * 60 * 1000);
-    if (s_daylightSavings) {
-        offsetDate = isDST(offsetDate)
-    }
+    if (s_daylightSavings) { offsetDate = isDST(offsetDate) }
     return [offsetDate.toLocaleString(), offsetDate.toLocaleDateString()];
 }
-
-
 
 function isDST(date) {
     const dstStart = [getMonthNum(s_dstStart[0]), getDayNum(s_dstStart[1]), s_dstStart[2], s_dstStart[3]];
@@ -629,13 +467,9 @@ function isDST(date) {
     let endDate = new Date(year, dstEnd[0], 1);
     endDate = nthDayOfMonth(dstEnd[1], dstEnd[2], endDate, dstEnd[3]).getTime();
     let time = date.getTime();
-    if (time >= startDate && time < endDate) {
-        date.setHours(date.getHours() - 1)
-    }
+    if (time >= startDate && time < endDate) { date.setHours(date.getHours() - 1) }
     return date;
 }
-
-
 
 function nthDayOfMonth(day, n, date, hour) {
     var count = 0;
@@ -651,43 +485,27 @@ function nthDayOfMonth(day, n, date, hour) {
     return idate;
 }
 
-
-
 function getDayNum(day) {
     switch (day.toLowerCase()) {
-        case 'sunday':
-            return 0;
-        case 'monday':
-            return 1;
-        case 'tuesday':
-            return 2;
-        case 'wednesday':
-            return 3;
-        case 'thursday':
-            return 4;
-        case 'friday':
-            return 5;
-        case 'saturday':
-            return 6;
-        default:
-            return 0;
+        case 'sunday': return 0;
+        case 'monday': return 1;
+        case 'tuesday': return 2;
+        case 'wednesday': return 3;
+        case 'thursday': return 4;
+        case 'friday': return 5;
+        case 'saturday': return 6;
+        default: return 0;
     }
 }
 
-
-
 function getMonthNum(month) {
     const m = month.toLowerCase();
-    return ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].indexOf(m);
+    return ['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(m);
 }
-
-
 
 // Reply + pagination
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
-
-
 
 function openReply(id) {
     if (c_replyingText.style.display == 'none') {
@@ -702,46 +520,31 @@ function openReply(id) {
     link.click();
 }
 
-
-
 function expandReplies(id) {
     const targetDiv = document.getElementById(`${id}-replies`);
     if (!targetDiv) return;
     targetDiv.style.display = (targetDiv.style.display == 'none') ? 'block' : 'none';
 }
 
-
-
 function changePage(dir) {
     const leftButton = document.getElementById('c_leftButton');
     const rightButton = document.getElementById('c_rightButton');
-
-
 
     let num = dir === 'left' ? -1 : 1;
     let targetPage = v_pageNum + num;
     if (targetPage > v_amountOfPages || targetPage < 1) return;
 
-
-
-    leftButton.disabled = false;
-    rightButton.disabled = false;
+    leftButton.disabled = false; rightButton.disabled = false;
     if (targetPage == 1) leftButton.disabled = true;
     if (targetPage == v_amountOfPages) rightButton.disabled = true;
-
-
 
     v_pageNum = targetPage;
     v_commentMax = s_commentsPerPage * v_pageNum;
     v_commentMin = v_commentMax - s_commentsPerPage;
     for (i = 0; i < a_commentDivs.length; i++) {
         a_commentDivs[i].style.display = 'none';
-        if (i >= v_commentMin && i < v_commentMax) {
-            a_commentDivs[i].style.display = 'block';
-        }
+        if (i >= v_commentMin && i < v_commentMax) { a_commentDivs[i].style.display = 'block'; }
     }
 }
-
-
 
 getComments(); // Run on load
