@@ -1,11 +1,11 @@
 :root {
-  --font-body: 'regularbit', sans-serif;
-  --font-sub: 'karenbold', sans-serif;
-  --font-hwr: 'kendiyaz', cursive;
-  --font-script: 'mademoiselle', cursive;
-  --font-serif: 'karenbook', serif;
-  --font-mono: 'karen2mono', serif;
-  --font-title: 'karenfat', cursive;
+  --font-body: 'Lato', 'regularbit', system-ui, sans-serif;
+  --font-sub: 'Mynerve', 'karenbold', system-ui, sans-serif;
+  --font-hwr: 'Mynerve', 'kendiyaz', system-ui, cursive;
+  --font-script: 'Beth Ellen', 'mademoiselle', system-ui, cursive;
+  --font-serif: 'Lora', 'karenbook', system-ui, serif;
+  --font-mono: 'JetBrains Mono', 'karen2mono', system-ui, serif;
+  --font-title: 'Rammetto One', 'karenfat', system-ui, sans-serif;
   --bg: #0f0d0b;
   --bg-card-dark: #1e1b17;
   --bg-card-light: #242119;
@@ -15,6 +15,89 @@
   --secondary: #bf9397;
   --border-thin: 1px dotted var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
+}
+
+.beth-ellen-regular {
+  font-family: "Beth Ellen", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.mynerve-regular {
+  font-family: "Mynerve", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.rammetto-one-regular {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* my fav font ever */
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* I love lora too UGH */
+.lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.jetbrains-mono {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 html[data-theme="dark"] {
