@@ -167,7 +167,7 @@ html[data-theme="light"] body::before {
 }
 
 [data-theme='darkred'] {
-  --bg: #120a0a;
+  --bg: #1b0505;
   --bg-card-dark: #231616;
   --bg-card-light: #2c1b1b;
   --ink: #e9d5d5;
