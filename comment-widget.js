@@ -438,12 +438,12 @@ function createComment(data) {
     if (filteredName === ADMIN_NAME && adminCodeCol && adminCodeCol.startsWith('ADMIN-')) {
         name = document.createElement('h3');
         name.innerText = filteredName;
-        name.className = 'c-adminName';
+        name.className = 'c-adminName';  
         name.title = 'Tesia';
     } else {
         name = document.createElement('h3');
         name.innerText = filteredName;
-        name.className = 'c-name';
+        name.className = 'c-name';  
     }
     
     comment.appendChild(name);
