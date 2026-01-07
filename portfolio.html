@@ -30,30 +30,41 @@
   </head>
 
   <body>
-    <div class="page">
-      <header class="header">
-        <a class="logo" href="index.html">
-          <img src="logo.png" alt="t.m.yach bird logo" class="logo-img" />
-          <div class="logo-text">
-            <span class="logo-main">t.m.yach</span>
-            <span class="logo-tag">The Bird's Eye View</span>
-          </div>
-        </a>
+  <div class="page">
+    <header class="header max-width">
+      <a class="logo" href="index.html">
+        <img src="logo.png" alt="t.m.yach logo" class="logo-img">
+        <div>
+          <span class="main-tag">t.m.yach</span>
+ 
+        </div>
+      </a>
 
-        <nav class="nav">
-          <button class="nav-toggle" aria-label="toggle menu">
-            <span></span><span></span><span></span>
-          </button>
-          <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about-me.html" class="nav-link">About Me</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="microblog.html" class="nav-link">Microblog</a></li>
-            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div class="nav-divider-large"></div>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-me.html">About Me</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="microblog.html">Microblog</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-divider"></div>
+
+        <div class="theme-switch">
+          <label for="theme-select" class="sr-only">Theme</label>
+          <select id="theme-select">
+            <option value="dark" selected>Dark &#x1F31A;</option>
+            <option value="light">Light 	&#x1F31E;</option>
+            <option value="darkred">Red &#x1F352;</option>
+            <option value="pink">Pink &#128572;</option>
+          </select>
+        </div>
+      </nav>
+    </header>
 
     <main class="main-frame" id="top">
   <div class="frame">
@@ -99,35 +110,22 @@
 </main>
 
       <footer class="footer">
-        <span><span id="year"></span> | t.m.yach, The Bird's Eye View</span>
-        <button id="theme-toggle" class="nav-link theme-toggle" type="button">
-          Dark mode
-        </button>
-      </footer>
-    </div>
+      <div class="max-width">
+  <p class="regularbit"><span id="year"></span> | t.m.yach, The Bird's Eye View</p>
+  <p class="regularbit">
+    <a href="sitemap.html">Sitemap</a>
+    <span class="nav-divider footer-divider"></span>
+    <a href="faq.html">FAQ</a>
+  </p>
+</div>
+    </footer>
+  </div>
 
-    <!-- scripts -->
-    <script src="portfolio.js"></script>
- <script src="comment-widget.js"></script>
+  <script src="comment-widget.js"></script>
   <script src="musicplayer.js"></script>
   <script src="sparkle-cursor.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
-    <!-- stats -->
-    <script type="text/javascript">
-      var sc_project = 13189663;
-      var sc_invisible = 1;
-      var sc_security = "3b67388d";
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript>
-      <div class="statcounter">
-        <a href="https://statcounter.com/" target="_blank" title="Web Analytics">
-          <img class="statcounter" src="https://c.statcounter.com/13189663/0/3b67388d/1/" alt="Web Analytics" />
-        </a>
-      </div>
-    </noscript>
-  </body>
+</body>
 </html>
