@@ -102,7 +102,7 @@
   opacity: 0.5 !important;
   cursor: not-allowed;
   color: var(--bg) !important;
-  background: var(--bg-card-light) !important;
+  background: var(--secondary) !important;
   border: 2px solid var(--bg) !important;
   padding: 0.3rem 0.7rem !important;
   font-size: 0.78rem !important;
