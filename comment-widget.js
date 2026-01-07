@@ -608,7 +608,9 @@ function expandReplies(id) {
     const targetDiv = document.getElementById(`${id}-replies`);
     if (!targetDiv) return;
     targetDiv.style.display = (targetDiv.style.display == 'none') ? 'block' : 'none';
-    setTimeout(attachAdminTooltips, 50);
+    setTimeout(() => {
+        attachAdminTooltips();
+    }, 100);
 }
 
 function changePage(dir) {
