@@ -116,7 +116,7 @@ html[data-theme="dark"] {
 
 html[data-theme="dark"] body {
   position: relative;
-  background: var(--bg-color, #1a0f1a);
+  background: var(--bg-color, #040304);
 }
 
 html[data-theme="dark"] body::before {
