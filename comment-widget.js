@@ -26,10 +26,9 @@ const s_sheetId = '1OAPC5wtDthOxMW9U7uqnhkolnQaERMCOz0f4gEVNR3Q';
 let ADMIN_NAME = "🐦 Tesia";
 let ADMIN_STATUS = false;
 let ADMIN_PASSWORD = "";
-let ADMIN_CSS_CLASS = "c-adminHighlight";
+let ADMIN_CSS_CLASS = "c-adminName";
 let ADMIN_CODE = "";
 
-// Hidden verification code
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
     .then(r => r.text())
     .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
@@ -77,14 +76,14 @@ if (s_fixRarebitIndexPage) {
     s_includeUrlParameters = true;
 }
 
-// Apply CSS
+// CSS
 const c_cssLink = document.createElement('link');
 c_cssLink.type = 'text/css';
 c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
-// HTML form setup
+// html form
 const v_mainHtml = `
     <div id="c_inputDiv">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
@@ -119,7 +118,7 @@ const v_formHtml = `
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
 `;
 
-// Insert main HTML to page
+// html insert
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 
 const c_form = document.getElementById('c_form');
@@ -149,7 +148,7 @@ if (s_commentsOpen) {
     c_submitButton = document.createElement('button');
 }
 
-// --- login ---
+// login
 function tryAdminLogin() {
     if (ADMIN_STATUS) {
         // Logout
@@ -173,7 +172,7 @@ function tryAdminLogin() {
     let password = prompt('Enter admin password:');
     if (password === ADMIN_PASSWORD) {
         ADMIN_STATUS = true;
-        ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9); // Unique code
+        ADMIN_CODE = 'ADMIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
         
         let nameInput = document.getElementById(`entry.${s_nameId}`);
         let adminCodeInput = document.getElementById('c_adminCode');
@@ -194,7 +193,7 @@ function tryAdminLogin() {
     }
 }
 
-// Add page input
+// page input
 let v_pagePath = window.location.pathname;
 if (s_includeUrlParameters) {
     v_pagePath += window.location.search;
@@ -211,7 +210,7 @@ c_pageInput.id = 'entry.' + s_pageId;
 c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
-// Reply handling
+// reply 
 let c_replyingText = document.createElement('span');
 c_replyingText.style.display = 'none';
 c_replyingText.id = 'c_replyingText';
@@ -242,7 +241,7 @@ function fixFrame() {
     getComments();
 }
 
-// Fetch and display sheet data
+// fetch sheet data
 function getComments() {
     c_submitButton.disabled;
     c_replyingText.style.display = 'none';
@@ -318,7 +317,7 @@ function getSheet(url) {
     });
 }
 
-// Display comments + replies
+// display comments
 let a_commentDivs = [];
 
 function displayComments(comments) {
@@ -473,7 +472,7 @@ function createComment(data) {
     return comment;
 }
 
-// Timestamp conversion
+// timestamp
 function convertTimestamp(timestamp) {
     const vals = timestamp.split('(')[1].split(')')[0].split(',');
     const date = new Date(vals[0], vals[1], vals[2], vals[3], vals[4], vals[5]);
@@ -538,7 +537,7 @@ function getMonthNum(month) {
     return ['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(m);
 }
 
-// Reply + pagination
+// reply
 const link = document.createElement('a');
 link.href = '#c_inputDiv';
 
