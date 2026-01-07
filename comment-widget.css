@@ -108,7 +108,7 @@
   padding: 0.6rem;
   background-color: var(--bg-card-dark);
   max-width: 100%;
-  overflow: hidden;
+  overflow: auto;
   box-sizing: border-box;
 }
 
