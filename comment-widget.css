@@ -279,6 +279,34 @@
   margin: 0 0 0.1rem 0;
   font-weight: normal;
   border: none !important;
+  position: relative;
+  cursor: help;
+}
+
+.testip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.testip::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 100%;
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
 }
 
 /* this might lead to my demise */
