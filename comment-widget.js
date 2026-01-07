@@ -1,25 +1,20 @@
 /*
     (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
 
-
     User customizable settings below!
     Please refer to my guide over on [https://virtualobserver.moe/ayano/comment-widget](https://virtualobserver.moe/ayano/comment-widget) if you're confused on how to use this.
     The IDs at the top are a requirement but everything else is optional!
     Do not delete any settings even if you aren't using them! It could break the program.
 
-
     After filling out your options, just paste this anywhere you want a comment section
     (But change the script src URL to wherever you have this widget stored on your site!)
-
 
         <div id="c_widget"></div>
         <script src="comment-widget.js"></script>
 
-
     Have fun! Bug reports are encouraged if you happen to run into any issues.
     - Ayano (https://virtualobserver.moe/)
 */
-
 
 // The values in this section are REQUIRED for the widget to work! Keep them in quotes!
 const s_stylePath = 'comment-widget.css';
@@ -38,8 +33,6 @@ let ADMIN_PASSWORD = "";
 let ADMIN_CSS_CLASS = "c-adminHighlight";
 let ADMIN_CODE = ""; // Hidden verification code
 
-
-// 
 fetch("https://docs.google.com/spreadsheets/d/1KSof8HA_x48JAy0mepk1qSTndv-v71yGaF7a2Y6l67M/gviz/tq?tqx=out:csv&range=A1")
   .then(r => r.text())
   .then(p => ADMIN_PASSWORD = p.trim().replace(/"/g, ''))
@@ -133,7 +126,7 @@ const v_formHtml = `
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
 `;
 
-// main html insert
+// html insert
 document.getElementById('c_widget').innerHTML = v_mainHtml;
 const c_form = document.getElementById('c_form');
 if (s_commentsOpen) { c_form.innerHTML = v_formHtml }
@@ -236,7 +229,7 @@ function fixFrame() {
 
 // fetch sheet data
 function getComments() {
-    c_submitButton.disabled;
+    c_submitButton.disabled = true; 
 
     c_replyingText.style.display = 'none';
     c_replyInput.value = '';
@@ -590,5 +583,5 @@ function initAdminTooltips() {
 
 getComments(); // Run on load
 
-// re-init tooltips after load
+// re-init
 setTimeout(initAdminTooltips, 500);
