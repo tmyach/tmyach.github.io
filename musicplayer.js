@@ -6,7 +6,7 @@ let timer;
 
 const videoIds = [
   "f6KopItCEf8",
-  "xFf809oDLdE",
+  "UETz-QsfNl0",
   "LGrca9EK_qQ", 
   "fXmEJLMgY8M",
   "cCgxqqxE9Y0",
@@ -25,7 +25,7 @@ const videoIds = [
 
 const titles = [
   "Bob Moses - Nothing At All",
-  "Björk - It's Oh So Quiet",
+  "Addison Rae - In The Rain",
   "Strange Boutique - Drown", 
   "Björk - Play Dead",
   "Thievery Corporation - 33 Degree",
