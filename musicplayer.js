@@ -11,7 +11,7 @@ const videoIds = [
   "fXmEJLMgY8M",
   "cCgxqqxE9Y0",
   "OBBlIfUH9bY",
-  "XfIVH3Q803c",
+  "4Syy0Zhcki8",
   "zIp7o53dfmY",
   "tz-QNii79lI",
   "pPrte-OhUh4",
@@ -24,13 +24,13 @@ const videoIds = [
 ];
 
 const titles = [
-  "Bob Moses - Nothing At All"
+  "Bob Moses - Nothing At All",
   "Björk - It's Oh So Quiet",
   "Strange Boutique - Drown", 
   "Björk - Play Dead",
   "Thievery Corporation - 33 Degree",
   "Bob Marley & The Wailers - Misty Morning",
-  "Doctor Becket, El Da Sensei, P Original - Funky",
+  "El Da Sensei, P Original - Course Of My Life",
   "Thievery Corporation - Amerimacka",
   "Portishead - Western Eyes",
   "Pink Floyd - Hey You",
