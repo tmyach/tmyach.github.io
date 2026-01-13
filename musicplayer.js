@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "WHAT?!",
       "Forty six and two are just ahead of me!",
       "Makin' snacks on wax plates for DJs to scratch!",
-      "Leverage back-end models! Orchestrate synergistic portals! Deploy my brain uah hhuahu",\
+      "Leverage back-end models! Orchestrate synergistic portals! Deploy my brain uah hhuahu",
       "Feel the rhythm!",
       "You know the business!",
       "Keep it live!",
