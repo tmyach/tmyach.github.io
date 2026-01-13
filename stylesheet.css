@@ -832,23 +832,75 @@ p.code::before {
   color: var(--primary);
 }
 
-.slider input[type="range"] {
-  width: 70%;
-  accent-color: var(--primary);
-  cursor: pointer;
+.slider input[type="range"] { 
+  -webkit-appearance: none;
   appearance: none;
-  height: 4px;
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.slider input[type="range"]::-webkit-slider-runnable-track {
   background: var(--bg-card-dark);
-  border-radius: 2px;
 }
 
 .slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background: var(--primary);
-  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: var(--ink);
+  box-shadow: -200px 0 0 200px var(--secondary);
+  border: 2px solid var(--ink-soft);
+}
+
+.slider input[type="range"]::-moz-range-track {
+  height: 20px;
+  background: var(--bg-card-dark);
+}
+
+.slider input[type="range"]::-moz-range-thumb {
+  background: var(--ink);
+  height: 20px;
+  width: 20px;
+  border: 3px solid var(--ink-soft);
+  border-radius: 0 !important;
+  box-shadow: -200px 0 0 200px var(--secondary);
+  box-sizing: border-box;
+}
+
+.slider input[type="range"]::-moz-range-progress {
+  background: var(--secondary);
+}
+
+.slider input[type="range"]::-ms-fill-lower { 
+  background: var(--secondary);
+}
+
+.slider input[type="range"]::-ms-thumb { 
+  background: var(--ink);
+  border: 2px solid var(--ink-soft);
+  height: 20px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+.slider input[type="range"]::-ms-track { 
+  background: var(--bg-card-dark);
+  color: transparent;
+  height: 20px;
+  border: none;
+}
+
+.slider input[type="range"]::-ms-ticks-after,
+.slider input[type="range"]::-ms-ticks-before,
+.slider input[type="range"]::-ms-tooltip { 
+  display: none; 
 }
 
 .sidebar {
