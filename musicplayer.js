@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// youtube players
+// youtube player
 function onYouTubeIframeAPIReady() {
-  // main player (if exists)
+  // main player
   const mainPlayerEl = document.getElementById('video-player');
   if (mainPlayerEl) {
     player = new YT.Player('video-player', {
@@ -169,7 +169,7 @@ function onYouTubeIframeAPIReady() {
     });
   }
   
-  // mini player (if exists)
+  // mini player
   const miniPlayerEl = document.getElementById('mini-video-player');
   if (miniPlayerEl) {
     miniPlayer = new YT.Player('mini-video-player', {
@@ -263,16 +263,23 @@ function formatTime(seconds) {
 }
 
 function updateTrackInfo() {
+  // currentTrack in range
+  if (currentTrack >= videoIds.length || currentTrack >= titles.length) {
+    currentTrack = 0;
+  }
+
   const nowplaying = document.getElementById("nowplaying");
   const info = document.getElementById("info");
   if (nowplaying) nowplaying.textContent = `playing ${currentTrack + 1} of ${videoIds.length}`;
-  if (info) info.textContent = titles[currentTrack];
+  if (info && titles[currentTrack]) info.textContent = titles[currentTrack];
   updateMiniTrackInfo();
 }
 
 function updateMiniTrackInfo() {
   const miniTitle = document.getElementById("mini-track-title");
-  if (miniTitle) miniTitle.textContent = titles[currentTrack];
+  if (miniTitle && titles[currentTrack]) {
+    miniTitle.textContent = titles[currentTrack];
+  }
 }
 
 function nextTrack() {
@@ -289,7 +296,7 @@ function prevTrack() {
   updateTrackInfo();
 }
 
-// shuffle text plugin
+// shuffle text
 (function($) {
   $.fn.ShuffleText = function(strings, options) {
     function striphtml(html) {
