@@ -5,11 +5,12 @@ let miniPlayerReady = false;
 let timer;
 
 const videoIds = [
+  "zRUOP9CP4Jc",
   "xFf809oDLdE",
   "LGrca9EK_qQ", 
   "fXmEJLMgY8M",
   "cCgxqqxE9Y0",
-  "0clbtaXhtEw",
+  "OBBlIfUH9bY",
   "XfIVH3Q803c",
   "zIp7o53dfmY",
   "tz-QNii79lI",
@@ -23,11 +24,12 @@ const videoIds = [
 ];
 
 const titles = [
+  "Bob Moses - Nothing At All"
   "Björk - It's Oh So Quiet",
   "Strange Boutique - Drown", 
   "Björk - Play Dead",
   "Thievery Corporation - 33 Degree",
-  "Eyedea & Abilities - Red Wiped in Blue",
+  "Bob Marley & The Wailers - Misty Morning",
   "Doctor Becket, El Da Sensei, P Original - Funky",
   "Thievery Corporation - Amerimacka",
   "Portishead - Western Eyes",
