@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "That's not even funny, man!",
       "Transmitting live with the hardcore style!",
       "Optimal performance in all browsers!",
-      "Corporate accounts payable, Tesia speaking... just a moment!",
       "Born to CSS, forced to VANILLA JAVASCRIPT!!!",
       "T.M. Yachimovicz",
       "It's a Casio on a plastic beach!",
@@ -127,11 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
       "WHAT?!",
       "Forty six and two are just ahead of me!",
       "Makin' snacks on wax plates for DJs to scratch!",
-      "Leverage back-end models! Orchestrate synergistic portals! Deploy my brain uah hhuahu",
+      "Leverage back-end models! Orchestrate synergistic portals! Deploy my brain uah hhuahu",\
+      "Feel the rhythm!",
       "You know the business!",
       "Keep it live!",
       "Let's mosey!",
-      "I'm the thirty three degree!",
     ], {
       loop: true,
       delay: 10000,
