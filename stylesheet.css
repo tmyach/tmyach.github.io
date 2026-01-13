@@ -837,7 +837,7 @@ p.code::before {
   appearance: none;
   position: relative;
   overflow: hidden;
-  height: 20px;
+  height: 15px;
   width: 200px;
   cursor: pointer;
   border-radius: 0;
@@ -853,22 +853,22 @@ p.code::before {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
-  height: 20px;
+  height: 15px;
   background: var(--ink);
   box-shadow: -200px 0 0 200px var(--secondary);
   border: 2px solid var(--ink-soft);
 }
 
 .slider input[type="range"]::-moz-range-track {
-  height: 20px;
+  height: 15px;
   background: var(--bg-card-dark);
 }
 
 .slider input[type="range"]::-moz-range-thumb {
   background: var(--ink);
-  height: 20px;
+  height: 15px;
   width: 20px;
-  border: 3px solid var(--ink-soft);
+  border: 1px solid var(--ink-soft);
   border-radius: 0 !important;
   box-shadow: -200px 0 0 200px var(--secondary);
   box-sizing: border-box;
@@ -885,7 +885,7 @@ p.code::before {
 .slider input[type="range"]::-ms-thumb { 
   background: var(--ink);
   border: 2px solid var(--ink-soft);
-  height: 20px;
+  height: 15px;
   width: 20px;
   box-sizing: border-box;
 }
@@ -893,7 +893,7 @@ p.code::before {
 .slider input[type="range"]::-ms-track { 
   background: var(--bg-card-dark);
   color: transparent;
-  height: 20px;
+  height: 15px;
   border: none;
 }
 
