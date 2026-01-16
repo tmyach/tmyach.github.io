@@ -5,13 +5,13 @@ let miniPlayerReady = false;
 let timer;
 
 const videoIds = [
-  "f6KopItCEf8",
+  "p_Yw0q8QVFQ",
   "UETz-QsfNl0",
   "LGrca9EK_qQ", 
   "fXmEJLMgY8M",
-  "cCgxqqxE9Y0",
-  "OBBlIfUH9bY",
+  "nkzFnXEKs5Y",
   "4Syy0Zhcki8",
+  "OBBlIfUH9bY",
   "zIp7o53dfmY",
   "hBx41sKpuhw",
   "pPrte-OhUh4",
@@ -21,16 +21,17 @@ const videoIds = [
   "m2Yhn6-jJPE",
   "bndL7wwAj0U",
   "_JfDU2Vj6k0",
+  "2EEu5P9rso8",
 ];
 
 const titles = [
-  "Bob Moses - Nothing At All",
+  "Hikaru Utada - Automatic",
   "Addison Rae - In The Rain",
   "Strange Boutique - Drown", 
   "Björk - Play Dead",
-  "Thievery Corporation - 33 Degree",
-  "Bob Marley & The Wailers - Misty Morning",
+  "Erykah Badu - Other Side Of The Game",
   "El Da Sensei, P Original - Course Of My Life",
+  "Bob Marley & The Wailers - Misty Morning",
   "Thievery Corporation - Amerimacka",
   "Portishead - Western Eyes",
   "Pink Floyd - Hey You",
@@ -40,6 +41,7 @@ const titles = [
   "A Perfect Circle - The Package",
   "TOOL - Right In Two",
   "Nick Cave - Magneto",
+  "VanWyck - Push the Sky Away",
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
