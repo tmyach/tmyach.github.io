@@ -530,7 +530,7 @@ body {
 #shuffle-title {
   display: inline-block;
   min-width: 100%;
-  line-height: 1.05;
+  line-height: 1.15;
   font-family: var(--font-title);
   padding:5px;
 }
