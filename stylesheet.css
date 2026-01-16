@@ -490,7 +490,6 @@ body {
   border: none;
   padding: .2rem;
 }
-}
 
 .main-content {
   grid-column: 2;
@@ -776,7 +775,6 @@ p.code::before {
   overflow: hidden;
   bottom: .4rem;
   right: .6rem;
-}
 }
 
 .tv-screen iframe {
