@@ -962,3 +962,33 @@ hr {
   margin: 1.5rem 0;
   opacity: 0.7;
 }
+
+.collection-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background-color: var(--bg-card-dark);
+  border: var(--border-thin);
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.4rem 0 0.8rem 0;
+}
+
+.collection-toggle:hover {
+  background-color: var(--primary);
+  color: var(--bg);
+}
+
+.collection-toggle.active {
+  background-color: var(--secondary);
+  color: var(--bg);
+}
+
+/* Hide collections by default */
+.collection {
+  display: none !important;
+}
+
