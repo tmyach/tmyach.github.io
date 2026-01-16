@@ -7,7 +7,7 @@ let timer;
 const videoIds = [
   "p_Yw0q8QVFQ",
   "UETz-QsfNl0", 
-  "Tb0MC0jFv6M",
+  "7nxWP9BhI7w",
   "fXmEJLMgY8M",
   "nkzFnXEKs5Y",
   "g_BMBFR-0nI",
@@ -27,14 +27,14 @@ const videoIds = [
   "bndL7wwAj0U",
   "_JfDU2Vj6k0",
   "2EEu5P9rso8",
-  "Tb0MC0jFv6M",
+  "cRjOLe9FnB0",
   "IUHPsINf8rY",
 ];
 
 const titles = [
   "Hikaru Utada - Automatic",
   "Addison Rae - In The Rain",
-  "Massive Attack - Teardrop",
+  "Portishead - Roads",
   "Björk - Play Dead",
   "Erykah Badu - Other Side Of The Game",
   "Lauryn Hill - Everything is Everything",
