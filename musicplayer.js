@@ -10,6 +10,7 @@ const videoIds = [
   "LGrca9EK_qQ", 
   "fXmEJLMgY8M",
   "nkzFnXEKs5Y",
+  "g_BMBFR-0nI",
   "4Syy0Zhcki8",
   "OBBlIfUH9bY",
   "zIp7o53dfmY",
@@ -22,6 +23,7 @@ const videoIds = [
   "bndL7wwAj0U",
   "_JfDU2Vj6k0",
   "2EEu5P9rso8",
+  "IUHPsINf8rY",
 ];
 
 const titles = [
@@ -30,6 +32,7 @@ const titles = [
   "Strange Boutique - Drown", 
   "Björk - Play Dead",
   "Erykah Badu - Other Side Of The Game",
+  "Lauryn Hill - Everything is Everything",
   "El Da Sensei, P Original - Course Of My Life",
   "Bob Marley & The Wailers - Misty Morning",
   "Thievery Corporation - Amerimacka",
@@ -42,6 +45,7 @@ const titles = [
   "TOOL - Right In Two",
   "Nick Cave - Magneto",
   "VanWyck - Push the Sky Away",
+  "Alicia Keys - Superwoman",
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
