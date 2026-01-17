@@ -788,7 +788,7 @@ p.code::before {
   z-index: 5;
   overflow: hidden;
   bottom: 0.4rem;
-  right: 0.6rem;
+  right: 0.55rem;
 }
 
 .tv-screen iframe {
