@@ -167,6 +167,7 @@
   .theme-switch select {
     font-size: 0.7rem;
     padding: 0.25rem 0.6rem;
+    color: var(--ink);
   }
 
   .main-frame {
