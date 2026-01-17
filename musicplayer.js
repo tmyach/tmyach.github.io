@@ -17,8 +17,8 @@ const videoIds = [
   "zIp7o53dfmY",
   "4TeshUpfml4",
   "VC40Y6VosO0",
-  "hBx41sKpuhw",
   "pPrte-OhUh4",
+  "6GWWFfZfXp0",
   "x5GG_fr8WyM",
   "6GWWFfZfXp0",
   "2maHkdezdEc",
@@ -27,6 +27,7 @@ const videoIds = [
   "bndL7wwAj0U",
   "_JfDU2Vj6k0",
   "2EEu5P9rso8",
+  "UWQT7fd8McI",
   "cRjOLe9FnB0",
   "IUHPsINf8rY",
 ];
@@ -53,6 +54,7 @@ const titles = [
   "TOOL - Right In Two",
   "Nick Cave - Magneto",
   "VanWyck - Push the Sky Away",
+  "Sade - Morning Bird",
   "Mitski - Bug Like an Angel",
   "Alicia Keys - Superwoman",
 ];
