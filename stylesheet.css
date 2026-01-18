@@ -302,6 +302,7 @@ body {
   left: -5px;
   font-size: 0.75rem;
   opacity: 0.8;
+  color: var(--primary);
 }
 
 .logo {
