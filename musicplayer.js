@@ -26,8 +26,8 @@ const videoIds = [
   "bndL7wwAj0U",
   "K2p2lHawAJA",
   "2EEu5P9rso8",
+  "aIaqTsCcWsw",
   "UWQT7fd8McI",
-  "cRjOLe9FnB0",
   "IUHPsINf8rY",
 ];
 
@@ -53,8 +53,8 @@ const titles = [
   "TOOL - Right In Two",
   "Nick Cave - Girl In Amber",
   "VanWyck - Push the Sky Away",
+  "Mitski - Crack Baby",
   "Sade - Morning Bird",
-  "Mitski - Bug Like an Angel",
   "Alicia Keys - Superwoman",
 ];
 
