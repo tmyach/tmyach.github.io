@@ -15,6 +15,7 @@
   --secondary: #bf9397;
   --border-thin: 1px dashed var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
+  --highlight: #5cb3aa;
 }
 
 .beth-ellen-regular {
@@ -140,6 +141,7 @@ html[data-theme="dark"] body::before {
   --secondary: #bf9397;
   --border-thin: 1px dashed #8c8073;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  --highlight: #b8e3df;
 }
 
 /* 
@@ -175,6 +177,7 @@ html[data-theme="light"] body::before {
   --secondary: #d66a60;
   --border-thin: 1px dashed var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
+  --highlight: #e68a80;
 }
 
 /* 
@@ -211,6 +214,7 @@ html[data-theme="darkred"] body::before {
   --secondary: #f472b6;
   --border-thin: 1px dashed #e9b6c7;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
+  --highlight: #ffd7e5;
 }
 
 html[data-theme="pink"] {
@@ -242,11 +246,11 @@ html[data-theme="pink"] body::before {
 
 ::-moz-selection {
   /* Firefox */
-  background: var(--bg-card-dark);
+  background: var(--highlight);
 }
 
 ::selection {
-  background: var(--bg-card-dark);
+  background: var(--highlight);
 }
 
 body {
