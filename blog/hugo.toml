@@ -1,0 +1,4 @@
+baseURL = "https://tmyach.com/blog/"
+languageCode = 'en-us'
+title = 'Blog | t.m.yach'
+theme   = "hugo-theme-til"
