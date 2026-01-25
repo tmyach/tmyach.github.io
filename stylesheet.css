@@ -886,12 +886,13 @@ p.code::before {
   width: 20px;
   border: 1px solid var(--ink-soft);
   border-radius: 0 !important;
-  box-shadow: -200px 0 0 200px var(--secondary);
+  box-shadow: -200px 0 0 200px linear-gradient(90deg, var(--primary), var(--secondary));
   box-sizing: border-box;
 }
 
 .slider input[type="range"]::-moz-range-progress {
-  background: var(--secondary);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  height: 15px;
 }
 
 .slider input[type="range"]::-ms-fill-lower {
