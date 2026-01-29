@@ -1,4 +1,4 @@
-baseURL = 'https://tmyach.com/blog'
+baseURL = '/blog/'
 languageCode = 'en-us'
 title = "Blog | t.m.yach"
 copyright = 't.m.yach' # Used in the footer copyright mention.
