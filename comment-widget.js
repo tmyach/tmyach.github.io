@@ -115,7 +115,7 @@ const v_formHtml = `
 
     <!-- admin input -->
     <div id="c_adminCodeWrapper" class="c-inputWrapper" style="display: none;">
-        <label class="c-label" for="c_adminCode">Admin Code:</label>
+        <label class="c-label" for="c_adminCode"> </label>
         <input class="c-input" name="entry.1666564503" id="c_adminCode" type="text" readonly style="background: #e9ecef;">
     </div>
 
