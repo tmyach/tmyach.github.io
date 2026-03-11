@@ -492,11 +492,11 @@ body {
     grid-column: 2;
 }
 
-/* testing this out */
+/* testing this out 
 .content-grid > .sidebar-left,
 .content-grid > .sidebar-right {
     grid-row: 1;
-}
+} */
 
 div.imgotw {
   width: 80%;
