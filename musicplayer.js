@@ -143,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "I'd just like to interject for a moment...",
       "Feel the rhythm!",
       "You know the business!",
+      ":P",
       "Keep it live!",
       "Let's mosey!",
       "Converted to Free Software Evangelicism",
