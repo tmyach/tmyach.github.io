@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#shuffle-title').ShuffleText([
       "Hello!",
       "¡Hola!",
-      "~# sl 🚂💨",
+      "sl 🚂💨",
       "That's not even funny, man!",
       "Optimal performance in all browsers!",
       "Born to CSS, forced to JAVASCRIPT!!!",
