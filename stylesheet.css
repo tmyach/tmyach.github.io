@@ -504,6 +504,7 @@ div.imgotw {
   background-color: white;
   box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset;
   /*margin-bottom: 25px;*/
+  border: var(--border-thin);
 }
 
 div.imgotw-txt {
@@ -514,13 +515,6 @@ div.imgotw-txt {
 
 .block {
   border: var(--border-thin);
-  background-color: var(--bg-card-light);
-  padding: 1.2rem;
-  box-shadow: var(--shadow-vintage);
-}
-
-.block2 {
-  border: none;
   background-color: var(--bg-card-light);
   padding: 1.2rem;
   box-shadow: var(--shadow-vintage);
