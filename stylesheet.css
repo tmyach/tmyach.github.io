@@ -518,6 +518,13 @@ div.imgotw-txt {
   box-shadow: var(--shadow-vintage);
 }
 
+.block2 {
+  border: none;
+  background-color: var(--bg-card-light);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-vintage);
+}
+
 .block.guestbook {
   border: none;
   padding: 0.2rem;
