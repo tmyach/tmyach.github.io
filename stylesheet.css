@@ -509,6 +509,7 @@ div.imgotw {
 div.imgotw-txt {
   text-align: center;
   padding: 10px 20px;
+  line-height:1;
 }
 
 .block {
