@@ -500,10 +500,10 @@ body {
 }
 
 div.imgotw {
-  width: 80%;
+  /*width: 80%;*/
   background-color: white;
   box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset;
-  margin-bottom: 25px;
+  /*margin-bottom: 25px;*/
 }
 
 div.imgotw-txt {
