@@ -13,7 +13,9 @@
   --ink-soft: #b5b0a5;
   --primary: #93bfba;
   --secondary: #bf9397;
-  --border-thin: 1px dashed var(--primary);
+  --border-thin: 1px solid var(--primary);
+  --border-thin-dash: 1px dashed var(--primary);
+  --border-nav: 1px dashed var(--ink-soft);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
   --highlight: #3f736e;
 }
@@ -360,7 +362,7 @@ body {
 .nav-list li {
   position: relative;
   overflow: hidden;
-  border: var(--border-thin);
+  border: var(--border-nav);
   background-color: var(--bg-card-dark);
 }
 
@@ -370,7 +372,7 @@ body {
   padding: 0.4rem 0.8rem;
   text-decoration: none;
   font-size: 0.78rem;
-  transition: color 0.6s steps(4, jump-none);
+  transition: color 0.6s;
   z-index: 2;
   position: relative;
 }
@@ -385,7 +387,7 @@ body {
   background: var(--primary);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s steps(3, jump-start);
+  transition: transform 0.3s;
   z-index: 1;
 }
 
