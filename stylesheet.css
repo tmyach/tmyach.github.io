@@ -383,7 +383,7 @@ body {
   right: 0;
   bottom: 0;
   background: var(--primary);
-  transform: scaleY(0);
+  transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s steps(3, jump-start);
   z-index: 1;
