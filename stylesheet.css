@@ -579,7 +579,7 @@ div.imgotw-txt {
   line-height: 1.15;
   font-family: var(--font-title);
   padding: 5px 0;
-  text-align: left; /* change to center if your original title is centered */
+  text-align: left; 
   user-select: none;
   will-change: opacity, filter, transform;
 }
