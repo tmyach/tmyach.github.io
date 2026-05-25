@@ -1,6 +1,6 @@
 / init
-if (typeof $ !== 'undefined' && $('.shuffle-container').length) {
-  $('.shuffle-container').MorphText([
+if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
+  $('#shuffle-title').MorphText([
     "Hello!",
     "¡Hola!",
     "sl 🚂💨",
@@ -20,7 +20,7 @@ if (typeof $ !== 'undefined' && $('.shuffle-container').length) {
     "Let's mosey!",
     "Converted to Free Software Evangelicism",
     "Do you have a moment to talk about GNU/Linux?",
-    "Linyos Torovoltos wrote Lunix!",
+    "Linyos Torovoltos wrote Lunix!"
   ], {
     delay: 2500,
     morphTime: 900,
@@ -31,98 +31,91 @@ if (typeof $ !== 'undefined' && $('.shuffle-container').length) {
 // morph
 (function($) {
   $.fn.MorphText = function(strings, options) {
-    const el = this;
-    const $el = $(el);
-
     if (!Array.isArray(strings) || strings.length < 2) {
       throw new TypeError('need an array with at least 2 strings');
     }
 
     const settings = $.extend({
-      loop: true,
       delay: 2500,
       morphTime: 900,
       cooldownTime: 250,
       step: function() {}
     }, options || {});
 
-    const createLayer = (id) => {
-      const span = document.createElement('span');
-      span.id = id;
-      span.style.position = 'absolute';
-      span.style.left = '0';
-      span.style.top = '0';
-      span.style.width = '100%';
-      span.style.display = 'inline-block';
-      span.style.lineHeight = '1.15';
-      span.style.fontFamily = 'var(--font-title)';
-      span.style.padding = '5px 0';
-      span.style.userSelect = 'none';
-      return span;
-    };
+    return this.each(function() {
+      const root = this;
+      const $root = $(root);
 
-    $el.empty();
-    const text1 = createLayer('shuffle-title-1');
-    const text2 = createLayer('shuffle-title-2');
-    $el.append(text1, text2);
+      $root.empty();
+      $root.addClass('morph');
 
-    let index = 0;
-    let morph = 0;
-    let cooldown = settings.cooldownTime;
-    let time = performance.now();
+      const text1 = document.createElement('span');
+      const text2 = document.createElement('span');
 
-    const setMorph = (fraction) => {
-      const blur2 = Math.min(8 / Math.max(fraction, 0.001) - 8, 100);
-      const blur1 = Math.min(8 / Math.max(1 - fraction, 0.001) - 8, 100);
+      text1.id = 'shuffle-title-1';
+      text2.id = 'shuffle-title-2';
 
-      text2.style.filter = `blur(${blur2}px)`;
-      text2.style.opacity = `${Math.pow(fraction, 0.4)}`;
+      root.appendChild(text1);
+      root.appendChild(text2);
 
-      text1.style.filter = `blur(${blur1}px)`;
-      text1.style.opacity = `${Math.pow(1 - fraction, 0.4)}`;
+      let index = 0;
+      let morph = 0;
+      let cooldown = settings.cooldownTime;
+      let time = performance.now();
 
-      text1.textContent = strings[index % strings.length];
-      text2.textContent = strings[(index + 1) % strings.length];
-    };
+      const setMorph = (fraction) => {
+        const f = Math.max(fraction, 0.001);
+        const r = Math.max(1 - fraction, 0.001);
 
-    const setCooldown = () => {
-      text2.style.filter = '';
-      text2.style.opacity = '1';
-      text1.style.filter = '';
-      text1.style.opacity = '0';
-    };
+        text2.style.filter = `blur(${Math.min(8 / f - 8, 100)}px)`;
+        text2.style.opacity = `${Math.pow(fraction, 0.4)}`;
 
-    text1.textContent = strings[0];
-    text2.textContent = strings[1 % strings.length];
-    text1.style.opacity = '1';
-    text2.style.opacity = '0';
+        text1.style.filter = `blur(${Math.min(8 / r - 8, 100)}px)`;
+        text1.style.opacity = `${Math.pow(1 - fraction, 0.4)}`;
 
-    const animate = () => {
-      const now = performance.now();
-      const dt = now - time;
-      time = now;
-      cooldown -= dt;
+        text1.textContent = strings[index % strings.length];
+        text2.textContent = strings[(index + 1) % strings.length];
+      };
 
-      if (cooldown <= 0) {
-        morph += dt;
-        let fraction = morph / settings.morphTime;
+      const setCooldown = () => {
+        text2.style.filter = '';
+        text2.style.opacity = '1';
+        text1.style.filter = '';
+        text1.style.opacity = '0';
+      };
 
-        if (fraction >= 1) {
-          fraction = 1;
-          cooldown = settings.cooldownTime;
-          morph = 0;
-          index = (index + 1) % strings.length;
-          settings.step(strings[index]);
+      text1.textContent = strings[0];
+      text2.textContent = strings[1 % strings.length];
+      text1.style.opacity = '1';
+      text2.style.opacity = '0';
+
+      function animate() {
+        const now = performance.now();
+        const dt = now - time;
+        time = now;
+        cooldown -= dt;
+
+        if (cooldown <= 0) {
+          morph += dt;
+          let fraction = morph / settings.morphTime;
+
+          if (fraction >= 1) {
+            fraction = 1;
+            cooldown = settings.cooldownTime;
+            morph = 0;
+            index = (index + 1) % strings.length;
+            settings.step(strings[index]);
+          }
+
+          setMorph(fraction);
+        } else {
+          setCooldown();
         }
 
-        setMorph(fraction);
-      } else {
-        setCooldown();
+        requestAnimationFrame(animate);
       }
 
       requestAnimationFrame(animate);
-    };
-
-    requestAnimationFrame(animate);
+    });
   };
 })(jQuery);
