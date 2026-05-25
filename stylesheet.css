@@ -584,13 +584,6 @@ div.imgotw-txt {
   will-change: opacity, filter, transform;
 }
 
-#shuffle-title {
-  display: inline-block;
-  min-width: 100%;
-  line-height: 1.15;
-  font-family: var(--font-title);
-  padding: 5px 0;
-}
 
 .under {
   margin-top: 0.75rem;
