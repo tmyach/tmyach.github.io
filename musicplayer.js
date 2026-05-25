@@ -126,37 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  // shuffle title
-  if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
-    $('#shuffle-title').ShuffleText([
-      "Hello!",
-      "¡Hola!",
-      "sl 🚂💨",
-      "That's not even funny, man!",
-      "Optimal performance in all browsers!",
-      "Born to CSS, forced to JAVASCRIPT!!!",
-      "T.M.Y.",
-      "It's a Casio on a plastic beach!",
-      "Nonagon infinity opens the door!",
-      "Has it trickled down yet?",
-      "Me? Gongaga",
-      "I'd just like to interject for a moment...",
-      "Feel the rhythm!",
-      "You know the business!",
-      ":P",
-      "Keep it live!",
-      "Let's mosey!",
-      "Converted to Free Software Evangelicism",
-      "Do you have a moment to talk about GNU/Linux?",
-      "Linyos Torovoltos wrote Lunix!",
-    ], {
-      loop: true,
-      delay: 10000,
-      iterations: 60,
-      shuffleSpeed: 25
-    });
-  }
-});
+  
 
 // youtube player
 function onYouTubeIframeAPIReady() {
@@ -312,6 +282,38 @@ function prevTrack() {
   if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
   updateTrackInfo();
 }
+
+// shuffle title
+  if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
+    $('#shuffle-title').ShuffleText([
+      "Hello!",
+      "¡Hola!",
+      "sl 🚂💨",
+      "That's not even funny, man!",
+      "Optimal performance in all browsers!",
+      "Born to CSS, forced to JAVASCRIPT!!!",
+      "T.M.Y.",
+      "It's a Casio on a plastic beach!",
+      "Nonagon infinity opens the door!",
+      "Has it trickled down yet?",
+      "Me? Gongaga",
+      "I'd just like to interject for a moment...",
+      "Feel the rhythm!",
+      "You know the business!",
+      ":P",
+      "Keep it live!",
+      "Let's mosey!",
+      "Converted to Free Software Evangelicism",
+      "Do you have a moment to talk about GNU/Linux?",
+      "Linyos Torovoltos wrote Lunix!",
+    ], {
+      loop: true,
+      delay: 10000,
+      iterations: 60,
+      shuffleSpeed: 25
+    });
+  }
+});
 
 // shuffle text
 (function($) {
