@@ -559,6 +559,29 @@ div.imgotw-txt {
   min-width: 280px;
   max-width: 320px;
   line-height: 1;
+  position: relative;
+  overflow: visible;
+}
+
+.morph {
+  filter: url(#threshold) blur(0.6px);
+}
+
+#morph-1,
+#morph-2,
+#shuffle-title-1,
+#shuffle-title-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: inline-block;
+  line-height: 1.15;
+  font-family: var(--font-title);
+  padding: 5px 0;
+  text-align: left; /* change to center if your original title is centered */
+  user-select: none;
+  will-change: opacity, filter, transform;
 }
 
 #shuffle-title {
