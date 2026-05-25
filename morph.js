@@ -6,7 +6,7 @@
     }
 
     const settings = $.extend({
-      delay: 2500,
+      delay: 10000,
       morphTime: 900,
       cooldownTime: 250,
       step: function() {}
@@ -30,7 +30,7 @@
 
       let index = 0;
       let morph = 0;
-      let cooldown = settings.cooldownTime;
+      let cooldown = settings.delay;
       let time = performance.now();
 
       const setMorph = (fraction) => {
@@ -49,9 +49,11 @@
 
       const setCooldown = () => {
         text2.style.filter = '';
-        text2.style.opacity = '1';
+        text2.style.opacity = '0';
         text1.style.filter = '';
-        text1.style.opacity = '0';
+        text1.style.opacity = '1';
+        text1.textContent = strings[index % strings.length];
+        text2.textContent = strings[(index + 1) % strings.length];
       };
 
       text1.textContent = strings[0];
@@ -63,23 +65,23 @@
         const now = performance.now();
         const dt = now - time;
         time = now;
-        cooldown -= dt;
 
-        if (cooldown <= 0) {
+        if (cooldown > 0) {
+          cooldown -= dt;
+          setCooldown();
+        } else {
           morph += dt;
           let fraction = morph / settings.morphTime;
 
           if (fraction >= 1) {
-            fraction = 1;
-            cooldown = settings.cooldownTime;
             morph = 0;
+            cooldown = settings.delay;
             index = (index + 1) % strings.length;
             settings.step(strings[index]);
+            setCooldown();
+          } else {
+            setMorph(fraction);
           }
-
-          setMorph(fraction);
-        } else {
-          setCooldown();
         }
 
         requestAnimationFrame(animate);
@@ -114,7 +116,7 @@ if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
     "Do you have a moment to talk about GNU/Linux?",
     "Linyos Torovoltos wrote Lunix!"
   ], {
-    delay: 2500,
+    delay: 10000,
     morphTime: 900,
     cooldownTime: 250
   });
