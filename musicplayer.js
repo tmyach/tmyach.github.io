@@ -281,5 +281,3 @@ function prevTrack() {
   if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
   updateTrackInfo();
 }
-
-});
