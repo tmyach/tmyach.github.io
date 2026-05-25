@@ -1,33 +1,3 @@
-/ init
-if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
-  $('#shuffle-title').MorphText([
-    "Hello!",
-    "¡Hola!",
-    "sl 🚂💨",
-    "That's not even funny, man!",
-    "Optimal performance in all browsers!",
-    "Born to CSS, forced to JAVASCRIPT!!!",
-    "T.M.Y.",
-    "It's a Casio on a plastic beach!",
-    "Nonagon infinity opens the door!",
-    "Has it trickled down yet?",
-    "Me? Gongaga",
-    "I'd just like to interject for a moment...",
-    "Feel the rhythm!",
-    "You know the business!",
-    ":P",
-    "Keep it live!",
-    "Let's mosey!",
-    "Converted to Free Software Evangelicism",
-    "Do you have a moment to talk about GNU/Linux?",
-    "Linyos Torovoltos wrote Lunix!"
-  ], {
-    delay: 2500,
-    morphTime: 900,
-    cooldownTime: 250
-  });
-}
-
 // morph
 (function($) {
   $.fn.MorphText = function(strings, options) {
@@ -119,3 +89,33 @@ if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
     });
   };
 })(jQuery);
+
+// init
+if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
+  $('#shuffle-title').MorphText([
+    "Hello!",
+    "¡Hola!",
+    "sl 🚂💨",
+    "That's not even funny, man!",
+    "Optimal performance in all browsers!",
+    "Born to CSS, forced to JAVASCRIPT!!!",
+    "T.M.Y.",
+    "It's a Casio on a plastic beach!",
+    "Nonagon infinity opens the door!",
+    "Has it trickled down yet?",
+    "Me? Gongaga",
+    "I'd just like to interject for a moment...",
+    "Feel the rhythm!",
+    "You know the business!",
+    ":P",
+    "Keep it live!",
+    "Let's mosey!",
+    "Converted to Free Software Evangelicism",
+    "Do you have a moment to talk about GNU/Linux?",
+    "Linyos Torovoltos wrote Lunix!"
+  ], {
+    delay: 2500,
+    morphTime: 900,
+    cooldownTime: 250
+  });
+}
