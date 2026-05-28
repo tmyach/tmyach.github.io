@@ -589,6 +589,13 @@ div.imgotw-txt {
   will-change: opacity, filter;
 }
 
+#filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
 .under {
   margin-top: 0.75rem;
