@@ -558,11 +558,14 @@ div.imgotw-txt {
   display: inline-block;
   position: relative;
 <<<<<<< HEAD
+<<<<<<< HEAD
   max-width: 100%;
   width: 100%;
   line-height: 1;
   vertical-align: top;
   overflow: hidden;
+=======
+>>>>>>> parent of 99f0900 (revert)
 =======
 >>>>>>> parent of 99f0900 (revert)
 }
@@ -599,6 +602,7 @@ div.imgotw-txt {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #filters {
   position: absolute;
   width: 0;
@@ -608,12 +612,17 @@ div.imgotw-txt {
 }
 
 =======
+=======
+>>>>>>> parent of 99f0900 (revert)
 #shuffle-title-2 {
   filter: url(#threshold) blur(0.6px);
   pointer-events: none;
 }
 
 
+<<<<<<< HEAD
+>>>>>>> parent of 99f0900 (revert)
+=======
 >>>>>>> parent of 99f0900 (revert)
 .under {
   margin-top: 0.75rem;
