@@ -19,12 +19,15 @@
       $root.empty();
       $root.addClass('morph');
 
+      const sizer = document.createElement('span');
       const text1 = document.createElement('span');
       const text2 = document.createElement('span');
 
+      sizer.id = 'shuffle-title-sizer';
       text1.id = 'shuffle-title-1';
       text2.id = 'shuffle-title-2';
 
+      root.appendChild(sizer);
       root.appendChild(text1);
       root.appendChild(text2);
 
@@ -32,6 +35,10 @@
       let morph = 0;
       let cooldown = settings.delay;
       let time = performance.now();
+
+      const syncSizer = (str) => {
+        sizer.textContent = str;
+      };
 
       const setMorph = (fraction) => {
         const f = Math.max(fraction, 0.001);
@@ -45,6 +52,7 @@
 
         text1.textContent = strings[index % strings.length];
         text2.textContent = strings[(index + 1) % strings.length];
+        syncSizer(text1.textContent);
       };
 
       const setCooldown = () => {
@@ -52,14 +60,17 @@
         text2.style.opacity = '0';
         text1.style.filter = '';
         text1.style.opacity = '1';
+
         text1.textContent = strings[index % strings.length];
         text2.textContent = strings[(index + 1) % strings.length];
+        syncSizer(text1.textContent);
       };
 
       text1.textContent = strings[0];
       text2.textContent = strings[1 % strings.length];
       text1.style.opacity = '1';
       text2.style.opacity = '0';
+      syncSizer(text1.textContent);
 
       function animate() {
         const now = performance.now();

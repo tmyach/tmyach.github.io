@@ -573,6 +573,16 @@ div.imgotw-txt {
   overflow: visible;
 }
 
+#shuffle-title-sizer {
+  display: inline-block;
+  visibility: hidden;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.15;
+  font-family: var(--font-title);
+  padding: 5px 0;
+}
+
 #morph-title-1,
 #morph-title-2,
 #shuffle-title-1,
