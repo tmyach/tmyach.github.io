@@ -558,7 +558,7 @@ div.imgotw-txt {
   display: inline-block;
   min-width: 280px;
   max-width: 320px;
-  line-height: 1;
+  line-height: 0.1; /*erm*/
   position: relative;
   filter: url(#threshold) blur(0.6px);
 }
