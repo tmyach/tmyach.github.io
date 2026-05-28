@@ -556,40 +556,32 @@ div.imgotw-txt {
 
 .shuffle-container {
   display: inline-block;
-  min-width: 280px;
+  width: auto;
   max-width: 320px;
   line-height: 1;
   position: relative;
+  vertical-align: top;
   filter: url(#threshold) blur(0.6px);
 }
 
 #shuffle-title {
   display: inline-block;
+  width: auto;
   line-height: 1.15;
   font-family: var(--font-title);
   padding: 5px 0;
   position: relative;
   overflow: visible;
-  white-space: nowrap;
 }
 
 #morph-title-1,
-#shuffle-title-1 {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  line-height: 1.15;
-  font-family: var(--font-title);
-  padding: 5px 0;
-  user-select: none;
-  will-change: opacity, filter;
-}
-
 #morph-title-2,
+#shuffle-title-1,
 #shuffle-title-2 {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
   display: inline-block;
   line-height: 1.15;
   font-family: var(--font-title);
