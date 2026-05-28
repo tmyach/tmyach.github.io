@@ -21,35 +21,17 @@
 
       const text1 = document.createElement('span');
       const text2 = document.createElement('span');
-      const sizer = document.createElement('span');
 
       text1.id = 'shuffle-title-1';
       text2.id = 'shuffle-title-2';
-      sizer.id = 'shuffle-title-sizer';
-
-      sizer.style.position = 'absolute';
-      sizer.style.visibility = 'hidden';
-      sizer.style.whiteSpace = 'nowrap';
-      sizer.style.left = '-9999px';
-      sizer.style.top = '-9999px';
-      sizer.style.fontFamily = 'var(--font-title)';
-      sizer.style.fontSize = getComputedStyle(root).fontSize;
-      sizer.style.lineHeight = getComputedStyle(root).lineHeight;
-      sizer.style.padding = '5px 0';
 
       root.appendChild(text1);
       root.appendChild(text2);
-      root.appendChild(sizer);
 
       let index = 0;
       let morph = 0;
       let cooldown = settings.delay;
       let time = performance.now();
-
-      const resizeRoot = (str) => {
-        sizer.textContent = str;
-        root.style.width = `${sizer.getBoundingClientRect().width}px`;
-      };
 
       const setMorph = (fraction) => {
         const f = Math.max(fraction, 0.001);
@@ -63,8 +45,6 @@
 
         text1.textContent = strings[index % strings.length];
         text2.textContent = strings[(index + 1) % strings.length];
-
-        resizeRoot(text1.textContent);
       };
 
       const setCooldown = () => {
@@ -74,14 +54,12 @@
         text1.style.opacity = '1';
         text1.textContent = strings[index % strings.length];
         text2.textContent = strings[(index + 1) % strings.length];
-        resizeRoot(text1.textContent);
       };
 
       text1.textContent = strings[0];
       text2.textContent = strings[1 % strings.length];
       text1.style.opacity = '1';
       text2.style.opacity = '0';
-      resizeRoot(text1.textContent);
 
       function animate() {
         const now = performance.now();
