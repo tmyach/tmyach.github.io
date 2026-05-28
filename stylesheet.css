@@ -302,7 +302,7 @@ body {
 }
 
 .nav-divider-large::before {
-  content: "❧";
+  content: "";
   position: absolute;
   top: -6px;
   left: -5px;
