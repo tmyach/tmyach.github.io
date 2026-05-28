@@ -556,74 +556,40 @@ div.imgotw-txt {
 
 .shuffle-container {
   display: inline-block;
-  position: relative;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  max-width: 100%;
-  width: 100%;
+  min-width: 280px;
+  max-width: 320px;
   line-height: 1;
-  vertical-align: top;
-  overflow: hidden;
-=======
->>>>>>> parent of 99f0900 (revert)
-=======
->>>>>>> parent of 99f0900 (revert)
+  position: relative;
+  filter: url(#threshold) blur(0.6px);
 }
 
 #shuffle-title {
-  display: block;
-  position: relative;
-  width: 100%;
-  min-width: 0;
+  display: inline-block;
+  min-width: 100%;
   line-height: 1.15;
   font-family: var(--font-title);
   padding: 5px 0;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  white-space: normal;
+  position: relative;
+  overflow: visible;
 }
 
+#morph-title-1,
+#morph-title-2,
 #shuffle-title-1,
 #shuffle-title-2 {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  display: block;
+  display: inline-block;
   line-height: 1.15;
   font-family: var(--font-title);
   padding: 5px 0;
   user-select: none;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
   will-change: opacity, filter;
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#filters {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-=======
-=======
->>>>>>> parent of 99f0900 (revert)
-#shuffle-title-2 {
-  filter: url(#threshold) blur(0.6px);
-  pointer-events: none;
-}
-
-
-<<<<<<< HEAD
->>>>>>> parent of 99f0900 (revert)
-=======
->>>>>>> parent of 99f0900 (revert)
 .under {
   margin-top: 0.75rem;
 }

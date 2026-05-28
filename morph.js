@@ -116,7 +116,7 @@ if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
     "Do you have a moment to talk about GNU/Linux?",
     "Linyos Torovoltos wrote Lunix!"
   ], {
-    delay: 10000,
+    delay: 2500,
     morphTime: 900,
     cooldownTime: 250
   });
