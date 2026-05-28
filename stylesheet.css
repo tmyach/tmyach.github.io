@@ -450,6 +450,7 @@ body {
 }
 
 #collection {
+  display: none;
   background-color: var(--bg);
   overflow: scroll;
   padding: 1rem;
