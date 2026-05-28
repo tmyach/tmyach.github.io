@@ -12,6 +12,14 @@
       step: function() {}
     }, options || {});
 
+    function pickRandomIndex(exclude) {
+      let next;
+      do {
+        next = Math.floor(Math.random() * strings.length);
+      } while (next === exclude);
+      return next;
+    }
+
     return this.each(function() {
       const root = this;
       const $root = $(root);
@@ -31,7 +39,8 @@
       root.appendChild(text1);
       root.appendChild(text2);
 
-      let index = 0;
+      let index = pickRandomIndex(-1);
+      let nextIndex = pickRandomIndex(index);
       let morph = 0;
       let cooldown = settings.delay;
       let time = performance.now();
@@ -50,9 +59,9 @@
         text1.style.filter = `blur(${Math.min(8 / r - 8, 100)}px)`;
         text1.style.opacity = `${Math.pow(1 - fraction, 0.4)}`;
 
-        text1.textContent = strings[index % strings.length];
-        text2.textContent = strings[(index + 1) % strings.length];
-        syncSizer(text1.textContent);
+        text1.textContent = strings[index];
+        text2.textContent = strings[nextIndex];
+        syncSizer(strings[index]);
       };
 
       const setCooldown = () => {
@@ -61,16 +70,16 @@
         text1.style.filter = '';
         text1.style.opacity = '1';
 
-        text1.textContent = strings[index % strings.length];
-        text2.textContent = strings[(index + 1) % strings.length];
-        syncSizer(text1.textContent);
+        text1.textContent = strings[index];
+        text2.textContent = strings[nextIndex];
+        syncSizer(strings[index]);
       };
 
-      text1.textContent = strings[0];
-      text2.textContent = strings[1 % strings.length];
+      text1.textContent = strings[index];
+      text2.textContent = strings[nextIndex];
       text1.style.opacity = '1';
       text2.style.opacity = '0';
-      syncSizer(text1.textContent);
+      syncSizer(strings[index]);
 
       function animate() {
         const now = performance.now();
@@ -87,7 +96,8 @@
           if (fraction >= 1) {
             morph = 0;
             cooldown = settings.delay;
-            index = (index + 1) % strings.length;
+            index = nextIndex;
+            nextIndex = pickRandomIndex(index);
             settings.step(strings[index]);
             setCooldown();
           } else {
