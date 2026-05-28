@@ -556,17 +556,16 @@ div.imgotw-txt {
 
 .shuffle-container {
   display: inline-block;
-  width: auto;
+  min-width: 280px;
   max-width: 320px;
   line-height: 1;
   position: relative;
-  vertical-align: top;
   filter: url(#threshold) blur(0.6px);
 }
 
 #shuffle-title {
   display: inline-block;
-  width: auto;
+  min-width: 100%;
   line-height: 1.15;
   font-family: var(--font-title);
   padding: 5px 0;
