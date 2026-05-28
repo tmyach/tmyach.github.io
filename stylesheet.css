@@ -560,6 +560,7 @@ div.imgotw-txt {
   max-width: 320px;
   line-height: 1;
   position: relative;
+  filter: url(#threshold) blur(0.6px);
 }
 
 #shuffle-title {
@@ -586,12 +587,6 @@ div.imgotw-txt {
   padding: 5px 0;
   user-select: none;
   will-change: opacity, filter;
-}
-
-
-#shuffle-title-2 {
-  filter: url(#threshold) blur(0.6px);
-  pointer-events: none;
 }
 
 
