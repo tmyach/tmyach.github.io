@@ -15,7 +15,8 @@
   --secondary: #bf9397;
   --border-thin: 1px dotted var(--primary);
   --border-thin-dash: 1px dashed var(--primary);
-  --border-nav: 1px dashed var(--ink-soft);
+  --border-nav: 1px dashed var(--primary);
+  --border-thin-solid: 1px solid var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
   --highlight: #3f736e;
 }
@@ -527,7 +528,7 @@ div.imgotw-txt {
   background-color: var(--bg-card-light);
   padding: 1.2rem;
   box-shadow: var(--shadow-vintage);
-  border-style: dotted;
+  
 }
 
 .block.guestbook {
