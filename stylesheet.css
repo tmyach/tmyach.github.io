@@ -779,7 +779,7 @@ p.code::before {
 .poll-option label {
   position: relative;
   cursor: pointer;
-  color: var(--secondary);
+  color: var(--ink);
   font-family: inherit;
   padding-left: 32px;
   line-height: 24px;
@@ -792,7 +792,7 @@ p.code::before {
   left: 0;
   width: 24px;
   height: 24px;
-  background: var(--primary);
+  background: var(--ink);
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M3 3h18v18H3zm16 16V5H5v14z"/></svg>')
     center / contain no-repeat;
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M3 3h18v18H3zm16 16V5H5v14z"/></svg>')
