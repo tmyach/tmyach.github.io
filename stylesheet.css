@@ -629,7 +629,7 @@ ul.unstyled {
 }
 
 p {
-  color: var(--ink-soft);
+  color: var(--ink);
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
   font-family: var(--font-body);
