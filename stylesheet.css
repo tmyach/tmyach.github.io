@@ -526,10 +526,19 @@ div.imgotw {
   border: var(--border-thin);
 }
 
-a.imgotw {
-  text-decoration: none;
-  color: var(--primary);
-  font-family: var(--font-body);
+div.imgotw a:link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+div.imgotw a:visited {
+        text-decoration: none;
+color: var(--secondary);
+}
+
+div.imgotw a:hover {
+text-decoration: underline;
+color: var(--secondary);
 }
 
 div.imgotw-txt {
