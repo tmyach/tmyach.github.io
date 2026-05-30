@@ -527,17 +527,17 @@ div.imgotw {
 }
 
 div.imgotw a:link {
-    color: var(--primary);
-    text-decoration: none;
+color: var(--primary);
+text-decoration: none;
 }
 
 div.imgotw a:visited {
-        text-decoration: none;
+text-decoration: none;
 color: var(--secondary);
 }
 
 div.imgotw a:hover {
-text-decoration: underline;
+text-decoration: none;
 color: var(--secondary);
 }
 
