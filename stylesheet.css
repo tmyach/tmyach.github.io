@@ -143,7 +143,7 @@ html[data-theme="dark"] body::before {
   --ink-soft: #5c5347;
   --primary: #93bfba;
   --secondary: #bf9397;
-  --border-thin: 1px dashed #8c8073;
+  --border-thin: 1px dotted #8c8073;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   --highlight: #b8e3df;
 }
