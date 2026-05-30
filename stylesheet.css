@@ -179,7 +179,7 @@ html[data-theme="light"] body::before {
   --ink-soft: #c7a5a5;
   --primary: #e68a80;
   --secondary: #d66a60;
-  --border-thin: 1px dashed var(--primary);
+  --border-thin: 1px dotted var(--primary);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
   --highlight: #e68a80;
 }
@@ -216,7 +216,7 @@ html[data-theme="darkred"] body::before {
   --ink-soft: #c47a9a;
   --primary: #d63384;
   --secondary: #f472b6;
-  --border-thin: 1px dashed #e9b6c7;
+  --border-thin: 1px dashed #d63384;
   --shadow-vintage: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
   --highlight: #ffd7e5;
 }
