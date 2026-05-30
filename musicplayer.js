@@ -5,30 +5,31 @@ let miniPlayerReady = false;
 let timer;
 
 const videoIds = [
-  "p_Yw0q8QVFQ",
-  "UETz-QsfNl0", 
-  "7nxWP9BhI7w",
-  "fXmEJLMgY8M",
-  "nkzFnXEKs5Y",
-  "g_BMBFR-0nI",
-  "4Syy0Zhcki8",
-  "OBBlIfUH9bY",
-  "GfG7DasXge8",
-  "zIp7o53dfmY",
-  "4TeshUpfml4",
-  "VC40Y6VosO0",
-  "pPrte-OhUh4",
-  "6GWWFfZfXp0",
-  "x5GG_fr8WyM",
-  "2maHkdezdEc",
-  "11ImVzWeMHE",
-  "m2Yhn6-jJPE",
-  "bndL7wwAj0U",
-  "K2p2lHawAJA",
-  "2EEu5P9rso8",
-  "aIaqTsCcWsw",
-  "UWQT7fd8McI",
-  "IUHPsINf8rY",
+  "p_Yw0q8QVFQ", //Hikaru Utada - Automatic
+  "UETz-QsfNl0", //Addison Rae - In The Rain
+  "7nxWP9BhI7w", //Portishead - Roads
+  "fXmEJLMgY8M", //Björk - Play Dead
+  "nkzFnXEKs5Y", //Erykah Badu - Other Side Of The Game
+  "g_BMBFR-0nI", //Lauryn Hill - Everything is Everything
+  "4Syy0Zhcki8", //El Da Sensei, P Original - Course Of My Life
+  "OBBlIfUH9bY", //Bob Marley & The Wailers - Misty Morning
+  "GfG7DasXge8", //Peter Tosh - Peace Treaty
+  "zIp7o53dfmY", //Thievery Corporation - Amerimacka
+  "4TeshUpfml4", //Calle 13 - Latinoamérica
+  "VC40Y6VosO0", //The Jimi Hendrix Experience - House Burning Down
+  "pPrte-OhUh4", //Pink Floyd - Hey You
+  "6GWWFfZfXp0", //Low - Dinosaur Act
+  "x5GG_fr8WyM", //Smashing Pumpkins - Disarm
+  "2maHkdezdEc", //Alice in Chains - Sunshine
+  "11ImVzWeMHE", //Deftones - Deathblow
+  "ikUrxI7g6BM", //Thrice - Cold Cash and Cold Hearts
+  "m2Yhn6-jJPE", //A Perfect Circle - The Package
+  "bndL7wwAj0U", //TOOL - Right In Two
+  "K2p2lHawAJA", //Nick Cave - Girl In Amber
+  "2EEu5P9rso8", //VanWyck - Push the Sky Away
+  "aIaqTsCcWsw", //Mitski - Crack Baby
+  "UWQT7fd8McI", //Sade - Morning Bird
+  "IUHPsINf8rY", //Alicia Keys - Superwoman
 ];
 
 const titles = [
@@ -49,6 +50,7 @@ const titles = [
   "Smashing Pumpkins - Disarm",
   "Alice in Chains - Sunshine",
   "Deftones - Deathblow",
+  "Thrice - Cold Cash and Cold Hearts",
   "A Perfect Circle - The Package",
   "TOOL - Right In Two",
   "Nick Cave - Girl In Amber",
