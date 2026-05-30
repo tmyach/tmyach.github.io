@@ -9,6 +9,8 @@
   --bg: #0f0d0b;
   --bg-card-dark: #1e1b17;
   --bg-card-light: #242119;
+  --sel-bg: #93bfba;
+  --sel-text: #0f0d0b;
   --ink: #e6e2dd;
   --ink-soft: #b5b0a5;
   --primary: #93bfba;
@@ -139,6 +141,8 @@ html[data-theme="dark"] body::before {
   --bg: #efeff9;
   --bg-card-dark: #e2e3f0;
   --bg-card-light: #eeedf8;
+  --sel-bg: #b8e3df;
+  --sel-text: #140f0c;
   --ink: #140f0c;
   --ink-soft: #5c5347;
   --primary: #93bfba;
@@ -175,6 +179,8 @@ html[data-theme="light"] body::before {
   --bg: #120a0a;
   --bg-card-dark: #231616;
   --bg-card-light: #2c1b1b;
+  --sel-bg: #e68a80;
+  --sel-text: #120a0a;
   --ink: #e9d5d5;
   --ink-soft: #c7a5a5;
   --primary: #e68a80;
@@ -212,6 +218,8 @@ html[data-theme="darkred"] body::before {
   --bg-accent: #f8e1e6;
   --bg-card-dark: #e8c7d0;
   --bg-card-light: #ffeef2;
+  --sel-bg: #f472b6;
+  --sel-text: #fdf2f5;
   --ink: #8b1e4a;
   --ink-soft: #c47a9a;
   --primary: #d63384;
@@ -249,14 +257,14 @@ html[data-theme="pink"] body::before {
 }
 
 ::-moz-selection {
-  /* Firefox */
- background: var(--ink);
- color: var(--bg);
+  /*Firefox*/
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 ::selection {
-background: var(--ink);
-color: var(--bg);
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 body {
