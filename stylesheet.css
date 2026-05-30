@@ -816,7 +816,7 @@ p.code::before {
 }
 
 .poll-buttons input[type="submit"] {
-  background: var(--ink-soft);
+  background: var(--bg-card-dark);
   color: var(--primary);
   border: 1px solid var(--border);
   padding: 4px 8px;
