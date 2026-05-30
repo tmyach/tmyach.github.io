@@ -17,6 +17,7 @@
   --border-thin-dash: 1px dashed var(--primary);
   --border-nav: 1px solid var(--primary);
   --border-thin-solid: 1px solid var(--primary);
+  --border-subtle: 1px dotted var(--ink-soft);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
   --highlight: #3f736e;
 }
@@ -365,7 +366,7 @@ body {
 .nav-list li {
   position: relative;
   overflow: hidden;
-  border: var(--border-nav);
+  border: var(--border-subtle);
   background-color: var(--bg-card-dark);
 }
 
