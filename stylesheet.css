@@ -474,7 +474,7 @@ body {
 
 .banner-img {
   width: 100%;
-  border: 1px solid var(--secondary);
+  border: var(--border-thin-solid);
   display: block;
   margin-bottom: 1.6rem;
   box-shadow:
