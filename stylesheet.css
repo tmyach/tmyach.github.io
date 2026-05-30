@@ -13,7 +13,7 @@
   --ink-soft: #b5b0a5;
   --primary: #93bfba;
   --secondary: #bf9397;
-  --border-thin: 1px dotted var(--primary)
+  --border-thin: 1px dotted var(--primary);
   --border-thin-dash: 1px dashed var(--primary);
   --border-nav: 1px dashed var(--ink-soft);
   --shadow-vintage: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
