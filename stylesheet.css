@@ -258,13 +258,13 @@ html[data-theme="pink"] body::before {
 
 ::-moz-selection {
   /*Firefox*/
-  background: var(--selection-bg);
-  color: var(--selection-text);
+  background: var(--sel-bg);
+  color: var(--sel-text);
 }
 
 ::selection {
-  background: var(--selection-bg);
-  color: var(--selection-text);
+  background: var(--sel-bg);
+  color: var(--sel-text);
 }
 
 body {
