@@ -520,7 +520,7 @@ body {
 
 div.imgotw {
   /*width: 80%;*/
-  background-color: var(--bg);
+  background-color: var(--bg-card-dark);
   box-shadow: var(--shadow-vintage);
   /*margin-bottom: 25px;*/
   border: var(--border-thin);
