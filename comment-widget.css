@@ -124,7 +124,7 @@
 #c_widgetTitle {
   margin: 0 0 0.6rem 0;
   padding: 0.2rem 0.4rem;
-  font-family: var(--font-sub);
+  font-family: var(--font-hwr);
   font-size: 1.2rem;
   color: var(--primary);
   border-bottom: var(--border-thin);
