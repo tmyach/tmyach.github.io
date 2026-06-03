@@ -143,11 +143,11 @@ html[data-theme="dark"] body::before {
   --bg-card-back: #e2e3f0;
   --bg-card-fore: #eeedf8;
   --sel-bg: #b8e3df;
-  --sel-text: #140f0c;
-  --ink: #140f0c;
-  --ink-soft: #5c5347;
-  --primary: #93bfba;
-  --secondary: #bf9397;
+  --sel-text: #0d0c0b;
+  --ink: #1c1615;
+  --ink-soft: #4c3e3a;
+  --primary: #7da9a5; 
+  --secondary: #a86f73; 
   --border-thin: 1px dotted var(--primary);
   --shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   --highlight: #b8e3df;
