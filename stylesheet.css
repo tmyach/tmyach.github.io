@@ -738,10 +738,9 @@ ul.unstyled {
 .content.block.changelog .changelog {
   list-style: none;
   margin: 0;
-  padding: 12px;
+  padding: 2px;
   background: var(--bg-card-fore);
-  border: var(--border-thin-solid);
-  box-shadow: var(--shadow);
+  border: none;
 }
 
 .content.block.changelog .changelog li {
@@ -756,7 +755,7 @@ ul.unstyled {
   display: inline-block;
   padding: 6px 10px;
   background: var(--bg-card-back);
-  border: var(--border-thin);
+  border: none;
   font-family: var(--font-hwr);
   color: var(--secondary);
   white-space: nowrap;
