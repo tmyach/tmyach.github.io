@@ -735,12 +735,6 @@ ul.unstyled {
   color: var(--ink);
 }
 
-.content.block.changelog .block-title {
-  font-family: var(--font-title);
-  color: var(--primary);
-  margin: 0 0 8px;
-}
-
 .content.block.changelog .changelog {
   list-style: none;
   margin: 0;
