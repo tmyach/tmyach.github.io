@@ -231,7 +231,7 @@ html[data-theme="darkred"] body::before {
 }
 
 html[data-theme="pink"] {
-  --bg-image: url("bg/pinkbow.gif");
+  --bg-image: url("bg/pinkbg.jpg");
 }
 
 html[data-theme="pink"] body {
