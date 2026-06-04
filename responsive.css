@@ -5,7 +5,11 @@
     gap: 1.2rem;
   }
 
-  .main-content {
+  .content-grid > .center {
+    display: contents;
+  }
+
+  .sidebar-left .notes {
     order: 1;
   }
 
@@ -13,20 +17,28 @@
     order: 2;
   }
 
-  .sidebar-left .field-notes {
+  .main-content {
     order: 3;
   }
 
   .sidebar-left .poll-block {
-    order: 4;
-  }
-
-  .sidebar-left .block:has(#collection) {
     order: 5;
   }
 
-  .sidebar-right .guestbook {
+  .content.block.main2 {
     order: 6;
+  }
+
+  .sidebar-right .guestbook {
+    order: 7;
+  }
+
+  .sidebar-left .block:has(#collection) {
+    order: 8;
+  }
+
+  .content.block.changelog {
+    order: 9;
   }
 
   .sidebar {
