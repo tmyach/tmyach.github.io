@@ -41,6 +41,11 @@
     order: 9;
   }
 
+  .sidebar-left #extra {
+    order: 10;
+    width: 100%;
+  }
+
   .sidebar {
     display: contents;
   }
