@@ -622,8 +622,14 @@
             box-shadow: 2px -2px 3px rgba(255, 255, 255, .2) inset, -3px 3px 3px rgba(0, 0, 0, .4) inset, 1px 1px 2px rgba(0, 0, 0, .5)
         }
 
-        .dantendo:has(.power-button:focus) {
-            transform: perspective(200px) rotateX(80deg) rotateY(-80deg) scale(0)
+        .dantendo:has(.power-button:focus) .screen {
+            background: black !important;
+        }
+
+        .dantendo:has(.power-button:focus) .welcome-image,
+        .dantendo:has(.power-button:focus) .dantendo-tab,
+        .dantendo:has(.power-button:focus) .thumbnail {
+            opacity: 0;
         }
     </style>
     <div class="dantendo">
