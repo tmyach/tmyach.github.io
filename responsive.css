@@ -41,7 +41,7 @@
     order: 9;
   }
 
-  .sidebar-left #extra {
+  #extra {
     order: 10;
     width: 100%;
   }
