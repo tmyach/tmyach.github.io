@@ -191,6 +191,7 @@
         .dantendo .upper-screen .screen {
             overflow-x: hidden;
             overflow-y: auto
+            scrollbar-width: thin
         }
 
         .dantendo .lower-screen .screen {
