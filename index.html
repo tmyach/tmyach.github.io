@@ -543,7 +543,7 @@
 
   let shown = false;
 
-  // Start with the collection panels hidden.
+ 
   collections.forEach(div => {
     div.style.display = 'none';
   });
@@ -565,8 +565,8 @@
   </script>
   <script>
   (function(){
-    const SPEED = 30; // px per second
-    const PAUSE = 2000; // ms pause at top and bottom
+    const SPEED = 30; 
+    const PAUSE = 2000;  
 
     function stopMarquee(tabContent){
       const inner = tabContent.querySelector('.marquee-inner');
@@ -584,18 +584,18 @@
       if(contentHeight <= viewHeight + 2) return;
       const inner = document.createElement('div');
       inner.className = 'marquee-inner';
-      // move all children into inner
+      
       while(tabContent.firstChild) inner.appendChild(tabContent.firstChild);
       tabContent.appendChild(inner);
       const distance = contentHeight - viewHeight;
       inner.style.setProperty('--marquee-distance', distance + 'px');
-      const baseDurationMs = (distance / SPEED) * 1000; // ms
+      const baseDurationMs = (distance / SPEED) * 1000; 
       const totalMs = baseDurationMs + PAUSE * 2;
       inner.style.animationDuration = (totalMs/1000) + 's';
     }
 
     function activateTab(i){
-      // stop any existing marquees
+     
       document.querySelectorAll('.dantendo .tab-content').forEach(tc=> stopMarquee(tc));
       const content = document.querySelector('#tab-'+i+' .tab-content');
       if(content) applyMarquee(content);
@@ -605,7 +605,7 @@
       const btn = document.getElementById('tab-'+i+'-button');
       if(!btn) return;
       btn.addEventListener('click', function(e){
-        // allow any other tab activation logic to run first
+ 
         setTimeout(()=> activateTab(i), 60);
       });
     });
