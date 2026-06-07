@@ -227,7 +227,7 @@
             height: 10px;
             padding-inline: 11px;
             text-align: justify;
-            font-size: 6px;
+            font-size: 8px;
             background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAALCAYAAAByF90EAAAACXBIWXMAAFxGAABcRgEUlENBAAAAqUlEQVQoka1SsQ3EMAg8vzKMy4zACCkZgTEyBiO4zAiM4NLbkMoRkT9KlP+rEAd3gA1cwMxcRPyKfwQzcyJyIhqEVNXN7N4giqiqx3yPiWgQmzrRE+u6AgCYGbXWo7CUAlV1EUnMjFIKBqGcM+Z5PhG1VrTW4kqpG4pIiubbtvkEAK21U9MbfJ4Wiogzc5/Oc84HtyxLGhriseP4d8f+ir88fxT7+UO+wQ63LnK4FP6+3AAAAABJRU5ErkJggg==) left 2px/11px no-repeat, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAALCAYAAACZIGYHAAAACXBIWXMAAFxGAABcRgEUlENBAAAAxUlEQVQokaWSrRbCMAyF7zgTeQQkshKJjJxE9jEmkUjkHqNysrISiZyc5BHihli7LfvhsMN1SXO/Jm0yRNV13VVVhb0qyxJZCpi5c87thlhrkU8TRAS6XX4GyOMJAMiZuRuSIqDzaSgqnCiTt6Qh0p8f5p0k8xywBk31ahwRAb1aeBNNzfEryF1lCSEiwDcoTrwwJ/k2jJfGTtQ4aUbfBlW8BpjW5yGEDOi/mIiAwowmvDXFGBVuvonclx1sKnYyLNs/G/sBGlhPnDO6iAoAAAAASUVORK5CYII=) right 1px/11px no-repeat;
             width: fit-content;
             white-space: nowrap
@@ -260,7 +260,7 @@
             left: 0;
             background: color-mix(in lch, var(--overall-color) 50%, #fff);
             border: 2px solid #fff;
-            font-size: 10px;
+            font-size: 8px;
             padding: 2px;
             color: color-mix(in lch, var(--overall-color) 50%, #000) !important;
             overflow-y: auto;
@@ -284,7 +284,7 @@
         .dantendo .tab-content,
         .dantendo .tab-title {
             margin: 0 !important;
-            font-size: 11px;
+            font-size: 9px;
             white-space: pre-wrap
         }
 
