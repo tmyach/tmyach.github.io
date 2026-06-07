@@ -333,7 +333,7 @@
   white-space: pre-wrap;
 }
 
-.dantendo .dantendo-tab .tab-content.marquee-active {
+.tab-content::after {
   will-change: transform;
   animation-name: marqueez;
   animation-timing-function: linear;
