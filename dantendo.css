@@ -318,6 +318,30 @@
             content: var(--tab-4-title)
         }
 
+        /* Vertical marquee for overflowing tab content */
+        .dantendo .tab-content {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dantendo .tab-content .marquee-inner {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            will-change: transform;
+            animation-name: marquee;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateY(0); }
+            10% { transform: translateY(0); }
+            90% { transform: translateY(calc(var(--marquee-distance) * -1)); }
+            100% { transform: translateY(calc(var(--marquee-distance) * -1)); }
+        }
+
         #tab-1 .tab-content::after {
             content: var(--tab-1-content)
         }
