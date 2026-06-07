@@ -294,6 +294,10 @@
             color: var(--overall-color) !important;
         }
 
+        .dantendo p {
+    color: black !important;
+}
+
         .dantendo .tab-title {
             text-transform: uppercase
         }
