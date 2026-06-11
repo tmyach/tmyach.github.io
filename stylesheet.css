@@ -1143,7 +1143,8 @@ p.code::before {
 
 .imood img {
   border: var(--border-thin);
-  background: var(--secondary);
+  background: var(--primary);
+  
 }
 
 hr {
