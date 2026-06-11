@@ -318,7 +318,7 @@
 </svg>
 </h1>
 <div class="under">
-          <p>My name is <span style="font-family:var(--font-script)">Tesia</span> (she/her), and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
+          <p>My name is <span style="font-family:var(--font-script)" tooltip="she/her">Tesia</span>, and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
           <p class="fancy-quote">"Me? Gongaga" <span style="font-family: var(--font-serif)">- Zack Fair, Final Fantasy VII Crisis Core, 2007</span></p>
 <hr>
 <p><b>
@@ -564,5 +564,21 @@
   });
   </script>
   <script src="https://keepandroidopen.org/banner.js?size=minimal&animation=off"></script>
+  <!--- tooltip script ---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://static.tumblr.com/lspzyz3/xloqk6cgp/jquery.style-my-tooltips.js"></script>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            $("[tooltip]").style_my_tooltips({
+                tip_follows_cursor: true,
+                tip_delay_time: 10,
+                tip_fade_speed: 30,
+                attribute: "tooltip"
+            });
+        });
+    })(jQuery);
+
+</script>
 </body>
 </html>
