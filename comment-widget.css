@@ -79,7 +79,6 @@
   border: var(--border-thin);
 }
 
-
 #c_widget button:not([disabled]),
 #c_widget input[type=submit]:not([disabled]),
 .c-replyButton:not([disabled]), 
@@ -95,6 +94,22 @@
   font-family: var(--font-body) !important;
   box-shadow: none !important;
   cursor: pointer;
+}
+
+#c_widget button:not([disabled]):hover,
+#c_widget input[type=submit]:not([disabled]):hover,
+.c-replyButton:not([disabled]):hover, 
+.c-expandButton:not([disabled]):hover,
+.c-paginationButton:not([disabled]):hover {
+  background: var(--primary-dark) !important;
+}
+
+#c_widget button:not([disabled]):active,
+#c_widget input[type=submit]:not([disabled]):active,
+.c-replyButton:not([disabled]):active, 
+.c-expandButton:not([disabled]):active,
+.c-paginationButton:not([disabled]):active {
+  background: var(--primary-dark) !important;
 }
 
 #c_widget button[disabled],
