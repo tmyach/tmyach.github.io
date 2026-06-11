@@ -85,7 +85,7 @@
 .c-replyButton:not([disabled]), 
 .c-expandButton:not([disabled]),
 .c-paginationButton:not([disabled]) {
-  color: var(--bg-card-light) !important;
+  color: var(--bg) !important;
   background: var(--primary) !important;
   border: 2px solid var(--bg) !important;
   padding: 0.3rem 0.7rem !important;
@@ -123,11 +123,11 @@
 
 #c_widgetTitle {
   margin: 0 0 0.6rem 0;
-  padding: 0.2rem 0.4rem;
-  font-family: var(--font-hwr);
+  padding: none;
+  font-family: var(--font-body);
   font-size: 1.2rem;
   color: var(--primary);
-  border-bottom: var(--border-thin);
+  border-bottom: none;
   letter-spacing: 0.05em;
 }
 
@@ -226,8 +226,8 @@
 }
 
 .c-name {
-  font-family: var(--font-script);
-  font-size: 0.6rem;
+  font-family: var(--font-hwr);
+  font-size: 1rem;
   margin: 0 0 0.1rem 0;
   color: var(--ink);
   display: flex;
