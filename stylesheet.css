@@ -800,26 +800,6 @@ p.fancy-quote {
   position: relative;
 }
 
-p.fancy-quote::before {
-  content: "🙶";
-  position: absolute;
-  left: 0.6rem;
-  top: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-top: 10px;
-}
-
-p.fancy-quote::after {
-  content: "🙸";
-  position: absolute;
-  right: 0.6rem;
-  bottom: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-bottom: 10px;
-}
-
 p.unfancy-quote {
   font-family: var(--font-serif), serif;
   font-size: 1.1rem;
@@ -831,26 +811,6 @@ p.unfancy-quote {
   border-left: 2px dotted var(--primary);
   border-right: var(--border-thin);
   position: relative;
-}
-
-p.unfancy-quote::before {
-  content: "🙶";
-  position: absolute;
-  left: 0.6rem;
-  top: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-top: 10px;
-}
-
-p.unfancy-quote::after {
-  content: "🙸";
-  position: absolute;
-  right: 0.6rem;
-  bottom: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-bottom: 10px;
 }
 
 p.code {
