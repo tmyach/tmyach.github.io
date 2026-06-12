@@ -146,7 +146,7 @@
       "background:none;" +
       "border:none;" +
       "color:#fff;" +
-      "font-size:0.8em;" +
+      "font-size:1em;" +
       "cursor:pointer;" +
       "opacity:0.7;" +
       "padding:0.25rem 0.5rem;" +
