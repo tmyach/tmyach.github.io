@@ -160,7 +160,7 @@
     "@keyframes kao-pulse{" +
       "0%{box-shadow:0 0 0 0 var(--primary)}" +
       "70%{box-shadow:0 0 0 15px var(--primary-dark)}" +
-      "100%{box-shadow:0 0 0 0 var(--primary-dark)}" +
+      "100%{box-shadow:0 0 0 0 var(--bg)}" +
     "}";
 
   var style = document.createElement("style");
