@@ -114,7 +114,7 @@
   // ── Close button ────────────────────────────────────────────────────
   var showClose = params.hidebutton !== "off";
   var storageKey = "kao-banner-hidden";
-  var dismissDays = 30;
+  var dismissDays = 10;
 
   // ── Inject CSS ────────────────────────────────────────────────────────
   var cssMini =
