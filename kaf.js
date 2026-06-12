@@ -124,7 +124,7 @@
       "background:var(--primary);" +
       "border-bottom:2px solid var(--primary-dark);" +
       "color:var(--bg);" +
-      "font-family:'Arial Black',sans-serif;" +
+      "font-family:'var(--font-sub)',sans-serif;" +
       "font-weight:900;" +
       "text-transform:uppercase;" +
       "letter-spacing:1px;" +
