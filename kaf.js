@@ -136,7 +136,7 @@
     "}";
 
   var cssCommon =
-    ".kao-banner a{color:var(--bg));text-decoration:none;}" +
+    ".kao-banner a{color:var(--bg);text-decoration:none;}" +
     ".kao-banner a:hover{text-decoration:underline;}" +
     ".kao-banner-close{" +
       "position:absolute;" +
