@@ -30,32 +30,32 @@
     ar:      "سيصبح نظام أندرويد منصة مغلقة في",
     he:      "אנדרואיד תהפוך לפלטפורמה נעולה בעוד",
     en:      "Android will become a locked-down platform in",
-    ca:      "Android es convertir\u00E0 en una plataforma tancada",
+    ca:      "Android es convertirà en una plataforma tancada",
     cs:      "Android se stane uzamčenou platformou za",
     de:      "Android wird eine geschlossene Plattform werden.",
     da:      "Android vil blive en lukket platform om",
     nl:      "Android zal een gesloten platform worden over",
-    el:      "\u03A4\u03BF Android \u03B8\u03B1 \u03B3\u03AF\u03BD\u03B5\u03B9 \u03BC\u03AF\u03B1 \u03BA\u03BB\u03B5\u03B9\u03C3\u03C4\u03AE \u03C0\u03BB\u03B1\u03C4\u03C6\u03CC\u03C1\u03BC\u03B1",
-    es:      "Android se convertir\u00E1 en una plataforma cerrada en",
-    fr:      "Android va devenir une plateforme ferm\u00E9e dans",
+    el:      "Το Android θα γίνει μία κλειστή πλατφόρμα",
+    es:      "Android se convertirá en una plataforma cerrada en",
+    fr:      "Android va devenir une plateforme fermée dans",
     id:      "Android akan menjadi platform yang terkunci.",
-    it:      "Android diventer\u00E0 una piattaforma bloccata",
-    ko:      "Android\uAC00 \uD3D0\uC1C4\uB41C \uD50C\uB7AB\uD3FC\uC774 \uB418\uAE30\uAE4C\uC9C0 \uB0A8\uC740 \uC2DC\uAC04:",
-    pl:      "Android stanie si\u0119 platform\u0105 zamkni\u0119t\u0105 za",
-    "pt-BR": "O Android se tornar\u00E1 uma plataforma fechada em",
-    ru:      "Android \u0441\u0442\u0430\u043D\u0435\u0442 \u0437\u0430\u043A\u0440\u044B\u0442\u043E\u0439 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u043E\u0439 \u0447\u0435\u0440\u0435\u0437",
+    it:      "Android diventerà una piattaforma bloccata",
+    ko:      "Android가 폐쇄된 플랫폼이 되기까지 남은 시간:",
+    pl:      "Android stanie się platformą zamkniętą za",
+    "pt-BR": "O Android se tornará uma plataforma fechada em",
+    ru:      "Android станет закрытой платформой через",
     sk:      "Android sa stane uzamknutou platformou",
-    th:      "Android\u0E08\u0E30\u0E40\u0E1B\u0E47\u0E19\u0E41\u0E1E\u0E25\u0E15\u0E1F\u0E2D\u0E23\u0E4C\u0E21\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E25\u0E47\u0E2D\u0E01",
-    tr:      "Android k\u0131s\u0131tl\u0131 bir platform haline gelecek.",
-    uk:      "Android \u0441\u0442\u0430\u043D\u0435 \u0437\u0430\u043A\u0440\u0438\u0442\u043E\u044E \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u043E\u044E",
-    "zh-CN": "\u5B89\u5353\u5C06\u6210\u4E3A\u4E00\u4E2A\u5C01\u95ED\u5E73\u53F0",
-    "zh-TW": "Android \u5C07\u6210\u70BA\u4E00\u500B\u5C01\u9589\u5E73\u53F0",
+    th:      "Androidจะเป็นแพลตฟอร์มที่ถูกล็อก",
+    tr:      "Android kısıtlı bir platform haline gelecek.",
+    uk:      "Android стане закритою платформою",
+    "zh-CN": "安卓将成为一个封闭平台",
+    "zh-TW": "Android 將成為一個封閉平台",
     ja:      "Androidは閉鎖的なプラットフォームになろうとしています",
     fi:      "Androidista tulee suljettu alusta",
     hu:      "Az Android egy lezárt platform lesz",
     vi:      "Android sẽ trở thành một hệ điều hành đóng",
     bg:      "Android ще стане заключена платформа след",
-    be:      "Android \u0441\u0442\u0430\u043d\u0435 \u0437\u0430\u043a\u0440\u044b\u0442\u0430\u0439 \u043f\u043b\u0430\u0444\u0442\u043e\u0440\u043c\u0430\u0439 \u0020 \u0020",
+    be:      "Android стане закрытай платформай"
   };
 
   // ── Parse query parameters from the script's own src URL ──────────────
@@ -80,22 +80,22 @@
   // ── Determine locale ──────────────────────────────────────────────────
   function resolveLocale(tag) {
     if (!tag) return "en";
-    // Exact match
     if (messages[tag]) return tag;
-    // Case-insensitive exact match (e.g. "pt-br" → "pt-BR")
+
     var lower = tag.toLowerCase();
     for (var key in messages) {
       if (key.toLowerCase() === lower) return key;
     }
-    // Fallback to base language (e.g. "de-CH" → "de", "zh-Hans" → "zh")
+
     var base = lower.split("-")[0];
     for (var key2 in messages) {
       if (key2.toLowerCase() === base) return key2;
     }
-    // Fallback to any regional variant of the base language (e.g. "pt" → "pt-BR")
+
     for (var key3 in messages) {
       if (key3.toLowerCase().split("-")[0] === base) return key3;
     }
+
     return "en";
   }
 
@@ -105,12 +105,6 @@
     navigator.language ||
     navigator.userLanguage
   );
-
-  // ── Size variant ──────────────────────────────────────────────────────
-  var size = params.size === "mini" ? "mini"
-      : params.size === "minimal"
-        ? "minimal"
-        : "normal";
 
   // ── Link ────────────────────────────────────────────────────────────
   var linkParam = params.link;
@@ -123,31 +117,13 @@
   var dismissDays = 30;
 
   // ── Inject CSS ────────────────────────────────────────────────────────
-  var cssNormal =
-    ".kao-banner{" +
-      "position:relative;" +
-      "font-variant-numeric:tabular-nums;" +
-      "background:var(--primary);" +
-      "border-bottom:4px solid var(--primary-dark);" +
-      "color:var(--bg);" +
-      "font-family:'Arial Black',sans-serif;" +
-      "font-weight:900;" +
-      "text-transform:uppercase;" +
-      "letter-spacing:2px;" +
-      "font-size:1.5rem;" +
-      "text-align:center;" +
-      "padding:0.5rem 2.5rem;" +
-      "line-height:1.6;" +
-      "box-sizing:border-box;" +
-    "}";
-
   var cssMini =
     ".kao-banner{" +
       "position:relative;" +
       "font-variant-numeric:tabular-nums;" +
       "background:var(--primary);" +
       "border-bottom:2px solid var(--primary-dark);" +
-      "color:var(--bg)" +
+      "color:var(--bg);" +
       "font-family:'Arial Black',sans-serif;" +
       "font-weight:900;" +
       "text-transform:uppercase;" +
@@ -157,24 +133,6 @@
       "padding:0.25rem 1.5rem;" +
       "line-height:1.4;" +
       "box-sizing:border-box;" +
-    "}";
-
-  var cssMinimal =
-    ".kao-banner{" +
-    "position:relative;" +
-    "font-variant-numeric:tabular-nums;" +
-    "background:var(--primary)" +
-    "border-bottom:2px solid var(--primary-dark);" +
-    "color:var(--bg);" +
-    "font-family:'Arial Black',sans-serif;" +
-    "font-weight:900;" +
-    "text-transform:uppercase;" +
-    "letter-spacing:1px;" +
-    "font-size:0.75rem;" +
-    "text-align:center;" +
-    "padding:0.25rem 1.5rem;" +
-    "line-height:1.4;" +
-    "box-sizing:border-box;" +
     "}";
 
   var cssCommon =
@@ -206,7 +164,7 @@
     "}";
 
   var style = document.createElement("style");
-  style.textContent = (size === "mini" ? cssMini : size === "minimal" ? cssMinimal : cssNormal)
+  style.textContent = cssMini
     + (params.animation === "off" ? "" : cssKaoPulse)
     + cssCommon;
   document.head.appendChild(style);
@@ -240,11 +198,7 @@
     banner.appendChild(document.createTextNode(messageText));
   }
 
-  if (params.size === "minimal") {
-    banner.appendChild(document.createTextNode("\u00A0"));
-  } else {
-    banner.appendChild(document.createElement("br"));
-  }
+  banner.appendChild(document.createElement("br"));
 
   var countdownSpan = document.createElement("span");
   countdownSpan.textContent = "\u00A0";
@@ -299,9 +253,7 @@
     var distance = countDownDate - now;
 
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -309,16 +261,10 @@
     remaining[0] = days > 0 ? formatUnit(days, "day") : null;
     if (remaining[0]) parts++;
     remaining[1] = parts ? separator : null;
-    remaining[2] =
-      parts || hours > 0
-        ? formatUnit(hours, "hour")
-        : null;
+    remaining[2] = parts || hours > 0 ? formatUnit(hours, "hour") : null;
     if (remaining[2]) parts++;
     remaining[3] = parts ? separator : null;
-    remaining[4] =
-      parts || minutes > 0
-        ? formatUnit(minutes, "minute")
-        : null;
+    remaining[4] = parts || minutes > 0 ? formatUnit(minutes, "minute") : null;
     if (remaining[4]) parts++;
     remaining[5] = parts ? separator : null;
     remaining[6] = formatUnit(seconds, "second");
