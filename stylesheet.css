@@ -1,11 +1,11 @@
 :root {
-  --font-body: "Lato", "regularbit", system-ui, sans-serif;
-  --font-sub: "Lato", "karenbold", system-ui, sans-serif;
-  --font-hwr: "Mynerve", "kendiyaz", system-ui, cursive;
-  --font-script: "Beth Ellen", "mademoiselle", system-ui, cursive;
-  --font-serif: "Lora", "karenbook", system-ui, serif;
-  --font-mono: "JetBrains Mono", "karen2mono", system-ui, serif;
-  --font-title: "Rammetto One", "karenfat", system-ui, sans-serif;
+  --font-body: "Momo Trust Sans", "Nunito", "regularbit", system-ui, sans-serif;
+  --font-sub: "Momo Trust Display", "karenbold", system-ui, sans-serif;
+  --font-hwr: "Gochi Hand", "kendiyaz", system-ui, cursive;
+  --font-script: "Momo Signature", "mademoiselle", system-ui, cursive;
+  --font-serif: "Aleo", "karenbook", system-ui, serif;
+  --font-mono: "Sono", "karen2mono", system-ui, serif;
+  --font-title: "Momo Trust Display", "karenfat", system-ui, sans-serif;
   --bg: #050708;
   --bg-card-back: #0f1518;
   --bg-card-fore: #12181b;
@@ -14,6 +14,7 @@
   --ink: #e6e2dd;
   --ink-soft: #b5b0a5;
   --primary: #93bfba;
+  --primary-dark: #71a19c;
   --secondary: #bf9397;
   --border-thin: 1px dotted var(--primary);
   --border-thin-dash: 1px dashed var(--primary);
@@ -147,6 +148,7 @@ html[data-theme="dark"] body::before {
   --ink: #1c1615;
   --ink-soft: #4c3e3a;
   --primary: #7da9a5; 
+  --primary-dark: #608f8b; 
   --secondary: #a86f73; 
   --border-thin: 1px dotted var(--primary);
   --shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -185,6 +187,7 @@ html[data-theme="light"] body::before {
   --ink: #e9d5d5;
   --ink-soft: #c7a5a5;
   --primary: #e68a80;
+  --primary-dark: #c76d63;
   --secondary: #d66a60;
   --border-thin: 1px dotted var(--primary);
   --shadow: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
@@ -224,6 +227,7 @@ html[data-theme="darkred"] body::before {
   --ink: #8b1e4a;
   --ink-soft: #c47a9a;
   --primary: #d63384;
+  --primary-dark: #b81e6b;
   --secondary: #f472b6;
   --border-thin: 1px dashed #d63384;
   --shadow: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
@@ -260,6 +264,7 @@ html[data-theme="pink"] body::before {
 --ink: #e6f7ff;
 --ink-soft: #9fb8c8;
 --primary: #00e5ff;
+--primary-dark: #00b7cb;
 --secondary: #ff2ec7;
 --border-thin: 1px dotted rgba(0,229,255,0.7);
 --border-thin-dash: 1px dashed rgba(0,229,255,0.6);
@@ -563,12 +568,9 @@ ul.menu {
   outline-offset: -4px;
   display: block;
   margin-bottom: 1.6rem;
-  box-shadow:
-    inset 13px 0px 6px -10px rgb(66 66 66 / 56%),
-    inset -13px 0px 6px -10px rgb(66 66 66 / 56%),
-    inset 0px 13px 6px -10px #ffffff,
-    inset 0px -13px 6px -10px rgb(66 66 66 / 38%);
-  filter: drop-shadow(0px 0px 3px #424242);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2);
+  /*box-shadow:rgba(0, 0, 0, 0.3) 0px 25px 15px -23px;*/
+  /*box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;*/
 }
 
 .content-grid {
@@ -635,8 +637,11 @@ div.imgotw-txt {
 }
 
 .block.guestbook {
-  border: none;
-  padding: 0.2rem;
+  outline: var(--outline);
+  outline-offset: -4px;
+  background-color: var(--bg-card-fore);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
 }
 
 .main-content {
@@ -792,26 +797,6 @@ p.fancy-quote {
   position: relative;
 }
 
-p.fancy-quote::before {
-  content: "🙶";
-  position: absolute;
-  left: 0.6rem;
-  top: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-top: 10px;
-}
-
-p.fancy-quote::after {
-  content: "🙸";
-  position: absolute;
-  right: 0.6rem;
-  bottom: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-bottom: 10px;
-}
-
 p.unfancy-quote {
   font-family: var(--font-serif), serif;
   font-size: 1.1rem;
@@ -823,26 +808,6 @@ p.unfancy-quote {
   border-left: 2px dotted var(--primary);
   border-right: var(--border-thin);
   position: relative;
-}
-
-p.unfancy-quote::before {
-  content: "🙶";
-  position: absolute;
-  left: 0.6rem;
-  top: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-top: 10px;
-}
-
-p.unfancy-quote::after {
-  content: "🙸";
-  position: absolute;
-  right: 0.6rem;
-  bottom: -0.4rem;
-  font-size: 1.2rem;
-  opacity: 0.7;
-  padding-bottom: 10px;
 }
 
 p.code {
@@ -1178,7 +1143,8 @@ p.code::before {
 
 .imood img {
   border: var(--border-thin);
-  background: var(--secondary);
+  background: var(--primary);
+  
 }
 
 hr {

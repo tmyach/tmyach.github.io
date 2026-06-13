@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="stylesheet.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="tooltip.css">
   <link rel="stylesheet" href="dantendo.css">
   <script defer src="theme.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Mynerve&family=Rammetto+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
@@ -67,7 +68,7 @@
     </header>
 
     <main class="main-frame">
-      <img class="banner-img" alt="Banner gif" width="950" height="200" src="https://media1.tenor.com/m/zDqx7icHfXYAAAAd/angeal-hewley-mmd.gif">
+      <img class="banner-img" alt="banner" width="950" height="200" src="bannertl.png">
 
       <div class="content-grid">
         <aside class="sidebar sidebar-left">
@@ -318,7 +319,7 @@
 </svg>
 </h1>
 <div class="under">
-          <p>My name is <span style="font-family:var(--font-script)">Tesia</span> (she/her), and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
+          <p>My name is <span style="font-family:var(--font-script)" tooltip="she/her">Tesia</span>, and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
           <p class="fancy-quote">"Me? Gongaga" <span style="font-family: var(--font-serif)">- Zack Fair, Final Fantasy VII Crisis Core, 2007</span></p>
 <hr>
 <p><b>
@@ -563,6 +564,22 @@
     toggleBtn.setAttribute('aria-expanded', shown.toString());
   });
   </script>
-  <script src="https://keepandroidopen.org/banner.js?size=minimal&animation=off"></script>
+  <script src="kaf.js"></script>
+  <!--- tooltip script ---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://static.tumblr.com/lspzyz3/xloqk6cgp/jquery.style-my-tooltips.js"></script>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            $("[tooltip]").style_my_tooltips({
+                tip_follows_cursor: true,
+                tip_delay_time: 10,
+                tip_fade_speed: 30,
+                attribute: "tooltip"
+            });
+        });
+    })(jQuery);
+
+</script>
 </body>
 </html>
