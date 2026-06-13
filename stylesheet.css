@@ -774,11 +774,11 @@ p {
 }
 
 p.highlight {
-  color: var(--ink-soft);
+  color: var(--ink);
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
   font-family: var(--font-hwr);
-  background: var(--bg-card-back);
+  background: var(--bg);
   display: inline;
   line-height: 1.6;
   padding: 0 0.2em;
