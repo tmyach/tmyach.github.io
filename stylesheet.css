@@ -769,7 +769,7 @@ ul.unstyled {
   font-family: var(--font-hwr);
   color: var(--secondary);
   white-space: nowrap;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
 }
 
 .content.block.changelog .changelog a {
