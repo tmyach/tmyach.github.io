@@ -756,9 +756,7 @@ ul.unstyled {
 
 .content.block.changelog .changelog li {
   padding: 8px 0;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+  display: block;
   font-family: var(--font-body);
 }
 
@@ -770,6 +768,11 @@ ul.unstyled {
   font-family: var(--font-hwr);
   color: var(--secondary);
   white-space: nowrap;
+  margin-right: 10px;
+}
+
+.content.block.changelog .changelog a {
+  display: inline;
 }
 
 p {
