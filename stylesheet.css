@@ -323,7 +323,7 @@ a {
   color: inherit;
   text-decoration: none;
   overflow: hidden;
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 
