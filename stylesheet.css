@@ -316,36 +316,6 @@ z-index: -1;
   color: var(--sel-text);
 }
 
-a {
-  display: block;
-  position: relative;
-  padding: 0.2em 0;
-  color: inherit;
-  text-decoration: none;
-  overflow: hidden;
-  color: var(--secondary);
-}
-
-
-a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0.1em;
-  background-color: var(--secondary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 300ms ease;
-}
-
-a:hover::after,
-a:focus::after {
-  transform: scaleX(1);
-}
-
-
 body {
   background-color: var(--bg);
   color: var(--ink);
@@ -766,6 +736,8 @@ ul.unstyled {
   margin: 0;
 }
 
+// changelog
+
 .content.block.changelog {
   font-family: var(--font-body);
   color: var(--ink);
@@ -803,6 +775,36 @@ ul.unstyled {
 .content.block.changelog .changelog a {
   display: inline;
 }
+
+.changelog a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  color: var(--secondary);
+}
+
+.changelog a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.changelog a:hover::after,
+.changelog a:focus::after {
+  transform: scaleX(1);
+}
+
+// end of changelog
 
 p {
   color: var(--ink);
