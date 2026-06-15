@@ -159,8 +159,8 @@
     ".kao-banner:not(.no-animation) { animation:kao-pulse 2s infinite; }" +
     "@keyframes kao-pulse{" +
       "0%{box-shadow:0 0 0 0 var(--secondary)}" +
-      "10%{box-shadow:0 0 5px 4px var(--secondary)}" +
-      "50%{box-shadow:0 0 10px 10px var(--bg)}" +
+      "10%{box-shadow:0 0 0px 4px var(--secondary)}" +
+      "50%{box-shadow:0 0 0px 10px var(--bg)}" +
       "100%{box-shadow:0 0 0 0 var(--bg)}" +
     "}";
 
