@@ -90,7 +90,7 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.35rem !important;
+  gap: 0.25rem !important;
 
   background-image: linear-gradient(
     180deg,
@@ -105,11 +105,11 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 
   color: var(--ink) !important;
-  padding: 0.5rem 0.8rem !important;
-  border-radius: 10px !important;
+  padding: 0.28rem 0.55rem !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   font-family: var(--font-body) !important;
-  font-size: 1rem !important;
+  font-size: 0.78rem !important;
   line-height: 1 !important;
   letter-spacing: normal !important;
   text-transform: none !important;
@@ -147,6 +147,7 @@
   opacity: 0.9 !important;
 
 } */
+
 
 #c_widget button:not([disabled]):hover,
 #c_widget input[type=submit]:not([disabled]):hover,
@@ -195,8 +196,8 @@
   background: color-mix(in srgb, var(--bg-card-back) 70%, var(--bg) 30%) !important;
   background-image: none !important;
 
-  padding: 0.3rem 0.7rem !important;
-  font-size: 0.78rem !important;
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.74rem !important;
   letter-spacing: 0.04em !important;
   text-transform: lowercase !important;
   font-family: var(--font-body) !important;
