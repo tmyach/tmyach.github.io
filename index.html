@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
@@ -478,14 +478,14 @@
 </div>
 </div>
 
- <aside class="sidebar sidebar-right">
+<aside class="sidebar sidebar-right">
   <div class="block player">
     <h2 class="block-title bold">Now Playing</h2>
     <div class="player-container">
-    <!--  <div class="tv-wrapper">
+      <div class="tv-wrapper">
         <div id="video-player" class="tv-screen"></div>
         <img src="blue-tv-shadow.png" alt="Vintage TV frame" class="tv-frame">
-      </div> -->
+      </div>
       <marquee id="info" class="track-title">Artist - Track</marquee>
     </div>
 
@@ -501,19 +501,11 @@
       <button id="next-btn">▸</button>
     </div>
 
-<  <div class="volslider_container slider">
-      <i class="fa fa-volume-down"></i>
-      <input
-        type="range"
-        id="volume-slider"
-        min="0"
-        max="100"
-        value="99"
-        class="volume_slider"
-      >
-      <i class="fa fa-volume-up"></i>
+    <div class="volslider_container">
+      <span id="volume-icon" class="material-symbols" aria-hidden="true">volume_up</span>
+      <input id="volume-slider" type="range" min="0" max="100" value="100" step="1" aria-label="Volume">
+      <span class="material-symbols" aria-hidden="true">volume_down</span>
     </div>
-  </div>
 
     </div>
 
