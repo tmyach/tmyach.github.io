@@ -968,7 +968,7 @@ ul.unstyled {
   padding: 2px;
   background: var(--bg-card-fore);
   border: none;
-  height: 100px;
+  height: 150px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) var(--bg-card-back);
