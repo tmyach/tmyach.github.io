@@ -301,13 +301,15 @@ height: 100%;
 background: var(--bg-image) repeat;
 mix-blend-mode: screen;
 filter: blur(0.6px) saturate(1.1);
-z-index: -1;
+z-index: -1; 
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-card-back);
 }
 
 ::-moz-selection {
@@ -674,8 +676,8 @@ div.imgotw-txt {
   line-height: 1;
   letter-spacing: 0.08em;
   border-bottom: 1px dotted var(--primary);
- /* padding: 0 0 0.5rem 0;
-  margin: 0 0 1.2rem 0; */
+ /* padding: 0 0 0.5rem 0; */
+  margin: 0 0 1.2rem 0;
 }
 
 .shuffle-container {
@@ -735,12 +737,13 @@ div.imgotw-txt {
   margin-top: 0.75rem;
 }
 
-
 ul.unstyled {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+// changelog
 
 .content.block.changelog {
   font-family: var(--font-body);
@@ -753,13 +756,15 @@ ul.unstyled {
   padding: 2px;
   background: var(--bg-card-fore);
   border: none;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-card-back);
 }
 
 .content.block.changelog .changelog li {
   padding: 8px 0;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+  display: block;
   font-family: var(--font-body);
 }
 
@@ -771,7 +776,42 @@ ul.unstyled {
   font-family: var(--font-hwr);
   color: var(--secondary);
   white-space: nowrap;
+  /*margin-right: 10px;*/
 }
+
+.content.block.changelog .changelog a {
+  display: inline;
+}
+
+.changelog a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  color: var(--secondary);
+}
+
+.changelog a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.changelog a:hover::after,
+.changelog a:focus::after {
+  transform: scaleX(1);
+}
+
+// end of changelog
 
 p {
   color: var(--ink);
