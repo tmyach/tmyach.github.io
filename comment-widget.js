@@ -98,7 +98,7 @@ const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
     <!-- admin login button -->
-    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px; border-left: 2px dotted var(--primary);">
+    <div id="c_adminLogin" style="margin-bottom: 15px; padding: 8px; background: transparent; border-radius: 4px;">
         <button type="button" id="c_adminButton" onclick="tryAdminLogin()" style="background: transparent; color: white; border: none; padding: 6px 12px; cursor: pointer;">🔐 Admin Login</button>
         <span id="c_adminStatus" style="margin-left: 10px; font-weight: 500; color: #666;"></span>
     </div>

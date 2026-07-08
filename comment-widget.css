@@ -81,50 +81,125 @@
 
 #c_widget button:not([disabled]),
 #c_widget input[type=submit]:not([disabled]),
-.c-replyButton:not([disabled]), 
+.c-replyButton:not([disabled]),
 .c-expandButton:not([disabled]),
 .c-paginationButton:not([disabled]) {
-  color: var(--bg) !important;
-  background: var(--primary) !important;
-  border: 2px solid var(--bg) !important;
-  padding: 0.3rem 0.7rem !important;
-  font-size: 0.78rem !important;
-  letter-spacing: 0.04em !important;
-  text-transform: lowercase !important;
+  appearance: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.35rem !important;
+
+  background-image: linear-gradient(
+    180deg,
+    rgba(var(--highlight-rgb), 0.55) 0%,
+    rgba(var(--primary-dark-rgb), 0.55) 100%
+  ) !important;
+  background-color: rgba(var(--highlight-rgb), 0.75) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+
+  color: var(--ink) !important;
+  padding: 0.5rem 0.8rem !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
   font-family: var(--font-body) !important;
-  box-shadow: none !important;
-  cursor: pointer;
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    background-image 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease !important;
 }
+
+/*shine
+#c_widget button:not([disabled])::before,
+#c_widget input[type=submit]:not([disabled])::before,
+.c-replyButton:not([disabled])::before,
+.c-expandButton:not([disabled])::before,
+.c-paginationButton:not([disabled])::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: calc(100% - 4px) !important;
+  height: 30% !important;
+
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2)
+  ) !important;
+
+  border-radius: 10px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: 0.9 !important;
+
+} */
 
 #c_widget button:not([disabled]):hover,
 #c_widget input[type=submit]:not([disabled]):hover,
-.c-replyButton:not([disabled]):hover, 
+.c-replyButton:not([disabled]):hover,
 .c-expandButton:not([disabled]):hover,
 .c-paginationButton:not([disabled]):hover {
-  background: var(--primary-dark) !important;
+  background-image: linear-gradient(
+    180deg,
+    rgba(var(--primary-rgb), 0.55) 0%,
+    rgba(var(--primary-dark-rgb), 0.55) 100%
+  ) !important;
+  background-color: rgba(var(--primary-rgb), 0.75) !important;
+
+  color: var(--bg) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow:
+    0 10px 34px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  transform: translateY(-1px) !important;
 }
 
 #c_widget button:not([disabled]):active,
 #c_widget input[type=submit]:not([disabled]):active,
-.c-replyButton:not([disabled]):active, 
+.c-replyButton:not([disabled]):active,
 .c-expandButton:not([disabled]):active,
 .c-paginationButton:not([disabled]):active {
-  background: var(--primary-dark) !important;
+  transform: translateY(1px) !important;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.85),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.6) !important;
 }
 
 #c_widget button[disabled],
-#c_widget input[type=submit][disabled] {
-  opacity: 0.5 !important;
-  cursor: not-allowed;
-  color: var(--bg) !important;
-  background: var(--secondary) !important;
-  border: 2px solid var(--bg) !important;
+#c_widget input[type=submit][disabled],
+.c-replyButton[disabled],
+.c-expandButton[disabled],
+.c-paginationButton[disabled] {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+
+  color: var(--ink-soft) !important;
+  border: 1px solid var(--ink-soft) !important;
+  background: color-mix(in srgb, var(--bg-card-back) 70%, var(--bg) 30%) !important;
+  background-image: none !important;
+
   padding: 0.3rem 0.7rem !important;
   font-size: 0.78rem !important;
   letter-spacing: 0.04em !important;
   text-transform: lowercase !important;
   font-family: var(--font-body) !important;
-  box-shadow: none !important;
 }
 
 #c_inputDiv {
