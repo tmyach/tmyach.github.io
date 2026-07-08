@@ -224,17 +224,27 @@ function onMiniPlayerReady(event) {
 }
 
 
+function updatePlayPauseButtonState(button, isPlaying) {
+  if (!button) return;
+
+  const icon = button.querySelector('.material-symbols');
+  if (icon) {
+    icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+  }
+}
+
+
 function onPlayerStateChange(event) {
   const playpauseBtn = document.getElementById("playpause-btn");
   
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    if (playpauseBtn) playpauseBtn.textContent = "❚❚";
+    updatePlayPauseButtonState(playpauseBtn, true);
     if (timer) clearInterval(timer);
     timer = setInterval(updateTime, 1000);
   } else {
-    if (playpauseBtn) playpauseBtn.textContent = "▶";
+    updatePlayPauseButtonState(playpauseBtn, false);
     if (timer) {
       clearInterval(timer);
       timer = null;
@@ -249,9 +259,9 @@ function onMiniPlayerStateChange(event) {
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "❚❚";
+    updatePlayPauseButtonState(miniPlaypauseBtn, true);
   } else {
-    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "▶";
+    updatePlayPauseButtonState(miniPlaypauseBtn, false);
   }
 }
 
