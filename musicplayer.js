@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.getElementById("next-btn");
   const prevBtn = document.getElementById("prev-btn");
   const slider = document.getElementById("slider");
+  const volumeSlider = document.getElementById("volume-slider");
 
 
   if (playpauseBtn) {
@@ -105,6 +106,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (player && playerReady) {
         player.seekTo(parseFloat(this.value), true);
       }
+    });
+  }
+
+  if (volumeSlider) {
+    volumeSlider.addEventListener("input", function() {
+      const volumeValue = parseInt(this.value, 10);
+      setPlayerVolume(volumeValue);
     });
   }
 
@@ -198,12 +206,20 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   playerReady = true;
+  const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    setPlayerVolume(parseInt(volumeSlider.value, 10));
+  }
   updateTrackInfo();
 }
 
 
 function onMiniPlayerReady(event) {
   miniPlayerReady = true;
+  const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    setPlayerVolume(parseInt(volumeSlider.value, 10));
+  }
   updateMiniTrackInfo();
 }
 
@@ -265,6 +281,35 @@ function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+
+function updateVolumeIcon(volume) {
+  const icon = document.getElementById("volume-icon");
+  if (!icon) return;
+
+  if (volume <= 0) {
+    icon.textContent = "volume_off";
+  } else if (volume < 35) {
+    icon.textContent = "volume_down";
+  } else {
+    icon.textContent = "volume_up";
+  }
+}
+
+
+function setPlayerVolume(volume) {
+  const normalizedVolume = Math.max(0, Math.min(100, volume));
+
+  if (player && playerReady) {
+    player.setVolume(normalizedVolume);
+  }
+
+  if (miniPlayer && miniPlayerReady) {
+    miniPlayer.setVolume(normalizedVolume);
+  }
+
+  updateVolumeIcon(normalizedVolume);
 }
 
 
