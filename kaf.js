@@ -80,18 +80,19 @@
   // ── Determine locale ──────────────────────────────────────────────────
   function resolveLocale(tag) {
     if (!tag) return "en";
+    // Exact match
     if (messages[tag]) return tag;
-
+    // Case-insensitive exact match (e.g. "pt-br" → "pt-BR")
     var lower = tag.toLowerCase();
     for (var key in messages) {
       if (key.toLowerCase() === lower) return key;
     }
-
+  // Fallback to base language (e.g. "de-CH" → "de", "zh-Hans" → "zh")
     var base = lower.split("-")[0];
     for (var key2 in messages) {
       if (key2.toLowerCase() === base) return key2;
     }
-
+  // Fallback to any regional variant of the base language (e.g. "pt" → "pt-BR")
     for (var key3 in messages) {
       if (key3.toLowerCase().split("-")[0] === base) return key3;
     }
@@ -106,6 +107,12 @@
     navigator.userLanguage
   );
 
+  // ── Size variant ──────────────────────────────────────────────────────
+  var size = params.size === "mini" ? "mini"
+      : params.size === "minimal"
+        ? "minimal"
+        : "normal";
+
   // ── Link ────────────────────────────────────────────────────────────
   var linkParam = params.link;
   var defaultLink = "https://keepandroidopen.org" + (locale === "en" ? "" : "/" + locale + "/");
@@ -114,9 +121,33 @@
   // ── Close button ────────────────────────────────────────────────────
   var showClose = params.hidebutton !== "off";
   var storageKey = "kao-banner-hidden";
-  var dismissDays = 10;
+  var dismissDays = 30;
 
   // ── Inject CSS ────────────────────────────────────────────────────────
+  var cssNormal =
+    ".kao-banner{" +
+      "position:relative;" +
+      "font-variant-numeric:tabular-nums;" +
+      "background:var(--primary);" +
+      "border-bottom:4px solid var(--primary-dark);" +
+      "color:var(--bg);" +
+      "font-family: var(--font-body);" +
+      "font-weight:900;" +
+      "text-transform:uppercase;" +
+      "letter-spacing:2px;" +
+      "font-size:1.5rem;" +
+      "text-align:center;" +
+      "text-shadow:" +
+        "0px 1px 0px var(--primary-dark)," +
+        "0px 2px 0px var(--primary-dark)," +
+        "0px 3px 0px var(--primary-dark)," +
+        "0px 4px 0px var(--primary-dark)," +
+        "0px 6px 10px rgba(0,0,0,0.5);" +
+      "padding:0.5rem 2.5rem;" +
+      "line-height:1.6;" +
+      "box-sizing:border-box;" +
+    "}";
+
   var cssMini =
     ".kao-banner{" +
       "position:relative;" +
@@ -130,6 +161,28 @@
       "letter-spacing:1px;" +
       "font-size:0.75rem;" +
       "text-align:center;" +
+      "padding:0.25rem 1.5rem;" +
+      "line-height:1.4;" +
+      "box-sizing:border-box;" +
+    "}";
+
+  var cssMinimal =
+    ".kao-banner{" +
+      "position:relative;" +
+      "font-variant-numeric:tabular-nums;" +
+      "background:var(--primary);" +
+      "border-bottom:2px solid var(--primary-dark);" +
+      "color:var(--bg);" +
+      "font-family: var(--font-body);" +
+      "font-weight:900;" +
+      "text-transform:uppercase;" +
+      "letter-spacing:1px;" +
+      "font-size:0.75rem;" +
+      "text-align:center;" +
+      "text-shadow:" +
+        "0px 1px 0px var(--primary-dark)," +
+        "0px 2px 0px var(--primary-dark)," +
+        "0px 3px 5px rgba(0,0,0,0.4);" +
       "padding:0.25rem 1.5rem;" +
       "line-height:1.4;" +
       "box-sizing:border-box;" +
@@ -165,7 +218,7 @@
     "}";
 
   var style = document.createElement("style");
-  style.textContent = cssMini
+  style.textContent = (size === "mini" ? cssMini : size === "minimal" ? cssMinimal : cssNormal)
     + (params.animation === "off" ? "" : cssKaoPulse)
     + cssCommon;
   document.head.appendChild(style);
@@ -199,7 +252,11 @@
     banner.appendChild(document.createTextNode(messageText));
   }
 
-  banner.appendChild(document.createElement("br"));
+  if (params.size === "minimal") {
+    banner.appendChild(document.createTextNode("\u00A0"));
+  } else {
+    banner.appendChild(document.createElement("br"));
+  }
 
   var countdownSpan = document.createElement("span");
   countdownSpan.textContent = "\u00A0";
@@ -232,7 +289,7 @@
   }
 
   // ── Countdown logic ───────────────────────────────────────────────────
-  var countDownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+  var countDownDate = new Date("Jan 1, 2027 00:00:00").getTime();
 
   var unitFormatters = {
     day: new Intl.NumberFormat(locale, { style: "unit", unit: "day", unitDisplay: "narrow" }),
