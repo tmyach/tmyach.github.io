@@ -20,6 +20,7 @@ const videoIds = [
   "VC40Y6VosO0", //The Jimi Hendrix Experience - House Burning Down
   "pPrte-OhUh4", //Pink Floyd - Hey You
   "6GWWFfZfXp0", //Low - Dinosaur Act
+  "X1Yzf_TzHbU", //The Cranberries - Zombie
   "x5GG_fr8WyM", //Smashing Pumpkins - Disarm
   "2maHkdezdEc", //Alice in Chains - Sunshine
   "11ImVzWeMHE", //Deftones - Deathblow
@@ -49,6 +50,7 @@ const titles = [
   "The Jimi Hendrix Experience - House Burning Down",
   "Pink Floyd - Hey You",
   "Low - Dinosaur Act",
+  "The Cranberries - Zombie",
   "Smashing Pumpkins - Disarm",
   "Alice in Chains - Sunshine",
   "Deftones - Deathblow",
