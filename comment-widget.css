@@ -68,7 +68,7 @@
   box-sizing: border-box;
   overflow: auto;
   padding: 0.8rem;
-  background-color: var(--bg-card-light);
+  background-color: var(--bg);
   font-family: var(--font-body);
   font-size: 0.88rem;
   line-height: 1.5;
