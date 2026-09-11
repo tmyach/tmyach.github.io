@@ -1029,7 +1029,7 @@ ul.unstyled {
 .content.block.changelog .changelog .cdate {
   display: inline-block;
   padding: 6px 10px;
-  background: var(--bg-card-back);
+  background: var(--bg);
   border: none;
   font-family: var(--font-hwr);
   color: var(--secondary);
@@ -1256,7 +1256,7 @@ p.code::before {
 
 .tv-screen {
   position: relative;
-  width: 80%;
+  width: 70%;
   height: 60%;
   background: #111;
   z-index: 5;
