@@ -135,7 +135,7 @@
       "font-weight:900;" +
       "text-transform:uppercase;" +
       "letter-spacing:2px;" +
-      "font-size:1.5rem;" +
+      "font-size:0.8rem;" +
       "text-align:center;" +
       "text-shadow:" +
         "0px 1px 0px var(--primary-dark)," +
@@ -144,7 +144,7 @@
         "0px 4px 0px var(--primary-dark)," +
         "0px 6px 10px rgba(0,0,0,0.5);" +
       "padding:0.5rem 2.5rem;" +
-      "line-height:1.6;" +
+      "line-height:1.4;" +
       "box-sizing:border-box;" +
     "}";
 
