@@ -1084,6 +1084,7 @@ p.highlight {
   margin-bottom: 0.8rem;
   font-family: var(--font-hwr);
   background: var(--bg);
+  display: block;
   line-height: 1.6;
   padding: 0 0.2em;
 }
