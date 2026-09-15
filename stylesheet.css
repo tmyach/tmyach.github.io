@@ -618,6 +618,7 @@ body {
   margin: 1.2rem auto;
   padding: 0.9rem 1.4rem;
   box-shadow: var(--shadow);
+  border-radius: 10px;
 }
 
 .nav-divider-large {
@@ -748,7 +749,7 @@ body {
   background-size: 1rem;
   appearance: none;
   min-width: 85px;
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .theme-switch select:hover {
@@ -783,7 +784,7 @@ background-color: var(--bg);
 overflow: auto;
 padding: 1rem;
 height: 8em;
-border-radius: 0px;
+border-radius: 10px;
 box-shadow: var(--shadow);
 }
 
@@ -872,6 +873,7 @@ div.imgotw {
   box-shadow: var(--shadow);
   /*margin-bottom: 25px;*/
   border: var(--border-thin);
+  border-radius: 10px;
 }
 
 div.imgotw a:link {
@@ -1028,6 +1030,7 @@ ul.unstyled {
   padding: 8px;
   display: block;
   font-family: var(--font-body);
+  border-radius: 10px;
 }
 
 .content.block.changelog .changelog .cdate {
@@ -1284,6 +1287,7 @@ p.code::before {
   margin: 0.6rem 0;
   background-color: var(--bg);
   font-family: var(--font-script);
+  border-radius: 10px;
 }
 
 .controls {
