@@ -539,7 +539,10 @@ inset 0 0 12px rgba(0,229,255,0.06);
   --secondary-rgb: 255, 46, 199;
   --highlight-rgb: 255, 46, 199;
   --tr: 15, 20, 27;
-  --bg-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F110280.jpg&f=1&nofb=1&ipt=f6701d4b7737c3e8d21f21e8d657bbfb9aed894fffb5feb11a9cc2260706e339);
+}
+
+html[data-theme="synthwave"] {
+ --bg-image: url("bg/synthwave.jpg");
 }
 
 html[data-theme="synthwave"] body {
@@ -556,7 +559,7 @@ width: 100%;
 height: 100%;
 background: var(--bg-image) repeat;
 mix-blend-mode: screen;
-filter: blur(0.6px) saturate(1.1);
+filter: blur(10px) saturate(1.1);
 z-index: -1; 
 }
 
