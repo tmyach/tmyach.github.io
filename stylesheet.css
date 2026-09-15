@@ -1094,6 +1094,8 @@ p.highlight {
   display: block;
   line-height: 1.6;
   padding: 0 0.2em;
+  border-radius: 10px;
+}
 }
 
 p.fancy-quote {
@@ -1107,6 +1109,8 @@ p.fancy-quote {
   border-left: 2px dotted var(--primary);
   border-right: var(--border-thin);
   position: relative;
+  border-radius: 10px;
+}
 }
 
 p.unfancy-quote {
@@ -1120,6 +1124,8 @@ p.unfancy-quote {
   border-left: 2px dotted var(--primary);
   border-right: var(--border-thin);
   position: relative;
+  border-radius: 10px;
+}
 }
 
 p.code {
@@ -1134,6 +1140,7 @@ p.code {
   line-height: 1.5;
   position: relative;
   overflow-x: auto;
+  border-radius: 10px;
 }
 
 p.code::before {
