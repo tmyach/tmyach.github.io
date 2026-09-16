@@ -1093,7 +1093,7 @@ p.highlight {
   background: var(--bg);
   display: block;
   line-height: 1.6;
-  padding: 0 0.2em;
+  padding: 0.5em 0.5em;
   border-radius: 10px;
 }
 }
