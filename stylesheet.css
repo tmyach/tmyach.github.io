@@ -1096,7 +1096,6 @@ p.highlight {
   padding: 0.5em 0.5em;
   border-radius: 10px;
 }
-}
 
 p.fancy-quote {
   font-family: var(--font-script), cursive;
@@ -1111,7 +1110,6 @@ p.fancy-quote {
   position: relative;
   border-radius: 10px;
 }
-}
 
 p.unfancy-quote {
   font-family: var(--font-serif), serif;
@@ -1125,7 +1123,6 @@ p.unfancy-quote {
   border-right: var(--border-thin);
   position: relative;
   border-radius: 10px;
-}
 }
 
 p.code {
