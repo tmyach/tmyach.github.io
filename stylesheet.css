@@ -693,7 +693,7 @@ body {
   overflow: hidden;
   border: var(--border-thin);
   background-color: var(--bg-card-back);
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .nav-list a {
