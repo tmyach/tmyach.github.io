@@ -693,6 +693,7 @@ body {
   overflow: hidden;
   border: var(--border-thin);
   background-color: var(--bg-card-back);
+  border-radius: 5px;
 }
 
 .nav-list a {
@@ -1095,7 +1096,7 @@ p.highlight {
   line-height: 1.6;
   padding: 0.5em 0.5em;
   border-radius: 10px;
-  border: var(--border-thin);
+  border: var(--border-thin);2
 }
 
 p.fancy-quote {
