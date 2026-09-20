@@ -1086,7 +1086,7 @@ ul.unstyled {
   align-items: center;
   gap: 0.35rem;
   margin: -0.25rem 0 0.9rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -1097,6 +1097,7 @@ ul.unstyled {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  font-family: var(--font-body);
 }
 
 .mb-tag {
@@ -1118,7 +1119,7 @@ ul.unstyled {
   background: transparent;
   box-shadow: none;
   cursor: pointer;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
 }
 
@@ -1148,7 +1149,7 @@ ul.unstyled {
   display: block;
   margin-bottom: 0.2rem;
   color: var(--ink-soft);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
 }
 
