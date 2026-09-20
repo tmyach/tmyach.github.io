@@ -1170,6 +1170,7 @@ ul.unstyled {
   margin-bottom: 0.2rem;
   color: var(--primary);
   font-family: var(--font-hwr);
+  line-height: 1.1;
   font-size: 1.1rem;
 }
 
