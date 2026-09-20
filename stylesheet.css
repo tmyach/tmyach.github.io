@@ -1107,6 +1107,7 @@ ul.unstyled {
   border-radius: 10px;
   line-height: 1.35;
   border: var(--border-thin);
+  font-family: var(--font-hwr);
 }
 
 .mb-tags .mb-tag {
@@ -1119,7 +1120,7 @@ ul.unstyled {
   background: transparent;
   box-shadow: none;
   cursor: pointer;
-  font-family: var(--font-mono);
+  font-family: var(--font-hwr);
   font-size: 0.7rem;
   border: var(--border-thin);
 }
