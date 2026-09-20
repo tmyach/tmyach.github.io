@@ -1,1 +1,1 @@
-{"config": {"title": "Firstpost", "time": "12:56:15", "draft": true, "hint": "Where we announce things", "content_type": "html", "segments": ["content"]}, "content": {"content": {"c": "This is a brand new page.\n\nYou can learn more [about this site here]({{pcurl('test')}})\n", "f": null, "o": 86, "l": 8}}}
+{"config": {"title": "Firstpost", "time": "12:56:15", "draft": true, "content_type": "html", "segments": ["content"]}, "content": {"content": {"c": "This is a brand new page.\n\nYou can learn more [about this site here]({{pcurl('test')}})\n", "f": null, "o": 55, "l": 7}}}
