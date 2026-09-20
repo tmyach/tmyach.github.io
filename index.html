@@ -11,11 +11,13 @@
   <link rel="stylesheet" href="stylesheet.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="tooltip.css">
+  <link rel="stylesheet" href="dantendo.css">
   <script defer src="theme.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Mynerve&family=Rammetto+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
@@ -42,12 +44,13 @@
 
       <nav class="nav">
         <ul class="nav-list">
-          <li><a href="index">Home</a></li>
-          <li><a href="about-me">About Me</a></li>
+          <li><a href="index" style="margin-right: 25px;">Home</a></li>  <!--remove margin-right when adding the new list items in, just keep it on the last one in the order-->
+          <!--<li><a href="about-me">About Me</a></li>
           <li><a href="blog">Blog</a></li>
           <li><a href="microblog">Microblog</a></li>
           <li><a href="portfolio">Portfolio</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li><a href="contact">Contact</a></li>-->
+          <marquee behavior="scroll" direction="right" scrollamount="5" style="font-family:var(--font-script);padding-left:30px;padding-top: 3px;letter-spacing:0px;margin-left: 10px;padding-right: 30px;margin-right: 10px;scrolldelay: 90;">work in progress!</marquee>
         </ul>
 
         <div class="nav-divider"></div>
@@ -58,31 +61,35 @@
             <option value="dark" selected>Dark &#x1F31A;</option>
             <option value="light">Light 	&#x1F31E;</option>
             <option value="darkred">Red &#x1F352;</option>
-            <option value="pink">Pink &#128572;</option>
+            <option value="pink">Pink &#x1F338;</option>
+            <option value="sephpink">Sephiroth? &#x1FABD;</option>
+            <option value="synthwave">Neon &#x1F303;</option>
           </select>
         </div>
       </nav>
     </header>
 
     <main class="main-frame">
-      <img src="banner.gif" class="banner-img" alt="Banner gif">
+     <!-- <img class="banner-img" alt="banner" width="950" height="200" src="bannertl.png"> -->
+      <!-- new banner in progress ;) -->
 
       <div class="content-grid">
         <aside class="sidebar sidebar-left">
-          <div class="block notes">
-            <h2 class="block-title bold">Notes ❧</h2>
+          <div class="block notes" style="font-size: 10pt;">
+            <h2 class="block-title bold">Notes</h2>
             <ul class="unstyled">
-              <li>Right now, I feel
-                <a href="https://www.imood.com/users/tmyach" class="imood">
-                  <img src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif" alt="Current mood">
-                </a>
-              </li>
+<li style="display: flex; align-items: center; gap: 0.5rem;">
+  Right now, I feel
+  <a href="https://www.imood.com/users/tmyach" class="imood" target="_blank">
+   <img src="https://moods.imood.com/display/uname-tmyach/trans-1/imood.gif" alt="Current mood" style="vertical-align: middle;margin-bottom: 3px;border-radius: 5px;">
+  </a>
+</li>
               <li><img src="sephiroth-quote-linux.png" alt="sudoroth" class="sephiroth-img"></li>
             </ul>
           </div>
 
           <div class="block poll-block">
-            <h2 class="block-title bold">Poll ❧</h2>
+            <h2 class="block-title bold">Poll</h2>
             <p class="highlight">What makes you most doubtful about politics?</p>
             <form action="https://poll.pollcode.com/29742232" method="post">
               <div class="poll-option">
@@ -105,7 +112,7 @@
                 <input type="radio" name="answer" value="5" id="p5">
                 <label for="p5">None of these worry me!</label>
               </div>
-              <div class="poll-buttons">
+              <div class="poll-buttons" style="margin-top: 10px;">
                 <input type="submit" value="Vote">
                 <input type="submit" name="view" value="View">
               </div>
@@ -113,15 +120,13 @@
           </div>
 
 <div class="block">
-  <h2 class="block-title bold">Collection ❧</h2>
+  <h2 class="block-title bold">Collection</h2>
 
-  <button id="collectionToggle" class="collection-toggle active" aria-label="Toggle collection">
-    <svg class="icon-collapse" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M17 3h-2v2h-2v2h-2V5H9V3H7v2h2v2h2v2h2V7h2V5h2zM4 13h16v-2H4zm9 4h-2v-2h2zm2 2h-2v-2h2zm0 0h2v2h-2zm-6 0h2v-2H9zm0 0H7v2h2z"/>
-    </svg>
+  <button id="collectionToggle" class="collection-toggle" aria-label="Toggle collection" aria-expanded="false">
+    <span class="material-symbols collection-toggle-icon" aria-hidden="true">expand_all</span>
   </button>
 
-  <div id="collection">
+<div id="collection" style="display: block;">
     <p>Blinkies</p>
     <div class="blinkies">
 <img src="blinkies/aaliyah.webp" alt="aaliyah" height="20">
@@ -206,8 +211,7 @@
 <img src="blinkies/windows xp.gif" alt="windows xp" height="20">
     </div>
   </div>
-  <br>
-  <div id="collection">
+  <div id="collection" style="display: block;margin-top: 15px;">
     <p>Stamps</p>
     <div class="stamps">
       <marquee scrollamount="4">
@@ -294,18 +298,31 @@
 </div>
         </aside>
 
+<div class="center">
         <section class="content main-content block">
           <h1 class="page-title">
-  <span class="shuffle-container">
-    <span id="shuffle-title">Hello!</span>
+<span class="shuffle-container">
+  <span id="shuffle-title-sizer" aria-hidden="true"></span>
+  <span id="shuffle-title" class="morph">
+    <span id="shuffle-title-1"></span>
+    <span id="shuffle-title-2"></span>
   </span>
+</span>
+
+<svg id="filters" aria-hidden="true">
+  <defs>
+    <filter id="threshold">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 255 -140" />
+    </filter>
+  </defs>
+</svg>
 </h1>
 <div class="under">
-          <p>My name is <span style="font-family:var(--font-script)">Tesia</span> (she/her), and I'm an undergraduate college student studying public policy.</p>
-
+          <p>My name is <span style="font-family:var(--font-script)" tooltip="she/her">Tesia</span>, and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
           <p class="fancy-quote">"Me? Gongaga" <span style="font-family: var(--font-serif)">- Zack Fair, Final Fantasy VII Crisis Core, 2007</span></p>
-          
-          <p>Besides policy and politics, I love visual art. In my free time, I like to paint and get charcoal all over my hands while making portraits (no I don't LOL). Additionally, I studied graphic design for half a decade. Visual art helps me process what I am learning, so you will see some of my notebook doodles in my blog posts.</p>
 <hr>
 <p><b>
   Hey, you! Take a look at this BSD 
@@ -347,6 +364,7 @@
       <path stroke="#0ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.113" d="m100.242 208.982l9.056 1.094m-13.584-10.944l11.32 1.094zm-2.264 3.283l11.32 2.189zm-5.66 2.189l9.056 2.189zm-9.056 2.189l13.584 2.189zm33.961-6.567l13.584 1.095zm-1.132 3.284l13.584 2.188zm-4.529 3.283l7.925 1.094z"></path>
     </g>
   </svg>
+
   fortune!
 </b>
 </p>
@@ -360,29 +378,113 @@
 </div>
         </section>
 
-    <section class="content block main2">
-        <h2 class="block-title">Image of the Week</h2>
-        <div class="block">
+       <div class="content block changelog">
+  <h2 class="block-title">Changelog</h2>
+  <ul class="changelog">
+    <li><span class="cdate">09-11-2026:</span> Took a break from working on the website cause of code-block (like art-block but with coding?) ... anyways I made a sephiroth theme as a joke but it actually turned out good so I'm keeping it LOL</li>
+    <li><span class="cdate">07-08-2026:</span> It's been a while ... completed phase 1 of my website overhaul to satisfy my web 2.0 gloss cravings. still have a lot of work to do!</li>
+    <li><span class="cdate">06-12-2026:</span> New fonts!!! Also added the DS on the bottom. Creds to <a href="https://layouts.spacehey.com/layout?id=85996" target="_blank">daniel on spacehey</a> for the template</li>
+    <li><span class="cdate">06-03-2026:</span> Added this changelog :P also new synthwave/neon theme!!!</li>
+    <li><span class="cdate">06-01-2026:</span> New page title messages 👀</li>
+    <li><span class="cdate">05-28-2026:</span> New morphing page title + a bunch of tiny changes</li>
+  </ul>
+</div>
+
+        <section class="content block main2">
+        <h2 class="block-title">Image of the Month</h2>
+     
           <div class="imgotw">
-
-          </div>
-          </div>
-    </section>
-
-     <section class="content block main2">
-    <div class="imgotw">
-  <img src="imgotw/polladequacy.png" alt="text" style="width:100px;height:auto;">
+<img src="imgotw/biden.png" alt="text" style="width:300px;height:auto;display: block;margin-left: auto;margin-right: auto;margin-top: 25px;">
   <div class="imgotw-txt">
-  <p>From the now-defunct satirical news site <a href="https://web.archive.org/web/20060207080816/http://www.adequacy.org/stories/2001.12.2.42056.2147.html">Adequacy.org</a>.</p>
+  <p>it's giving biden blast</p>
   </div>
   
-</div>
+
 
 </section>
 
- <aside class="sidebar sidebar-right">
+<div id="extra" class="block">
+  <h2 class="block-title bold">Extras</h2>
+  <!-- (c) Layout created by daniel (https://layouts.spacehey.com/layout?id=85996) -->
+    <div class="dantendo">
+        <div class="screen-division upper-screen">
+            <div class="screen">
+                <div class="dantendo-bar">
+                    <span>7DS</span>
+                    06/26 11:11
+                </div>
+                <img src="" class="welcome-image">
+                <div class="dantendo-tab" id="tab-1">
+                    <h6 class="tab-title"></h6>
+                    <p class="tab-content"></p>
+                </div>
+                <div class="dantendo-tab" id="tab-2">
+                    <h6 class="tab-title"></h6>
+                    <p class="tab-content"></p>
+                </div>
+                <div class="dantendo-tab" id="tab-3">
+                    <h6 class="tab-title"></h6>
+                    <p class="tab-content"></p>
+                </div>
+                <div class="dantendo-tab" id="tab-4">
+                    <h6 class="tab-title"></h6>
+                    <p class="tab-content"></p>
+                </div>
+            </div>
+        </div>
+        <div class="screen-divider">
+            <div class="camera-thingy"></div>
+        </div>
+        <div class="screen-division lower-screen">
+            <div class="arrows">
+                <div class="arrow-up">
+                    <a href="#/"></a>
+                </div>
+                <div class="arrows-left-right">
+                    <a href="#/"></a>
+                    <a href="#/"></a>
+                </div>
+                <div class="arrow-down">
+                    <a href="#/"></a>
+                </div>
+            </div>
+            <div class="screen">
+                <a href="#/" class="thumbnail" id="tab-1-button">
+                    <img src="" alt="tab 1 thumbnail">
+                </a>
+                <a href="#/" class="thumbnail" id="tab-2-button">
+                    <img src="" alt="tab 2 thumbnail">
+                </a>
+                <a href="#/" class="thumbnail" id="tab-3-button">
+                    <img src="" alt="tab 3 thumbnail">
+                </a>
+                <a href="#/" class="thumbnail" id="tab-4-button">
+                    <img src="" alt="tab 4 thumbnail">
+                </a>
+            </div>
+            <div class="buttons">
+                <div class="button-x">
+                    <a href="#/"></a>
+                </div>
+                <div class="buttons-y-a">
+                    <a href="#/"></a>
+                    <a href="#/"></a>
+                </div>
+                <div class="button-b">
+                    <a href="#/"></a>
+                </div>
+            </div>
+            <div class="start-btn">START</div>
+            <div class="select-btn">SELECT</div>
+            <a href="#/" class="power-button">POWER</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<aside class="sidebar sidebar-right">
   <div class="block player">
-    <h2 class="block-title bold">Now Playing ❧</h2>
+    <h2 class="block-title bold">Now Playing</h2>
     <div class="player-container">
       <div class="tv-wrapper">
         <div id="video-player" class="tv-screen"></div>
@@ -398,17 +500,24 @@
     </div>
 
     <div class="controls">
-      <button id="prev-btn">⏮</button>
-      <button id="playpause-btn">▶</button>
-      <button id="next-btn">⏭</button>
+      <button id="prev-btn" aria-label="Previous track"><span class="material-symbols" aria-hidden="true">skip_previous</span></button>
+      <button id="playpause-btn" aria-label="Play or pause"><span class="material-symbols" aria-hidden="true">play_arrow</span></button>
+      <button id="next-btn" aria-label="Next track"><span class="material-symbols" aria-hidden="true">skip_next</span></button>
     </div>
+
+    <div class="volslider_container">
+      <span id="volume-icon" class="material-symbols" aria-hidden="true">volume_down</span>
+      <input id="volume-slider" type="range" min="0" max="100" value="100" step="1" aria-label="Volume">
+    </div>
+
     </div>
 
 <div class="block guestbook">
-    <h2 class="block-title bold">Guestbook ❧</h2>
+    <h2 class="block-title bold">Guestbook</h2>
     <div id="c_widget"></div>
   </div>
 </aside>
+
       </div>
     </main>
 
@@ -426,6 +535,7 @@
 
   <script src="comment-widget.js"></script>
   <script src="musicplayer.js"></script>
+  <script src="morph.js"></script>
   <script src="sparkle-cursor.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -434,16 +544,18 @@
   const toggleBtn = document.getElementById('collectionToggle');
   const collections = document.querySelectorAll('#collection');
 
-  const expandIcon = `
-    <svg class="icon-expand" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M11 5h2v2h2v2h2V7h-2V5h-2V3h-2zM9 7V5h2v2zm0 0v2H7V7zm-5 6h16v-2H4zm9 6h-2v-2H9v2H7v2h2v2h2v2h2zm2-2h-2v2h2zm0 0h2v-2h-2z"/>
-    </svg>`;
-  const collapseIcon = `
-    <svg class="icon-collapse" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M17 3h-2v2h-2v2h-2V5H9V3H7v2h2v2h2v2h2V7h2V5h2zM4 13h16v-2H4zm9 4h-2v-2h2zm2 2h-2v-2h2zm0 0h2v2h-2zm-6 0h2v-2H9zm0 0H7v2h2z"/>
-    </svg>`;
+  const expandIcon = '<span class="material-symbols collection-toggle-icon" aria-hidden="true">expand_all</span>';
+  const collapseIcon = '<span class="material-symbols collection-toggle-icon" aria-hidden="true">collapse_all</span>';
 
   let shown = false;
+
+ 
+  collections.forEach(div => {
+    div.style.display = 'none';
+  });
+  toggleBtn.classList.toggle('active', shown);
+  toggleBtn.innerHTML = expandIcon;
+  toggleBtn.setAttribute('aria-expanded', 'false');
 
   toggleBtn.addEventListener('click', () => {
     shown = !shown;
@@ -454,7 +566,25 @@
     });
 
     toggleBtn.innerHTML = shown ? collapseIcon : expandIcon;
+    toggleBtn.setAttribute('aria-expanded', shown.toString());
   });
   </script>
+  <script src="kaf.js"></script>
+  <!--- tooltip script ---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://static.tumblr.com/lspzyz3/xloqk6cgp/jquery.style-my-tooltips.js"></script>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            $("[tooltip]").style_my_tooltips({
+                tip_follows_cursor: true,
+                tip_delay_time: 10,
+                tip_fade_speed: 30,
+                attribute: "tooltip"
+            });
+        });
+    })(jQuery);
+
+</script>
 </body>
 </html>

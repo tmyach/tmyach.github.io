@@ -1,0 +1,21 @@
+#s-m-t-tooltip {
+        /* basic */
+        z-index: 100;
+        margin: 10px 10px 10px 10px;
+        /* style and design */
+        -moz-border-radius: 13px;
+        -webkit-border-radius: 13px;
+        display: block;
+        /*To give fixed-height posts a scroller, and make images outside the post-inner div conform to rounded corners.*/
+        background-color: var(--primary-dark);
+        background-size: contain;
+        max-width: 300px;
+
+        color: var(--bg);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: var(--border-thin-dash);
+        /* Initially hidden */
+        z-index: 1000;
+    }

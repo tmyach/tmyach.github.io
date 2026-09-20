@@ -4,32 +4,36 @@ let playerReady = false;
 let miniPlayerReady = false;
 let timer;
 
+
 const videoIds = [
-  "p_Yw0q8QVFQ",
-  "UETz-QsfNl0", 
-  "7nxWP9BhI7w",
-  "fXmEJLMgY8M",
-  "nkzFnXEKs5Y",
-  "g_BMBFR-0nI",
-  "4Syy0Zhcki8",
-  "OBBlIfUH9bY",
-  "GfG7DasXge8",
-  "zIp7o53dfmY",
-  "4TeshUpfml4",
-  "VC40Y6VosO0",
-  "pPrte-OhUh4",
-  "6GWWFfZfXp0",
-  "x5GG_fr8WyM",
-  "2maHkdezdEc",
-  "11ImVzWeMHE",
-  "m2Yhn6-jJPE",
-  "bndL7wwAj0U",
-  "K2p2lHawAJA",
-  "2EEu5P9rso8",
-  "aIaqTsCcWsw",
-  "UWQT7fd8McI",
-  "IUHPsINf8rY",
+  "p_Yw0q8QVFQ", //Hikaru Utada - Automatic
+  "UETz-QsfNl0", //Addison Rae - In The Rain
+  "7nxWP9BhI7w", //Portishead - Roads
+  "fXmEJLMgY8M", //Björk - Play Dead
+  "nkzFnXEKs5Y", //Erykah Badu - Other Side Of The Game
+  "g_BMBFR-0nI", //Lauryn Hill - Everything is Everything
+  "4Syy0Zhcki8", //El Da Sensei, P Original - Course Of My Life
+  "OBBlIfUH9bY", //Bob Marley & The Wailers - Misty Morning
+  "GfG7DasXge8", //Peter Tosh - Peace Treaty
+  "zIp7o53dfmY", //Thievery Corporation - Amerimacka
+  "4TeshUpfml4", //Calle 13 - Latinoamérica
+  "VC40Y6VosO0", //The Jimi Hendrix Experience - House Burning Down
+  "pPrte-OhUh4", //Pink Floyd - Hey You
+  "6GWWFfZfXp0", //Low - Dinosaur Act
+  "X1Yzf_TzHbU", //The Cranberries - Zombie
+  "x5GG_fr8WyM", //Smashing Pumpkins - Disarm
+  "2maHkdezdEc", //Alice in Chains - Sunshine
+  "11ImVzWeMHE", //Deftones - Deathblow
+  "ikUrxI7g6BM", //Thrice - Cold Cash and Cold Hearts
+  "m2Yhn6-jJPE", //A Perfect Circle - The Package
+  "bndL7wwAj0U", //TOOL - Right In Two
+  "K2p2lHawAJA", //Nick Cave - Girl In Amber
+  "2EEu5P9rso8", //VanWyck - Push the Sky Away
+  "aIaqTsCcWsw", //Mitski - Crack Baby
+  "UWQT7fd8McI", //Sade - Morning Bird
+  "IUHPsINf8rY", //Alicia Keys - Superwoman
 ];
+
 
 const titles = [
   "Hikaru Utada - Automatic",
@@ -46,9 +50,11 @@ const titles = [
   "The Jimi Hendrix Experience - House Burning Down",
   "Pink Floyd - Hey You",
   "Low - Dinosaur Act",
+  "The Cranberries - Zombie",
   "Smashing Pumpkins - Disarm",
   "Alice in Chains - Sunshine",
   "Deftones - Deathblow",
+  "Thrice - Cold Cash and Cold Hearts",
   "A Perfect Circle - The Package",
   "TOOL - Right In Two",
   "Nick Cave - Girl In Amber",
@@ -57,6 +63,7 @@ const titles = [
   "Sade - Morning Bird",
   "Alicia Keys - Superwoman",
 ];
+
 
 document.addEventListener('DOMContentLoaded', function() {
   // mini player collapse
@@ -71,11 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+
   // main player controls
   const playpauseBtn = document.getElementById("playpause-btn");
   const nextBtn = document.getElementById("next-btn");
   const prevBtn = document.getElementById("prev-btn");
   const slider = document.getElementById("slider");
+  const volumeSlider = document.getElementById("volume-slider");
+
 
   if (playpauseBtn) {
     playpauseBtn.addEventListener("click", function() {
@@ -89,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+
   if (nextBtn) nextBtn.addEventListener("click", nextTrack);
   if (prevBtn) prevBtn.addEventListener("click", prevTrack);
   
@@ -100,10 +111,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  if (volumeSlider) {
+    volumeSlider.addEventListener("input", function() {
+      const volumeValue = parseInt(this.value, 10);
+      setPlayerVolume(volumeValue);
+    });
+  }
+
+
   // mini player controls
   const miniPlaypauseBtn = document.getElementById("mini-playpause-btn");
   const miniNextBtn = document.getElementById("mini-next-btn");
   const miniPrevBtn = document.getElementById("mini-prev-btn");
+
 
   if (miniPlaypauseBtn) {
     miniPlaypauseBtn.addEventListener("click", function() {
@@ -117,45 +137,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+
   if (miniNextBtn) miniNextBtn.addEventListener("click", nextTrack);
   if (miniPrevBtn) miniPrevBtn.addEventListener("click", prevTrack);
+
 
   // load yt api
   const tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   const firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // shuffle title
-  if (typeof $ !== 'undefined' && $('#shuffle-title').length) {
-    $('#shuffle-title').ShuffleText([
-      "Hello!",
-      "¡Hola!",
-      "~# sl 🚂💨",
-      "That's not even funny, man!",
-      "Optimal performance in all browsers!",
-      "Born to CSS, forced to JAVASCRIPT!!!",
-      "T.M.Y.",
-      "It's a Casio on a plastic beach!",
-      "Nonagon infinity opens the door!",
-      "Has it trickled down yet?",
-      "Me? Gongaga",
-      "I'd just like to interject for a moment...",
-      "Feel the rhythm!",
-      "You know the business!",
-      "Keep it live!",
-      "Let's mosey!",
-      "Converted to Free Software Evangelicism",
-      "Do you have a moment to talk about GNU/Linux?",
-      "Linyos Torovoltos wrote Lunix!",
-    ], {
-      loop: true,
-      delay: 10000,
-      iterations: 60,
-      shuffleSpeed: 25
-    });
-  }
 });
+
 
 // youtube player
 function onYouTubeIframeAPIReady() {
@@ -212,15 +205,36 @@ function onYouTubeIframeAPIReady() {
   }
 }
 
+
 function onPlayerReady(event) {
   playerReady = true;
+  const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    setPlayerVolume(parseInt(volumeSlider.value, 10));
+  }
   updateTrackInfo();
 }
 
+
 function onMiniPlayerReady(event) {
   miniPlayerReady = true;
+  const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    setPlayerVolume(parseInt(volumeSlider.value, 10));
+  }
   updateMiniTrackInfo();
 }
+
+
+function updatePlayPauseButtonState(button, isPlaying) {
+  if (!button) return;
+
+  const icon = button.querySelector('.material-symbols');
+  if (icon) {
+    icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+  }
+}
+
 
 function onPlayerStateChange(event) {
   const playpauseBtn = document.getElementById("playpause-btn");
@@ -228,11 +242,11 @@ function onPlayerStateChange(event) {
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    if (playpauseBtn) playpauseBtn.textContent = "❚❚";
+    updatePlayPauseButtonState(playpauseBtn, true);
     if (timer) clearInterval(timer);
     timer = setInterval(updateTime, 1000);
   } else {
-    if (playpauseBtn) playpauseBtn.textContent = "▶";
+    updatePlayPauseButtonState(playpauseBtn, false);
     if (timer) {
       clearInterval(timer);
       timer = null;
@@ -240,17 +254,19 @@ function onPlayerStateChange(event) {
   }
 }
 
+
 function onMiniPlayerStateChange(event) {
   const miniPlaypauseBtn = document.getElementById("mini-playpause-btn");
   
   if(event.data == YT.PlayerState.ENDED) {
     nextTrack();
   } else if(event.data == YT.PlayerState.PLAYING) {
-    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "❚❚";
+    updatePlayPauseButtonState(miniPlaypauseBtn, true);
   } else {
-    if (miniPlaypauseBtn) miniPlaypauseBtn.textContent = "▶";
+    updatePlayPauseButtonState(miniPlaypauseBtn, false);
   }
 }
+
 
 function updateTime() {
   if (player && playerReady) {
@@ -272,17 +288,49 @@ function updateTime() {
   }
 }
 
+
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
+
+function updateVolumeIcon(volume) {
+  const icon = document.getElementById("volume-icon");
+  if (!icon) return;
+
+  if (volume <= 0) {
+    icon.textContent = "volume_off";
+  } else if (volume < 35) {
+    icon.textContent = "volume_down";
+  } else {
+    icon.textContent = "volume_up";
+  }
+}
+
+
+function setPlayerVolume(volume) {
+  const normalizedVolume = Math.max(0, Math.min(100, volume));
+
+  if (player && playerReady) {
+    player.setVolume(normalizedVolume);
+  }
+
+  if (miniPlayer && miniPlayerReady) {
+    miniPlayer.setVolume(normalizedVolume);
+  }
+
+  updateVolumeIcon(normalizedVolume);
+}
+
+
 function updateTrackInfo() {
   // currentTrack in range
   if (currentTrack >= videoIds.length || currentTrack >= titles.length) {
     currentTrack = 0;
   }
+
 
   const nowplaying = document.getElementById("nowplaying");
   const info = document.getElementById("info");
@@ -291,12 +339,14 @@ function updateTrackInfo() {
   updateMiniTrackInfo();
 }
 
+
 function updateMiniTrackInfo() {
   const miniTitle = document.getElementById("mini-track-title");
   if (miniTitle && titles[currentTrack]) {
     miniTitle.textContent = titles[currentTrack];
   }
 }
+
 
 function nextTrack() {
   currentTrack = (currentTrack + 1) % videoIds.length;
@@ -305,84 +355,10 @@ function nextTrack() {
   updateTrackInfo();
 }
 
+
 function prevTrack() {
   currentTrack = (currentTrack - 1 + videoIds.length) % videoIds.length;
   if (player && playerReady) player.loadVideoById(videoIds[currentTrack]);
   if (miniPlayer && miniPlayerReady) miniPlayer.loadVideoById(videoIds[currentTrack]);
   updateTrackInfo();
 }
-
-// shuffle text
-(function($) {
-  $.fn.ShuffleText = function(strings, options) {
-    function striphtml(html) {
-      var tmp = document.createElement("DIV");
-      tmp.innerHTML = html;
-      return tmp.textContent || tmp.innerText || "";
-    }
-
-    var self = this;
-    if (typeof strings !== 'object') { 
-      throw new TypeError('need an array');
-    }
-
-    $(self).html(strings[0]);
-
-    var loop = options.loop || true,
-        iterations = options.iterations || 60,
-        delay = options.delay || 10000,
-        shuffleSpeed = options.shuffleSpeed || 25,
-        step = options.step || function() {};
-
-    var currentIndex = 0;
-    var lastIndex = 0;
-
-    var pickRandomString = function() {
-      var randomIndex;
-      do {
-        randomIndex = Math.floor(Math.random() * strings.length);
-      } while (randomIndex === lastIndex);
-      return randomIndex;
-    };
-
-    var iterateString = function(index) {
-      currentIndex = index;
-      $(self).html(strings[index]);
-
-      var morpher = function(i) {
-        var string = '';
-        var mask = striphtml(strings[lastIndex] + strings[index]).split('');
-        var diffLength = Math.floor((striphtml(strings[index]).length - striphtml(strings[lastIndex]).length) / iterations * i);
-        var last = striphtml(strings[lastIndex]).length;
-
-        for (var j = 0; j < last + diffLength; j++) {
-          var rand = Math.floor(Math.random() * mask.length),
-              randomLetter = mask[rand];
-          string += randomLetter;
-        }
-        $(self).html(string);
-
-        if (i !== iterations) {
-          setTimeout(function() {
-            morpher(i + 1);
-          }, shuffleSpeed);
-        } else {
-          $(self).html(strings[index]);
-          step(strings[index]);
-          lastIndex = currentIndex;
-
-          setTimeout(function() {
-            var nextRandomIndex = pickRandomString();
-            iterateString(nextRandomIndex);
-          }, delay);
-        }
-      };
-      morpher(0);
-    };
-
-    setTimeout(function() {
-      var firstRandomIndex = pickRandomString();
-      iterateString(firstRandomIndex);
-    }, delay);
-  }
-})(jQuery);
