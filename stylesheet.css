@@ -1185,7 +1185,7 @@ ul.unstyled {
   width: 120px;
   height: 80px;
   margin: 0 0 0.55rem;
-  border: var(--border-thin);
+  border: none;
   object-fit: contain;
 }
 
