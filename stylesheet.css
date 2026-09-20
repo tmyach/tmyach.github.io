@@ -1089,11 +1089,12 @@ ul.unstyled {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding-bottom: 10px;
+  padding-left: 5px;
 }
 
 .mb-label {
   color: var(--ink-soft);
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
