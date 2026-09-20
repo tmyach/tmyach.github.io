@@ -119,6 +119,47 @@
             </form>
           </div>
 
+       <div class="content block mb">
+  <h2 class="block-title">Microblog</h2>
+  <div class="mb-bank" aria-label="Microblog tag bank">
+    <span class="mb-label">Tags:</span>
+    <button class="mb-tag active" type="button" data-tag="all" aria-pressed="true">all</button>
+    <button class="mb-tag" type="button" data-tag="thoughts" aria-pressed="false">thoughts</button>
+    <button class="mb-tag" type="button" data-tag="website" aria-pressed="false">website</button>
+  </div>
+
+  <div class="mb-posts">
+    <article class="mb-post" data-tags="thoughts website">
+      <div class="mb-meta">
+        <span class="mb-num">1</span>
+        <time datetime="2026-09-20">09-20-2026</time>
+      </div>
+      <div class="mb-body">
+        <h3>1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus, nunc at posuere luctus, justo erat blandit nulla.</p>
+        <div class="mb-tags" aria-label="Tags for post 1">
+          <span class="mb-tag">thoughts</span>
+          <span class="mb-tag">website</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="mb-post" data-tags="thoughts">
+      <div class="mb-meta">
+        <span class="mb-num">2</span>
+        <time datetime="2026-09-20">09-20-2026</time>
+      </div>
+      <div class="mb-body">
+        <h3>2</h3>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; integer vitae sem sed velit commodo.</p>
+        <div class="mb-tags" aria-label="Tags for post 2">
+          <span class="mb-tag">thoughts</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
 <div class="block">
   <h2 class="block-title bold">Collection</h2>
 
@@ -569,6 +610,27 @@
     toggleBtn.innerHTML = shown ? collapseIcon : expandIcon;
     toggleBtn.setAttribute('aria-expanded', shown.toString());
   });
+  </script>
+  <script>
+    const tagButtons = document.querySelectorAll('.mb-bank [data-tag]');
+    const microPosts = document.querySelectorAll('.mb-post');
+
+    tagButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tag = button.dataset.tag;
+
+        tagButtons.forEach(tagButton => {
+          const selected = tagButton === button;
+          tagButton.classList.toggle('active', selected);
+          tagButton.setAttribute('aria-pressed', selected.toString());
+        });
+
+        microPosts.forEach(post => {
+          const matches = tag === 'all' || post.dataset.tags.split(' ').includes(tag);
+          post.hidden = !matches;
+        });
+      });
+    });
   </script>
   <script src="kaf.js"></script>
   <!--- tooltip script ---->
