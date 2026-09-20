@@ -1194,6 +1194,20 @@ ul.unstyled {
   gap: 0.3rem;
 }
 
+.mb-pages {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: var(--border-thin);
+}
+
+.mb-pages button {
+  min-width: 2.2rem;
+  padding: 0.45rem 0.6rem;
+}
+
 // end of microblog
 
 p {

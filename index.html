@@ -154,6 +154,14 @@
       </div>
     </article>
   </div>
+  <div class="mb-pages" aria-label="Microblog pages">
+    <button id="mb-prev" type="button" aria-label="Previous page">
+      <span class="material-symbols" aria-hidden="true">arrow_back</span>
+    </button>
+    <button id="mb-next" type="button" aria-label="Next page">
+      <span class="material-symbols" aria-hidden="true">arrow_forward</span>
+    </button>
+  </div>
 </div>
 
 <div class="block">
@@ -611,10 +619,35 @@
   <script>
     const tagButtons = document.querySelectorAll('.mb-bank [data-tag]');
     const microPosts = document.querySelectorAll('.mb-post');
+    const previousPage = document.getElementById('mb-prev');
+    const nextPage = document.getElementById('mb-next');
+    const postsPerPage = 2;
+    let selectedTag = 'all';
+    let page = 0;
+
+    function renderPosts() {
+      const filteredPosts = [...microPosts].filter(post => {
+        return selectedTag === 'all' || post.dataset.tags.split(' ').includes(selectedTag);
+      });
+      const pageCount = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
+      const firstPost = page * postsPerPage;
+
+      microPosts.forEach(post => {
+        post.hidden = true;
+      });
+
+      filteredPosts.slice(firstPost, firstPost + postsPerPage).forEach(post => {
+        post.hidden = false;
+      });
+
+      previousPage.disabled = page === 0;
+      nextPage.disabled = page >= pageCount - 1;
+    }
 
     tagButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const tag = button.dataset.tag;
+        selectedTag = button.dataset.tag;
+        page = 0;
 
         tagButtons.forEach(tagButton => {
           const selected = tagButton === button;
@@ -622,12 +655,23 @@
           tagButton.setAttribute('aria-pressed', selected.toString());
         });
 
-        microPosts.forEach(post => {
-          const matches = tag === 'all' || post.dataset.tags.split(' ').includes(tag);
-          post.hidden = !matches;
-        });
+        renderPosts();
       });
     });
+
+    previousPage.addEventListener('click', () => {
+      if (page > 0) {
+        page -= 1;
+        renderPosts();
+      }
+    });
+
+    nextPage.addEventListener('click', () => {
+      page += 1;
+      renderPosts();
+    });
+
+    renderPosts();
   </script>
   <script src="kaf.js"></script>
   <!--- tooltip script ---->
