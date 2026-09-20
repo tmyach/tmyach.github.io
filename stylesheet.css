@@ -1121,6 +1121,7 @@ ul.unstyled {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.7rem;
+  border: var(--border-thin);
 }
 
 .mb-bank .mb-tag:hover,
