@@ -436,7 +436,7 @@ html[data-theme="darkred"] body::before {
   --primary-dark: #b81e6b;
   --secondary: #f472b6;
   --border-thin: 1px dashed #d63384;
-  --shadow: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
+  --shadow: inset 0px 0px 10px 0px rgba(155, 0, 90, 0.45);
   --highlight: #ffd7e5;
    --primary-rgb: 214, 51, 132;
   --primary-dark-rgb: 184, 30, 107;
