@@ -1188,6 +1188,7 @@ ul.unstyled {
   margin: 0 0 0.55rem;
   border: none;
   object-fit: contain;
+  margin-bottom: 20px;
 }
 
 .mb-tags {
