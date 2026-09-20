@@ -529,8 +529,8 @@ html[data-theme="sephpink"] body::before {
 --border-thin-solid: 1px solid rgba(0,229,255,0.5);
 --border-subtle: 1px dotted rgba(159,184,200,0.12);
 --shadow:
-0 0 20px rgba(0,229,255,0.5),
-inset 0 0 14px rgba(0,183,203,0.28);
+0 0 20px rgba(0, 229, 255, 0.35),
+inset 0 0 14px rgba(0, 229, 255, 0.12);
 --highlight: #ff2ec7;
 --outline-thin: 1px dotted rgba(0,229,255,0.85);
  --primary-rgb: 0, 229, 255;
