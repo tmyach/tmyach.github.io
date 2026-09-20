@@ -5,4 +5,5 @@ site:
     title: The Bird's Eye View
     description: A website recently generated with PieCrust
     pretty_urls: true
+    hide_quickstart: true
 
