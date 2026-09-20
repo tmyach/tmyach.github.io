@@ -33,16 +33,20 @@
     order: 7;
   }
 
-  .sidebar-left .block:has(#collection) {
+  .sidebar-left .content.block.mb {
     order: 8;
   }
 
-  .content.block.changelog {
+  .sidebar-left .block:has(#collection) {
     order: 9;
   }
 
-  #extra {
+  .content.block.changelog {
     order: 10;
+  }
+
+  #extra {
+    order: 11;
     width: 100%;
   }
 
