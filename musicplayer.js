@@ -6,6 +6,7 @@ let timer;
 
 
 const videoIds = [
+  "yp1IxcaRlIs" // ADÉLA - MachineGirl
   "p_Yw0q8QVFQ", //Hikaru Utada - Automatic
   "UETz-QsfNl0", //Addison Rae - In The Rain
   "7nxWP9BhI7w", //Portishead - Roads
@@ -36,6 +37,7 @@ const videoIds = [
 
 
 const titles = [
+  "ADÉLA - MachineGirl"
   "Hikaru Utada - Automatic",
   "Addison Rae - In The Rain",
   "Portishead - Roads",
