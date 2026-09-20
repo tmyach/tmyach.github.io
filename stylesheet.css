@@ -1088,6 +1088,7 @@ ul.unstyled {
   margin: -0.25rem 0 0.9rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  padding-bottom: 10px;
 }
 
 .mb-label {
@@ -1101,8 +1102,8 @@ ul.unstyled {
   display: inline-block;
   padding: 0.1rem 0.45rem;
   color: var(--secondary);
-  border: 1px solid color-mix(in srgb, var(--secondary) 55%, transparent);
-  border-radius: 999px;
+  border-top: var(--border-thin);
+  border-radius: 10px;
   line-height: 1.35;
 }
 
@@ -1135,11 +1136,11 @@ ul.unstyled {
 .mb-post {
   display: block;
   padding: 0.8rem 0;
-  border-top: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
+  border-top: var(--border-thin);
 }
 
 .mb-post:last-child {
-  border-bottom: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
+  border-top: var(--border-thin);
 }
 
 .mb-date {
@@ -1147,20 +1148,21 @@ ul.unstyled {
   margin-bottom: 0.2rem;
   color: var(--ink-soft);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.7rem;
 }
 
 .mb-body h3 {
   margin-bottom: 0.2rem;
   color: var(--primary);
-  font-family: var(--font-sub);
-  font-size: 0.95rem;
+  font-family: var(--font-hwr);
+  font-size: 1rem;
 }
 
 .mb-body p {
   margin-bottom: 0.45rem;
   font-size: 0.85rem;
   line-height: 1.5;
+  font-family: var(--font-hwr);
 }
 
 .mb-tags {
