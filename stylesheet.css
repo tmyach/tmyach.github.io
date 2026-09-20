@@ -1130,6 +1130,17 @@ ul.unstyled {
   background: var(--secondary);
 }
 
+.mb-bank .mb-tag[data-tag="all"] {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.mb-bank .mb-tag[data-tag="all"]:hover,
+.mb-bank .mb-tag[data-tag="all"].active {
+  color: var(--bg);
+  background: var(--primary);
+}
+
 .mb-posts {
   display: flex;
   flex-direction: column;
