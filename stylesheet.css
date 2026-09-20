@@ -903,7 +903,7 @@ div.imgotw-txt {
   outline-offset: -4px; */
   background: rgba(var(--tr), 0.6);
   padding: 1.2rem;
- box-shadow: inset 0 2px 0 rgba(240, 248, 255, 0.28), 0 4px 16px rgba(155, 0, 90, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+ box-shadow: var(--shadow);
   border-radius: 10px;  
     -webkit-backdrop-filter: blur(5px);
 }
@@ -913,7 +913,7 @@ div.imgotw-txt {
   outline-offset: -4px; */
   background: rgba(var(--tr), 0.6);
   padding: 1.2rem;
- box-shadow: inset 0 2px 0 rgba(240, 248, 255, 0.28), 0 4px 16px rgba(155, 0, 90, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+ box-shadow: var(--shadow);
   border-radius: 10px;  
     -webkit-backdrop-filter: blur(5px);
 }
