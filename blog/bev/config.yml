@@ -1,9 +1,0 @@
-
-# For more settings, see: https://bolt80.com/piecrust/en/latest/docs/reference/website-configuration/
-
-site:
-    title: The Bird's Eye View
-    description: A website recently generated with PieCrust
-    pretty_urls: true
-    hide_quickstart: true
-
