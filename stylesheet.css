@@ -22,7 +22,7 @@
   --border-thin-solid: 1px solid var(--primary);
   --border-subtle: 1px dotted var(--ink-soft);
   --outline: 1px dotted var(--primary);
-  --shadow: inset 0px 0px 10px 0px rgba(8, 76, 103, 0.3);
+  --shadow: inset 0px 0px 10px 0px rgba(74, 136, 151, 0.42);
   --highlight: #3f736e;
     --highlight-rgb: 63, 115, 110;
   --primary-rgb: 147, 191, 186;
@@ -391,7 +391,7 @@ html[data-theme="light"] body::before {
   --primary-dark: #c76d63;
   --secondary: #d66a60;
   --border-thin: 1px dotted var(--primary);
-  --shadow: inset 0px 0px 10px 0px rgba(103, 8, 8, 0.3);
+  --shadow: inset 0px 0px 10px 0px rgba(210, 28, 45, 0.48);
   --highlight: #e68a80;
    --primary-rgb: 230, 138, 128;
   --primary-dark-rgb: 199, 109, 99;
@@ -436,7 +436,7 @@ html[data-theme="darkred"] body::before {
   --primary-dark: #b81e6b;
   --secondary: #f472b6;
   --border-thin: 1px dashed #d63384;
-  --shadow: inset 0px 0px 10px 0px rgba(155, 0, 90, 0.45);
+  --shadow: inset 0px 0px 10px 0px rgba(214, 51, 132, 0.38);
   --highlight: #ffd7e5;
    --primary-rgb: 214, 51, 132;
   --primary-dark-rgb: 184, 30, 107;
@@ -479,7 +479,7 @@ html[data-theme="pink"] body::before {
   --primary-dark: #b81e6b;
   --secondary: #f472b6;
   --border-thin: 1px dashed #d63384;
-  --shadow: inset 0px 0px 10px 0px rgba(103, 8, 85, 0.3);
+  --shadow: inset 0px 0px 10px 0px rgba(214, 51, 132, 0.38);
   --highlight: #ffd7e5;
    --primary-rgb: 214, 51, 132;
   --primary-dark-rgb: 184, 30, 107;
@@ -529,9 +529,8 @@ html[data-theme="sephpink"] body::before {
 --border-thin-solid: 1px solid rgba(0,229,255,0.5);
 --border-subtle: 1px dotted rgba(159,184,200,0.12);
 --shadow:
-8px 8px 24px rgba(0,0,0,0.7),
--6px -6px 18px rgba(10,18,28,0.6),
-inset 0 0 12px rgba(0,229,255,0.06);
+0 0 20px rgba(0,229,255,0.5),
+inset 0 0 14px rgba(0,183,203,0.28);
 --highlight: #ff2ec7;
 --outline-thin: 1px dotted rgba(0,229,255,0.85);
  --primary-rgb: 0, 229, 255;
@@ -1093,6 +1092,7 @@ ul.unstyled {
 
 .mb-label {
   color: var(--ink-soft);
+  font-size: 0.58rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1151,15 +1151,9 @@ ul.unstyled {
 }
 
 .mb-num {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  color: var(--bg);
-  background: var(--primary);
-  border-radius: 50%;
-  font-family: var(--font-title);
-  font-size: 0.85rem;
+  color: var(--secondary);
+  font-family: var(--font-hwr);
+  font-size: 1rem;
 }
 
 .mb-body h3 {
