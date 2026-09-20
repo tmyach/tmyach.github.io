@@ -1180,6 +1180,15 @@ ul.unstyled {
   font-family: var(--font-mono);
 }
 
+.mb-img {
+  display: block;
+  width: 120px;
+  height: 80px;
+  margin: 0 0 0.55rem;
+  border: var(--border-thin);
+  object-fit: contain;
+}
+
 .mb-tags {
   display: flex;
   flex-wrap: wrap;
