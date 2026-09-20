@@ -1178,7 +1178,7 @@ ul.unstyled {
   font-family: var(--font-mono);
 }
 
-mb-body a {
+.mb-body a {
   color: var(--ink);
   text-decoration: none;
   font-size: 0.78rem;
