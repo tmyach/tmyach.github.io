@@ -1085,7 +1085,6 @@ ul.unstyled {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
-  margin: -0.25rem 0 0.9rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding-bottom: 10px;
@@ -1095,8 +1094,6 @@ ul.unstyled {
 .mb-label {
   color: var(--ink-soft);
   font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   font-family: var(--font-mono);
 }
 
@@ -1112,7 +1109,7 @@ ul.unstyled {
 
 .mb-tags .mb-tag {
   padding: 0.05rem 0.35rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .mb-bank .mb-tag {
@@ -1121,7 +1118,7 @@ ul.unstyled {
   box-shadow: none;
   cursor: pointer;
   font-family: var(--font-hwr);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   border: var(--border-thin);
 }
 
