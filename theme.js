@@ -4,6 +4,9 @@ const html = document.documentElement;
 function setTheme(value) {
   html.setAttribute("data-theme", value);
   localStorage.setItem("theme", value);
+  document.querySelectorAll("iframe.microblog-frame").forEach((frame) => {
+    frame.contentWindow?.postMessage({ type: "theme-change", theme: value }, window.location.origin);
+  });
 }
 
 select.addEventListener("change", (e) => setTheme(e.target.value));
