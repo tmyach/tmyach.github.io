@@ -1,0 +1,13 @@
+---
+title: 
+format: markdown
+---
+
+{% for post in pagination.posts %}
+* {{post.date}} **[{{post.title}}]({{post.url}})**{%if post.hint%}: {{post.hint}}{%endif%}
+{% endfor %}
+
+<section>
+    {% if pagination.prev_page %}<div class="prev"><a href="{{ pagination.prev_page }}">Next Posts</a></div>{% endif %}
+    {% if pagination.next_page %}<div class="next"><a href="{{ pagination.next_page }}">Previous Posts</a></div>{% endif %}
+</section>
