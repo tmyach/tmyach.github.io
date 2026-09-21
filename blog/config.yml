@@ -1,0 +1,7 @@
+site:
+	title: "The Bird's Eye View"
+	description: "My blog!"
+	pretty_urls: true
+	posts_per_page: 5
+	timezone: UTC
+	auto_urls: true
