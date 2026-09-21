@@ -1120,6 +1120,7 @@ ul.unstyled {
   font-family: var(--font-hwr);
   font-size: 0.8rem;
   border: var(--border-thin);
+  border-color: var(--secondary);
 }
 
 .mb-bank .mb-tag:hover,
