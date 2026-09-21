@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Microblog</title>
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="responsive.css">
+	<link rel="stylesheet" href="fonts.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
+	<style>
+		html,
+		body {
+			background: transparent !important;
+			background-image: none !important;
+		}
+
+		body {
+			margin: 0;
+			overflow: visible;
+		}
+
+		.mb-bank {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.35rem;
+			font-family: var(--font-mono);
+			font-size: 0.7rem;
+			padding-bottom: 10px;
+			padding-left: 5px;
+		}
+
+		.mb-label {
+			color: var(--ink-soft);
+			font-size: 0.8rem;
+			font-family: var(--font-mono);
+		}
+
+		.mb-tag {
+			display: inline-block;
+			padding: 0.1rem 0.45rem;
+			color: var(--secondary);
+			border-radius: 10px;
+			line-height: 1.35;
+			border: var(--border-thin);
+			font-family: var(--font-hwr);
+			border-color: var(--secondary);
+		}
+
+		.mb-tags .mb-tag {
+			padding: 0.05rem 0.35rem;
+			font-size: 0.8rem;
+		}
+
+		.mb-bank .mb-tag {
+			appearance: none;
+			background: transparent;
+			box-shadow: none;
+			cursor: pointer;
+			font-family: var(--font-hwr);
+			font-size: 0.8rem;
+			border: var(--border-thin);
+			border-color: var(--secondary);
+		}
+
+		.mb-bank .mb-tag:hover,
+		.mb-bank .mb-tag.active {
+			color: var(--bg);
+			background: var(--secondary);
+		}
+
+		.mb-bank .mb-tag[data-tag="all"] {
+			color: var(--primary);
+			border-color: var(--primary);
+		}
+
+		.mb-bank .mb-tag[data-tag="all"]:hover,
+		.mb-bank .mb-tag[data-tag="all"].active {
+			color: var(--bg);
+			background: var(--primary);
+		}
+
+		.mb-post {
+			display: block;
+			padding: 0.8rem 0;
+			border-top: var(--border-thin);
+		}
+
+		.mb-post:last-child {
+			border-top: var(--border-thin);
+		}
+
+		.mb-posts {
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+
+		.mb-date {
+			display: block;
+			margin-bottom: 0.2rem;
+			color: var(--ink-soft);
+			font-family: var(--font-mono);
+			font-size: 0.7rem;
+		}
+
+		.mb-body h3 {
+			margin: 0 0 0.2rem;
+			color: var(--primary);
+			font-family: var(--font-hwr);
+			line-height: 1.1;
+			font-size: 1.2rem;
+		}
+
+		.mb-body p {
+			margin: 0 0 0.45rem;
+			color: var(--ink);
+			font-size: 0.85rem;
+			line-height: 1.5;
+			font-family: var(--font-mono);
+		}
+
+		.mb-body a {
+			color: var(--secondary);
+			text-decoration: none;
+			font-size: 0.78rem;
+			font-weight: bold;
+		}
+
+		.mb-img {
+			display: block;
+			width: 120px;
+			height: 120px;
+			margin: 0 0 20px;
+			border: none;
+			object-fit: cover;
+		}
+
+		.mb-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.3rem;
+		}
+
+		.mb-pages {
+			display: flex;
+			justify-content: space-between;
+			gap: 0.6rem;
+			margin-top: 0.8rem;
+			padding-top: 0.7rem;
+			border-top: var(--border-thin);
+		}
+
+		.mb-pages button {
+			min-width: 2.2rem;
+			padding: 0.45rem 0.6rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="microblog-doc">
+		<div class="mb-bank" aria-label="microblog tags" style="padding-bottom: 20px;">
+			<span class="mb-label">Tags:</span>
+			<button class="mb-tag active" type="button" data-tag="all" aria-pressed="true">all</button>
+			<button class="mb-tag" type="button" data-tag="thoughts" aria-pressed="false">thoughts</button>
+			<button class="mb-tag" type="button" data-tag="politics" aria-pressed="false">politics</button>
+			<button class="mb-tag" type="button" data-tag="website" aria-pressed="false">website</button>
+		</div>
+
+		<article class="mb-post" data-tags="website">
+			<div class="mb-body">
+				<time class="mb-date" datetime="2026-09-20">9/20/2026</time>
+				<h3>revelation</h3>
+				<p>I should make a website theme based on this masterpiece ... I can't WAIT for Revelation omg.</p>
+				<img class="mb-img" src="microblog/revelation.jpg" alt="ff7 revelation promo">
+				<div class="mb-tags" aria-label="tags">
+					<span class="mb-tag">website</span>
+				</div>
+			</div>
+		</article>
+
+		<div class="mb-posts">
+			<article class="mb-post" data-tags="thoughts website">
+				<div class="mb-body">
+					<time class="mb-date" datetime="2026-09-20">9/20/2026</time>
+					<h3>PIECRUST</h3>
+					<p>thank GOD for <a href="https://bolt80.com/piecrust/">piecrust</a> bc I've tried EVERY STATIC WEBSITE GENERATOR out there and yet they're either too complex for my purposes or flat out don't work ... FINALLYYYYY</p>
+					<div class="mb-tags" aria-label="tags">
+						<span class="mb-tag">thoughts</span>
+						<span class="mb-tag">website</span>
+					</div>
+				</div>
+			</article>
+
+			<article class="mb-post" data-tags="politics">
+				<div class="mb-body">
+					<time class="mb-date" datetime="2026-09-20">9/20/2026</time>
+					<h3>jooe biiden wake up ... jooe biiden</h3>
+					<p>I miss dark brandon 😔</p>
+					<img class="mb-img" src="microblog/darkb.jpg" alt="dark brandon">
+					<div class="mb-tags" aria-label="tags">
+						<span class="mb-tag">politics</span>
+					</div>
+				</div>
+			</article>
+
+			<article class="mb-post" data-tags="thoughts">
+				<div class="mb-body">
+					<time class="mb-date" datetime="2026-09-19">9/19/2026</time>
+					<h3>first microblog post!</h3>
+					<p>yayy I can't wait to write in here!! :D<br><br>compared to my actual blog, my microblog will be a space to share my small thoughts</p>
+					<div class="mb-tags" aria-label="tags">
+						<span class="mb-tag">thoughts</span>
+					</div>
+				</div>
+			</article>
+		</div>
+
+		<div class="mb-pages" aria-label="mb pages">
+			<button id="mb-prev" type="button" aria-label="previous page">
+				<span class="material-symbols" aria-hidden="true">first_page</span>
+			</button>
+			<button id="mb-next" type="button" aria-label="next page">
+				<span class="material-symbols" aria-hidden="true">last_page</span>
+			</button>
+		</div>
+	</div>
+
+	<script>
+		const tagButtons = document.querySelectorAll('.mb-bank [data-tag]');
+		const microPosts = document.querySelectorAll('.mb-post');
+		const previousPage = document.getElementById('mb-prev');
+		const nextPage = document.getElementById('mb-next');
+		const postsPerPage = 2;
+		let selectedTag = 'all';
+		let page = 0;
+
+		function renderPosts() {
+			const filteredPosts = [...microPosts].filter(post => {
+				return selectedTag === 'all' || post.dataset.tags.split(' ').includes(selectedTag);
+			});
+			const pageCount = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
+			const firstPost = page * postsPerPage;
+
+			microPosts.forEach(post => {
+				post.hidden = true;
+				post.style.display = 'none';
+			});
+
+			filteredPosts.slice(firstPost, firstPost + postsPerPage).forEach(post => {
+				post.hidden = false;
+				post.style.display = 'block';
+			});
+
+			previousPage.disabled = page === 0;
+			nextPage.disabled = page >= pageCount - 1;
+			sendHeight();
+		}
+
+		tagButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				selectedTag = button.dataset.tag;
+				page = 0;
+
+				tagButtons.forEach(tagButton => {
+					const selected = tagButton === button;
+					tagButton.classList.toggle('active', selected);
+					tagButton.setAttribute('aria-pressed', selected.toString());
+				});
+
+				renderPosts();
+			});
+		});
+
+		previousPage.addEventListener('click', () => {
+			if (page > 0) {
+				page -= 1;
+				renderPosts();
+			}
+		});
+
+		nextPage.addEventListener('click', () => {
+			page += 1;
+			renderPosts();
+		});
+
+		function sendHeight() {
+			window.parent.postMessage({
+				type: 'microblog-height',
+				height: document.querySelector('.microblog-doc').getBoundingClientRect().height
+			}, window.location.origin);
+		}
+
+		window.addEventListener('message', event => {
+			if (event.origin !== window.location.origin || event.data?.type !== 'theme-change') {
+				return;
+			}
+
+			document.documentElement.dataset.theme = event.data.theme;
+			sendHeight();
+		});
+
+		const initialTheme = window.parent.document.documentElement.dataset.theme;
+		if (initialTheme) {
+			document.documentElement.dataset.theme = initialTheme;
+		}
+
+		function sendReadyHeight() {
+			if (document.fonts?.ready) {
+				document.fonts.ready.then(sendHeight);
+			} else {
+				sendHeight();
+			}
+		}
+
+		new ResizeObserver(sendHeight).observe(document.querySelector('.microblog-doc'));
+		renderPosts();
+		window.addEventListener('load', sendReadyHeight);
+	</script>
+</body>
+</html>

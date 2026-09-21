@@ -121,60 +121,7 @@
 
        <div class="content block mb">
   <h2 class="block-title">Microblog</h2>
-  <div class="mb-bank" aria-label="Microblog tags" style="padding-bottom: 20px;">
-    <span class="mb-label">Tags:</span>
-    <button class="mb-tag active" type="button" data-tag="all" aria-pressed="true">all</button>
-    <button class="mb-tag" type="button" data-tag="thoughts" aria-pressed="false">thoughts</button>
-    <button class="mb-tag" type="button" data-tag="politics" aria-pressed="false">politics</button>
-    <button class="mb-tag" type="button" data-tag="website" aria-pressed="false">website</button>
-  </div>
-
-  <div class="mb-posts">
-    <article class="mb-post" data-tags="thoughts website">
-      <div class="mb-body">
-        <time class="mb-date" datetime="2026-09-20">9/20/2026</time>
-        <h3>PIECRUST</h3>
-        <p>thank GOD for <a href="https://bolt80.com/piecrust/">piecrust</a> bc I've tried EVERY STATIC WEBSITE GENERATOR out there and yet they're either too complex for my purposes or flat out don't work ... FINALLYYYYY</p>
-        <div class="mb-tags" aria-label="tags">
-          <span class="mb-tag">thoughts</span>
-          <span class="mb-tag">website</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="mb-post" data-tags="politics">
-      <div class="mb-body">
-        <time class="mb-date" datetime="2026-09-20">9/20/2026</time>
-        <h3>jooe biiden wake up ... jooe biiden</h3>
-        <p>I miss dark brandon 😔</p>
-        <img class="mb-img" src="microblog/darkb.jpg" alt="dark brandon">
-        <div class="mb-tags" aria-label="tags">
-          <span class="mb-tag">politics</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="mb-post" data-tags="thoughts">
-      <div class="mb-body">
-        <time class="mb-date" datetime="2026-09-19">9/19/2026</time>
-        <h3>first microblog post!</h3>
-        <p>yayy I can't wait to write in here!! :D<br><br>compared to my actual blog, my microblog will be a space to share my small thoughts</p>
-        <div class="mb-tags" aria-label="tags">
-          <span class="mb-tag">thoughts</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-  <div class="mb-pages" aria-label="mb pages">
-    <button id="mb-prev" type="button" aria-label="Previous page">
-      <span class="material-symbols" aria-hidden="true">first_page</span>
-    </button>
-    <button id="mb-next" type="button" aria-label="Next page">
-      <span class="material-symbols" aria-hidden="true">last_page</span>
-    </button>
-  </div>
-
+  <iframe class="microblog-frame" src="microblog.html" title="Microblog" scrolling="no"></iframe>
 </div>
 
 <div class="block">
@@ -630,61 +577,24 @@
   });
   </script>
   <script>
-    const tagButtons = document.querySelectorAll('.mb-bank [data-tag]');
-    const microPosts = document.querySelectorAll('.mb-post');
-    const previousPage = document.getElementById('mb-prev');
-    const nextPage = document.getElementById('mb-next');
-    const postsPerPage = 2;
-    let selectedTag = 'all';
-    let page = 0;
+    const microblogFrame = document.querySelector('.microblog-frame');
 
-    function renderPosts() {
-      const filteredPosts = [...microPosts].filter(post => {
-        return selectedTag === 'all' || post.dataset.tags.split(' ').includes(selectedTag);
-      });
-      const pageCount = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
-      const firstPost = page * postsPerPage;
-
-      microPosts.forEach(post => {
-        post.hidden = true;
-      });
-
-      filteredPosts.slice(firstPost, firstPost + postsPerPage).forEach(post => {
-        post.hidden = false;
-      });
-
-      previousPage.disabled = page === 0;
-      nextPage.disabled = page >= pageCount - 1;
+    function syncMicroblogTheme() {
+      microblogFrame.contentWindow.postMessage({
+        type: 'theme-change',
+        theme: document.documentElement.dataset.theme || 'dark'
+      }, window.location.origin);
     }
 
-    tagButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        selectedTag = button.dataset.tag;
-        page = 0;
-
-        tagButtons.forEach(tagButton => {
-          const selected = tagButton === button;
-          tagButton.classList.toggle('active', selected);
-          tagButton.setAttribute('aria-pressed', selected.toString());
-        });
-
-        renderPosts();
-      });
-    });
-
-    previousPage.addEventListener('click', () => {
-      if (page > 0) {
-        page -= 1;
-        renderPosts();
+    window.addEventListener('message', event => {
+      if (event.source !== microblogFrame.contentWindow || event.data?.type !== 'microblog-height') {
+        return;
       }
+
+      microblogFrame.style.height = `${event.data.height}px`;
     });
 
-    nextPage.addEventListener('click', () => {
-      page += 1;
-      renderPosts();
-    });
-
-    renderPosts();
+    microblogFrame.addEventListener('load', syncMicroblogTheme);
   </script>
   <script src="kaf.js"></script>
   <!--- tooltip script ---->

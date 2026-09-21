@@ -867,6 +867,15 @@ ul.menu {
     /*grid-column: 2;*/
 }
 
+.microblog-frame {
+  display: block;
+  width: 100%;
+  min-height: 1px;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
 div.imgotw {
   /*width: 80%;*/
   background-color: var(--bg-card-back);
@@ -1093,7 +1102,7 @@ ul.unstyled {
 
 .mb-label {
   color: var(--ink-soft);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-family: var(--font-mono);
 }
 
@@ -1105,6 +1114,7 @@ ul.unstyled {
   line-height: 1.35;
   border: var(--border-thin);
   font-family: var(--font-hwr);
+  border-color: var(--secondary);
 }
 
 .mb-tags .mb-tag {
@@ -1120,6 +1130,7 @@ ul.unstyled {
   font-family: var(--font-hwr);
   font-size: 0.8rem;
   border: var(--border-thin);
+  border-color: var(--secondary);
 }
 
 .mb-bank .mb-tag:hover,
@@ -1168,7 +1179,7 @@ ul.unstyled {
   color: var(--primary);
   font-family: var(--font-hwr);
   line-height: 1.1;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .mb-body p {
@@ -1191,7 +1202,7 @@ ul.unstyled {
   height: 120px;
   margin: 0 0 0.55rem;
   border: none;
-  object-fit: contain;
+  object-fit: cover;
   margin-bottom: 20px;
 }
 
