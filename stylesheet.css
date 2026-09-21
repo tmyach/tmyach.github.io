@@ -1105,6 +1105,7 @@ ul.unstyled {
   line-height: 1.35;
   border: var(--border-thin);
   font-family: var(--font-hwr);
+  border-color: var(--secondary);
 }
 
 .mb-tags .mb-tag {
