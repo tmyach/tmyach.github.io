@@ -867,7 +867,7 @@ ul.menu {
     /*grid-column: 2;*/
 }
 
-.microblog {
+.microblog-frame {
   display: block;
   width: 100%;
   min-height: 1px;
