@@ -247,10 +247,12 @@
 
 			microPosts.forEach(post => {
 				post.hidden = true;
+				post.style.display = 'none';
 			});
 
 			filteredPosts.slice(firstPost, firstPost + postsPerPage).forEach(post => {
 				post.hidden = false;
+				post.style.display = 'block';
 			});
 
 			previousPage.disabled = page === 0;
