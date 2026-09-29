@@ -12,11 +12,11 @@
             "file": "${workspaceFolder}/index.html"
         },
         {
-            "name": "Launch local server (port 8000)",
+            "name": "Launch localhost",
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "url": "http://127.0.0.1:8000/index.html",
+            "url": "http://localhost/index.html",
             "webRoot": "${workspaceFolder}"
         },
         {
