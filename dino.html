@@ -45,7 +45,7 @@ body {
 
 #messageBox h1 {
   margin: 0;
-  padding: 0;
+  padding: 5px;
   color: #2b2b2b;
   font-family: 'karenbook', 'Open Sans', sans-serif;
   text-transform: uppercase;
@@ -227,7 +227,7 @@ body {
 
 <body id="t" class="offline">
     <div id="messageBox" class="sendmessage" aria-live="polite">
-         <h1>Press to start</h1>
+         <h1>Press to Play</h1>
          <div class="niokbutton" role="button" tabindex="0" aria-label="Start game" onclick="startGameFromUserInput()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); startGameFromUserInput(); }">Start</div>
     </div>
     <div id="main-frame-error" class="interstitial-wrapper">
