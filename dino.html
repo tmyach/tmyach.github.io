@@ -55,20 +55,21 @@ body {
 }
 
 .niokbutton {
-  width: clamp(64px, 18vw, 120px);
-  height: clamp(64px, 18vw, 120px);
-  border-radius: 50%;
-  border: 3px solid rgba(43, 43, 43, 0.7);
-  background: linear-gradient(145deg, #ffffff, #dfe7ee);
-  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
+    min-width: 7rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #2b2b2b;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #2b2b2b;
+    font: 700 1rem 'Open Sans', sans-serif;
+    text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .niokbutton:active,
 .niokbutton:hover {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.16);
+    background: #2b2b2b;
+    color: #ffffff;
 }
 
 .icon {
@@ -119,13 +120,39 @@ body {
 }
 
 .offline .controller {
-  background: rgba(247, 247, 247, .1);
-  height: 100vh;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  z-index: 1;
+    background: transparent;
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 10;
+}
+
+.mobile-control {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 0;
+    color: #000;
+    display: flex;
+    font: 1.5rem 'karenbook', 'Open Sans', sans-serif;
+    height: 3rem;
+    justify-content: center;
+    padding: 0;
+    pointer-events: auto;
+    position: absolute;
+    right: max(1rem, env(safe-area-inset-right));
+    width: 3rem;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.mobile-control-jump {
+    bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 3.5rem);
+}
+
+.mobile-control-duck {
+    bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
 #offline-resources {
@@ -200,8 +227,8 @@ body {
 
 <body id="t" class="offline">
     <div id="messageBox" class="sendmessage" aria-live="polite">
-         <h1>Press Space or Tap to Start</h1>
-         <div class="niokbutton" role="button" tabindex="0" aria-label="Start game" onclick="startGameFromUserInput()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); startGameFromUserInput(); }"></div>
+         <h1>Press to start</h1>
+         <div class="niokbutton" role="button" tabindex="0" aria-label="Start game" onclick="startGameFromUserInput()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); startGameFromUserInput(); }">Start</div>
     </div>
     <div id="main-frame-error" class="interstitial-wrapper">
         <div id="main-content">
@@ -680,6 +707,11 @@ body {
         createTouchController: function () {
             this.touchController = document.createElement('div');
             this.touchController.className = Runner.classes.TOUCH_CONTROLLER;
+            this.touchController.innerHTML =
+                '<button class="mobile-control mobile-control-jump" type="button" ' +
+                'data-key-code="32" aria-label="Jump">↑</button>' +
+                '<button class="mobile-control mobile-control-duck" type="button" ' +
+                'data-key-code="40" aria-label="Duck">↓</button>';
             this.outerContainerEl.appendChild(this.touchController);
         },
 
@@ -961,14 +993,19 @@ body {
          * @param {Event} e
          */
         onKeyDown: function (e) {
+            var control = e.target.closest && e.target.closest('.mobile-control');
+            if (control) {
+                e.keyCode = Number(control.dataset.keyCode);
+                e.preventDefault();
+            }
+
             // Prevent native page scrolling whilst tapping on mobile.
             if (IS_MOBILE && this.playing) {
                 e.preventDefault();
             }
 
             if (e.target != this.detailsButton) {
-                if (!this.crashed && (Runner.keycodes.JUMP[e.keyCode] ||
-                    e.type == Runner.events.TOUCHSTART)) {
+                if (!this.crashed && Runner.keycodes.JUMP[e.keyCode]) {
                     if (!this.playing) {
                         this.loadSounds();
                         this.playing = true;
@@ -984,7 +1021,8 @@ body {
                     }
                 }
 
-                if (this.crashed && e.type == Runner.events.TOUCHSTART &&
+                if (this.crashed && (e.type == Runner.events.TOUCHSTART ||
+                    e.type == Runner.events.POINTERDOWN) &&
                     e.currentTarget == this.containerEl) {
                     this.restart();
                 }
@@ -1008,9 +1046,14 @@ body {
          * @param {Event} e
          */
         onKeyUp: function (e) {
+            var control = e.target.closest && e.target.closest('.mobile-control');
+            if (control) {
+                e.keyCode = Number(control.dataset.keyCode);
+                e.preventDefault();
+            }
+
             var keyCode = String(e.keyCode);
             var isjumpKey = Runner.keycodes.JUMP[keyCode] ||
-                e.type == Runner.events.TOUCHEND ||
                 e.type == Runner.events.MOUSEDOWN;
 
             if (this.isRunning() && isjumpKey) {
