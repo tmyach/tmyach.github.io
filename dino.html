@@ -5,10 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <title >Chrome Dino</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
-    <link rel="stylesheet" href="fonts.css">
-    <script src="index.js"></script>
 </head>
 
 <style>
@@ -21,6 +17,58 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background: #f7f7f7;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  overflow: hidden;
+}
+
+#messageBox {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: rgba(247, 247, 247, 0.82);
+  backdrop-filter: blur(1px);
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#messageBox h1 {
+  margin: 0;
+  padding: 0;
+  color: #2b2b2b;
+  font-family: 'karenbook', 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+
+.niokbutton {
+  width: clamp(64px, 18vw, 120px);
+  height: clamp(64px, 18vw, 120px);
+  border-radius: 50%;
+  border: 3px solid rgba(43, 43, 43, 0.7);
+  background: linear-gradient(145deg, #ffffff, #dfe7ee);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.niokbutton:active,
+.niokbutton:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.16);
 }
 
 .icon {
@@ -151,9 +199,9 @@ html, body {
 </style>
 
 <body id="t" class="offline">
-    <div id="messageBox" class="sendmessage">
-         <h1 style="text-align: center;font-family: 'karenbook', 'Open Sans', sans-serif;text-transform: uppercase;padding: 5px;">Press Space to start</h1>
-         <div class="niokbutton" onclick="okbuttonsend()"></div>
+    <div id="messageBox" class="sendmessage" aria-live="polite">
+         <h1>Press Space or Tap to Start</h1>
+         <div class="niokbutton" role="button" tabindex="0" aria-label="Start game" onclick="startGameFromUserInput()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); startGameFromUserInput(); }"></div>
     </div>
     <div id="main-frame-error" class="interstitial-wrapper">
         <div id="main-content">
@@ -172,13 +220,57 @@ html, body {
 </body>
 
 <script>
-    document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    if (evt.keyCode == 32) {
+    function hideMessageBox() {
         var box = document.getElementById("messageBox");
-        box.style.visibility="hidden";
+        if (box) {
+            box.style.display = "none";
+        }
     }
-};
+
+    function startGameFromUserInput() {
+        hideMessageBox();
+
+        var runner = window.Runner && window.Runner.instance_;
+        if (runner && typeof runner.onKeyDown === 'function') {
+            runner.onKeyDown({
+                type: 'touchstart',
+                keyCode: 32,
+                preventDefault: function () {},
+                target: document.body,
+                currentTarget: document.body,
+                button: 0
+            });
+            return;
+        }
+
+        var evt = document.createEvent('Event');
+        evt.initEvent('keydown', true, true);
+        evt.keyCode = 32;
+        evt.which = 32;
+        evt.code = 'Space';
+        evt.key = ' ';
+        document.dispatchEvent(evt);
+    }
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode == 32) {
+            hideMessageBox();
+        }
+    };
+
+    document.addEventListener('touchstart', function(evt) {
+        if (evt.target && (evt.target.closest('#messageBox') || evt.target.closest('.niokbutton'))) {
+            evt.preventDefault();
+            startGameFromUserInput();
+        }
+    }, { passive: false });
+
+    document.addEventListener('click', function(evt) {
+        if (evt.target && (evt.target.closest('#messageBox') || evt.target.closest('.niokbutton'))) {
+            startGameFromUserInput();
+        }
+    });
 </script>
 
 <script>// Copyright (c) 2014 The Chromium Authors. All rights reserved.
@@ -276,10 +368,16 @@ html, body {
     var IS_IOS = /iPad|iPhone|iPod/.test(window.navigator.platform);
 
     /** @const */
-    var IS_MOBILE = /Android/.test(window.navigator.userAgent) || IS_IOS;
+    var HAS_TOUCH_CAPABILITY = 'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 
     /** @const */
-    var IS_TOUCH_ENABLED = 'ontouchstart' in window;
+    var IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/.test(
+        window.navigator.userAgent || '') || IS_IOS || HAS_TOUCH_CAPABILITY;
+
+    /** @const */
+    var IS_TOUCH_ENABLED = HAS_TOUCH_CAPABILITY;
 
     /**
      * Default game configuration.
@@ -401,6 +499,8 @@ html, body {
         KEYUP: 'keyup',
         MOUSEDOWN: 'mousedown',
         MOUSEUP: 'mouseup',
+        POINTERDOWN: 'pointerdown',
+        POINTERUP: 'pointerup',
         RESIZE: 'resize',
         TOUCHEND: 'touchend',
         TOUCHSTART: 'touchstart',
@@ -794,11 +894,13 @@ html, body {
                     case events.KEYDOWN:
                     case events.TOUCHSTART:
                     case events.MOUSEDOWN:
+                    case events.POINTERDOWN:
                         this.onKeyDown(e);
                         break;
                     case events.KEYUP:
                     case events.TOUCHEND:
                     case events.MOUSEUP:
+                    case events.POINTERUP:
                         this.onKeyUp(e);
                         break;
                 }
@@ -813,11 +915,17 @@ html, body {
             document.addEventListener(Runner.events.KEYDOWN, this);
             document.addEventListener(Runner.events.KEYUP, this);
 
-            if (IS_MOBILE) {
-                // Mobile only touch devices.
+            if (IS_MOBILE || IS_TOUCH_ENABLED) {
+                // Mobile and touch-capable devices.
                 this.touchController.addEventListener(Runner.events.TOUCHSTART, this);
                 this.touchController.addEventListener(Runner.events.TOUCHEND, this);
                 this.containerEl.addEventListener(Runner.events.TOUCHSTART, this);
+
+                if (window.PointerEvent) {
+                    this.touchController.addEventListener(Runner.events.POINTERDOWN, this);
+                    this.touchController.addEventListener(Runner.events.POINTERUP, this);
+                    this.containerEl.addEventListener(Runner.events.POINTERDOWN, this);
+                }
             } else {
                 // Mouse.
                 document.addEventListener(Runner.events.MOUSEDOWN, this);
@@ -832,10 +940,16 @@ html, body {
             document.removeEventListener(Runner.events.KEYDOWN, this);
             document.removeEventListener(Runner.events.KEYUP, this);
 
-            if (IS_MOBILE) {
+            if (IS_MOBILE || IS_TOUCH_ENABLED) {
                 this.touchController.removeEventListener(Runner.events.TOUCHSTART, this);
                 this.touchController.removeEventListener(Runner.events.TOUCHEND, this);
                 this.containerEl.removeEventListener(Runner.events.TOUCHSTART, this);
+
+                if (window.PointerEvent) {
+                    this.touchController.removeEventListener(Runner.events.POINTERDOWN, this);
+                    this.touchController.removeEventListener(Runner.events.POINTERUP, this);
+                    this.containerEl.removeEventListener(Runner.events.POINTERDOWN, this);
+                }
             } else {
                 document.removeEventListener(Runner.events.MOUSEDOWN, this);
                 document.removeEventListener(Runner.events.MOUSEUP, this);

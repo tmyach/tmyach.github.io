@@ -40,10 +40,43 @@
       display: block;
       width: 100%;
       height: 300px;
+      max-width: 100%;
       margin-top: 1.5rem;
       border: var(--border-thin-solid);
       border-radius: 8px;
       background: #f7f7f7;
+      overflow: hidden;
+      aspect-ratio: 2 / 1;
+    }
+
+    @media (max-width: 640px) {
+      .error-main {
+        padding: 1rem 0.75rem;
+      }
+
+      .error-frame {
+        max-width: 100%;
+      }
+
+      .error-code {
+        font-size: 3rem;
+      }
+
+      .error-msg {
+        font-size: 1.25rem;
+      }
+
+      .dino {
+        height: 220px;
+        min-height: 220px;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (min-width: 641px) {
+      .dino {
+        height: 320px;
+      }
     }
 
     .error-code {
