@@ -6,21 +6,23 @@ let timer;
 
 
 const videoIds = [
+  
   "yGPwec9z-Yg", //PinkPantheress - Tonight
   "yp1IxcaRlIs", //ADÉLA - MachineGirl
+  "ySWIyJj3I0", // Rihanna - Only Girl (In The World)
+  "5q7byFPTehs", // Lady Gaga - Just Dance
   "kp47qpqpPGs", //Don Toliver - Excavator
   "4X99ILim7lY", //Wizkid - Break Me Down
   "p_Yw0q8QVFQ", //Hikaru Utada - Automatic
   "UETz-QsfNl0", //Addison Rae - In The Rain
+  "XHflE7pAEc8", // Coldplay - Hymn For The Weekend
+  "2PpBU7EfiEY", // Imogen Heap - Headlock
   "7nxWP9BhI7w", //Portishead - Roads
   "fXmEJLMgY8M", //Björk - Play Dead
   "nkzFnXEKs5Y", //Erykah Badu - Other Side Of The Game
-  "g_BMBFR-0nI", //Lauryn Hill - Everything is Everything
   "4Syy0Zhcki8", //El Da Sensei, P Original - Course Of My Life
   "OBBlIfUH9bY", //Bob Marley & The Wailers - Misty Morning
-  "GfG7DasXge8", //Peter Tosh - Peace Treaty
   "zIp7o53dfmY", //Thievery Corporation - Amerimacka
-  "4TeshUpfml4", //Calle 13 - Latinoamérica
   "VC40Y6VosO0", //The Jimi Hendrix Experience - House Burning Down
   "pPrte-OhUh4", //Pink Floyd - Hey You
   "6GWWFfZfXp0", //Low - Dinosaur Act
@@ -35,26 +37,28 @@ const videoIds = [
   "2EEu5P9rso8", //VanWyck - Push the Sky Away
   "aIaqTsCcWsw", //Mitski - Crack Baby
   "UWQT7fd8McI", //Sade - Morning Bird
-  "IUHPsINf8rY", //Alicia Keys - Superwoman
+  "x8QP8S9d4Vk", // Ms. Lauryn Hill - The Miseducation of Lauryn Hill
+  "D3Jpl8rLhvU", // Hikaru Utada - Sanctuary (Closing)
 ];
 
 
 const titles = [
   "PinkPantheress - Tonight",
   "ADÉLA - MachineGirl",
+  "Rihanna - Only Girl (In The World)",
+  "Lady Gaga - Just Dance",
   "Don Toliver - Excavator",
   "Wizkid - Break Me Down",
   "Hikaru Utada - Automatic",
   "Addison Rae - In The Rain",
+  "Coldplay - Hymn For The Weekend",
+  "Imogen Heap - Headlock",
   "Portishead - Roads",
   "Björk - Play Dead",
   "Erykah Badu - Other Side Of The Game",
-  "Lauryn Hill - Everything is Everything",
   "El Da Sensei, P Original - Course Of My Life",
   "Bob Marley & The Wailers - Misty Morning",
-  "Peter Tosh - Peace Treaty",
   "Thievery Corporation - Amerimacka",
-  "Calle 13 - Latinoamérica",
   "The Jimi Hendrix Experience - House Burning Down",
   "Pink Floyd - Hey You",
   "Low - Dinosaur Act",
@@ -69,7 +73,8 @@ const titles = [
   "VanWyck - Push the Sky Away",
   "Mitski - Crack Baby",
   "Sade - Morning Bird",
-  "Alicia Keys - Superwoman",
+  "Ms. Lauryn Hill - The Miseducation of Lauryn Hill",
+  "Hikaru Utada - Sanctuary (Closing)",
 ];
 
 
