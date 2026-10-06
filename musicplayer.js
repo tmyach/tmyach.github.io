@@ -7,9 +7,9 @@ let timer;
 
 const videoIds = [
   
+  "VUNU9mep9Lg", // Rihanna - Shut Up and Drive
   "yGPwec9z-Yg", //PinkPantheress - Tonight
   "yp1IxcaRlIs", //ADÉLA - MachineGirl
-  "ySWIyJj3I0", // Rihanna - Only Girl (In The World)
   "5q7byFPTehs", // Lady Gaga - Just Dance
   "kp47qpqpPGs", //Don Toliver - Excavator
   "4X99ILim7lY", //Wizkid - Break Me Down
@@ -43,9 +43,9 @@ const videoIds = [
 
 
 const titles = [
+  "Rihanna - Shut Up and Drive",
   "PinkPantheress - Tonight",
   "ADÉLA - MachineGirl",
-  "Rihanna - Only Girl (In The World)",
   "Lady Gaga - Just Dance",
   "Don Toliver - Excavator",
   "Wizkid - Break Me Down",
