@@ -956,8 +956,8 @@ div.imgotw-txt {
 .shuffle-container {
   display: inline-block;
   min-width: 280px;
-  max-width: 320px;
-  line-height: 0.1; /*erm*/
+  max-width: 390px;
+  line-height: 1.25;
   position: relative;
   filter: url(#threshold) blur(0.6px);
 }
@@ -967,19 +967,9 @@ div.imgotw-txt {
   min-width: 100%;
   line-height: 1.25;
   font-family: var(--font-title);
-  padding: 5px 0;
+  padding: 0;
   position: relative;
   overflow: visible;
-}
-
-#shuffle-title-sizer {
-  display: inline-block;
-  visibility: hidden;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1.15;
-  font-family: var(--font-title);
-  padding: 5px 0;
 }
 
 #morph-title-1,
@@ -993,7 +983,7 @@ div.imgotw-txt {
   display: inline-block;
   line-height: 1.15;
   font-family: var(--font-title);
-  padding: 5px 0;
+  padding: 0px 1px 10px 1px;
   user-select: none;
   will-change: opacity, filter;
 }
