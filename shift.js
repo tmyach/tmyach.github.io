@@ -4,7 +4,7 @@
 		"¡Hola!",
 		"sl 🚂💨",
 		"That's not even funny, man!",
-		"Optimal performance in all browsers! (except Edge lol screw that)",
+		"I only test on Firefox lmao",
 		"Born to CSS, forced to JavaScript :(",
 		"T.M.Y.",
 		"Literally my life",
@@ -18,8 +18,9 @@
 		"Keep it live!",
 		"IRC > Slack",
 		"Converted to Free Software Evangelicism",
-		"Do you have a moment to talk about GNU/Linux?",
-		"Linyos Torovoltos wrote Lunix!"
+		"Do you have a moment to talk about GNU / Linux?",
+		"Linyos Torovoltos wrote Lunix!",
+        "This guy are sick"
 	];
 
 	const wordTime = 400;
