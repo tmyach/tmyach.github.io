@@ -945,7 +945,7 @@ div.imgotw-txt {
 .page-title {
   font-family: var(--font-title);
   color: var(--ink);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1;
   letter-spacing: 0.08em;
   border-bottom: 1px dotted var(--primary);
@@ -1573,7 +1573,6 @@ p.code::before {
   width: 14px;
   height: 10px;
   background: var(--ink);
-  box-shadow: -110px 0 0 110px var(--secondary);
   border: 1px solid var(--ink-soft);
 }
 
@@ -1589,11 +1588,6 @@ p.code::before {
   border: 1px solid var(--ink-soft);
   border-radius: 0 !important;
   box-sizing: border-box;
-}
-
-.volslider_container input[type="range"]::-moz-range-progress {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  height: 10px;
 }
 
 .sidebar {
