@@ -967,7 +967,8 @@ div.imgotw-txt {
   min-width: 100%;
   line-height: 1.25;
   font-family: var(--font-title);
-  padding: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
   position: relative;
   overflow: visible;
 }
