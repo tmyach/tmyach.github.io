@@ -22,7 +22,8 @@
         {
             "name": "Attach",
             "type": "firefox",
-            "request": "attach"
+            "request": "attach",
+            "port": 6000
         },
         {
             "name": "Launch WebExtension",
