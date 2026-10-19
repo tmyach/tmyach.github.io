@@ -1255,7 +1255,7 @@ p.fancy-quote {
   border-radius: 10px;
 }
 
-p.fancy-quote > span {
+p.fancy-quote > .quote-at {
   display: block;
   margin-top: 0.75rem;
   padding-top: 0.5rem;
