@@ -1014,7 +1014,8 @@ ul.unstyled {
   color: var(--ink);
 }
 
-.content.block.changelog .changelog {
+.content.block.changelog .changelog,
+.content.block.quotebox .quotebox-content {
   list-style: none;
   margin: 0;
   padding: 2px;
