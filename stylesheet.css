@@ -1245,6 +1245,7 @@ p.fancy-quote {
   font-size: 1.1rem;
   font-style: italic;
   color: var(--primary);
+  line-height: 1.6;
   padding: 1rem 1.4rem;
   margin: 1.2rem 0;
   background-color: var(--bg);
@@ -1252,6 +1253,24 @@ p.fancy-quote {
   border-right: var(--border-thin);
   position: relative;
   border-radius: 10px;
+}
+
+p.fancy-quote > span {
+  display: block;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: var(--border-thin);
+  color: var(--secondary);
+  font-size: 0.85em;
+  font-style: normal;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.quotebox .fancy-quote .qcap {
+  font-family: "mademoiselle", cursive;
+  color: inherit;
+  font-size: calc(1em + 2px);
 }
 
 p.unfancy-quote {

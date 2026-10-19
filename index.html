@@ -621,5 +621,27 @@
     })(jQuery);
 
 </script>
+<script>
+  document.querySelectorAll('.quotebox .fancy-quote').forEach(quote => {
+    Array.from(quote.childNodes).forEach(node => {
+      if (node.nodeType !== Node.TEXT_NODE) {
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/([A-Z])/).forEach(part => {
+        if (/^[A-Z]$/.test(part)) {
+          const capital = document.createElement('span');
+          capital.className = 'qcap';
+          capital.textContent = part;
+          fragment.append(capital);
+        } else {
+          fragment.append(document.createTextNode(part));
+        }
+      });
+      node.replaceWith(fragment);
+    });
+  });
+</script>
 </body>
 </html>
