@@ -1014,12 +1014,23 @@ ul.unstyled {
   color: var(--ink);
 }
 
-.content.block.changelog .changelog,
-.content.block.quotebox .quotebox-content {
+.content.block.changelog .changelog {
   list-style: none;
   margin: 0;
   padding: 2px;
   background: var(--bg-card-fore);
+  border: none;
+  height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-card-back);
+}
+
+.content.block.quotebox .quotebox-content {
+    list-style: none;
+  margin: 0;
+  padding: 2px;
+  background: #0b0f164d;
   border: none;
   height: 150px;
   overflow-y: scroll;
