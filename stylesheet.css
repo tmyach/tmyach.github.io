@@ -1270,7 +1270,7 @@ p.fancy-quote > .quote-at {
 .quotebox .fancy-quote .qcap {
   font-family: "mademoiselle", cursive;
   color: inherit;
-  font-size: calc(1em + 2px);
+  font-size: calc(1em + 10px);
 }
 
 p.unfancy-quote {
