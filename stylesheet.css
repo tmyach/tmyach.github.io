@@ -1265,6 +1265,7 @@ p.fancy-quote {
   border-right: var(--border-thin);
   position: relative;
   border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
 }
 
 p.fancy-quote > .quote-at {
