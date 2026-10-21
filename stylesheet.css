@@ -1285,6 +1285,7 @@ p.fancy-quote > .quote-at {
   font-size: calc(1em + 10px);
   line-height: inherit;
   font-weight: bold;
+  color: var(--secondary);
 }
 
 p.unfancy-quote {
