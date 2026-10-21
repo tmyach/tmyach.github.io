@@ -1257,7 +1257,7 @@ p.fancy-quote {
   font-size: 1.1rem;
   font-style: italic;
   color: var(--primary);
-  line-height: 1.6;
+  line-height: 1.76rem;
   padding: 1rem 1.4rem;
   margin: 1.2rem 0;
   background-color: var(--bg);
@@ -1283,6 +1283,7 @@ p.fancy-quote > .quote-at {
   font-family: "mademoiselle", cursive;
   color: inherit;
   font-size: calc(1em + 10px);
+  line-height: inherit;
 }
 
 p.unfancy-quote {
