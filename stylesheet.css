@@ -1030,7 +1030,7 @@ ul.unstyled {
     list-style: none;
   margin: 0;
   padding: 2px;
-  background: #0b0f164d;
+  background: none;
   border: none;
   height: 150px;
   overflow-y: scroll;
