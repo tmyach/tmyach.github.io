@@ -1283,7 +1283,7 @@ p.fancy-quote > .quote-at {
   font-family: "mademoiselle", cursive;
   color: inherit;
   font-size: calc(1em + 10px);
-  line-height: inherit;
+  line-height: 1.6;
   font-weight: bold;
   color: var(--secondary);
 }
