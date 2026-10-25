@@ -1266,6 +1266,7 @@ p.fancy-quote {
   position: relative;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22);
+}
 
 p.fancy-quote > .quote-at {
   display: block;
@@ -1283,7 +1284,7 @@ p.fancy-quote > .quote-at {
   font-family: "mademoiselle", cursive;
   color: inherit;
   font-size: calc(1em + 10px);
-  line-height: 1.6;
+  line-height: inherit;
   font-weight: bold;
   color: var(--secondary);
 }
