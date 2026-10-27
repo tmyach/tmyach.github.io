@@ -1033,7 +1033,6 @@ ul.unstyled {
   background: none;
   border: none;
     height: 250px;
-    //change height of box
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) var(--bg-card-back);
