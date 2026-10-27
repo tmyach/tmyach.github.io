@@ -1340,6 +1340,7 @@ p.code::before {
   display: block;
   margin-top: 0.6rem;
   transition: box-shadow 0.2s ease;
+  border-radius: 3px;
 }
 
 .sephiroth-img:hover {
