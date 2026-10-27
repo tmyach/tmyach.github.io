@@ -1202,8 +1202,8 @@ ul.unstyled {
 
 .mb-img {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: auto;
+  height: 100px;
   margin: 0 0 0.55rem;
   border: none;
   object-fit: cover;
