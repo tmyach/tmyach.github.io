@@ -1268,6 +1268,10 @@ p.fancy-quote {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22);
 }
 
+p.fancy-quote-mono {
+  font-family: var(--font-mono), monospace;
+}
+
 p.fancy-quote > .quote-at {
   display: block;
   margin-top: 0.75rem;
