@@ -1270,6 +1270,7 @@ p.fancy-quote {
 
 p.fancy-quote-mono {
   font-family: var(--font-mono), monospace;
+  font-style: normal;
 }
 
 p.fancy-quote > .quote-at {
