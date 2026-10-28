@@ -51,7 +51,7 @@
           <li><a href="portfolio">Portfolio</a></li>
           <li><a href="contact">Contact</a></li>-->
         </ul>
-        <li class="nob" style="list-style-type: none;"><marquee behavior="scroll" direction="right" scrollamount="5" style="font-family:var(--font-script);padding-left:30px;padding-top: 3px;letter-spacing:0px;margin-left: 10px;padding-right: 30px;margin-right: 10px;scrolldelay: 90;">work in progress!</marquee></li>
+        <li class="nob" style="list-style-type: none;"><marquee behavior="scroll" direction="left" scrollamount="5" style="font-family:var(--font-script);padding-left:30px;padding-top: 3px;letter-spacing:0px;margin-left: 10px;padding-right: 30px;margin-right: 10px;scrolldelay: 90;">work in progress [all the time]!</marquee></li>
 
         <div class="nav-divider"></div>
 
@@ -307,7 +307,6 @@
         <section class="content main-content block">
           <h1 class="page-title">
 <span class="shuffle-container">
-  <span id="shuffle-title-sizer" aria-hidden="true"></span>
   <span id="shuffle-title" class="morph">
     <span id="shuffle-title-1"></span>
     <span id="shuffle-title-2"></span>
@@ -326,8 +325,7 @@
 </svg>
 </h1>
 <div class="under">
-          <p>My name is <span style="font-family:var(--font-script)" tooltip="she/her">Tesia</span>, and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
-          <p class="fancy-quote">"Me? Gongaga" <span style="font-family: var(--font-serif)">- Zack Fair, Final Fantasy VII Crisis Core, 2007</span></p>
+          <p>My name is <span style="font-family:var(--font-script)" tooltip="she/her!">Tesia</span>, and I can't stand modern websites! You'd think there'd be endless possibilities to web design, yet many modern websites look so bland and devoid of character. That's why I made this!</p>
 <hr>
 <p><b>
   Hey, you! Take a look at this BSD 
@@ -376,17 +374,32 @@
 
           <p class="code">fortune -s</p>
             <p class="code">
-  Technological progress has merely provided us    <br>
+  Technological progress has merely provided us 
   with more efficient means for going backwards.   <br>
  		-- Aldous Huxley                               <br>
   </p>
 </div>
         </section>
 
+<div class="content block quotebox">
+  <h2 class="block-title">My Special Quotes</h2>
+  <div class="quotebox-content">
+    <p class="fancy-quote">"Me? Gongaga" <span class="quote-at" style="font-family: var(--font-serif)">- Zack Fair, Final Fantasy VII Crisis Core, 2007</span></p>
+    <p class="fancy-quote">"Man is condemned to be free. Condemned, because he did not create himself, in other respect is free; because, once thrown into the world, he is responsible for everything he does." <span class="quote-at" style="font-family: var(--font-serif)">- Jean-Paul Sartre, Existentialism and Human Emotions, 1957</span></p>
+    <p class="fancy-quote">"Do not go gentle into that good night. / Rage, rage against the dying of the light." <span class="quote-at" style="font-family: var(--font-serif)">- Dylan Thomas, Do not go gentle into that good night, 1947</span></p>
+    <p class="fancy-quote fancy-quote-mono">"Your cares set up do not pluck my cares down. / My care is loss of care, by old care done; / Your care is gain of care, by new care won: / The cares I give I have, though given away; / They tend the crown, yet still with me they stay." <span class="quote-at" style="font-family: var(--font-serif)">- William Shakespeare; Richard II, Act IV, Scene 1; 1595</span></p>
+    <p class="fancy-quote fancy-quote-mono">"I have a foreboding of an America in my children's or grandchildren's time -- when the United States is a service and information economy; ... when awesome technological powers are in the hands of a very few, ... when the people have lost the ability to set their own agendas or knowledgeably question those in authority; when, clutching our crystals and nervously consulting our horoscopes, our critical faculties in decline, unable to distinguish between what feels good and what's true, we slide, almost without noticing, back into superstition and darkness..." <span class="quote-at" style="font-family: var(--font-serif)">- Carl Sagan; The Demon-Haunted World, 1995</span></p>
+    <p class="fancy-quote fancy-quote-mono">"The dumbing down of America is most evident in the slow decay of substantive content in the enormously influential media, the 30 second sound bites (now down to 10 seconds or less), lowest common denominator programming, credulous presentations on pseudoscience and superstition, but especially a kind of celebration of ignorance." <span class="quote-at" style="font-family: var(--font-serif)">- Carl Sagan; The Demon-Haunted World, 1995</span></p>
+    
+  </div>
+</div>
+
        <div class="content block changelog">
   <h2 class="block-title">Changelog</h2>
   <ul class="changelog">
-    <li><span class="cdate">09-20-2026:</span> THE MICROBLOG IS UP ... we're so locked in</li>
+    <li><span class="cdate">10-07-2026:</span> replaced the morphing animation for my header with a typewriter-esque effect</li>
+    <li><span class="cdate">10-05-2026:</span> dino runner on my 404 page (◍•ᴗ•◍)</li>
+    <li><span class="cdate">09-20-2026:</span> THE MICROBLOG IS UP</li>
     <li><span class="cdate">09-19-2026:</span> OK WE FINALLY GOT THE BLOG PAGE UP YAYY ... except it's empty and I don't even have a stylesheet set up yet 🥲</li>
     <li><span class="cdate">09-11-2026:</span> Took a break from working on the website cause of code-block (like art-block but with coding?) ... anyways I made a sephiroth theme as a joke but it actually turned out good so I'm keeping it LOL</li>
     <li><span class="cdate">07-08-2026:</span> It's been a while ... completed phase 1 of my website overhaul to satisfy my web 2.0 gloss cravings. still have a lot of work to do!</li>
@@ -542,7 +555,7 @@
 
   <script src="comment-widget.js"></script>
   <script src="musicplayer.js"></script>
-  <script src="morph.js"></script>
+  <script src="shift.js"></script>
   <script src="sparkle-cursor.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -612,6 +625,28 @@
         });
     })(jQuery);
 
+</script>
+<script>
+  document.querySelectorAll('.quotebox .fancy-quote').forEach(quote => {
+    Array.from(quote.childNodes).forEach(node => {
+      if (node.nodeType !== Node.TEXT_NODE) {
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/([A-Z])/).forEach(part => {
+        if (/^[A-Z]$/.test(part)) {
+          const capital = document.createElement('span');
+          capital.className = 'qcap';
+          capital.textContent = part;
+          fragment.append(capital);
+        } else {
+          fragment.append(document.createTextNode(part));
+        }
+      });
+      node.replaceWith(fragment);
+    });
+  });
 </script>
 </body>
 </html>
