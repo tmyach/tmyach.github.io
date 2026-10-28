@@ -1,24 +1,61 @@
 <!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ site.author }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ site.title }}{% if page.title %} &mdash; {{ page.title }}{% endif %}</title>
+  <link rel="stylesheet" href="../stylesheet.css">
+  <link rel="stylesheet" href="../responsive.css">
+  <link rel="stylesheet" href="../fonts.css">
+  <link rel="stylesheet" href="../tooltip.css">
   <link rel="stylesheet" type="text/css" href="{{ site.root }}blog.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gochi+Hand&family=Momo+Signature&family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sono:wght,MONO@200..800,1&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
+  <script defer src="../theme.js"></script>
 </head>
 <body>
-  <div id="container">
-    <header>
+  <div class="page">
+    <header class="header max-width">
         {% block header %}
-        {% if page.title %}
-        <p class="site-title"><a href="{{ site.root }}">{{ site.title }}</a></p>
-        {% else %}
-        <h1><a href="{{ site.root }}">{{ site.title }}</a></h1>
-        {% endif %}
+        <a class="logo" href="../index.html">
+          <img src="../logo.png" alt="t.m.yach logo" class="logo-img">
+          <div>
+            <span class="main-tag">t.m.yach</span>
+          </div>
+        </a>
         {% endblock %}
+
+        <div class="nav-divider-large"></div>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="{{ site.root }}">Blog</a></li>
+          </ul>
+
+          <li class="nob" style="list-style-type: none;"><marquee behavior="scroll" direction="right" scrollamount="5" scrolldelay="90" style="font-family:var(--font-script);padding-left:30px;padding-top: 3px;letter-spacing:0px;margin-left: 10px;padding-right: 30px;margin-right: 10px;">work in progress!</marquee></li>
+
+          <div class="nav-divider"></div>
+
+          <div class="theme-switch">
+            <label for="theme-select" class="sr-only">Theme</label>
+            <select id="theme-select">
+              <option value="dark" selected>Dark &#x1F31A;</option>
+              <option value="light">Light &#x1F31E;</option>
+              <option value="darkred">Red &#x1F352;</option>
+              <option value="pink">Pink &#x1F338;</option>
+              <option value="sephpink">1wing &#x1FABD;</option>
+              <option value="synthwave">Neon &#x1F303;</option>
+            </select>
+          </div>
+        </nav>
     </header>
-    <section id="main" role="main">
+    <main class="main-frame">
+      <h1 class="blog-heading">The Bird's Eye View</h1>
+      <section id="main" class="main-content block" role="main">
         {% block main %}
         {% if page.title %}
         <h1 class="page-title">{{ page.title }}</h1>
@@ -34,13 +71,42 @@
 
         {{ content|safe }}
         {% endblock %}
-    </section>
-    <footer>
+      </section>
+    </main>
+    <footer class="footer">
         {% block footer %}
         {% endblock %}
         {{ piecrust.debug_info|safe }}
-        <p><a href="{{pcurl('about')}}">About this site</a> &ndash; {{ piecrust.branding|safe }}</p>
+        <div class="max-width">
+          <p class="regularbit"><span id="year"></span> | t.m.yach, The Bird's Eye View</p>
+          <p class="regularbit">
+            <a href="../sitemap.html">Sitemap</a>
+            <span class="nav-divider footer-divider"></span>
+            <a href="../faq.html">FAQ</a>
+          </p>
+        </div>
     </footer>
   </div>
+
+  <script src="../sparkle-cursor.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <!--- tooltip script ---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://static.tumblr.com/lspzyz3/xloqk6cgp/jquery.style-my-tooltips.js"></script>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            $("[tooltip]").style_my_tooltips({
+                tip_follows_cursor: true,
+                tip_delay_time: 10,
+                tip_fade_speed: 30,
+                attribute: "tooltip"
+            });
+        });
+    })(jQuery);
+</script>
+
 </body>
 </html>
