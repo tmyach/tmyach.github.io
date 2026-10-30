@@ -99,3 +99,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'fake-receipt';
+    src: url('fonts/fake-receipt.otf') format('otf'),
+    font-weight: normal;
+    font-style: normal;
+}
