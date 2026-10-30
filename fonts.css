@@ -77,8 +77,6 @@
 
 }
 
-
-
 @font-face {
     font-family: 'iso8';
     src: url('fonts/iso8-webfont.woff2') format('woff2'),
@@ -86,4 +84,18 @@
     font-weight: normal;
     font-style: normal;
 
+}
+
+@font-face {
+    font-family: 'SerifHandwriting';
+    src: url('fonts/SerifHandwriting.ttf') format('ttf'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'monohwr';
+    src: url('fonts/monochromehandwriting.ttf') format('ttf'),
+    font-weight: normal;
+    font-style: normal;
 }
