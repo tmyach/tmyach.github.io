@@ -1,7 +1,0 @@
-site:
-  root: /
-  title: "The Bird's Eye View"
-  pretty_urls: true
-  posts_per_page: 5
-  timezone: UTC
-  auto_urls: true
