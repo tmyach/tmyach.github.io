@@ -88,21 +88,24 @@
 
 @font-face {
     font-family: 'SerifHandwriting';
-    src: url('fonts/SerifHandwriting.ttf') format('ttf'),
+    src: url('fonts/SerifHandwriting.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'monohwr';
-    src: url('fonts/monochromehandwriting.ttf') format('ttf'),
+    src: url('fonts/monochromehandwriting.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'fake-receipt';
-    src: url('fonts/fake-receipt.otf') format('otf'),
+    src: url('fonts/fake-receipt.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
