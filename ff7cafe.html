@@ -34,6 +34,7 @@
     </div>
 
     <video id="fight-video" src="cafe/ln.mp4" playsinline preload="auto"></video>
+    <img id="boom-effect" src="cafe/boom.gif" alt="" aria-hidden="true">
     <audio id="vineboom-sound" src="sfx/vineboom.mp3" preload="auto"></audio>
   </div>
 
@@ -42,6 +43,7 @@
     const dialogBox = document.getElementById("dialog-box");
     const dialogText = document.getElementById("dialog-text");
     const fightVideo = document.getElementById("fight-video");
+    const boomEffect = document.getElementById("boom-effect");
     const vineboomSound = document.getElementById("vineboom-sound");
     const revSound = new Audio("sfx/rev.mp3");
 
@@ -59,6 +61,8 @@
       fightVideo.currentTime = 0;
       vineboomSound.pause();
       vineboomSound.currentTime = 0;
+      boomEffect.classList.remove("show");
+      boomEffect.src = "cafe/boom.gif";
       revSound.pause();
       revSound.currentTime = 0;
       characterImage.src = "cafe/sephiroth-def.png";
@@ -100,8 +104,16 @@
       setTimeout(() => {
         characterImage.src = "cafe/sephiroth-mc.png";
         dialogText.textContent = "NOOOO";
+        boomEffect.src = "cafe/boom.gif";
+        boomEffect.classList.add("show");
         revSound.currentTime = 0;
         revSound.play().catch(() => {});
+
+        setTimeout(() => {
+          boomEffect.classList.remove("show");
+          boomEffect.src = "";
+        }, 1600);
+
         sequenceFinished = true;
       }, 2000);
     }
