@@ -8,7 +8,7 @@
   "name": "Launch Firefox",
   "type": "firefox",
   "request": "launch",
-  "url": "https://localhost:4200",
+  "url": "https://localhost:6000",
   "webRoot": "${workspaceFolder}/client"
 },
 
