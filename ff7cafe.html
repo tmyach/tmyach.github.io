@@ -27,7 +27,7 @@
         </div>
 
         <div id="cute-options" class="hidden">
-          <button onclick="finishDialog('diamonds')">Do u wanna mine diamonds with me</button>
+          <button onclick="startMinecraft()">Ur gonna be a minecraft character now ... webmaster's rules &gt;:)</button>
           <button onclick="startFight()">Can I have ... mother?</button>
         </div>
       </div>
@@ -43,6 +43,7 @@
     const dialogText = document.getElementById("dialog-text");
     const fightVideo = document.getElementById("fight-video");
     const vineboomSound = document.getElementById("vineboom-sound");
+    const revSound = new Audio("sfx/rev.mp3");
 
     const optionGroups = ["main-options", "order-options", "cute-options"];
     let sequenceFinished = false;
@@ -58,6 +59,8 @@
       fightVideo.currentTime = 0;
       vineboomSound.pause();
       vineboomSound.currentTime = 0;
+      revSound.pause();
+      revSound.currentTime = 0;
       characterImage.src = "cafe/sephiroth-def.png";
       dialogBox.classList.remove("hidden");
       dialogText.textContent = "Welcome to Northern Crater Cafe!! :D How can I help you?";
@@ -84,12 +87,23 @@
       if (choice === "coffee" || choice === "tea") {
         characterImage.src = "cafe/sephiroth-tc.png";
         dialogText.textContent = "coming right away!! have a nice day :P";
-      } else if (choice === "diamonds") {
-        characterImage.src = "cafe/sephiroth-mc.png";
-        dialogText.textContent = "ok :D";
       }
 
       sequenceFinished = true;
+    }
+
+    function startMinecraft() {
+      hideAllGroups();
+      characterImage.src = "cafe/sephiroth-fear.png";
+      dialogText.textContent = "I DON'T WANNA BE A MINECRAFT CHARACTER";
+
+      setTimeout(() => {
+        characterImage.src = "cafe/sephiroth-mc.png";
+        dialogText.textContent = "NOOOO";
+        revSound.currentTime = 0;
+        revSound.play().catch(() => {});
+        sequenceFinished = true;
+      }, 2000);
     }
 
     function startFight() {
