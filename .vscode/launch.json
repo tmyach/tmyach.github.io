@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "just launch bro",
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "file": "${file}"
+    },
+    {
+      "name": "launch index.html",
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "file": "${workspaceFolder}/index.html"
+    }
+  ]
+}
