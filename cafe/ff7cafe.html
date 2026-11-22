@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sephiroth Cafe</title>
+  <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+  <div id="ddlccafe">
+    <div id="cafe-scene" onclick="resetIfFinished()">
+      <img id="character-img" src="cafe/sephiroth-def.png" alt="Sephiroth">
+    </div>
+
+    <div id="dialog-box">
+      <div id="dialog-text"></div>
+
+      <div id="dialog-choices">
+        <div id="main-options">
+          <button onclick="showPath('order')">Hello</button>
+          <button onclick="showPath('cute')">You look so cute</button>
+        </div>
+
+        <div id="order-options" class="hidden">
+          <button onclick="finishDialog('coffee')">☕ Coffee</button>
+          <button onclick="finishDialog('tea')">🍵 Tea</button>
+        </div>
+
+        <div id="cute-options" class="hidden">
+          <button onclick="finishDialog('diamonds')">Do u wanna mine diamonds with me</button>
+          <button onclick="startFight()">Can I have ... mother?</button>
+        </div>
+      </div>
+    </div>
+
+    <video id="fight-video" src="cafe/ln.mp4" playsinline preload="auto"></video>
+    <audio id="vineboom-sound" src="sfx/vineboom.mp3" preload="auto"></audio>
+  </div>
+
+  <script>
+    const characterImage = document.getElementById("character-img");
+    const dialogBox = document.getElementById("dialog-box");
+    const dialogText = document.getElementById("dialog-text");
+    const fightVideo = document.getElementById("fight-video");
+    const vineboomSound = document.getElementById("vineboom-sound");
+
+    const optionGroups = ["main-options", "order-options", "cute-options"];
+    let sequenceFinished = false;
+
+    function hideAllGroups() {
+      optionGroups.forEach(id => document.getElementById(id).classList.add("hidden"));
+    }
+
+    function resetDialog() {
+      hideAllGroups();
+      fightVideo.classList.remove("show");
+      fightVideo.pause();
+      fightVideo.currentTime = 0;
+      vineboomSound.pause();
+      vineboomSound.currentTime = 0;
+      characterImage.src = "cafe/sephiroth-def.png";
+      dialogBox.classList.remove("hidden");
+      dialogText.textContent = "";
+      document.getElementById("main-options").classList.remove("hidden");
+      sequenceFinished = false;
+    }
+
+    function showPath(path) {
+      hideAllGroups();
+
+      if (path === "order") {
+        dialogText.textContent = "";
+        document.getElementById("order-options").classList.remove("hidden");
+      } else if (path === "cute") {
+        characterImage.src = "cafe/sephiroth-blush.png";
+        dialogText.textContent = "aw haha thanks....!";
+        document.getElementById("cute-options").classList.remove("hidden");
+      }
+    }
+
+    function finishDialog(choice) {
+      hideAllGroups();
+
+      if (choice === "coffee" || choice === "tea") {
+        characterImage.src = "cafe/sephiroth-tc.png";
+        dialogText.textContent = "coming right away!! have a nice day :P";
+      } else if (choice === "diamonds") {
+        characterImage.src = "cafe/sephiroth-mc.png";
+        dialogText.textContent = "ok";
+      }
+
+      sequenceFinished = true;
+    }
+
+    function startFight() {
+      hideAllGroups();
+      characterImage.src = "cafe/sephiroth-b4fight.png";
+      dialogText.textContent = "(😨)";
+
+      vineboomSound.load();
+      fightVideo.load();
+
+      setTimeout(() => {
+        characterImage.src = "cafe/sephiroth-fight.png";
+        fightVideo.classList.add("show");
+        fightVideo.currentTime = 0;
+        vineboomSound.currentTime = 0;
+
+        fightVideo.play().catch(() => {});
+        vineboomSound.play().catch(() => {});
+        sequenceFinished = true;
+      }, 2000);
+    }
+
+    function resetIfFinished(event) {
+      if (sequenceFinished) {
+        if (event) event.stopPropagation();
+        resetDialog();
+      }
+    }
+
+    fightVideo.addEventListener("ended", resetDialog);
+    fightVideo.addEventListener("click", resetDialog);
+    resetDialog();
+  </script>
+</body>
+</html>
