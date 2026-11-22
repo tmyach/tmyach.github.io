@@ -60,7 +60,7 @@
       vineboomSound.currentTime = 0;
       characterImage.src = "cafe/sephiroth-def.png";
       dialogBox.classList.remove("hidden");
-      dialogText.textContent = "";
+      dialogText.textContent = "Welcome to Northern Crater Cafe!! :D How can I help you?";
       document.getElementById("main-options").classList.remove("hidden");
       sequenceFinished = false;
     }
@@ -69,7 +69,7 @@
       hideAllGroups();
 
       if (path === "order") {
-        dialogText.textContent = "";
+        dialogText.textContent = "hi!! what can I get for you today??";
         document.getElementById("order-options").classList.remove("hidden");
       } else if (path === "cute") {
         characterImage.src = "cafe/sephiroth-blush.png";
@@ -86,7 +86,7 @@
         dialogText.textContent = "coming right away!! have a nice day :P";
       } else if (choice === "diamonds") {
         characterImage.src = "cafe/sephiroth-mc.png";
-        dialogText.textContent = "ok";
+        dialogText.textContent = "ok :D";
       }
 
       sequenceFinished = true;
@@ -95,13 +95,14 @@
     function startFight() {
       hideAllGroups();
       characterImage.src = "cafe/sephiroth-b4fight.png";
-      dialogText.textContent = "(😨)";
+      dialogText.textContent = "...";
 
       vineboomSound.load();
       fightVideo.load();
 
       setTimeout(() => {
         characterImage.src = "cafe/sephiroth-fight.png";
+        dialogText.textContent = "(😨)";
         fightVideo.classList.add("show");
         fightVideo.currentTime = 0;
         vineboomSound.currentTime = 0;
