@@ -5,15 +5,19 @@
       "name": "just launch bro",
       "type": "firefox",
       "request": "launch",
-      "reAttach": true,
-      "file": "${file}"
+      "firefoxExecutable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+      "reAttach": false,
+      "file": "${file}",
+      "timeout": 30
     },
     {
-      "name": "launch index.html",
+      "name": "launch index",
       "type": "firefox",
       "request": "launch",
-      "reAttach": true,
-      "file": "${workspaceFolder}/index.html"
+      "firefoxExecutable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+      "reAttach": false,
+      "file": "${workspaceFolder}/index.html",
+      "timeout": 30
     }
   ]
 }
