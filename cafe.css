@@ -1,0 +1,189 @@
+:root {
+  --cafe-dialog-width: min(calc(100% - 32px), 760px);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg, #050708);
+  color: var(--ink, #e6e2dd);
+  font-family: var(--font-body, sans-serif);
+}
+
+#ddlccafe {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(var(--tr, 18, 24, 27), 0.72), rgba(var(--tr, 18, 24, 27), 0.72)),
+    var(--bg-image, none);
+  background-position: center;
+  background-size: cover;
+}
+
+#cafe-scene {
+  width: 100%;
+  min-height: 100vh;
+  cursor: pointer;
+}
+
+#character-img {
+  display: block;
+  width: min(100%, 900px);
+  max-height: 100vh;
+  margin: 0 auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#dialog-box {
+  position: fixed;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 10;
+  width: var(--cafe-dialog-width);
+  min-height: 110px;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  padding: 12px;
+  overflow: hidden;
+  background: rgba(var(--tr, 18, 24, 27), 0.92);
+  color: var(--ink, #e6e2dd);
+  border: var(--border-thin, 1px dotted #93bfba);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 8px 24px rgba(0, 0, 0, 0.45));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-body, sans-serif);
+}
+
+#dialog-text {
+  min-height: 34px;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  color: var(--ink, #e6e2dd);
+}
+
+#dialog-choices {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#dialog-choices > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#dialog-choices > div.hidden {
+  display: none;
+}
+
+#dialog-choices button {
+  flex: 1 1 180px;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(var(--primary-rgb, 147, 191, 186), 0.55);
+  border-radius: 8px;
+  background: rgba(var(--primary-rgb, 147, 191, 186), 0.16);
+  color: var(--ink, #e6e2dd);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+#dialog-choices button:hover {
+  background: rgba(var(--primary-rgb, 147, 191, 186), 0.28);
+  border-color: var(--primary, #93bfba);
+  color: var(--sel-text, #0f0d0b);
+}
+
+#dialog-choices button:active {
+  transform: translateY(1px);
+}
+
+#dialog-choices button:focus-visible {
+  outline: 2px dotted var(--primary, #93bfba);
+  outline-offset: 3px;
+}
+
+.hidden,
+#dialog-box.hidden {
+  display: none;
+}
+
+#fight-video {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: clamp(180px, 24vw, 280px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  background: #000;
+  border: var(--border-thin-solid, 1px solid var(--primary, #93bfba));
+  box-shadow: var(--shadow, 0 8px 24px rgba(0, 0, 0, 0.45));
+  z-index: 100;
+  cursor: pointer;
+}
+
+#fight-video.show {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #character-img {
+    width: 100%;
+    max-height: 78vh;
+  }
+
+  #dialog-box {
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: calc(100% - 16px);
+    min-height: 96px;
+    padding: 10px;
+  }
+
+  #dialog-text {
+    min-height: 30px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+  }
+
+  #dialog-choices > div {
+    gap: 6px;
+  }
+
+  #dialog-choices button {
+    flex-basis: 100%;
+    min-height: 48px;
+  }
+
+  #fight-video {
+    right: 8px;
+    bottom: 8px;
+    width: min(42vw, 190px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #dialog-choices button {
+    transition: none;
+  }
+}
