@@ -104,7 +104,7 @@
       setTimeout(() => {
         characterImage.src = "cafe/sephiroth-mc.png";
         dialogText.textContent = "NOOOO";
-        boomEffect.src = "cafe/boom.gif";
+        boomEffect.src = `cafe/boom.gif?play=${Date.now()}`;
         boomEffect.classList.add("show");
         revSound.currentTime = 0;
         revSound.play().catch(() => {});

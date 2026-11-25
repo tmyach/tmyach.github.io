@@ -126,6 +126,23 @@ body {
   display: none;
 }
 
+#boom-effect {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: min(100%, 900px);
+  max-height: 100vh;
+  transform: translateX(-50%);
+  object-fit: contain;
+  pointer-events: none;
+}
+
+#boom-effect.show {
+  display: block;
+}
+
 #fight-video {
   display: none;
   position: fixed;
