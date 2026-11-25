@@ -1092,7 +1092,7 @@ ul.unstyled {
 // end of changelog
 
 /* kinda global links */
-/* Animated text links */
+
 a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a) {
   display: inline;
   position: relative;
