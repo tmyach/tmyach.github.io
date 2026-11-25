@@ -1092,14 +1092,14 @@ ul.unstyled {
 // end of changelog
 
 /* kinda global links */
+/* Animated text links */
 a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a) {
   display: inline;
   position: relative;
   padding: 0.2em 0;
-  color: inherit;
+  color: var(--secondary);
   text-decoration: none;
   overflow: hidden;
-  transition: color 300ms ease;
 }
 
 a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a)::after {
@@ -1113,11 +1113,6 @@ a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 300ms ease;
-}
-
-a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a):hover,
-a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a):focus {
-  color: var(--secondary);
 }
 
 a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a):hover::after,
