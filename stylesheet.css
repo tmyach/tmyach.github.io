@@ -1091,7 +1091,7 @@ ul.unstyled {
 
 // end of changelog
 
-a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a) {
+/* kinda global links */
 a:not(.logo):not(.nav-list a):not(:has(img)):not(.power-button):not(.changelog a) {
   display: inline;
   position: relative;
